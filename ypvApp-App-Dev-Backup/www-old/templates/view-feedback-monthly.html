@@ -1,0 +1,23 @@
+<ion-view class="pagebg-login" title="Monthly feedback" ng-controller="viewFeedbackMonthlyCtrl" ng-init="init()" >
+    <ion-content class="has-header has-header-inner2">
+        <!-- <div class="topbar">
+            <div class="feedback">
+                <a href="#" ui-sref="app.viewFeedbackWeekly({id:'{{ id }}'})">Weekly</a>  |  <a href="#" ui-sref="app.viewFeedbackMonthly({id:'{{ id }}'})" class="active">Monthly</a>
+            </div>
+        </div>
+        <div class="clearfix"></div> -->
+
+        <div class="list list-con2" ng-if="feedback_fields != ''">
+            <div ng-repeat="ff in feedback_fields">
+                <label class="item item-input head1">
+                    <div class="input-label"><ion-list>{{ ff.feedback_field_name}}</ion-list></div>
+                    <span class="view-content">{{ ff.user_feedback_field_value }}</span><span class="percent-symbol">%</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="list list-con2" ng-if="message != ''">
+            <h2>{{ message }} </h2>
+        </div>
+    </ion-content>
+</ion-view>

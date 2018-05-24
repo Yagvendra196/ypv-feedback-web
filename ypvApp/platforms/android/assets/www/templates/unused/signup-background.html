@@ -1,0 +1,82 @@
+<ion-view style="" class="pagebg-login" title="" hide-nav-bar="true" ng-controller="signUpCtrl">
+    <div class="bar bar-header bar-stable">
+        <h1 class="title">Sign Up</h1>
+    </div>
+
+    <ion-content class="has-header has-header-inner" scroll="true">
+        <!-- Form start here-->
+        <form class="list login-form" name="signupForm" novalidate="" ng-submit="doSignup(signupForm)">
+            <input name="role_id" value="" type="hidden" ng-model="signupFormData.role_id" />
+            <input name="device_id" value="" type="hidden" ng-model="signupFormData.device_id" />
+            <input name="device_type" value="" type="hidden" ng-model="signupFormData.device_type" />
+
+            <div class="list">
+                <div class="row form-stacked-row">
+                    <div class="col col-50">
+                        <label class="item item-input item-stacked-label"> <span ng-class="signupForm.first_name.$touched && (signupForm.first_name.$error.required || signupForm.first_name.$error.minlength || signupForm.first_name.$error.maxlength) ? 'input-label has-error' : 'input-label'">First Name</span>
+                            <input type="text" placeholder="" name="first_name" ng-model="signupFormData.first_name" ng-minlength="1" ng-maxlength="100" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                        </label>
+                    </div>
+
+                    <div class="col col-50">
+                        <label class="item item-input item-stacked-label"> <span ng-class="signupForm.last_name.$touched && (signupForm.last_name.$error.required || signupForm.last_name.$error.minlength || signupForm.last_name.$error.maxlength) ? 'input-label has-error' : 'input-label'">Last Name</span>
+                            <input type="text" placeholder="" name="last_name" ng-model="signupFormData.last_name" ng-minlength="1" ng-maxlength="100" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                        </label>
+                    </div>
+                </div>
+
+                <label class="item item-input item-stacked-label"> <span ng-class="signupForm.email.$touched && (signupForm.email.$error.required || signupForm.email.$error.email || signupForm.email.$error.minlength || signupForm.email.$error.maxlength) ? 'input-label has-error' : 'input-label'">Email</span>
+                    <input type="email" placeholder="" name="email" ng-model="signupFormData.email" ng-minlength="1" ng-maxlength="100" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                </label>
+
+                <label class="item item-input item-stacked-label"> <span ng-class="signupForm.password.$touched && (signupForm.password.$error.required || signupForm.password.$error.minlength || signupForm.password.$error.maxlength) ? 'input-label has-error' : 'input-label'">Password</span>
+                    <input type="password" placeholder="" name="password" ng-model="signupFormData.password" ng-minlength="5" ng-maxlength="11" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                </label>
+
+                <label class="item item-input item-select"> <span ng-class="signupForm.level_id.$touched && signupForm.level_id.$error.required ? 'input-label has-error' : 'input-label'">Level </span>
+                    <select name="level_id" id="level_id" required ng-model="signupFormData.level_id">
+                        <option value="" required>Select Level</option>
+                        <option ng-repeat="ml in master_levels" value="{{ ml.level_id }}">{{ ml.level_name }}</option>
+                    </select>
+                </label>
+
+                <label class="item item-input item-select"> <span ng-class="signupForm.examiner_id.$touched && signupForm.examiner_id.$error.required ? 'input-label has-error' : 'input-label'">Trainer name </span>
+                    <select name="examiner_id" id="examiner_id" required ng-model="signupFormData.examiner_id">
+                        <option value="" required>Select Trainer</option>
+                        <option ng-repeat="e in examiners" value="{{ e.user_id }}">{{ e.first_name }}</option>
+                    </select>
+                </label>
+
+                <div class="row form-stacked-row">
+                    <div class="col col-50">
+                        <label class="item item-input item-select"> <span ng-class="signupForm.gender.$touched && signupForm.gender.$error.required ? 'input-label has-error' : 'input-label'">Gender </span>
+                            <select name="gender" id="gender" required ng-model="signupFormData.gender">
+                                <option value="M" selected>Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="col col-50"> </div>
+                </div>
+
+                <label class="item item-input item-stacked-label"> <span ng-class="signupForm.mobile_1.$touched && (signupForm.mobile_1.$error.required || signupForm.mobile_1.$error.minlength || signupForm.last_name.$error.maxlength) ? 'input-label has-error' : 'input-label'">Contact number</span>
+                    <input type="number" placeholder="" name="mobile_1" id="mobile_1" ng-model="signupFormData.mobile_1" ng-minlength="1" ng-maxlength="100" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <!-- <input type="text" placeholder="" name="mobile_1" id="mobile_1" ng-model="signupFormData.mobile_1" required phone-input> -->
+                </label>
+
+                <div class="has-error">{{ flash_failure }} </div>
+            </div>
+
+            <button type="submit" class="button button-stable  button-block btn-login" ng-disabled="signupForm.$invalid">SIGN UP</button>
+
+            <!-- <a ui-sref="dashboard">
+                <button id="toDashboard" style="display: none;">toDashboard</button>
+            </a> -->
+
+            <!-- <a class="button button-stable  button-block btn-login" onclick="setSignUpValidations(this);">SIGN UP</a> -->
+            <h4 class="text-center form-footer">Already have an account? <a class="link-1" ui-sref="login">Log In</a></h4>
+        </form>
+        <!-- Form end here--> 
+    </ion-content>
+</ion-view>

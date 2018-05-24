@@ -1,0 +1,51 @@
+<ion-view style="" class="pagebg-login" title="View Feedback" ng-controller="feedbackBuddiesCtrl" ng-init="init()">
+    <ion-content class="has-header has-header-inner1" scroll="true">
+        <!-- List start here-->
+        <div class="list list1" ng-if="feedbackBuddies != ''">
+            <div ng-repeat="buddy in feedbackBuddies">
+                <a href="#/app/feedbackBuddies" ng-click="showDetails = ! showDetails" class="item item-thumbnail-left"> 
+                    <img ng-if="buddy.gender == 'M'" src='img/default-male.png'>
+                    <img ng-if="buddy.gender == 'F'" src='img/default-female.png'>
+
+                    <h2>{{buddy.first_name}} {{buddy.last_name}}</h2>
+                    
+                    <p ng-if="buddy.city != '' && buddy.state != ''"><img src="img/map-pin.png">{{buddy.city}} {{buddy.state}}</p>
+                </a>
+                <div class="checkrow" ng-show="showDetails">
+                    <div class="row responsive-sm">
+                        <div class="col slide-footer"> 
+                            <a href="#/app/feedbackBuddies" ng-click="getPreviousWeek()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                            {{ weekStartDate }} to {{ weekEndDate }}
+                            <a href="#/app/feedbackBuddies" ng-click="getNextWeek()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                        </div>
+                    </div>
+                    <ion-list class="radio-con">
+                        <div class="row responsive-sm">
+                            <div class="col col-50">
+                                <ion-radio ng-model="choice" value="feedbackWeekly">Weekly Feedback</ion-radio>
+                            </div>
+                            <div class="col col-50">
+                                <ion-radio ng-model="choice" value="feedbackMonthly">Monthly Feedback</ion-radio>
+                            </div>
+                        </div>
+                    </ion-list>
+                    <div class="row responsive-sm">
+                        <div class="col slide-footer"> 
+                            <a class="btn-small btn-small-relative" ng-show="choice == 'feedbackWeekly'" ng-href="#/app/viewFeedbackWeekly/{{buddy.spiritual_buddie_user_id}}/{{ weekID }}" href="#/app/viewFeedbackWeekly/{{buddy.spiritual_buddie_user_id}}/{{ weekID }}">Go </a>
+
+                            <a class="btn-small btn-small-relative" ng-show="choice == 'feedbackMonthly'" ng-href="#/app/viewFeedbackMonthly/{{buddy.spiritual_buddie_user_id}}/{{ weekID }}" href="#/app/viewFeedbackMonthly/{{buddy.spiritual_buddie_user_id}}/{{ weekID }}">Go </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list list1" ng-if="feedbackBuddies == ''">
+            <div class="no-box">  <img src='img/icon-no-comment.png'><div class="clearfix"> </div>
+            <h3 class="text-center">No one has given your feedback.</h3>
+             </div> 
+           
+        </div>
+        <!-- List end here--> 
+    </ion-content>
+</ion-view>
