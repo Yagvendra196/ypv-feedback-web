@@ -1,0 +1,6 @@
+# robots.txt for http://www.zephyrsolutions.com.au/ by Galaxy Weblinks Inc.
+User-agent: *
+Disallow:
+
+Sitemap: http://www.zephyrsolutions.com.au/sitemap.xml
+

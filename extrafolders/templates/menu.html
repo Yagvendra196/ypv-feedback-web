@@ -1,0 +1,36 @@
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+        <!--header starts-->
+        <ion-nav-bar class="bar-stable bar-header1">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear icon-hamburger" menu-toggle="left"><img src="img/icon-hamburger.png"/>
+                </button>
+
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right" >
+                <button class="button button-icon button-clear icon-filter" style="visibility:hidden"><img src="img/icon-search.png" alt=""/></button>
+                <button class="button button-icon button-clear icon-menu" style="visibility:hidden"><img src="img/menu.png" alt=""/></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <!--header ends-->
+
+        <ion-nav-view name="menuContent"> </ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-content>
+            <ion-list>
+                <ion-item menu-close ui-sref="dashboard" ng-click="#/app/profile"><img class="menu-icon" src="img/icon-buddy.png" alt=""/>
+                    Dashboard
+                </ion-item>
+
+                <ion-item menu-close href="users/logout"><img class="menu-icon" src="img/menu-icon6.png" alt=""/>
+                    Logout
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

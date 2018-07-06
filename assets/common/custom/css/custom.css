@@ -1,0 +1,73 @@
+body.befor-login{
+    background-color: #FFFFFF;
+}
+.befor-login .panel-heading{
+    background-color: #F64041;
+    color: #FFFFFF;
+}
+.befor-login .panel-heading h3 {
+    font-weight: 600;
+}
+.befor-login .panel-body{
+    background-color: #ffed83;
+}
+.befor-login .login-logo{
+    margin-bottom: -12%;
+    margin-top: 10%;
+}
+
+.navbar-default {
+    background-color: #F64041;
+    border-color: #F64041;
+}
+.sidebar{ background: rgb(248,248,248);}
+.navbar-default .navbar-brand {
+    color: #fff;
+    text-transform: capitalize;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{color: #fff; outline: none;}
+.navbar-top-links li a{color: #fff;}
+
+ .open > a, .navbar-right .open > a:hover, .navbar-right .open > a:focus {
+    border-color: #337ab7; background: none !important;
+}
+.nav > li > a{ color: #333;}
+.nav > li > a:hover, .nav > li > a:focus{ background: #fff;outline: medium none;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{outline: none;}
+.navbar-right li > a {color: #fff;}
+
+.navbar-right li > a:hover{ background: none;}
+.navbar-top-links .dropdown-menu li a{    color: #337ab7;}
+.navbar-top-links .dropdown-menu li a:hover{    color: #23527c;}
+.btn-success, .btn-warning{ background: #F64041;border-color:#F64041;}
+.btn-success:hover,.btn-success:active,.btn-success:focus, .btn-warning:hover,.btn-warning:active,.btn-warning:focus{ outline:none;background-color: #EF5051;border-color: #EF5051; }
+
+table{ border: none; width: 100% !important;}
+table thead tr th{ background: #999 !important; color: #fff !important;vertical-align: middle !important;}
+table.dataTable thead .sorting::after{color: rgb(255, 255, 255);}
+.table > tbody > tr > td{  padding-left: 18px !important;}
+.dataTables_wrapper .dataTables_paginate{ margin-bottom: 10px !important;}
+.dataTables_wrapper .dataTables_paginate .paginate_button{border-radius: 4px !important;padding: 0.2em 0.7em !important;}
+table.dataTable.no-footer{margin-bottom: 10px;}
+
+input[type="radio"], input[type="checkbox"] {
+    line-height: normal;
+    margin: 0px;
+    vertical-align: middle;
+}
+.has-success .form-control:focus {
+    border-color: #66afe9 !important; 
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #66afe9 !important;
+}
+a.tab {background-color: #666 !important;color: #fff !important;}
+a.tab:hover {background-color: #333 !important;    color: #fff !important;}
+#wrapper{ background: #ffed83;}
+.sidebar{background: #ffed83;}
+.sidebar ul li {
+    border-bottom: 1px solid #ffff;
+}
+.sidebar ul li a.active {
+    background-color: #f64041;
+    color: #fff;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus{ outline: none;}
