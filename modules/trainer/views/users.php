@@ -139,7 +139,7 @@
                                 //make object from extra fields for search 
 
                                 d = $.extend( {}, d, paramObj );
-                                d = $.extend( {}, d, {'_csrf':'<?php echo "";?>'} );
+                                d = $.extend( {}, d, {'_csrf':'<?php //echo "";?>'} );
 
                                     var form = $('#ajax_test');
 
@@ -186,7 +186,7 @@
                                     "className":      'details-control',
                                     "orderable":      false,
                                     "data":           null,
-                                    "defaultContent": '<a class="aView" href="javascript:void(0)">View</a> | \
+                                    "defaultContent": '<a class="aDelete" href="javascript:void(0)">Delete</a> | \<a class="aView" href="javascript:void(0)">View</a> | \
                                     <a class="aEdit" href="javascript:void(0)">Edit</a> | \
                                     <a  class="aExaminers" href="javascript:void(0)">'+phpData.thisModuleName+'(s)</a> | \
                                     <a class="aBuddy" href="javascript:void(0)">Buddie(s)</a> | \
@@ -262,10 +262,10 @@
 
 
     //Delete a record
-    $('#dataTables-example tbody').on( 'click', 'button.aDelete', function () {
+    $('#dataTables-example tbody').on( 'click', 'a.aDelete', function () {
         var data = table.row( $(this).parents('tr') ).data();
         if (confirm("Are you sure you want to delete to "+data.first_name+" !") == true) {     
-        var post_url = "<?php echo base_url().$moduleFolder.'/users/delete';?>";
+        var post_url = "<?php echo base_url().$moduleFolder.'/users/delete/';?>"+data.user_id;
         $.ajax({
                 url: post_url,
                 type: 'post',

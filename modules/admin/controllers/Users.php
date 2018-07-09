@@ -275,6 +275,32 @@ class Users extends CI_Controller {
         }
     }
 
+    public function delete($user_id='')
+    {
+		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+		if(!empty($user_id) && is_numeric($user_id) && $user_id!= 1 ){
+			$tables = array();
+			$this->db->select('user_feedback_id');
+			$this->db->where('user_id',$user_id);
+			$user_feedback_id = $this->db->get('user_feedbacks')->result();
+			if($user_feedback_id){
+				foreach ($user_feedback_id as $ids) {
+					$user_feedback_ID[] = $ids->user_feedback_id;
+				}
+				$this->db->where_in('user_feedback_id', $user_feedback_ID);
+				$this->db->delete('user_feedback_fields');
+				$this->db->delete('user_feedbacks',array('spiritual_buddie_user_id' => $user_id));
+			}
+			$this->db->delete('user_spiritual_buddies', array('spiritual_buddie_user_id' => $user_id)); 
 
+			$tables = array('users','user_access_tokens','user_login_details','user_media','user_owners','user_profile','user_roles','user_spiritual_buddies','user_feedbacks','user_spiritual_buddies_history');
+						
+			$this->db->where('user_id', $user_id);
+			$this->db->delete($tables);
+			
+		} else {
+			echo'__WrongUser';
+		}
+    }
 
 }
