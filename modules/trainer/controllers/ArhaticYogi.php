@@ -23,6 +23,16 @@ class ArhaticYogi extends Users {
 		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 		$this->data['page'] = 'users';
 		$this->data['title'] = $this->title;
+
+    /* uncomment it for hard delete user  
+    $role = $this->db->get_where('user_roles',array( 'user_id'=>$this->session->userdata('user_id'), 'role_id' => 1))->row();
+    if (!empty($role)) {
+      $this->data['is_super_admin'] = 'yes';
+    } else {
+      $this->data['is_super_admin'] = 'no';
+    } 
+    //*/
+    
 		$this->data['page_title'] = 'All '.STUDENT;
 		$this->load->add_package_path(ADMIN_PATH);
 		$this->load->view($this->layout, $this->data);

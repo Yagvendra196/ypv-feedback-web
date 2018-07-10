@@ -186,11 +186,14 @@
                                     "className":      'details-control',
                                     "orderable":      false,
                                     "data":           null,
-                                    "defaultContent": '<a class="aDelete" href="javascript:void(0)">Delete</a> | \<a class="aView" href="javascript:void(0)">View</a> | \
+                                    "defaultContent": '<a class="aView" href="javascript:void(0)">View</a> | \
                                     <a class="aEdit" href="javascript:void(0)">Edit</a> | \
                                     <a  class="aExaminers" href="javascript:void(0)">'+phpData.thisModuleName+'(s)</a> | \
                                     <a class="aBuddy" href="javascript:void(0)">Buddie(s)</a> | \
-                                    <a class="aFeedback" href="javascript:void(0)">Feedback(s)</a>'
+                                    <a class="aFeedback" href="javascript:void(0)">Feedback(s)</a> '
+                                    /* uncomment it for hard delete user  
+                                    <span class="aDelete">| <a class="aDelete" href="javascript:void(0)">Delete</a></span>'
+                                    //*/
                                 },
                           ],
                 rowCallback: function ( row, data ) {
@@ -295,10 +298,13 @@
 
 //table.context[0].jqXHR.responseText
 </script>
+<link href="<?php echo base_url();?>assets/common/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
+<script src="<?php echo base_url();?>assets/common/datatables/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function () {
+    if (phpData.is_super_admin=='no') {
+        setTimeout(function(){ $('.aDelete').remove(); }, 500);
+    }
   //jQuery('#ExtraFieldsOnSearch').validate.................;
 });
 </script>
-<link href="<?php echo base_url();?>assets/common/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
-<script src="<?php echo base_url();?>assets/common/datatables/media/js/jquery.dataTables.js"></script>

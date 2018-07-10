@@ -275,8 +275,8 @@ class Users extends CI_Controller {
         }
     }
 
-    public function delete($user_id='')
-    {
+    /* uncomment it for hard delete user, it is perfectly tested
+    public function delete($user_id='') {
 		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 		if(!empty($user_id) && is_numeric($user_id) && $user_id!= 1 ){
 			$tables = array();
@@ -292,6 +292,7 @@ class Users extends CI_Controller {
 				$this->db->delete('user_feedbacks',array('spiritual_buddie_user_id' => $user_id));
 			}
 			$this->db->delete('user_spiritual_buddies', array('spiritual_buddie_user_id' => $user_id)); 
+			$this->db->delete('user_spiritual_buddies_history', array('spiritual_buddie_user_id' => $user_id)); 
 
 			$tables = array('users','user_access_tokens','user_login_details','user_media','user_owners','user_profile','user_roles','user_spiritual_buddies','user_feedbacks','user_spiritual_buddies_history');
 						
@@ -302,5 +303,5 @@ class Users extends CI_Controller {
 			echo'__WrongUser';
 		}
     }
-
+	//*/
 }
