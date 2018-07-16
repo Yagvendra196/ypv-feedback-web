@@ -84,7 +84,6 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                 });
             }
 
-
             $scope.getPreviousMonth = function () {
                 if ($scope.monthStart==0) {
                     $scope.yearStart = $scope.yearStart-1;
@@ -175,6 +174,14 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                     nextCount--;
                 });
             }
+            /*
+            $scope.goToMyBuddies = function () {
+                 $state.go('app.my-buddies', { context: 'mybuddies' });
+            }
+            $scope.goToGiveFeedback = function () {
+                $state.go('app.my-buddies', { context: 'givefeedback' });
+            }
+            */
         })
 
         .controller('loginCtrl', function ($rootScope,$scope, $timeout, $ionicLoading, $ionicPopup, $state, $http,$cordovaInAppBrowser) {
@@ -328,7 +335,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             });
         })
 
-        .controller('myBuddiesCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $filter) {
+        .controller('myBuddiesCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $filter,$stateParams) {
 
 
             $scope.removeBuddy = function (buddy) {
@@ -356,6 +363,8 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             
 
             $scope.init = function () {
+            $scope.context = $stateParams.context;
+
                 $ionicLoading.show({ templateUrl:"templates/loading.html" });
 
                 var url = wsBaseUrl + 'userServices/getMyBuddies';

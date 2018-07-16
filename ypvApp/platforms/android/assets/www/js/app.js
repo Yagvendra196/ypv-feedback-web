@@ -57,15 +57,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     })
 
     .state('app.my-buddies', {
-        url: '/myBuddies',
+        url: '/myBuddies/:context',
         cache: false,
         views: {
             'menuContent': {
                 templateUrl: 'templates/my-buddies.html',
                 controller: 'myBuddiesCtrl'
             }
-        }
+      }
     })
+
 
     .state('app.feedback-buddies', {
         url: '/feedbackBuddies',

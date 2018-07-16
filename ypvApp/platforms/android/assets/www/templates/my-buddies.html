@@ -7,10 +7,10 @@
             </div> 
         </div>
         <div class="clearfix"></div>
-
+        <div class="list list1" ng-if="context == 'givefeedback'">Give Feedback Message Here</div>
         <div class="list list1" ng-if="myBuddies != ''">
             <div ng-repeat="buddy in myBuddies" id="user{{buddy.user_id}}">
-                <a href="#/app/myBuddies" ng-click="showDetails = ! showDetails" class="item item-thumbnail-left"> 
+                <a href="#/app/myBuddies/mybuddies" ng-click="showDetails = ! showDetails" class="item item-thumbnail-left">
                     <img ng-if="buddy.gender == 'M'" src='img/default-male.png'>
                     <img ng-if="buddy.gender == 'F'" src='img/default-female.png'>
 
@@ -35,14 +35,14 @@
                     </ion-list>
                     <div class="row responsive-sm">
                         <div class="col slide-footer" ng-show="choice == 'feedbackWeekly'"> 
-                            <a href="#/app/myBuddies" ng-click="getPreviousWeek()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getPreviousWeek()"><img src="img/arrow-left1.png" class="img-marr"></a>
                             {{ weekStartDate }} to {{ weekEndDate }}
-                            <a href="#/app/myBuddies" ng-click="getNextWeek()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getNextWeek()"><img src="img/arrow-right2.png" class="img-marl"></a>
                         </div>
                         <div class="col slide-footer"  ng-show="choice == 'feedbackMonthly'"> 
-                            <a href="#/app/myBuddies" ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
                              {{ monthStartinWords }}, {{ yearStart }}
-                            <a href="#/app/myBuddies" ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
                         </div>
                     </div>
                     <div class="row responsive-sm">
