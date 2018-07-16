@@ -37,8 +37,8 @@ elseif ($_SERVER['HTTP_HOST'] == 'dev.galaxyweblinks.com') {
 elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$__site__host   ='local_host';
 }
-elseif ($_SERVER['HTTP_HOST'] == '192.168.7.101') {
-	$__site__host   ='192.168.7.101';
+elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60') {
+	$__site__host   ='192.168.0.60';
 }
 elseif ($_SERVER['HTTP_HOST'] == '192.168.7.24') {
 	$__site__host   ='192.168.7.24';
