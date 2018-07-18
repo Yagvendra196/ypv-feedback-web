@@ -31,7 +31,7 @@ if($_SERVER['HTTP_HOST'] == $config['domain_name'] || $_SERVER['HTTP_HOST'] == '
 elseif ($_SERVER['HTTP_HOST'] == 'IP_ADDRESS') {
 	$__site__host ='live_test_host';
 }
-elseif ($_SERVER['HTTP_HOST'] == 'dev.galaxyweblinks.com') {
+elseif ($_SERVER['HTTP_HOST'] == 'ypv-feedback.galaxyweblinks.in') {
 	$__site__host ='test_host';
 }
 elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
@@ -80,8 +80,8 @@ elseif ($__site__host == "live_test_host" ) {
 elseif ($__site__host == "test_host") {
 
 	
-	$config['base_url']					 = 'http://dev.galaxyweblinks.com/'.$config['dev_site_name'].'/';
-	$config['base_url_ssl']				 = 'https://dev.galaxyweblinks.com/'.$config['dev_site_name'].'/';
+	$config['base_url']					 = 'http://ypv-feedback.galaxyweblinks.in/'.$config['dev_site_name'].'/';
+	$config['base_url_ssl']				 = 'https://ypv-feedback.galaxyweblinks.in/'.$config['dev_site_name'].'/';
 	$config['from_email']		         = 'ayazahmed.khan@galaxyweblinks.in';  //use from databse super admin email
 	$config['admin_email']		     	 = $config['from_email'];  //use from super admin email	
 	$config['contact_email']	         = $config['from_email'];   //use from databse super admin email

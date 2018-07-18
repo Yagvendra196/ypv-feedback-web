@@ -19,7 +19,7 @@ if($_SERVER['HTTP_HOST'] == $config['domain_name'] || $_SERVER['HTTP_HOST'] == '
 elseif ($_SERVER['HTTP_HOST'] == 'IP_ADDRESS') {
 	$__site__host ='live_test_host';
 }
-elseif ($_SERVER['HTTP_HOST'] == 'dev.galaxyweblinks.com') {
+elseif ($_SERVER['HTTP_HOST'] == 'ypv-feedback.galaxyweblinks.in') {
 	$__site__host ='test_host';
 }
 elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
@@ -119,7 +119,7 @@ elseif ($__site__host=='live_host_testing') {  // IT will be used when site will
 }
 elseif ($__site__host=='test_host') { // IT will be used when site will be on internet but for test 
 
-	$db['default']['hostname'] = 'localhost';
+	$db['default']['hostname'] = '192.168.0.245';
 	$db['default']['username'] = 'ypvfeedback';
 	$db['default']['password'] = 'Jcei*%DS9#04jd#ndMN';
 	$db['default']['database'] = 'ypv_feedback';
