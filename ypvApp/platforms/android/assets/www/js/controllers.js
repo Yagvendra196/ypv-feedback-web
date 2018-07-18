@@ -380,7 +380,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
         })
 
         .controller('feedbackBuddiesCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $filter) {
-
+            $scope.showMessage = false;
             $scope.init = function () {
                 $ionicLoading.show({ templateUrl:"templates/loading.html" });
 
@@ -391,6 +391,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                     $timeout(function () {
                         $ionicLoading.hide();
                         $scope.feedbackBuddies = response.data;
+                        $scope.showMessage = (response.data.length > 0) ? true : false;
                     }, 1000);
                 });
             }
@@ -786,6 +787,66 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
                                 $state.go('signup');
                             }
+                        }, 1000);
+                    });
+                } else {
+                    return false;
+                }
+            }
+        })
+
+        .controller('changePwdCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http) {
+            
+            $scope.flash_success = '';
+            
+            $scope.changePwdFormData = {
+                role_id: $scope.role_id,
+                device_id: $scope.device_id,
+                device_type: $scope.device_type,
+                current_password: "IGNORE",
+                access_token: window.localStorage.getItem('auth_token')
+            }
+
+            $scope.doChangePwd = function (changePwdForm) {
+                $scope.flash_failure = '';
+                
+                if (changePwdForm.$valid)
+                {
+                    $ionicLoading.show({ templateUrl:"templates/loading.html" });
+
+                    $http({
+                        method: 'POST',
+                        data: $scope.changePwdFormData,
+                        url: wsBaseUrl + 'userServices/changePassword',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }).then(function (response) {
+                        $timeout(function () {
+                            $ionicLoading.hide();
+                            if (response.data.response == 'S') {
+                                $scope.flash_success = "Password Change Successfully!";
+                                this.changePwdForm.reset();
+                                $timeout(function (){
+                                    $scope.flash_success = "";
+                                },3000);
+                            }
+                            if (response.data.response == 'F') {
+                                if (response.data.errors != '')
+                                {
+                                    var allErrors = '';
+
+                                    for ( key in response.data.errors ) {
+                                        allErrors += response.data.errors[key] + "\n";
+                                    }
+
+                                    $scope.flash_failure = allErrors;
+
+                                } else {
+                                    $scope.flash_failure = response.data.message;
+                                }
+                            }
+                            $state.go('app.changePwd');
                         }, 1000);
                     });
                 } else {

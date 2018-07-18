@@ -424,4 +424,5 @@ a.btn-rounded img{ width:16px;}
 }
 
 
-
+.info-msg{background-color: #b2b2b2;color: #fff;text-align: center;padding: 23px 25px 10px 25px;}
+.success-msg{color: #38b72b;}

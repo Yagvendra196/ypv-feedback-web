@@ -67,7 +67,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       }
     })
 
-
     .state('app.feedback-buddies', {
         url: '/feedbackBuddies',
         cache: false,
@@ -134,6 +133,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         }
     })
 
+    .state('app.changePwd', {
+        url: '/changePwd',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/change-password.html',
+                controller: 'changePwdCtrl'
+            }
+        }
+    })
+    
     .state('login', {
         url: '/login',
         cache: false,
@@ -147,6 +157,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         templateUrl: 'templates/signup.html',
         controller: 'signUpCtrl'
     })
+
 
     .state('logout', {
         url: '/logout',

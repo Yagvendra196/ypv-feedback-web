@@ -1,7 +1,11 @@
 <ion-view style="" class="pagebg-login" title="View Feedback" ng-controller="feedbackBuddiesCtrl" ng-init="init()">
     <ion-content class="has-header has-header-inner1" scroll="true">
         <!-- List start here-->
+
+        <div class="info-msg" ng-if="showMessage == true">You can see the feedback entered by your buddy who is monitoring you here. Please select your buddy and week/month for which you need to view the entered feedback.</div>
+            
         <div class="list list1" ng-if="feedbackBuddies != ''">
+
             <div ng-repeat="buddy in feedbackBuddies">
                 <a href="#/app/feedbackBuddies" ng-click="showDetails = ! showDetails" class="item item-thumbnail-left"> 
                     <img ng-if="buddy.gender == 'M'" src='img/default-male.png'>
