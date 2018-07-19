@@ -229,7 +229,7 @@ class userServices extends REST_Controller
                     $access_token = (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN'])) ? $_SERVER['HTTP_ACCESS_TOKEN'] : $this->post('access_token');
                     $requestFrom='Device';
                     $user_access_tokens = $this->db->get_where('user_access_tokens',array('access_token'=>$access_token))->row();
-                    $user_id = $user_access_tokens->user_id;
+                    $user_id = !empty($user_access_tokens->user_id) ? $user_access_tokens->user_id : '';
                 } else {
                     $requestFrom='Web';
                     $user_id = $this->session->userdata('user_id');
