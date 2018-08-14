@@ -221,15 +221,15 @@ class userServices extends REST_Controller
     }
     //user logout
     function changePassword_post() {
-
          if(!empty($this->post())) {
 
                 $errormessage = "";
                 $user_id = '';
-                if ( $this->post('access_token')!='' || (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN']) ) ) {
+                if ($this->post('access_token') != '' || (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN']) )) {
+                    $access_token = (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN'])) ? $_SERVER['HTTP_ACCESS_TOKEN'] : $this->post('access_token');
                     $requestFrom='Device';
-                    $user_access_tokens = $this->db->get_where('user_access_tokens',array('access_token'=>$_SERVER['HTTP_ACCESS_TOKEN']))->row();
-                    $user_id = $user_access_tokens->user_id;
+                    $user_access_tokens = $this->db->get_where('user_access_tokens',array('access_token'=>$access_token))->row();
+                    $user_id = !empty($user_access_tokens->user_id) ? $user_access_tokens->user_id : '';
                 } else {
                     $requestFrom='Web';
                     $user_id = $this->session->userdata('user_id');

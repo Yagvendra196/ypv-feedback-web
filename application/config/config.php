@@ -31,7 +31,7 @@ if($_SERVER['HTTP_HOST'] == $config['domain_name'] || $_SERVER['HTTP_HOST'] == '
 elseif ($_SERVER['HTTP_HOST'] == 'IP_ADDRESS') {
 	$__site__host ='live_test_host';
 }
-elseif ($_SERVER['HTTP_HOST'] == 'dev.galaxyweblinks.com') {
+elseif ($_SERVER['HTTP_HOST'] == 'ypv-feedback.galaxyweblinks.in') {
 	$__site__host ='test_host';
 }
 elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
@@ -39,6 +39,9 @@ elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
 }
 elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60') {
 	$__site__host   ='192.168.0.60';
+}
+elseif ($_SERVER['HTTP_HOST'] == '192.168.0.58') {
+	$__site__host   ='192.168.0.58';
 }
 elseif ($_SERVER['HTTP_HOST'] == '192.168.7.24') {
 	$__site__host   ='192.168.7.24';
@@ -77,8 +80,8 @@ elseif ($__site__host == "live_test_host" ) {
 elseif ($__site__host == "test_host") {
 
 	
-	$config['base_url']					 = 'http://dev.galaxyweblinks.com/'.$config['dev_site_name'].'/';
-	$config['base_url_ssl']				 = 'https://dev.galaxyweblinks.com/'.$config['dev_site_name'].'/';
+	$config['base_url']					 = 'http://ypv-feedback.galaxyweblinks.in/'.$config['dev_site_name'].'/';
+	$config['base_url_ssl']				 = 'https://ypv-feedback.galaxyweblinks.in/'.$config['dev_site_name'].'/';
 	$config['from_email']		         = 'ayazahmed.khan@galaxyweblinks.in';  //use from databse super admin email
 	$config['admin_email']		     	 = $config['from_email'];  //use from super admin email	
 	$config['contact_email']	         = $config['from_email'];   //use from databse super admin email
@@ -87,9 +90,9 @@ elseif ($__site__host == "test_host") {
 
 
 }
-elseif ($__site__host == "192.168.0.60") {
-	$config['base_url']					 = 'http://192.168.0.60/'.$config['dev_site_name'].'/dev/';
-	$config['base_url_ssl']				 = 'https://192.168.0.60/'.$config['dev_site_name'].'/dev/';
+elseif ($__site__host == "192.168.0.60" || $__site__host == "192.168.0.58") {
+	$config['base_url']					 = 'http://'.$__site__host.'/'.$config['dev_site_name'].'/dev/';
+	$config['base_url_ssl']				 = 'https://'.$__site__host.'/'.$config['dev_site_name'].'/dev/';
 	$config['from_email']		         = 'ayazahmed.khan@galaxyweblinks.in';  //use from databse super admin email
 	$config['admin_email']		     	 = $config['from_email'];  //use from super admin email	
 	$config['contact_email']	         = $config['from_email'];   //use from databse super admin email

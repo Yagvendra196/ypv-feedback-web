@@ -48,24 +48,6 @@ class Admin extends User {
     }
 
     function admin_change_password_rules() {
-        /*return array(
-            array(
-                'field' => 'current_password',
-                'label' => 'Current Password',
-                'rules' => 'trim|required|min_length[5]|max_length[11]|ascii_only|callback_check_current_password'
-            ),
-            array(
-                'field' => 'new_password',
-                'label' => 'New Password',
-                'rules' => 'trim|required|min_length[5]|max_length[11]|ascii_only'
-            ),
-            array(
-                'field' => 'confirm_new_password',
-                'label' => 'Confirm password',
-                'rules' => 'trim|required|min_length[5]|max_length[11]|ascii_only|matches[new_password]'
-            )
-        );*/
-
         $current_password_rule = '';
         if($this->input->post('current_password') && $this->input->post('current_password')!='IGNORE'){
             $current_password_rule = '|min_length[5]|max_length[11]|ascii_only|callback_check_current_password';
