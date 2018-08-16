@@ -92,10 +92,10 @@
             </div>
             <ul class="nav nav-tabs">
                 <li class="active ">
-                    <a data-toggle="tab" href="#sub-menu1">Month</a>
+                    <a data-toggle="tab" href="#sub-menu2">Weeks</a>
                 </li>
                 <li>
-                    <a data-toggle="tab" href="#sub-menu2">Weeks</a>
+                    <a data-toggle="tab" href="#sub-menu1">Month</a>
                 </li>
                 <li>
                     <a data-toggle="tab" href="#sub-menu3">Histroy</a>

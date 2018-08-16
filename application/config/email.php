@@ -33,9 +33,9 @@ if ($__site__host=='live_host') { // IT will be used when site will be on intern
 	//*
 	$config=array(
 					'protocol' => 'smtp',
-					'smtp_host' => 'smtp.sendgrid.net',
-					'smtp_user' => 'pigmentworld',
-					'smtp_pass' => 'Paran0rmal@12345',
+					'smtp_host' => 'mail.examinationonline.com',
+					'smtp_user' => 'xsmtp@examinationonline.com',
+					'smtp_pass' => 'Goeudk8l569d',
 					'mailtype' => 'html',
 					'charset' => 'utf-8',
 					'wordwrap' => TRUE,
@@ -69,9 +69,9 @@ elseif ($__site__host=='local_host') { // IT is for localhost
 	//*
 	$config=array(
 					'protocol' => 'smtp',
-					'smtp_host' => 'smtp.sendgrid.net',
-					'smtp_user' => 'pigmentworld',
-					'smtp_pass' => 'Paran0rmal@12345',
+					'smtp_host' => 'mail.examinationonline.com',
+					'smtp_user' => 'xsmtp@examinationonline.com',
+					'smtp_pass' => 'Goeudk8l569d',
 					'mailtype' => 'html',
 					'charset' => 'utf-8',
 					'wordwrap' => TRUE,

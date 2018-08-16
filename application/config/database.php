@@ -136,7 +136,7 @@ elseif ($__site__host=='test_host') { // IT will be used when site will be on in
 	$db['default']['database'] = 'ypv_feedback';
 }
 elseif ($__site__host=='local_host') {  // IT is for localhost	
-	$db['default']['hostname'] = '192.168.0.60';
+	$db['default']['hostname'] = '192.168.7.101';
 	$db['default']['username'] = 'root_gwl5';
 	$db['default']['password'] = '';
 	$db['default']['database'] = 'ypv_feedback';
