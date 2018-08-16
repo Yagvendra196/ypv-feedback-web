@@ -66,7 +66,7 @@ if ($__site__host == "live_host") {
 		//$config['base_url']	                 = 'https://www.'.$config['domain_name'] .'/';
 		//$config['base_url_ssl']	         	 = 'https://www.'.$config['domain_name'] .'/';
 	}
-	$config['from_email']		         = 'info@'.$config['domain_name'];  //use from databse super admin email
+	$config['from_email']		         = 'vikram.jain@galaxyweblinks.co.in';  //use from databse super admin email
 	$config['admin_email']		     	 = $config['from_email'];  //use from super admin email	
 	$config['contact_email']	         = $config['from_email'];   //use from databse super admin email
 	$config['cc_email']		         	 = $config['from_email'];  //use from super admin email	

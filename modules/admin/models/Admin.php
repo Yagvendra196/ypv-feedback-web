@@ -462,7 +462,7 @@ class Admin extends User {
         }
     }
 
-    private function send_user_add_email($insert_id, $user_array) {
+    public function send_user_add_email($insert_id, $user_array) {
         $user_array['user_id'] = $insert_id;
         $user = (object) $user_array;
 
