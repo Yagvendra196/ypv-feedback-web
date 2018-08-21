@@ -611,7 +611,7 @@ class userServices extends REST_Controller
 
                 if (isset($spiritualBuddieUserID) && !empty($spiritualBuddieUserID)) {
                     $userID = $this->post('user_id');
-                    $selected_date = $this->post('selected_date'); //monthly
+                    $selected_date = str_replace('(India Standard Time)', '(IST)', $this->post('selected_date')); //monthly
                     $feedbackType = $this->post('feedback_type');
                     $feedback_field_arr = array(
                             '51' => $this->post('feedback_field_51'),
@@ -1197,7 +1197,7 @@ class userServices extends REST_Controller
                 $data = array();
                 $feedback_type            = $this->post('feedback_type');
                 $idWeek                   = $this->post('idWeek'); //weekly
-                $selectedDate             = $this->post('selected_date'); //monthly
+                $selectedDate             = str_replace('(India Standard Time)', '(IST)', $this->post('selected_date')); //monthly
                 $spiritual_buddie_user_id = $this->post('spiritual_buddie_user_id');
             
                 $selectedDate =  date('Y-m-d H:i:s', strtotime($selectedDate));  //monthly
@@ -1329,9 +1329,21 @@ class userServices extends REST_Controller
                 $message = array();
                 $feedback_type            = $this->post('feedback_type');
                 $idWeek                   = $this->post('idWeek'); //weekly
-                $selectedDate             = $this->post('selected_date'); //monthly
+                $selectedDate             = str_replace('(India Standard Time)', '(IST)', $this->post('selected_date')); //monthly
                 $spiritual_buddie_user_id = $this->post('spiritual_buddie_user_id');
-            
+                ///////////////////////////////////////
+                $temp =  explode('GMT', $selectedDate);
+                /*if(count($temp)>1){
+                    $temp2 = 'GMT'.$temp[1];
+
+                }else{
+                   $selectedDate = $temp[0];
+                }*/
+                $selectedDate = $temp[0];
+                //GMT
+
+
+                ///////////////////////////////////////
                 $selectedDate =  date('Y-m-d H:i:s', strtotime($selectedDate));  //monthly
                 $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selectedDate) );  //monthly
                 $days =  date('t', strtotime($selectedDate) );  //monthly
@@ -1460,6 +1472,65 @@ class userServices extends REST_Controller
         $this->response($message, 200); // 200 being the HTTP response code
     }
 
+    function view_feedback_summary_post() {
+        if (!empty($this->post())) {
+            // To avoid mysql injection
+            $filterType = "received";
+            if(!empty($this->post('filterType'))){
+                $filterType = $this->post('filterType');
+            }
+
+            $this->Security->avoid_mysql_injection(false);
+            $errormessage = "";
+            if ($this->post('access_token') != '' || (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN']) )) {
+                $requestFrom = 'Device';
+                $device_id = $this->post('device_id');
+                $device_type = $this->post('device_type');
+                $access_token = $this->post('access_token');
+            } else {
+                $requestFrom = 'Web';
+            }
+
+            if ($requestFrom=='Web') {
+                $userID = $this->post('user_id')?$this->post('user_id'):$this->session->userdata('user_id');
+            } else {
+                $userID = $this->post('user_id')?$this->post('user_id'):$this->User->getUserId($access_token);
+            }
+  
+            if (isset($userID) && !empty($userID)) {
+                $data = array();
+                $feedback_type            = 'Weekly';
+                $selectedYear             = str_replace('(India Standard Time)', '(IST)', $this->post('selected_date')); 
+                $selectedYear = date('Y', strtotime($selectedYear));
+                $spiritual_buddie_user_id = $this->post('spiritual_buddie_user_id');
+
+                $this->db->select('week_id');
+                $this->db->from('user_feedbacks');
+                $this->db->where(array('YEAR(created_at)'=>$selectedYear,'user_id'=>$userID,'feedback_type'=>$feedback_type,'spiritual_buddie_user_id'=>$spiritual_buddie_user_id));
+                $this->db->order_by('week_id');
+                $res=$this->db->get()->result();
+                $weekIds=array();
+                foreach ($res as $value) {
+                    $weekIds[]=$value->week_id;
+                }
+                if(!empty($weekIds)){
+                    $this->db->select('MONTH(weeks.week_start_date) as month,FLOOR((DAYOFMONTH(weeks.week_start_date) - 1) / 7) + 1 AS week_of_month');
+                    $this->db->from('weeks');
+                    $this->db->where_in('idWeek',$weekIds);
+                    $result=$this->db->get()->result();
+                    $message = array('response'=>'S','data'=>$result);
+                }else{
+                    $message = array('response'=>'F','message'=>'No data available','errors'=>array());
+                }   
+            } else {
+                $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
+            } 
+        } else {
+            $message = array('response'=>'F','message'=>'Post values not found','errors'=>array());
+        }
+        $this->response($message, 200); // 200 being the HTTP response code
+    }
+
     function get_week_info_by_date_post() {
 
         if (!empty($this->post())) {
@@ -1475,12 +1546,12 @@ class userServices extends REST_Controller
             }
 
             $data = array();
-            
-            $dayNumber = date('N', strtotime($this->post('selected_date')));  //format Aug 05, 2016
+            $inputSelectedDate=str_replace('(India Standard Time)', '(IST)', $this->post('selected_date'));
+            $dayNumber = date('N', strtotime($inputSelectedDate));  //format Aug 05, 2016
             $dayNumber = $dayNumber - 1; //because our week day start from monday to sunday
-            $selectedDate =  date('Y-m-d H:i:s', strtotime($this->post('selected_date')) ); 
-            $weekStartDate =  date('Y-m-d H:i:s', strtotime($this->post('selected_date')) - $dayNumber * 24 * 60 * 60 ); 
-            $weekEndDate =  date('Y-m-d H:i:s', strtotime($this->post('selected_date')) + (7 - $dayNumber) * 24 * 60 * 60 ); 
+            $selectedDate =  date('Y-m-d H:i:s', strtotime($inputSelectedDate) ); 
+            $weekStartDate =  date('Y-m-d H:i:s', strtotime($inputSelectedDate) - $dayNumber * 24 * 60 * 60 ); 
+            $weekEndDate =  date('Y-m-d H:i:s', strtotime($inputSelectedDate) + (7 - $dayNumber) * 24 * 60 * 60 ); 
             //print_r($dayNumber . ' ' . $selectedDate . ' '. $weekStartDate . '  ' . $weekEndDate);
             $weekInfo = $this->db->get_where('weeks',array('week_start_date >=' => $weekStartDate, 'week_end_date =' => $weekEndDate ) )->result();      
 

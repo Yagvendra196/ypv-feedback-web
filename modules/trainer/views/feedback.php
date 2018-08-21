@@ -63,7 +63,7 @@
 
             <input type="hidden" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>" />
             <input type="hidden" id="given_to_year_range" value="<?php echo $given_to_year_range; ?>" />
-
+            <input type="hidden" id="given_by_month" value="<?php if(!empty($given_by_month[0]))echo $given_by_month[0]; ?>" />
             <!-- <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="<?php //echo $this->uri->segment('4'); ?>" /> -->
 
             <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="" />
@@ -91,7 +91,7 @@
                 <div class="col-sm-12"><hr></div>
             </div>
             <ul class="nav nav-tabs">
-                <li class="active ">
+                <li class="active">
                     <a data-toggle="tab" href="#sub-menu2">Weeks</a>
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                 </li>
             </ul>
             <div class="tab-content">
-                <div id="sub-menu1" class="tab-pane fade in active">
+                <div id="sub-menu1" class="tab-pane fade">
                     <div class="dataTable_wrapper">
                         <table class="table table-striped table-bordered0 table-hover" id="feedbackDataTable">
                             <thead>
@@ -122,7 +122,7 @@
                         </table>
                     </div>
                 </div>
-                <div id="sub-menu2" class="tab-pane fade">
+                <div id="sub-menu2" class="tab-pane fade in active">
                     <div class="dataTable_wrapper">
                         <table class="table table-striped table-bordered0 table-hover" id="feedbackDataTable-week">
                             <thead>

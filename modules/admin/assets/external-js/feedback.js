@@ -11,8 +11,11 @@ var given_to_year_range = $("#given_to_year_range").val();
 var given_to_year_start = given_to_year_range.split(":");
     given_to_year_start = given_to_year_start[0];
 
+var given_by_month = $("#given_by_month").val();
 var week_id = 0;
-$("#selected_date").val('Jan '+given_by_year_start);
+$("#selected_date").val(month[given_by_month-1]+' '+given_by_year_start);
+
+
 var currentDate = new Date(given_by_year_start);
 var currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
 
@@ -62,7 +65,13 @@ $(document).on('mouseleave', '.ui-datepicker-calendar tr', function() {
     }
 });
 
+
+
 $(document).on('change','#selected_date', function () {
+    getRecords();
+});
+
+function getRecords(){
         var post_url = baseUrl + 'api/userServices/get_week_info_by_date';
         $.ajax({
             url: post_url,
@@ -81,6 +90,7 @@ $(document).on('change','#selected_date', function () {
         });
 });
 
+}
 function ViewMonthly()
 {
     if($("#menu2_a").parent().hasClass('active')){
@@ -89,6 +99,10 @@ function ViewMonthly()
         $('#filterType').val("received");
     }
 
+    var selectedDate = $('#selected_date_hidden').val();
+    var newSelectedDate = selectedDate.replace('(India Standard Time)','(IST)');
+    console.log(newSelectedDate);
+    var selectedDate = $('#selected_date_hidden').val(newSelectedDate);
     //var post_url = baseUrl + 'api/userServices/view_feedback_fields';
     var post_url = baseUrl + 'api/userServices/view_feedback_fields_for_admin';
     $.ajax({
@@ -245,7 +259,7 @@ function showFeedback()
     if ($('input[type="radio"][name="feedback_type"]:checked').val() == 'Weekly'){
         weekPicker();
         ViewWeekly();
-    }else{
+    }else{ 
         monthPicker();
         ViewMonthly();
     }
@@ -347,7 +361,8 @@ jQuery(document).ready(function () {
     given_to = $("#given_to").html();
 
     $("#given_to").html('');
-    $("#selected_date_hidden").val(currentDate);
+    //$("#selected_date_hidden").val(currentDate);
+    $("#selected_date_hidden").val( new Date(month[given_by_month-1]+' '+given_by_year_start) );
 
     $("#menu1_a").click(function(){
         $(".result-show-message, .result-show-table, .result-show").removeClass('hide');
@@ -420,7 +435,8 @@ jQuery(document).ready(function () {
         }
 
     });
-    
+
+    getRecords();
 });
 
 

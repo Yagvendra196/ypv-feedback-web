@@ -162,16 +162,6 @@ class Users extends CI_Controller {
 
 	public function add_edit()
 	{  
-
-$user_id = '1';
-$this->db->join('user_profile','user_profile.user_id = users.user_id');
-$user = $this->Utility->getRowByField('users',array('users.user_id'=>$user_id));
-$user->email='ayazahmed.khan@galaxyweblinks.in';
-$user = (array)$user;
-$this->Admin->send_user_add_email($user_id, $user); 
-echo $this->email->print_debugger();
-die('email sent');
-
 		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
 		if ( $this->session->userdata('action_of')!='super_admin' && $this->session->userdata('action_of')!='examiner' ) redirect(base_url());

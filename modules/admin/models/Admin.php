@@ -462,7 +462,7 @@ class Admin extends User {
         }
     }
 
-    public function send_user_add_email($insert_id, $user_array) {
+    private function send_user_add_email($insert_id, $user_array) {
         $user_array['user_id'] = $insert_id;
         $user = (object) $user_array;
 
@@ -480,7 +480,7 @@ class Admin extends User {
         $this->load->library('email');
         $filename = "modules/" . $this->config->item('modules_folders')['admin'] . "/email_template/admin_user_add.html";
         $message = file_get_contents($filename);
-        $subject = $this->config->item('site_name') . ' has added to you';
+        $subject = 'Welcome to YPV Spiritual Buddy system';
         $message = str_replace("[__PROJECT_TITLE__]", $this->config->item('site_name'), $message);
         $message = str_replace("[__CLICK_HERE__]", $click_here, $message);
         $message = str_replace("[__INSTRUCTION_MESSAGE__]", $instruction_message, $message);

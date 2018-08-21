@@ -190,7 +190,8 @@
                                     <a class="aEdit" href="javascript:void(0)">Edit</a> | \
                                     <a  class="aExaminers" href="javascript:void(0)">'+phpData.thisModuleName+'(s)</a> | \
                                     <a class="aBuddy" href="javascript:void(0)">Buddie(s)</a> | \
-                                    <a class="aFeedback" href="javascript:void(0)">Feedback(s)</a> '
+                                    <a class="aFeedback" href="javascript:void(0)">Feedback(s)</a> | \
+                                    <a class="feedbackSummary" href="javascript:void(0)">Summary</a> '
                                     /* uncomment it for hard delete user  
                                     <span class="aDelete">| <a class="aDelete" href="javascript:void(0)">Delete</a></span>'
                                     //*/
@@ -238,6 +239,11 @@
     $('#dataTables-example tbody').on( 'click', 'a.aFeedback', function () {
         var data = table.row( $(this).parents('tr') ).data();
         window.location="<?php echo base_url().$thisModuleFolder.'/'.STUDENT_FOLDER.'/feedback/';?>"+data.user_id;
+    });
+
+     $('#dataTables-example tbody').on( 'click', 'a.feedbackSummary', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        window.location="<?php echo base_url().$thisModuleFolder.'/'.STUDENT_FOLDER.'/summary/';?>"+data.user_id;
     });
     
 
