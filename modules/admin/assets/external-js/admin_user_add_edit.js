@@ -32,6 +32,12 @@ $(document).ready(function() {
                   minlen    : [true,'Email','1'],
                   maxlen    : [true,'Email','255']
                 },
+            /*'location' : { 
+              required  : [true,'Location'],
+              ascii_only: [true,'Location'],
+              minlen    : [true,'Location','3'],
+              maxlen    : [true,'Location','100']
+            },*/                
             'dob' : { 
                   //required  : [true,'Date of birth'],
                   ascii_only: [true,'Date of birth'],
@@ -57,9 +63,9 @@ $(document).ready(function() {
                   maxlen    : [true,'Address','255']
                 },
             'city' : { 
-                  //required  : [true,'City'],
+                  required  : [true,'City'],
                   ascii_only: [true,'City'],
-                  //minlen    : [true,'City','1'],
+                  minlen    : [true,'City','3'],
                   maxlen    : [true,'City','255']
                 },
             'state' : { 

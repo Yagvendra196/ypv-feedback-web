@@ -12,30 +12,31 @@
 <input type="hidden" id="user_id" class="form-control" name="user_id" value="<?php echo set_input('user_id','',$row);?>" />
 
 <div class="row" >
-<?php 
-    $data['lableColClass'][0] = 'col-sm-4';
-    $data['elementGroupColClass'][0] = 'col-sm-8';
-    $data['lableColClass'][1] = 'col-sm-4';
-    $data['elementGroupColClass'][1] = 'col-sm-8';
-    $data['add'] = $add;
-    $data['edit'] = $edit;
-?> 
+    <?php 
+        $data['lableColClass'][0] = 'col-sm-3';
+        $data['elementGroupColClass'][0] = 'col-sm-9';
+        $data['lableColClass'][1] = 'col-sm-3';
+        $data['elementGroupColClass'][1] = 'col-sm-9';
+        $data['add'] = $add;
+        $data['edit'] = $edit;
+    ?> 
 
-<?php if ($this->uri->segment('4')=='success'||$this->uri->segment('5')=='success') { ?>
-<div class="alert alert-success">Successfully saved</div>
-<?php } ?>
+    <?php if ($this->uri->segment('4')=='success'||$this->uri->segment('5')=='success') { ?>
+    <div class="alert alert-success">Successfully saved</div>
+    <?php } ?>
 
-<?php $this->load->view('admin_user_add_edit_part_one.php',$data); ?>
-<?php $this->load->view('admin_user_add_edit_part_two.php',$data); ?>
+    <?php $this->load->view('admin_user_add_edit_part_one.php',$data); ?>
+    <?php $this->load->view('admin_user_add_edit_part_two.php',$data); ?>
 </div>
 <div class="row" >
     <div class="col-lg-8" >
         <div class="panel-body" >
-        <div class="form-group ">
+            <div class="button-group ">
                 <button type="submit" tabindex="18" class="btn btn-lg btn-success btn-block" name="user-button">Save</button>
+            </div>
         </div>
-    </div>
-</div> 
+    </div> 
+    </div> 
 </form>    
 <!-- /.row -->      
 
