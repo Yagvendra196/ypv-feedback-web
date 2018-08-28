@@ -10,7 +10,7 @@ class ArhaticYogi extends Users {
 		$this->moduleFolder = $this->data['moduleFolder'] = $this->config->item('modules_folders')['admin'];	
 		$this->modulePlurals = $this->data['modulePlurals'] = $this->config->item('modules_plurals')['admin'];
 		$this->thisModuleName = $this->data['thisModuleName'] = $this->config->item('modules')['examiner'];	
-		$this->thisModuleFolder = $this->data['thisModuleFolder'] = $this->config->item('modules_folders')['examiner'];	
+	$this->thisModuleFolder = $this->data['thisModuleFolder'] = $this->config->item('modules_folders')['examiner'];	
 		$this->thisModulePlurals = $this->data['thisModulePlurals'] = $this->config->item('modules_plurals')['examiner'];	
 		$this->studentModuleName = $this->data['studentModuleName'] = $this->config->item('modules')['student'];	
 		$this->studentModuleFolder = $this->data['studentModuleFolder'] = $this->config->item('modules_folders')['student'];	
@@ -23,7 +23,14 @@ class ArhaticYogi extends Users {
 		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 		$this->data['page'] = 'users';
 		$this->data['title'] = $this->title;
-
+    $all_city = $this->db->query('select distinct city from user_profile')->result();
+    $cities = array();
+    if($all_city){
+      foreach ($all_city as $city) {
+        $cities[] = $city->city;
+      }
+    }
+    $this->data['all_city'] = $cities;
     /* uncomment it for hard delete user  
     $role = $this->db->get_where('user_roles',array( 'user_id'=>$this->session->userdata('user_id'), 'role_id' => 1))->row();
     if (!empty($role)) {
@@ -32,8 +39,7 @@ class ArhaticYogi extends Users {
       $this->data['is_super_admin'] = 'no';
     } 
     //*/
-    
-		$this->data['page_title'] = 'All '.STUDENT;
+    $this->data['page_title'] = 'All '.STUDENT;
 		$this->load->add_package_path(ADMIN_PATH);
 		$this->load->view($this->layout, $this->data);
 	}

@@ -13,7 +13,18 @@
         <input type="button" class="btn btn-success" name="Add" Value="Add" onclick="window.top.location = '<?php echo base_url($thisModuleFolder.'/'.STUDENT_FOLDER.'/add_edit');?>'" />
     </h1>
     <div class="dataTable_wrapper"> 
-      
+      <div class="col-lg-3">
+          <form class="form-group">
+            <?php if($all_city) { ?>
+              <select class="form-control" >
+                    <option value="" >Select City</option>
+              <?php foreach ($all_city as $city) { ?>
+                  <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
+              <?php } ?>
+              </select>
+            <?php } ?>
+          </form>
+      </div>
 
         <div id="FiltersBox"  style="display:none;float:left;">
             <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
