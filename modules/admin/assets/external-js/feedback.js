@@ -124,7 +124,7 @@ function ViewMonthly()
             if (result.response_week == 'F') {
                 var row2 = $("<tr />");
                 $("#feedbackDataTable-week tbody").html(row2); 
-                $("#feedbackDataTable-week thead tr").html('<th>Activity</th>');
+                $("#feedbackDataTable-week thead tr").html('<th>Activity</th><th>Week-1</th><th>Week-2</th><th>Week-3</th><th>Week-4</th><th>Week-5</th>');
                 row2.append($("<td colspan='1'>" + result.message_week + "</td>"));
             } else {
                 week_id = 0;
@@ -156,11 +156,16 @@ function drawTable(data) {
 function drawTableWeek(data,week_count) {
     //$("#feedbackDataTable-week thead tr").html('<th>Activity</th>');
     for (var j =0; j < week_count; j++) {
-        var week_name = data[j][0].week_name;
-
-        week_name = week_name.replace("(", "<br>");
-        week_name = week_name.replace(")", "");
-        var thead = '<th>'+week_name+'</th>';
+        var startDate = new Date(data[j][0].week_start_date);
+        var endDate = new Date(data[j][0].week_end_date);
+        var start_dd   = startDate.getDate();
+        var start_month = month[startDate.getMonth()];
+        var end_dd   = endDate.getDate();
+        var end_month = month[endDate.getMonth()];
+        var yyyy = endDate.getFullYear();
+        var week_start_date = start_dd+' '+start_month;
+        var week_end_date = end_dd+' '+end_month+' '+yyyy;
+        var thead = '<th>'+week_start_date+' to '+week_end_date+'<br>'+'Week-'+(j+1)+'</th>';
         $("#feedbackDataTable-week thead tr").append(thead);
     };
     for (var i = 0; i < data[0].length; i++) {

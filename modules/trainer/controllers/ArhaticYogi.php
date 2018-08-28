@@ -74,6 +74,36 @@ class ArhaticYogi extends Users {
     $this->load->view($this->layout, $this->data);
   } 
 
+  public function summaryOnePage()
+  {   
+    $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+    //$this->db->join('users as u','u.user_id = usb.user_id','left');
+    $this->data['allUsers'] = $this->Utility->getRowsByField('users');
+
+    $this->db->join('users as u','u.user_id = usb.spiritual_buddie_user_id','left');
+    $this->data['user_recive_feedbacks_from'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');
+
+    $given_by_year_res  = $this->db->distinct()->select('YEAR(created_at) as year')
+                          ->get('user_feedbacks')->result();
+    $given_by_year = array();                               
+    foreach ($given_by_year_res as $value) {
+      $given_by_year[] = $value->year;
+    }
+    if(!empty($given_by_year)){
+      $this->data['given_by_year_range'] = min($given_by_year).":". max($given_by_year);
+    }else{
+      $this->data['given_by_year_range'] = '';
+    }
+
+    $this->data['page'] = 'summaryOnePage';
+    $this->data['title'] = $this->title;
+    //$this->data['page_title'] = $this->data['row']->first_name;
+    $this->layout = '/layouts/after_login';
+    $this->load->add_package_path(ADMIN_PATH);
+    $this->load->view($this->layout, $this->data);
+  } 
+
+
 	public function mng_buddies($user_id)
 	{ 	
 		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);

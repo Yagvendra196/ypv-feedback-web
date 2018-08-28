@@ -29,10 +29,10 @@
     <?php $this->load->view('admin_user_add_edit_part_two.php',$data); ?>
 </div>
 <div class="row" >
-    <div class="col-lg-8" >
+    <div class="col-lg-12" >
         <div class="panel-body" >
-            <div class="button-group ">
-                <button type="submit" tabindex="18" class="btn btn-lg btn-success btn-block" name="user-button">Save</button>
+            <div class="button-group text-center">
+                <button type="submit" tabindex="18" class="btn btn-lg btn-success" name="user-button" style="width:200px">Save</button>
             </div>
         </div>
     </div> 

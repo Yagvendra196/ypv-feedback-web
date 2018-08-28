@@ -1,4 +1,7 @@
+<hr>
+<h4><a data-toggle="collapse" data-target="#additional" href="JavaScript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i> Addition Settings</a></h4>
 
+<div id="additional" class="collapse">
 <div class="row" > <!-- Second column -->
     <div class="panel-body" >
         <div class="col-lg-6">
@@ -178,3 +181,6 @@
 
    </div>
  </div>  <!-- Second column -->
+</div>
+
+

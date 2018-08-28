@@ -167,7 +167,7 @@ $(document).ready(function() {
     },
     unhighlight: function(element, errorClass, validClass) {
         $(element).parent().removeClass('has-error');
-        $(element).parent().addClass('has-success');
+        //$(element).parent().addClass('has-success');
     },
     errorPlacement: function(error, element)
     {
