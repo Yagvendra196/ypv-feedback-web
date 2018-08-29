@@ -13,21 +13,22 @@
         <input type="button" class="btn btn-success" name="Add" Value="Add" onclick="window.top.location = '<?php echo base_url($thisModuleFolder.'/'.STUDENT_FOLDER.'/add_edit');?>'" />
     </h1>
     <div class="dataTable_wrapper"> 
+    <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
       <div class="col-lg-3">
-          <form class="form-group">
+         
             <?php if($all_city) { ?>
-              <select class="form-control" >
+              <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
                     <option value="" >Select City</option>
               <?php foreach ($all_city as $city) { ?>
                   <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
               <?php } ?>
               </select>
             <?php } ?>
-          </form>
+          
       </div>
 
         <div id="FiltersBox"  style="display:none;float:left;">
-            <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
+            
             <div class="form-group field-masterroles-role_id">
                 <label class="control-label" for="role_id">Id Role</label>
                 <select id="role_id" class="form-control" name="role_id" onchange="SearchSubmit()" style="float:left;width:140px" readOnly="readOnly">
@@ -42,7 +43,7 @@
             <input type='checkbox' id='ayaz'  name='ayaz[a][]' value='2'                    onchange='SearchSubmit()' />
             <input type='checkbox' id='ayaz'  name='ayaz[a][]' value='3' checked='checked'  onchange='SearchSubmit()' />
             -->
-             </form>         
+                  
         </div>
         <!-- End Filters-->
 
@@ -62,7 +63,7 @@
             </thead>
             <tbody>
             </tbody>
-        </table>
+        </table></form>
     </div>
 </div>
 <form id="ajax_test" action="<?php echo base_url().$moduleFolder;?>/users/data-table-data" method="post" /></form>
@@ -96,7 +97,7 @@
     //    https://datatables.net/examples/server_side/post.html
     //    https://datatables.net/manual/server-side  SERVER SIDE SCRIPT VARIARABLE AND USE.
     $(document).ready(function() {
-        //$("#ExtraFieldsOnSearch").serializeArray()
+        console.log($("#ExtraFieldsOnSearch").serializeArray());
        var table =   $('#dataTables-example').DataTable({
                 "responsive": true,
                 "paging":   true,

@@ -1,47 +1,134 @@
+<style type="text/css">
+  
+/*.panel-title>a, .panel-title>a:active{
+  display:block;
+  padding:15px;
+  color:#555;
+  font-size:16px;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  word-spacing:3px;
+  text-decoration:none;
+}*/
+.left{
+  display:block;
+  color:#555;
+  font-size:14px;
+  font-weight:bold;
+  letter-spacing:1px;
+  word-spacing:3px;
+  text-decoration:none;
+}
+.panel-heading  a:before {
+   font-family: 'Glyphicons Halflings';
+   content: "\e114";
+   float: right;
+   transition: all 0.5s;
+}
+.panel-heading.active a:before {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+} 
+</style>
 <div class="panel-body">
   <h1>Summary One Page</h1><hr>
+  <div class="form-group">
+    <span class="col-sm-2 col-lg-1">Month</span>
+      <div class="col-sm-4 col-lg-2">
+        <input type="checkbox" id="use_date_filter"  name="use_date_filter" value="1" checked="checked" style="display:none;"/>
+        <input type="text" class="month-picker form-control" id="selected_date" value=""/>
+      </div>
+  </div>
+  <div class="col-lg-3 col-sm-3">
+    <form class="form-group">
+      <?php if($all_city) { ?>
+        <select class="form-control" >
+          <option value="" >Select City</option>
+          <?php foreach ($all_city as $city) { ?>
+            <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
+          <?php } ?>
+        </select>
+      <?php } ?>
+    </form>
+  </div>
+  <br><br><hr>
+  <div class="clearfix"></div>
   <?php //echo "<pre>";print_r($allUsers); 
     if(!empty($allUsers)){
       foreach ($allUsers as $key => $user) { ?>
-        <div class="panel-group">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse_<?php echo $key; ?>"><?php echo $user->first_name." ".$user->last_name; ?> | <?php echo $user->email; ?></a>
-                </h4>
+            <div class="panel-heading" role="tab" id="heading_<?php echo $key; ?>">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapse_<?php echo $key; ?>" href="#collapse_<?php echo $key; ?>">
+                
+                <div class="pull-left left"><?php echo $user->first_name." ".$user->last_name; ?></div>
+                <div class="pull-right right"><?php echo $user->email; ?> &nbsp;</div>
+                <div class="clearfix"></div>
+                
+                </a></h4>
             </div>
-            <div id="collapse_<?php echo $key; ?>" class="panel-collapse collapse">
+            <div class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_<?php echo $key; ?>" id="collapse_<?php echo $key; ?>">
                 <div class="panel-body">
                   <form class="form-horizontal">
-                    <div class="form-group">
-                      <span class="col-sm-1">Month</span>
-                        <div class="col-sm-2">
-                          <input type="checkbox" id="use_date_filter"  name="use_date_filter" value="1" checked="checked" style="display:none;"/>
-                          <input type="text" class="month-picker form-control" id="selected_date" value=""/>
-                        </div>
-                        <input type="hidden" id="user_id" value="<?php echo $user->user_id; ?>" />
-                        <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="" />
-                        <input type="hidden" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>" />
-                    </div><br>
-                    <div class="clearfix"></div>
+                    <input type="hidden" id="user_id" value="<?php echo $user->user_id; ?>" />
+                      <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="" />
+                      <input type="hidden" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>" /> 
+                      <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a class="tab"  ><strong><?php echo $user->first_name." ".$user->last_name; ?> gives feedback to</strong></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
                     <div class="dataTable_wrapper">
                       <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
                         <thead>
                           <tr>
-                              <th>User / Week</th>
+                              <th>Arhatic Yogi</th>
                               <th>Week-1</th>
                               <th>Week-2</th>
                               <th>Week-3</th>
                               <th>Week-4</th>
                               <th>Week-5</th>
+                              <th>Monthly</th>
                           </tr>
                         </thead>
                           <tbody>
                             <tr>
-                              <td>Navin</td><td>-</td><td>Yes</td><td>-</td><td>-</td><td>-</td>
+                              <td>Navin</td><td>-</td><td>Yes</td><td>-</td><td>-</td><td>-</td><td>-</td>
                             </tr>
                           </tbody>
                       </table>
+                    </div>
+                    </div>
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                          <a class="tab"><strong><?php echo $user->first_name." ".$user->last_name; ?> receives feedback from</strong></a>
+                      </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="dataTable_wrapper">
+                      <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
+                        <thead>
+                          <tr>
+                              <th>Arhatic Yogi</th>
+                              <th>Week-1</th>
+                              <th>Week-2</th>
+                              <th>Week-3</th>
+                              <th>Week-4</th>
+                              <th>Week-5</th>
+                              <th>Monthly</th>
+                          </tr>
+                        </thead>
+                          <tbody>
+                            <tr>
+                              <td>Navin</td><td>-</td><td>Yes</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </div>
                     </div>
                   </form>
                 </div>
@@ -55,6 +142,7 @@
 var given_by_year_range = $("#given_by_year_range").val();
 var given_by_year_start = given_by_year_range.split(":");
     given_by_year_start = given_by_year_start[0];
+    $("#selected_date").val('Jan '+given_by_year_start);
   $('.month-picker').datepicker({
         firstDay: 1,
         changeMonth: true,
@@ -102,5 +190,11 @@ var given_by_year_start = given_by_year_range.split(":");
         $('.ui-datepicker-buttonpane.ui-widget-content .ui-datepicker-current').hide();
       });
     }
+     $('.panel-collapse').on('show.bs.collapse', function () {
+    $(this).siblings('.panel-heading').addClass('active');
+  });
 
+  $('.panel-collapse').on('hide.bs.collapse', function () {
+    $(this).siblings('.panel-heading').removeClass('active');
+  });
 </script>

@@ -83,6 +83,14 @@ class ArhaticYogi extends Users {
   public function summaryOnePage()
   {   
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+    $all_city = $this->db->query('select distinct city from user_profile')->result();
+    $cities = array();
+    if($all_city){
+      foreach ($all_city as $city) {
+        $cities[] = $city->city;
+      }
+    }
+    $this->data['all_city'] = $cities;
     //$this->db->join('users as u','u.user_id = usb.user_id','left');
     $this->data['allUsers'] = $this->Utility->getRowsByField('users');
 
