@@ -516,7 +516,7 @@ class ArhaticYogi extends Users {
       $this->data['given_to_year_range'] = '';
     }
 
-    $this->data['page'] = 'feedbackSummary';
+    $this->data['page'] = 'summary';
     $this->data['title'] = $this->title;
     $this->data['page_title'] = 'Feedback for '.$this->data['row']->first_name;
     $this->layout = '/layouts/after_login';

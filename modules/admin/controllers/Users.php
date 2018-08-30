@@ -48,6 +48,14 @@ class Users extends CI_Controller {
 		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1'], 'Redirect' => true]);
 		$this->data['page'] = 'admin_users';
 		$this->data['title'] = $this->title;
+		$all_city = $this->db->query('select distinct city from user_profile WHERE city IS NOT NULL AND city != ""')->result();
+    	$cities = array();
+	    if($all_city){
+	      foreach ($all_city as $city) {
+	        $cities[] = $city->city;
+	      }
+	    }
+    	$this->data['all_city'] = $cities;
 		$this->data['page_title'] = 'All '.EXAMINER;
 		$this->load->view($this->layout, $this->data);
 	}

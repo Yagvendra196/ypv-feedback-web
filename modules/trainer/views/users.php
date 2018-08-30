@@ -15,7 +15,6 @@
     <div class="dataTable_wrapper"> 
     <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
       <div class="col-lg-3">
-         
             <?php if($all_city) { ?>
               <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
                     <option value="" >Select City</option>
@@ -24,7 +23,6 @@
               <?php } ?>
               </select>
             <?php } ?>
-          
       </div>
 
         <div id="FiltersBox"  style="display:none;float:left;">
@@ -102,8 +100,8 @@
                 "responsive": true,
                 "paging":   true,
                 "ordering": true,
-                //"order": [[ 3, "desc" ]],
-                "pageLength" : 10,
+                "order": [[ 3, "asc" ],[ 1, "asc" ]],
+                "pageLength" : 20,
                 "info":     false,
                 "sPaginationType": "full_numbers",
                 "lengthChange": false,

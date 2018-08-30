@@ -13,9 +13,19 @@
         <input class="btn btn-success" type="button" name="Add" Value="Add" onclick="window.top.location = '<?php echo base_url($moduleFolder.'/'.EXAMINER.'/add_edit');?>'" />
     </h1>
     <div class="dataTable_wrapper">
-
+        <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
+            <div class="col-lg-3">
+                <?php if($all_city) { ?>
+                  <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
+                        <option value="" >Select City</option>
+                  <?php foreach ($all_city as $city) { ?>
+                      <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
+                  <?php } ?>
+                  </select>
+                <?php } ?>
+          </div>
         <div id="FiltersBox"  style="display:none;float:left;">
-            <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
+            
                 <div class="form-group field-masterroles-role_id">
                     <label class="control-label" for="role_id">Id Role</label>
                     <select id="role_id" class="form-control" name="role_id" onchange="SearchSubmit()" style="float:left;width:140px" readOnly="readOnly">
@@ -30,7 +40,7 @@
                 <input type='checkbox' id='ayaz'  name='ayaz[a][]' value='2'                    onchange='SearchSubmit()' />
                 <input type='checkbox' id='ayaz'  name='ayaz[a][]' value='3' checked='checked'  onchange='SearchSubmit()' />
                 -->
-             </form>         
+                    
         </div>
         <!-- End Filters-->
 
@@ -51,6 +61,7 @@
             <tbody>
             </tbody>
         </table>
+        </form>
     </div>
 </div>
 <form id="ajax_test" action="<?php echo base_url().$moduleFolder;?>/users/data-table-data" method="post" /></form>
@@ -89,8 +100,8 @@
                 "responsive": true,
                 "paging":   true,
                 "ordering": true,
-                //"order": [[ 3, "desc" ]],
-                "pageLength" : 10,
+                "order": [[ 3, "asc" ]],
+                "pageLength" : 20,
                 "info":     false,
                 "sPaginationType": "full_numbers",
                 "lengthChange": false,
