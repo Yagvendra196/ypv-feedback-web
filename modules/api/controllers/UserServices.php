@@ -1164,6 +1164,52 @@ class userServices extends REST_Controller
         $this->response($message, 200); // 200 being the HTTP response code
     }
 
+    function spritual_trainer_feedback_fields_post() {
+        if (!empty($this->post())) {
+            // To avoid mysql injection
+            $this->Security->avoid_mysql_injection(false);
+            $errormessage = "";
+            if ($this->post('access_token') != '' || (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN']) )) {
+                $requestFrom = 'Device';
+                $device_id = $this->post('device_id');
+                $device_type = $this->post('device_type');
+                $access_token = $this->post('access_token');
+            } else {
+                $requestFrom = 'Web';
+            }
+
+            if ($requestFrom=='Web') {
+                $userID = $this->session->userdata('user_id');
+            } else {
+                $userID = $this->User->getUserId($access_token);
+            }
+            
+            if (isset($userID) && !empty($userID)) {
+                $data = array();
+                $info = array();
+
+                $this->db->join('feedback_field_types AS fft', 'ff.feedback_field_id = fft.feedback_field_id', 'left');
+                $feedback_fields = $this->db->get_where('feedback_fields AS ff', array('ff.feedback_id'=>$this->post('feedback_type'), 'ff.feedback_field_status'=>1))->result();
+                if(isset($feedback_fields) && !empty($feedback_fields)) {
+                    $data = $feedback_fields;
+                }
+
+                $user_details = $this->db->get_where('users', array('user_id'=>$this->post('user_id'), 'status'=>1))->row();
+                $user_details = array('first_name' => ucfirst($user_details->first_name), 'last_name' => ucfirst($user_details->last_name));
+                if(isset($user_details) && !empty($user_details)) {
+                    $info = $user_details;
+                }
+                $message = array('response'=>'S','data'=>$data,'info'=>$info);
+            } else {
+                $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
+            } 
+        } else {
+            $message = array('response'=>'F','message'=>'Post values not found','errors'=>array());
+        }
+        $this->response($message, 200); // 200 being the HTTP response code
+    }
+
+
     function view_feedback_fields_post() {
         if (!empty($this->post())) {
             // To avoid mysql injection
