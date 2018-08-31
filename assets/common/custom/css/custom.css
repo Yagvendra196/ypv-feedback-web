@@ -71,3 +71,5 @@ a.tab:hover {background-color: #333 !important;    color: #fff !important;}
     color: #fff;
 }
 .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus{ outline: none;}
+
+.m-bottom{ margin-bottom: 5px; }

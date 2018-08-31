@@ -522,6 +522,21 @@ class ArhaticYogi extends Users {
     $this->layout = '/layouts/after_login';
     $this->load->add_package_path(ADMIN_PATH);
     $this->load->view($this->layout, $this->data);
+  }
+
+  public function trainer_dashboard()
+    {
+      $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+
+    if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
+      redirect(base_url());
+
+    $this->data['page'] = 'trainer_dashboard';
+    $this->data['title'] = $this->title;
+    $this->data['page_title'] = "Dashboard";
+    $this->layout = '/layouts/after_login';
+    $this->load->add_package_path(ADMIN_PATH);
+    $this->load->view($this->layout, $this->data);
   } 
 
 

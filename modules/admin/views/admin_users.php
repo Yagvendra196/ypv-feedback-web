@@ -14,16 +14,29 @@
     </h1>
     <div class="dataTable_wrapper">
         <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
-            <div class="col-lg-3">
-                <?php if($all_city) { ?>
-                  <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
-                        <option value="" >Select City</option>
-                  <?php foreach ($all_city as $city) { ?>
-                      <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
-                  <?php } ?>
-                  </select>
-                <?php } ?>
-          </div>
+            <div class="row">
+                <div class="col-lg-2 col-sm-6 m-bottom">
+                    <?php if($all_city) { ?>
+                      <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
+                            <option value="" >Select City</option>
+                      <?php foreach ($all_city as $city) { ?>
+                          <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
+                      <?php } ?>
+                      </select>
+                    <?php } ?>
+                </div>
+                <div class="col-lg-2 col-sm-6 m-bottom">
+                    <select class="form-control" name="batch-year" id="batch">
+                        <option value="">Select Batch Year</option>
+                    </select>          
+                </div>
+                <div class="col-lg-2 col-sm-6 m-bottom">
+                    <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Type keyword for search">
+                </div>
+                <div class="col-lg-2 col-sm-6 m-bottom">
+                    <button class="form-control btn btn-success">Search</button>
+                </div>
+            </div>
         <div id="FiltersBox"  style="display:none;float:left;">
             
                 <div class="form-group field-masterroles-role_id">
@@ -283,6 +296,11 @@
 jQuery(document).ready(function () {
   //jQuery('#ExtraFieldsOnSearch').validate.................;
 });
+for(var year=2010; year<=2030; year++ ){
+    $("#batch").append('<option value="'+year+'">'+year+'</option>');
+}
 </script>
 <link href="<?php echo base_url();?>assets/common/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
 <script src="<?php echo base_url();?>assets/common/datatables/media/js/jquery.dataTables.js"></script>
+<!-- <script src="<?php //echo base_url();?>assets/common/datatables/media/js/dataTables.responsive.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php //echo base_url();?>assets/common/datatables/media/css/dataTables.responsive.css">  -->
