@@ -13,7 +13,7 @@
         <input type="button" class="btn btn-success" name="Add" Value="Add" onclick="window.top.location = '<?php echo base_url($thisModuleFolder.'/'.STUDENT_FOLDER.'/add_edit');?>'" />
     </h1>
     <div class="dataTable_wrapper"> 
-    <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
+    <form id="ExtraFieldsOnSearch"  method="post">
       <div class="row">
          <div class="col-lg-2 col-sm-6 m-bottom">
             <?php if($all_city) { ?>
@@ -34,7 +34,7 @@
             <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Type keyword for search">
          </div>
          <div class="col-lg-2 col-sm-6 m-bottom">
-            <button class="form-control btn btn-success">Search</button>
+            <button class="form-control btn btn-success" id="search">Search</button>
          </div>
       </div>
 
@@ -80,7 +80,10 @@
 <form id="ajax_test" action="<?php echo base_url().$moduleFolder;?>/users/data-table-data" method="post" /></form>
 
 
-<script>
+
+<script type="text/javascript">
+
+
     function SearchSubmit()
     {
          $('#dataTables-example').dataTable().fnFilter();
