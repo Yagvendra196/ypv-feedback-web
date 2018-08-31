@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label class="<?php echo $lableColClass[0];?> control-label"  for="examiner_id"><?php echo EXAMINER;?><span class="text-danger">*</span></label>
                             <div class="<?php echo $elementGroupColClass[0];?>">
-                                <select id="examiner_id" class="form-control" name="examiner_id[]" tabindex="19" multiple="multiple" size="1" <?php //if ($edit) { echo 'disabled';} ?> >
+                                <select id="examiner_id" class="form-control" name="examiner_id[]" tabindex="19" multiple="multiple" size="7" <?php //if ($edit) { echo 'disabled';} ?> >
                                 <?php foreach ($examiners as $key => $examiner) { ?>
                                     <option value="<?php echo $examiner->user_id;?>" <?php echo (in_array($examiner->user_id,set_input('examiner_id',array(),$row)))?'selected':'';?> ><?php echo $examiner->first_name;?></option>
                                 <?php } ?>
@@ -112,8 +112,44 @@
                     <div class="help-block"><?php echo form_error('city');?></div>
                 </div>
             </div>
+        </div> 
+        <div class="col-lg-6"> 
+            <div class="form-group">
+                <label class="<?php echo $lableColClass[1];?> control-label" for="participant">One Year Participant</label>
+                <div class="<?php echo $elementGroupColClass[1];?>">
+                    <input type="radio" id="" name="participant" tabindex="" value="1" /> 
+                    <label for="participant"> Yes</label>
+                    <input type="radio" id="" name="participant" tabindex="" value="0" checked/> 
+                    <label for="participant">  No</label>
+                </div>
+            </div>
         </div>
-        <div class="clearfix"></div>  
+        
+        <?php if ($this->session->userdata('action_of')=='super_admin') { ?>
+            <div class="clearfix"></div>
+        <?php } ?>    
+        
+        <div class="col-lg-6 hide" id="yearField"> 
+            <div class="form-group">
+                <label class="<?php echo $lableColClass[1];?> control-label" for="city">Batch year</label>
+                <div class="<?php echo $elementGroupColClass[0];?>">
+                    <select id="batchYear" class="form-control" name="batchYear" tabindex="" >
+                        <option value="">Select Batch Year</option>
+                    </select>
+                </div>
+            </div>
+        </div><div class="col-lg-6"> 
+            <div class="form-group">
+                <label class="<?php echo $lableColClass[1];?> control-label" for="participant">Spritual Trainer</label>
+                <div class="<?php echo $elementGroupColClass[1];?>">
+                    <input type="radio" id="" name="spritual_trainer" tabindex="" value="1" /> 
+                    <label for="spritual_trainer"> Yes</label>
+                    <input type="radio" id="" name="spritual_trainer" tabindex="" value="0" checked/> 
+                    <label for="spritual_trainer">  No</label>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>   
     </div>
 </div> <!-- first column end -->
 

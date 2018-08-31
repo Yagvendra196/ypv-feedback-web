@@ -401,7 +401,9 @@ class Admin extends User {
                     'phone' => $this->input->post('phone1_1') . $this->input->post('phone1_2') . $this->input->post('phone1_3'),
                     'mobile_1' => $this->input->post('mobile_1'),
                     'mobile_2' => $this->input->post('mobile_2'),
-                    'level_id' => $this->input->post('level_id')
+                    'level_id' => $this->input->post('level_id'),
+                    'batch_year'=> $this->input->post('batchYear'),
+                    'is_spritual_trainer'=>$this->input->post('spritual_trainer')
                 );
                 //echo "<pre>";print_r($user_profile);die;
                 //$this->user_file_upload(); for make thumb

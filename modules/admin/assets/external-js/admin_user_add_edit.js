@@ -228,6 +228,20 @@ $(document).ready(function() {
     });
     //End get All Countries
 
+    var year = 2010;
+    for (var i=0; i <=20; i++){
+      $('#batchYear').append('<option value="'+ year +'">' + year + '</option>');
+      year++;
+    }
+
+    $('input[type=radio][name=participant]').change(function() {
+    if (this.value == '1') {
+        $("#yearField").removeClass("hide");
+    }else{
+      $("#yearField").addClass("hide");
+    }
+});
+
     $('#dob').datetimepicker({"autoclose":true,"showButtonPanel": true,"changeMonth":true,"changeYear":true,"yearRange":'-100:+100',"timeFormat":"hh:mm:ss TT","dateFormat":"M dd, yy"});
 });
 
