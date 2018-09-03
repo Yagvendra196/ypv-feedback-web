@@ -25,8 +25,8 @@ elseif ($_SERVER['HTTP_HOST'] == 'ypv-feedback.galaxyweblinks.in') {
 elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$__site__host   ='local_host';
 }
-elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60' || $_SERVER['HTTP_HOST'] == '192.168.0.58') {
-	$__site__host   ='192.168.0.60';
+elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60' || $_SERVER['HTTP_HOST'] == '192.168.0.56') {
+	$__site__host   ='local_host';
 }
 elseif ($_SERVER['HTTP_HOST'] == '192.168.7.101') {
 	$__site__host   ='192.168.7.101';

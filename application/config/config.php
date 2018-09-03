@@ -40,8 +40,8 @@ elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
 elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60') {
 	$__site__host   ='192.168.0.60';
 }
-elseif ($_SERVER['HTTP_HOST'] == '192.168.0.58') {
-	$__site__host   ='192.168.0.58';
+elseif ($_SERVER['HTTP_HOST'] == '192.168.0.56') {
+	$__site__host   ='192.168.0.56';
 }
 elseif ($_SERVER['HTTP_HOST'] == '192.168.7.24') {
 	$__site__host   ='192.168.7.24';
@@ -114,6 +114,15 @@ elseif ($__site__host == "local_host")  // IT is for local_host
 {	
 	$config['base_url']					 = 'http://localhost/'.$config['dev_site_name'].'/dev/';
 	$config['base_url_ssl']				 = 'https://localhost/'.$config['dev_site_name'].'/dev/';
+	$config['from_email']		         = 'ayazahmed.khan@galaxyweblinks.in';  //use from databse super admin email
+	$config['admin_email']		     	 = $config['from_email'];  //use from super admin email	
+	$config['contact_email']	         = $config['from_email'];   //use from databse super admin email
+	$config['cc_email']		         	 = $config['from_email'];  //use from super admin email	
+	$config['bcc_email']		       	 = $config['from_email'];  //use from super admin email	
+}elseif ($__site__host == "192.168.0.56")  // IT is for local_host
+{	
+	$config['base_url']					 = 'http://192.168.0.56/'.$config['dev_site_name'].'/dev/';
+	$config['base_url_ssl']				 = 'https://192.168.0.56/'.$config['dev_site_name'].'/dev/';
 	$config['from_email']		         = 'ayazahmed.khan@galaxyweblinks.in';  //use from databse super admin email
 	$config['admin_email']		     	 = $config['from_email'];  //use from super admin email	
 	$config['contact_email']	         = $config['from_email'];   //use from databse super admin email

@@ -17,14 +17,22 @@ class UserTableDataProvider extends DataTableDataProvider
 		    $where = $where."ur.role_id = $request[role_id] AND u.user_id != 1";
 		    //end extra conditions
 
-		    if(!empty($_POST['city'])){
-		    	$searchKeyword=$_POST['city'];
-		    	$searchJoin = "LEFT JOIN `user_profile` as up ON up.user_id = u.user_id ";
-		    	$serachWhere=" AND up.city LIKE '%".$searchKeyword."%'";
-		    }else{
-		    	$searchKeyword="";
-		    	$searchJoin = "";
-		    	$serachWhere="";
+		    $searchJoin="";
+		    $serachCityWhere="";
+		    $serachBatchYearWhere="";
+		    $searchKeywordWhere="";
+
+		    if(!empty($_POST['city']) || !empty($_POST['batch-year']) || !empty($_POST['search-keyword'])){
+		    	$searchJoin="LEFT JOIN `user_profile` as up ON up.user_id = u.user_id ";
+		    	if(!empty($_POST['city'])){
+			    	$serachCityWhere=" AND up.city LIKE '%".$_POST['city']."%'";
+			    }
+			    if(!empty($_POST['batch-year'])){
+			    	$serachBatchYearWhere=" AND up.batch_year LIKE '%".$_POST['batch-year']."%'";
+			    }
+			    if(!empty($_POST['search-keyword'])){
+			    	$searchKeywordWhere=" AND CONCAT(u.first_name, ' ', u.last_name) LIKE '%".$_POST['search-keyword']."%'";
+			    }
 		    }
 
 		    $CI = & get_instance();
@@ -34,8 +42,8 @@ class UserTableDataProvider extends DataTableDataProvider
 		        								FROM `$table` as u
 											         LEFT JOIN `user_roles` as ur ON ur.user_id = u.user_id 
 											         LEFT JOIN `master_roles` as mr ON mr.role_id = ur.role_id
-											         $searchJoin 
-		         							 $where $serachWhere $order $limit")->result_array();
+											         $searchJoin
+		         							 $where $serachCityWhere $serachBatchYearWhere $searchKeywordWhere $order $limit")->result_array();
 		    }else{
 		    	$owner_id = $CI->session->userdata('user_id');
 		    	$where .= " AND uo.owner_user_id = $owner_id ";
@@ -45,7 +53,7 @@ class UserTableDataProvider extends DataTableDataProvider
 											         LEFT JOIN `master_roles` as mr ON mr.role_id = ur.role_id 
 											         LEFT JOIN `user_owners` as uo ON uo.user_id = u.user_id 
 											         $searchJoin
-		         							 $where $serachWhere $order $limit")->result_array();
+		         							 $where $serachCityWhere $serachBatchYearWhere $searchKeywordWhere $order $limit")->result_array();
 		    }
 
 	        $resFilterLength = $conn->Query("SELECT FOUND_ROWS()")->result_array();

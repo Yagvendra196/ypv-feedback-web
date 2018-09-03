@@ -13,11 +13,11 @@
         <input class="btn btn-success" type="button" name="Add" Value="Add" onclick="window.top.location = '<?php echo base_url($moduleFolder.'/'.EXAMINER.'/add_edit');?>'" />
     </h1>
     <div class="dataTable_wrapper">
-        <form id="ExtraFieldsOnSearch" action="/yii2sample/basic/admin/users" method="post">
+        <form id="ExtraFieldsOnSearch" method="post">
             <div class="row">
                 <div class="col-lg-2 col-sm-6 m-bottom">
                     <?php if($all_city) { ?>
-                      <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
+                      <select class="form-control" name="city" id="city">
                             <option value="" >Select City</option>
                       <?php foreach ($all_city as $city) { ?>
                           <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
@@ -31,17 +31,17 @@
                     </select>          
                 </div>
                 <div class="col-lg-2 col-sm-6 m-bottom">
-                    <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Type keyword for search">
+                    <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Keyword for search">
                 </div>
                 <div class="col-lg-2 col-sm-6 m-bottom">
-                    <button class="form-control btn btn-success">Search</button>
+                    <button class="form-control btn btn-success" id="btnSearch">Search</button>
                 </div>
             </div>
         <div id="FiltersBox"  style="display:none;float:left;">
             
                 <div class="form-group field-masterroles-role_id">
                     <label class="control-label" for="role_id">Id Role</label>
-                    <select id="role_id" class="form-control" name="role_id" onchange="SearchSubmit()" style="float:left;width:140px" readOnly="readOnly">
+                    <select id="role_id" class="form-control" name="role_id" style="float:left;width:140px" readOnly="readOnly">
                     <option value="1">Super Admin</option>
                     <option value="3" ><?php echo STUDENT;?></option>
                     <option value="4" selected ><?php echo EXAMINER;?></option>
@@ -77,10 +77,17 @@
         </form>
     </div>
 </div>
-<form id="ajax_test" action="<?php echo base_url().$moduleFolder;?>/users/data-table-data" method="post" /></form>
+<!-- <form id="ajax_test" action="<?php echo base_url().$moduleFolder;?>/users/data-table-data" method="post" /></form> -->
 
 
 <script>
+
+    $('#btnSearch').click(function(e){
+        e.preventDefault();
+        console.log($('#ExtraFieldsOnSearch').serializeArray());
+        SearchSubmit();
+    });
+
     function SearchSubmit()
     {
          $('#dataTables-example').dataTable().fnFilter();

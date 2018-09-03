@@ -1187,19 +1187,72 @@ class userServices extends REST_Controller
             if (isset($userID) && !empty($userID)) {
                 $data = array();
                 $info = array();
+                $spiritualBuddieUserID = $userID;
+                $feedback_field_arr = array(
+                            '57' => $this->post('no_of_nurtuning_in_last_month'),
+                            '58' => $this->post('how_many_classes_conducted_last_month'),
+                            '59' => $this->post('no_of_student_generated_last_month'),
+                            '60' => $this->post('no_of_student_motivated_higher_course'),
+                            '61' => $this->post('no_of_new_student_motivated_morning_webinar'),
+                            '62' => $this->post('tithing'),
+                            '63' => $this->post('service_hours'),
+                            '64' => $this->post('service_details')
+                );
+                $selected_date=$this->post('selected_date');
+                $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selected_date) );
+                $days =  date('t', strtotime($selected_date) );  //monthly
+                $selectedEndDate =  date('Y-m-1 H:i:s', strtotime($selectedStartDate)+($days*24*60*60) );
+                $feedbackType="for trainers";
+                $where = array('user_id'       => $userID, 
+                    'spiritual_buddie_user_id' => $spiritualBuddieUserID, 
+                    'feedback_type'            => $feedbackType,
+                    'created_at >='            => $selectedStartDate,
+                    'created_at <'             => $selectedEndDate,
+                    'status'                   => "Running"
+                );
+                $uf = $this->db->get_where('user_feedbacks', $where)->row();
+                    
+                if (empty($uf)) {
+                    $user_feedbacks_arr = array(
+                            'user_id'                  => $userID,
+                            'spiritual_buddie_user_id' => $spiritualBuddieUserID,
+                            'week_id'                  => 0,
+                            'feedback_type'            => $feedbackType,
+                            'status'                   => "Running",
+                            'created_at'               => date('Y-m-15 H:i:s', strtotime($selected_date) )
+                    );
+                    $this->db->insert('user_feedbacks', $user_feedbacks_arr);
+                    $user_feedback_id = $this->db->insert_id();
 
-                $this->db->join('feedback_field_types AS fft', 'ff.feedback_field_id = fft.feedback_field_id', 'left');
-                $feedback_fields = $this->db->get_where('feedback_fields AS ff', array('ff.feedback_id'=>$this->post('feedback_type'), 'ff.feedback_field_status'=>1))->result();
-                if(isset($feedback_fields) && !empty($feedback_fields)) {
-                    $data = $feedback_fields;
-                }
+                    foreach ($feedback_field_arr as $ff_id => $uff_val) {
+                        $user_feedback_fields_arr = array(
+                                    'user_feedback_id'                 => $user_feedback_id,
+                                    'feedback_field_id'                => $ff_id,
+                                    'user_feedback_field_value'        => $uff_val,
+                                    'user_feedback_field_value_scan'   => "",
+                                    'user_feedback_field_value_hrs'    => "",
+                                    'user_feedback_field_value_count'  => "",
+                                    'user_feedback_field_value_amount' => ""
+                        );
+                        $this->db->insert('user_feedback_fields', $user_feedback_fields_arr);
+                    }
 
-                $user_details = $this->db->get_where('users', array('user_id'=>$this->post('user_id'), 'status'=>1))->row();
-                $user_details = array('first_name' => ucfirst($user_details->first_name), 'last_name' => ucfirst($user_details->last_name));
-                if(isset($user_details) && !empty($user_details)) {
-                    $info = $user_details;
+                    $message = array('response'=>'S','message'=>'Feedback for trainers added successfully.');
+                }else {
+                        foreach ($feedback_field_arr as $ff_id => $uff_val) {
+                            $update_uff_arr = array(
+                                        'feedback_field_id'                => $ff_id,
+                                        'user_feedback_field_value'        => $uff_val,
+                                        'user_feedback_field_value_scan'   => "",
+                                        'user_feedback_field_value_hrs'    => "",
+                                        'user_feedback_field_value_count'  => "",
+                                        'user_feedback_field_value_amount' => ""
+                            );
+                            $this->db->where(array('user_feedback_id'=>$uf->user_feedback_id, 'feedback_field_id'=>$ff_id));
+                            $this->db->update('user_feedback_fields', $update_uff_arr);
+                        }
+                        $message = array('response'=>'S','message'=>'Feedback for trainers added successfully.');
                 }
-                $message = array('response'=>'S','data'=>$data,'info'=>$info);
             } else {
                 $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
             } 

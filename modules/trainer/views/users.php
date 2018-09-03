@@ -17,7 +17,7 @@
       <div class="row">
          <div class="col-lg-2 col-sm-6 m-bottom">
             <?php if($all_city) { ?>
-               <select class="form-control" name="city" id="city" onchange="SearchSubmit()">
+               <select class="form-control" name="city" id="city">
                      <option value="" >Select City</option>
                   <?php foreach ($all_city as $city) { ?>
                      <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
@@ -31,10 +31,10 @@
             </select>          
          </div>
          <div class="col-lg-2 col-sm-6 m-bottom">
-            <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Type keyword for search">
+            <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Keyword for search">
          </div>
          <div class="col-lg-2 col-sm-6 m-bottom">
-            <button class="form-control btn btn-success" id="search">Search</button>
+            <button class="form-control btn btn-success" id="btnSearch">Search</button>
          </div>
       </div>
 
@@ -42,7 +42,7 @@
             
             <div class="form-group field-masterroles-role_id">
                 <label class="control-label" for="role_id">Id Role</label>
-                <select id="role_id" class="form-control" name="role_id" onchange="SearchSubmit()" style="float:left;width:140px" readOnly="readOnly">
+                <select id="role_id" class="form-control" name="role_id" style="float:left;width:140px" readOnly="readOnly">
                 <option value="1">Super Admin</option>
                 <option value="3" selected ><?php echo STUDENT;?></option>
                 <option value="4" ><?php echo EXAMINER;?></option>
@@ -83,6 +83,11 @@
 
 <script type="text/javascript">
 
+    $('#btnSearch').click(function(e){
+        e.preventDefault();
+        console.log($('#ExtraFieldsOnSearch').serializeArray());
+        SearchSubmit();
+    });
 
     function SearchSubmit()
     {
@@ -111,7 +116,6 @@
     //    https://datatables.net/examples/server_side/post.html
     //    https://datatables.net/manual/server-side  SERVER SIDE SCRIPT VARIARABLE AND USE.
     $(document).ready(function() {
-        console.log($("#ExtraFieldsOnSearch").serializeArray());
        var table =   $('#dataTables-example').DataTable({
                 "responsive": true,
                 "paging":   true,

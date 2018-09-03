@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label class="<?php echo $lableColClass[0];?> control-label"  for="examiner_id"><?php echo EXAMINER;?><span class="text-danger">*</span></label>
                             <div class="<?php echo $elementGroupColClass[0];?>">
-                                <select id="examiner_id" class="form-control" name="examiner_id[]" tabindex="19" multiple="multiple" size="7" <?php //if ($edit) { echo 'disabled';} ?> >
+                                <select id="examiner_id" class="form-control" name="examiner_id[]" tabindex="19" multiple="multiple" size="8" <?php //if ($edit) { echo 'disabled';} ?> >
                                 <?php foreach ($examiners as $key => $examiner) { ?>
                                     <option value="<?php echo $examiner->user_id;?>" <?php echo (in_array($examiner->user_id,set_input('examiner_id',array(),$row)))?'selected':'';?> ><?php echo $examiner->first_name;?></option>
                                 <?php } ?>
@@ -138,7 +138,8 @@
                     </select>
                 </div>
             </div>
-        </div><div class="col-lg-6"> 
+        </div>&nbsp;
+        <div class="col-lg-6"> 
             <div class="form-group">
                 <label class="<?php echo $lableColClass[1];?> control-label" for="participant">Spritual Trainer</label>
                 <div class="<?php echo $elementGroupColClass[1];?>">
