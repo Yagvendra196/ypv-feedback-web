@@ -22,11 +22,11 @@
 </div>    
 <div class="row ">
     <div class="col-lg-12">
-        <div class="col-lg-6 col-sm-4 m-bottom">
+        <div class="col-lg-6 col-md-6 col-sm-6 m-bottom">
             <button class="form-control btn btn-success box">Current Month Monthly<br/> Feedback Given</button>
         </div>
         
-        <div class="col-lg-6 col-sm-4 m-bottom">
+        <div class="col-lg-6 col-md-6 col-sm-6 m-bottom">
             <button class="form-control btn btn-success box">Current Month Monthly<br/> Feedback Not Given</button>
         </div>
     </div>
