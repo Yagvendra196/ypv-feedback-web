@@ -91,8 +91,15 @@ class ArhaticYogi extends Users {
       }
     }
     $this->data['all_city'] = $cities;
-    //$this->db->join('users as u','u.user_id = usb.user_id','left');
-    $this->data['allUsers'] = $this->Utility->getRowsByField('users');
+    
+    $this->db->join('user_profile as up','users.user_id = up.user_id','left');
+    $this->db->join('user_owners as uo','uo.user_id = users.user_id','left');
+    if(!empty($_POST['city'])){
+      $this->db->where('up.city',$_POST['city']);
+      $this->data['cityPost']=$_POST['city'];
+    }
+    $this->data['allUsers'] = $this->Utility->getRowsByField('users',array('uo.owner_user_id'=>$this->session->userdata('user_id')));
+
 
     $this->db->join('users as u','u.user_id = usb.spiritual_buddie_user_id','left');
     $this->data['user_recive_feedbacks_from'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');

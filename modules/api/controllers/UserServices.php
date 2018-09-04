@@ -137,7 +137,8 @@ class userServices extends REST_Controller
                     
                     $message['response'] = "S";
                     $message['message']  = "Logged in successfully";
-                    $data = array('user_id' => $user_other_info->user_id?$user_other_info->user_id:"",'access_token'  => $access_token );
+                    $spritual_trainer = $this->db->get_where('user_profile',array('user_id'=>$user_other_info->user_id))->row();
+                    $data = array('user_id' => $user_other_info->user_id?$user_other_info->user_id:"",'access_token'  => $access_token,'is_spritual_trainer'=>$spritual_trainer->is_spritual_trainer);
                     $message['data'] = $data;
                 } else {
                     $message = array('response' => 'F', 'message' => 'Invalid Username or Password', 'errors' => array('username' => 'Invalid Username or Password'));                    

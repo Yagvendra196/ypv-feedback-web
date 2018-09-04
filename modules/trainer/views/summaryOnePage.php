@@ -33,6 +33,7 @@
 } 
 </style>
 <div class="panel-body">
+<form class="form-group" method="post">
   <h1>Summary One Page</h1><hr>
   <div class="form-group">
     <span class="col-sm-2 col-lg-1">Month</span>
@@ -42,18 +43,16 @@
       </div>
   </div>
   <div class="col-lg-3 col-sm-3">
-    <form class="form-group">
       <?php if($all_city) { ?>
-        <select class="form-control" >
+        <select class="form-control" name="city">
           <option value="" >Select City</option>
           <?php foreach ($all_city as $city) { ?>
-            <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
+            <option value="<?php echo $city; ?>" <?php if(!empty($cityPost) && $cityPost==$city )echo 'selected';   ?> ><?php echo $city; ?></option>
           <?php } ?>
         </select>
       <?php } ?>
-    </form>
   </div>
-  <input type="button" class="btn btn-success" name="search" value="search">
+  <input type="submit" class="btn btn-success" name="search" value="search">
   <br><br><hr>
   <div class="clearfix"></div>
   <ul class="nav nav-tabs">
@@ -93,7 +92,7 @@
             <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapse_<?php echo $key; ?>" href="#collapse_<?php echo $key; ?>">
                 
-                <div class="pull-left left"><?php echo $user->first_name." ".$user->last_name; ?></div>
+                <div class="pull-left left"><?php echo ucfirst($user->first_name)." ".ucfirst($user->last_name); ?></div>
                 <div class="clearfix"></div>
                 
                 </a></h4>
@@ -159,7 +158,7 @@
     </div>
   </div>
 
-  
+</form>
 </div>
 
 <script type="text/javascript">
