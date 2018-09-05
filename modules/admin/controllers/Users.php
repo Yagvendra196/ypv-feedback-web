@@ -156,12 +156,13 @@ class Users extends CI_Controller {
         $table = 'users';
         $columns = array(
             array( 'db' => 'u.user_id',        'dt' => 'user_id' ),
-            array( 'db' => 'u.email',          'dt' => 'email' ),
             array( 'db' => 'u.first_name',     'dt' => 'first_name' ),
             array( 'db' => 'u.last_name',      'dt' => 'last_name' ),
+            array( 'db' => 'u.email',          'dt' => 'email' ),
             array( 'db' => 'ur.role_id',       'dt' => 'role_id' ),
             array( 'db' => 'ur.status',        'dt' => 'status' ),
-            array( 'db' => 'mr.role_name',     'dt' => 'role_name' )
+            array( 'db' => 'mr.role_name',     'dt' => 'role_name' ),
+            array( 'db' => 'up.is_spritual_trainer', 'dt' => 'is_spritual_trainer' )
             
         );
         echo UserTableDataProvider::simple( $_POST, $db, $table, $primaryKey, $columns );

@@ -357,6 +357,70 @@ class ArhaticYogi extends Users {
 		$this->load->view($this->layout, $this->data);
 	}
 
+  public function trainerFeedback($user_id='')
+  {   
+    $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+    //parameter security
+    if (empty($user_id) || !is_numeric($user_id) || stristr($user_id,'.') ) {
+      redirect('error_404');
+    }
+    $this->data['user_id'] = $user_id;
+    $this->data['row'] = $this->Utility->getRowByField('users',array('users.user_id'=>$user_id));
+
+    $this->db->select("w.idWeek, DATE_FORMAT(w.week_start_date, '%d/%m/%Y') AS week_start_date, DATE_FORMAT(w.week_end_date, '%d/%m/%Y') AS week_end_date");
+    $this->db->where('w.week_start_date <=', date('Y-m-d'));
+    $this->db->where('w.week_end_date >=', date('Y-m-d'));
+    $this->data['weekInfo'] = $this->db->get('weeks AS w')->row();
+ 
+    $given_by_year_res  = $this->db->distinct()->select('YEAR(created_at) as year')
+                                   ->where('user_id',$user_id)
+                                   ->get('user_feedbacks')
+                                   ->result();
+    $given_by_year = array();                               
+    foreach ($given_by_year_res as $value) {
+      $given_by_year[] = $value->year;
+    }
+
+    if(!empty($given_by_year)){
+      $this->data['given_by_year_range'] = min($given_by_year).":". max($given_by_year);
+    }else{
+      $this->data['given_by_year_range'] = '';
+    }
+        
+    $given_by_month = $this->db->distinct()->select('MONTH(created_at) as month')
+                             ->where('user_id',$user_id)
+                             ->order_by('month','DESC')
+                             ->get('user_feedbacks')
+                             ->result();
+
+    $this->data['given_by_month'] = array();
+    foreach ($given_by_month as $value) {
+      $this->data['given_by_month'][] = $value->month;
+    }
+
+    $given_to_year_res  = $this->db->distinct()->select('YEAR(created_at) as year')
+                               ->where('spiritual_buddie_user_id',$user_id)
+                               ->get('user_feedbacks')
+                               ->result();
+    $given_to_year = array();
+    foreach ($given_to_year_res as $value) {
+      $given_to_year[] = $value->year;
+    }
+
+    if(!empty($given_to_year)){
+      $this->data['given_to_year_range'] = min($given_to_year).":". max($given_to_year);
+    }else{
+      $this->data['given_to_year_range'] = '';
+    }
+
+    $this->data['page'] = 'trainerFeedback';
+    $this->data['title'] = $this->title;
+    $this->data['page_title'] = 'Feedback of '.ucfirst($this->data['row']->first_name);
+    $this->layout = '/layouts/after_login';
+    $this->load->add_package_path(ADMIN_PATH);
+    $this->load->view($this->layout, $this->data);
+  }
+
   public function summary_old($user_id='')
   {   
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
@@ -536,7 +600,7 @@ class ArhaticYogi extends Users {
       $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
     if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
-      redirect(base_url());
+      //redirect(base_url());
 
     $this->data['page'] = 'trainer_dashboard';
     $this->data['title'] = $this->title;
@@ -546,6 +610,14 @@ class ArhaticYogi extends Users {
     $this->load->view($this->layout, $this->data);
   } 
 
+  public function trainerFeedbackSummary(){
+    $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+    $this->data['page'] = 'trainerFeedbackSummary';
+    $this->data['title'] = $this->title;
+    $this->data['page_title'] = 'Trainer Feedback Report';
+    $this->load->add_package_path(ADMIN_PATH);
+    $this->load->view($this->layout, $this->data);
+  }
 
 
 }

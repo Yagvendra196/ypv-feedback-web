@@ -10,34 +10,9 @@
 <div class="panel-body">
     <h1>
         <?php echo $page_title;?>
-        <input type="button" class="btn btn-success" name="Add" Value="Add" onclick="window.top.location = '<?php echo base_url($thisModuleFolder.'/'.STUDENT_FOLDER.'/add_edit');?>'" />
     </h1>
     <div class="dataTable_wrapper"> 
     <form id="ExtraFieldsOnSearch"  method="post">
-      <div class="row">
-         <div class="col-lg-2 col-sm-6 m-bottom">
-            <?php if($all_city) { ?>
-               <select class="form-control" name="city" id="city">
-                     <option value="" >Select City</option>
-                  <?php foreach ($all_city as $city) { ?>
-                     <option value="<?php echo $city; ?>" ><?php echo $city; ?></option>
-                  <?php } ?>
-               </select>
-            <?php } ?>
-         </div>
-         <div class="col-lg-2 col-sm-6 m-bottom">
-            <select class="form-control" name="batch-year" id="batch">
-               <option value="">Select Batch Year</option>
-            </select>          
-         </div>
-         <div class="col-lg-2 col-sm-6 m-bottom">
-            <input class="form-control" type="text" name="search-keyword" id="search" placeholder="Keyword for search">
-         </div>
-         <div class="col-lg-2 col-sm-6 m-bottom">
-            <button class="form-control btn btn-success" id="btnSearch">Search</button>
-         </div>
-      </div>
-
         <div id="FiltersBox"  style="display:none;float:left;">
             
             <div class="form-group field-masterroles-role_id">
@@ -54,7 +29,7 @@
             <input type='checkbox' id='ayaz'  name='ayaz[a][]' value='2'                    onchange='SearchSubmit()' />
             <input type='checkbox' id='ayaz'  name='ayaz[a][]' value='3' checked='checked'  onchange='SearchSubmit()' />
             -->
-                  
+            <input type="hidden" name="spritual_trainer" id="spritual_trainer" value="1">     
         </div>
         <!-- End Filters-->
 
@@ -64,11 +39,11 @@
                     <th>user_id</th>
                     <th>role_id</th>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Role Name</th>
-                    <th>Active</th>
+<!--                     <th>Role Name</th>
+                    <th>Active</th> -->
                     <th>Action</th>
                 </tr>
             </thead>
@@ -120,7 +95,7 @@
                 "responsive": true,
                 "paging":   true,
                 "ordering": true,
-                "order": [[ 3, "asc" ],[ 4, "asc" ],[ 5, "asc" ]],
+                "order": [[ 3, "asc" ],[ 1, "asc" ]],
                 "pageLength" : 20,
                 "info":     false,
                 "sPaginationType": "full_numbers",
@@ -193,17 +168,17 @@
                 "columns": [
                                 { "name":"user_id","data": "user_id","visible": false },
                                 { "name":"role_id","data": "role_id","visible": false },
-                                { "name":"name","data": "name" ,"visible": false,
+                                { "name":"name","data": "name" ,
                                             render: function ( data, type, row ) {
                                                 return row.first_name+" "+row.last_name;
                                             },
                                 },
-                                { "name":"first_name","data": "first_name" , "width": "11%" },
-                                { "name":"last_name","data": "last_name" , "width": "11%" },
                                 { "name":"email","data": "email" },
-                                { "name":"role_name","data": "role_name","width": "11%" },
-                                {   "name":"status",
-                                    "data":   "status","width": "9%",
+                                { "name":"first_name","data": "first_name","visible": false  },
+                                { "name":"last_name","data": "last_name","visible": false  },
+                                /*{ "name":"role_name","data": "role_name" },*/
+                                /*{   "name":"status",
+                                    "data":   "status",
                                     render: function ( data, type, row ) {
                                         if ( type === 'display' ) {
                                             return '<input type="checkbox" class="aStatus"> ';
@@ -211,7 +186,7 @@
                                         return data;
                                     },
                                     "className": "dt-body-center"
-                                },
+                                },*/
                                 {   "name":"action",
                                     "className":      'details-control',
                                     "orderable":      false,
@@ -219,20 +194,9 @@
                                     //"defaultContent": 
                                     render: function ( data, type, row ) {
                                         if(row.is_spritual_trainer!=1){
-                                            return '<a class="aView" href="javascript:void(0)">View</a> | \
-                                    <a class="aEdit" href="javascript:void(0)">Edit</a> | \
-                                    <a  class="aExaminers" href="javascript:void(0)">'+phpData.thisModuleName+'(s)</a> | \
-                                    <a class="aBuddy" href="javascript:void(0)">Buddie(s)</a> | \
-                                    <a class="aFeedback" href="javascript:void(0)">Feedback(s)</a> | \
-                                    <a class="feedbackSummary" href="javascript:void(0)">Summary</a> ';
+
                                         }else{
-                                            return '<a class="aView" href="javascript:void(0)">View</a> | \
-                                    <a class="aEdit" href="javascript:void(0)">Edit</a> | \
-                                    <a  class="aExaminers" href="javascript:void(0)">'+phpData.thisModuleName+'(s)</a> | \
-                                    <a class="aBuddy" href="javascript:void(0)">Buddie(s)</a> | \
-                                    <a class="aFeedback" href="javascript:void(0)">Feedback(s)</a> | \
-                                    <a class="feedbackSummary" href="javascript:void(0)">Summary</a> | \
-                                    <a class="trainerReport" href="javascript:void(0)">Trainer Report</a> ';
+                                            return '<a class="trainerReport" href="javascript:void(0)">Trainer Report</a> ';
                                         }
                                         return '';
                                     },

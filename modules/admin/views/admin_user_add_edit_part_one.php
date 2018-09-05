@@ -115,7 +115,7 @@
         </div> 
         <div class="col-lg-6"> 
             <div class="form-group">
-                <label class="<?php echo $lableColClass[1];?> control-label" for="participant">One Year Participant</label>
+                <label class="<?php echo $lableColClass[1];?> control-label" for="participant">1 Year Participant</label>
                 <div class="<?php echo $elementGroupColClass[1];?>">
                     <input type="radio" id="" name="participant" tabindex="" value="1" /> 
                     <label for="participant"> Yes</label>
@@ -139,9 +139,10 @@
                 </div>
             </div>
         </div>&nbsp;
+        <?php  if ($this->session->userdata('action_of')=='examiner') {  ?>
         <div class="col-lg-6"> 
             <div class="form-group">
-                <label class="<?php echo $lableColClass[1];?> control-label" for="participant">Spritual Trainer</label>
+                <label class="<?php echo $lableColClass[1];?> control-label" for="participant">YPV Trainer</label>
                 <div class="<?php echo $elementGroupColClass[1];?>">
                     <input type="radio" id="" name="spritual_trainer" tabindex="" value="1" /> 
                     <label for="spritual_trainer"> Yes</label>
@@ -150,6 +151,9 @@
                 </div>
             </div>
         </div>
+        <?php } else { ?>
+        <input type="hidden" id="" name="spritual_trainer" value="1"> 
+        <?php } ?>
         <div class="clearfix"></div>   
     </div>
 </div> <!-- first column end -->

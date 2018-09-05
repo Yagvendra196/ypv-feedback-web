@@ -63,9 +63,9 @@
                     <th>user_id</th>
                     <th>role_id</th>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Email</th>
                     <th>Role Name</th>
                     <th>Active</th>
                     <th>Action</th>
@@ -120,7 +120,7 @@
                 "responsive": true,
                 "paging":   true,
                 "ordering": true,
-                "order": [[ 3, "asc" ]],
+                "order": [[ 3, "asc" ],[ 4, "asc" ],[ 5, "asc" ]],
                 "pageLength" : 20,
                 "info":     false,
                 "sPaginationType": "full_numbers",
@@ -193,14 +193,14 @@
                 "columns": [
                                 { "name":"user_id","data": "user_id","visible": false },
                                 { "name":"role_id","data": "role_id","visible": false },
-                                { "name":"name","data": "name" ,
+                                { "name":"name","data": "name" ,"visible": false,
                                             render: function ( data, type, row ) {
                                                 return row.first_name+" "+row.last_name;
                                             },
                                 },
+                                { "name":"first_name","data": "first_name"},
+                                { "name":"last_name","data": "last_name"},
                                 { "name":"email","data": "email" },
-                                { "name":"first_name","data": "first_name","visible": false },
-                                { "name":"last_name","data": "last_name","visible": false },
                                 { "name":"role_name","data": "role_name"  },
                                 {   "name":"status",
                                     "data":   "status",

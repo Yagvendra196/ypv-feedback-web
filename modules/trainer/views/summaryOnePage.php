@@ -34,7 +34,7 @@
 </style>
 <div class="panel-body">
 <form class="form-group" method="post">
-  <h1>Summary One Page</h1><hr>
+  <h1>Feedback Report</h1><hr>
   <div class="form-group">
     <span class="col-sm-2 col-lg-1">Month</span>
       <div class="col-sm-4 col-lg-2">
@@ -69,6 +69,7 @@
       <thead>
         <tr>
             <th>Arhatic Yogi</th>
+            <th>Buddy</th>
             <th>Week-1</th>
             <th>Week-2</th>
             <th>Week-3</th>
@@ -90,12 +91,9 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading_<?php echo $key; ?>">
             <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapse_<?php echo $key; ?>" href="#collapse_<?php echo $key; ?>">
-                
                 <div class="pull-left left"><?php echo ucfirst($user->first_name)." ".ucfirst($user->last_name); ?></div>
                 <div class="clearfix"></div>
-                
-                </a></h4>
+                </h4>
             </div>
             <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_<?php echo $key; ?>" id="collapse_<?php echo $key; ?>">
                 <div class="panel-body">
@@ -107,7 +105,7 @@
                       <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
                           <tbody>
                             <tr>
-                              <td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>">Yes</a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                              <td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
                             </tr>
                           </tbody>
                       </table>
@@ -127,12 +125,9 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingM_<?php echo $key; ?>">
             <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion2" aria-expanded="true" aria-controls="collapseM_<?php echo $key; ?>" href="#collapseM_<?php echo $key; ?>">
-                
                 <div class="pull-left left"><?php echo $user->first_name." ".$user->last_name; ?></div>
                 <div class="clearfix"></div>
-                
-                </a></h4>
+              </h4>
             </div>
             <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingM_<?php echo $key; ?>" id="collapseM_<?php echo $key; ?>">
                 <div class="panel-body">
@@ -144,7 +139,7 @@
                       <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
                           <tbody>
                             <tr>
-                              <td>Navin</td><td>-</td><td>Yes</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                              <td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
                             </tr>
                           </tbody>
                       </table>
