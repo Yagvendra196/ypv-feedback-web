@@ -52,10 +52,7 @@ $data['ContentUrl']  = $ContentUrl = base_url().'/assets/'.$moduleFolder.'/';
     <script src="<?php echo base_url();?>assets/common/jquery/dist/jquery.validate.min.js"></script>
     <script src="<?php echo base_url();?>assets/common/custom/js/jquery.custome-methods.js"></script>
 
-
-
-
-
+    
 <script src="<?php echo base_url();?>assets/common/jquery-ui/jquery-ui.js"></script>
 
 
@@ -74,7 +71,7 @@ $data['ContentUrl']  = $ContentUrl = base_url().'/assets/'.$moduleFolder.'/';
 
     <div id="wrapper">
 
-        <?php // $this->load->view('includes/after_login_navigations',$data); ?>
+        <?php  // $this->load->view('includes/after_login_navigations',$data); ?>
 
         <div id="page-wrapper">
         	   <?php $this->load->view($page,$data); ?>
