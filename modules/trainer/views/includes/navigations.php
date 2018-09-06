@@ -24,6 +24,9 @@
                     <li>
                         <a href="<?php echo base_url($moduleFolder.'/'.STUDENT_FOLDER.'/trainerFeedbackSummary'); ?>" class="<?php echo $this->router->fetch_method()=='trainerFeedback'?'active':'';?>" >YPV Trainer Report</a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url($moduleFolder.'/'.STUDENT_FOLDER.'/summaryOnePage'); ?>" class="<?php echo $this->router->fetch_method()=='summaryOnePage'?'active':'';?>" >Feedback Report</a>
+                    </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
