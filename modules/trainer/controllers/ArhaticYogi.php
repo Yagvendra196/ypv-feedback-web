@@ -155,7 +155,7 @@ class ArhaticYogi extends Users {
     }else{
       $this->data['given_by_year_range'] = '';
     }
-
+    
     $this->data['page'] = 'summaryOnePage';
     $this->data['title'] = $this->title;
     //$this->data['page_title'] = $this->data['row']->first_name;
@@ -639,8 +639,8 @@ class ArhaticYogi extends Users {
     {
       $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
-    if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
-      redirect(base_url());
+    /*if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
+      redirect(base_url());*/
 
     $this->data['page'] = 'trainer_dashboard';
     $this->data['title'] = $this->title;

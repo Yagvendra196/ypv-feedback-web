@@ -1,4 +1,5 @@
         <!-- Navigation -->
+        <?php  $trainerModuleFolder = $this->config->item('modules_folders')['examiner']; ?>
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,7 +64,14 @@
                     </ul>
                 </div>
             <?php } ?>
-
+            
+            <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu-super_admin">
+            <li>
+                <a href="<?php echo $trainerModuleFolder;?>/arhaticYogi/trainer_dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            </ul>
+            </div>
             <?php
                 $this->load->add_package_path(EXAMINER_PATH);
                 //$examinerData = array('moduleFolder'=>$this->config->item('modules_folders')['examiner']);
