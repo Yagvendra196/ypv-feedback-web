@@ -98,17 +98,52 @@ class ArhaticYogi extends Users {
       $this->db->where('up.city',$_POST['city']);
       $this->data['cityPost']=$_POST['city'];
     }
-    $this->data['allUsers'] = $this->Utility->getRowsByField('users',array('uo.owner_user_id'=>$this->session->userdata('user_id')));
+    $this->data['allUsers'] = $allUsers = $this->Utility->getRowsByField('users',array('uo.owner_user_id'=>$this->session->userdata('user_id')));
 
     $usersIds=array();
-    foreach ($this->data['allUsers'] as $key => $user) {
-      $usersIds[]=$user->user_id;;
+    if(!empty($allUsers)){
+      foreach ($allUsers as $user) {
+        $usersIds[]=$user->user_id;;
+      }
     }
+    
+      $this->db->distinct();
+     $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name');
+     $this->db->join('users as u','u.user_id = uf.user_id','left');
+     if(!empty($usersIds)){
+      $this->db->where_in('uf.spiritual_buddie_user_id', $usersIds);
+    }
+    $this->data['user_give_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
+
+
+
     //echo "<pre>";print_r($usersIds);die();
-    $this->db->join('users as u','u.user_id = usb.user_id','left');
-    $this->db->where_in('usb.spiritual_buddie_user_id', $usersIds);
-    $this->data['user_give_feedbacks_to'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');
+   /* $this->db->join('users as u','u.user_id = usb.user_id','left');
+    if(!empty($usersIds)){
+      $this->db->where_in('usb.spiritual_buddie_user_id', $usersIds);
+    }
+    $this->data['user_give_feedbacks_to'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');*/
  //echo "<pre>";print_r($this->data['user_give_feedbacks_to']);die();
+
+    $this->db->distinct();
+     $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name');
+     $this->db->join('users as u','u.user_id = uf.spiritual_buddie_user_id','left');
+     if(!empty($usersIds)){
+      $this->db->where_in('uf.user_id', $usersIds);
+    }
+     $this->db->order_by('uf.created_at','DESC');
+        $this->data['user_receive_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
+
+
+
+   /* $this->db->join('users as u','u.user_id = usb.spiritual_buddie_user_id','left');
+    if(!empty($usersIds)){
+      $this->db->where_in('usb.user_id', $usersIds);
+    }
+    $this->data['user_receive_feedbacks_to'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');*/
+    //echo "<pre>";print_r($this->data['user_receive_feedbacks_to']);die();
+
+
     $given_by_year_res  = $this->db->distinct()->select('YEAR(created_at) as year')
                           ->get('user_feedbacks')->result();
     $given_by_year = array();                               
@@ -669,7 +704,7 @@ class ArhaticYogi extends Users {
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
     $this->data['page'] = 'trainerFeedbackSummary';
     $this->data['title'] = $this->title;
-    $this->data['page_title'] = 'Trainer Feedback Report';
+    $this->data['page_title'] = 'YPV Trainer Report';
     $this->load->add_package_path(ADMIN_PATH);
     $this->load->view($this->layout, $this->data);
   }

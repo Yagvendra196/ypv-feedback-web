@@ -52,6 +52,7 @@
         </select>
       <?php } ?>
   </div>
+  <input type="hidden" name="given_by_year_range" id="given_by_year_range">
   <input type="submit" class="btn btn-success" name="search" value="search">
   <br><br><hr>
   <div class="clearfix"></div>
@@ -64,8 +65,10 @@
         </li>
     </ul>
     <br>
+    <div class="tab-content">
+    <div class="tab-pane active" id="menu1">
     <div class="dataTable_wrapper">
-    <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
+    <table class="table table-striped table-bordered0 table-hover" id="feedbackReportGivenDataTable">
       <thead>
         <tr>
             <th>Arhatic Yogi</th>
@@ -82,57 +85,50 @@
         <?php //echo "<pre>";print_r($allUsers); 
           if(!empty($allUsers)){
             foreach ($allUsers as $key => $user) { 
+                if(!empty($user_give_feedbacks_to)){
                 foreach ($user_give_feedbacks_to as $key => $feedbackGiven) {
                   if($feedbackGiven->spiritual_buddie_user_id == $user->user_id){ ?>
                     <tr>
                       <td><?php echo $user->first_name." ".$user->last_name; ?></td><td><?php echo $feedbackGiven->first_name." ".$feedbackGiven->last_name; ?></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
                     </tr>
 
-             <?php     }
-                }
-
-              ?>
-                
-          <?php } }?>
+             <?php } } } } }?>
         </tbody>
     </table>
     </div>
-    <div class="tab-content">
-    <div class="tab-pane active" id="menu1">
     </div>
+   
+
     <div class="tab-pane" id="menu2">
-      <?php //echo "<pre>";print_r($allUsers); 
-    if(!empty($allUsers)){
-      foreach ($allUsers as $key => $user) { ?>
-        <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingM_<?php echo $key; ?>">
-            <h4 class="panel-title">
-                <div class="pull-left left"><?php echo $user->first_name." ".$user->last_name; ?></div>
-                <div class="clearfix"></div>
-              </h4>
-            </div>
-            <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingM_<?php echo $key; ?>" id="collapseM_<?php echo $key; ?>">
-                <div class="panel-body">
-                  <form class="form-horizontal">
-                    <input type="hidden" id="user_id" value="<?php echo $user->user_id; ?>" />
-                      <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="" />
-                      <input type="hidden" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>" /> 
-                    <div class="dataTable_wrapper">
-                      <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
-                          <tbody>
-                            <tr>
-                              <td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
-                            </tr>
-                          </tbody>
-                      </table>
-                    </div>
-                  </form>
-                </div>
-            </div>
-          </div>
-        </div>
-    <?php } }?>
+      <div class="dataTable_wrapper">
+        <table class="table table-striped table-bordered0 table-hover" id="feedbackReportReciveDataTable">
+          <thead>
+            <tr>
+                <th>Arhatic Yogi</th>
+                <th>Buddy</th>
+                <th>Week-1</th>
+                <th>Week-2</th>
+                <th>Week-3</th>
+                <th>Week-4</th>
+                <th>Week-5</th>
+                <th>Monthly</th>
+            </tr>
+          </thead>
+            <tbody>
+            <?php //echo "<pre>";print_r($allUsers); 
+              if(!empty($allUsers)){
+                foreach ($allUsers as $key => $user) { 
+                    if(!empty($user_receive_feedbacks_to)){
+                    foreach ($user_receive_feedbacks_to as $key => $feedbackReceive) {
+                      if($feedbackReceive->user_id == $user->user_id){ ?>
+                        <tr>
+                          <td><?php echo $user->first_name." ".$user->last_name; ?></td><td><?php echo $feedbackReceive->first_name." ".$feedbackReceive->last_name; ?></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                        </tr>
+
+                 <?php } } } } }?>
+            </tbody>
+        </table>
+    </div>
     </div>
   </div>
 
