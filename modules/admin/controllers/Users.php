@@ -56,7 +56,7 @@ class Users extends CI_Controller {
 	      }
 	    }
     	$this->data['all_city'] = $cities;
-		$this->data['page_title'] = 'All '.EXAMINER;
+		$this->data['page_title'] = 'All Arhatic Yogi '.EXAMINER;
 		$this->load->view($this->layout, $this->data);
 	}
 
@@ -181,7 +181,7 @@ class Users extends CI_Controller {
 		if ($this->session->userdata('action_of')=='examiner')
 		$this->data['page_title'] = STUDENT.' add/edit';
 			else
-		$this->data['page_title'] = EXAMINER.' add/edit';
+		$this->data['page_title'] = 'Arhatic Yogi '.EXAMINER.' add/edit';
 
 		$primary_key = 'user_id';
 		$insert_id = $this->Admin->admin_user_add_edit_post_for_web($primary_key); 

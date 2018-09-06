@@ -22,7 +22,7 @@
                         <a href="<?php echo base_url($this->config->item('modules_folders')['examiner'].'/'.$this->config->item('modules_folders')['student'].'/add_edit'); ?>" class="<?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='add_edit'&&$this->session->userdata('action_of')=='examiner'?'active':'';?>">Add <?php echo STUDENT;?></a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url($moduleFolder.'/'.STUDENT_FOLDER.'/trainerFeedbackSummary'); ?>" class="<?php echo $this->router->fetch_method()=='trainerFeedback'?'active':'';?>" >Trainer Report</a>
+                        <a href="<?php echo base_url($moduleFolder.'/'.STUDENT_FOLDER.'/trainerFeedbackSummary'); ?>" class="<?php echo $this->router->fetch_method()=='trainerFeedback'?'active':'';?>" >YPV Trainer Report</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

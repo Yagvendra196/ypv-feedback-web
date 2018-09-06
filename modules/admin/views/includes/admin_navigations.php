@@ -39,11 +39,9 @@
             <?php if ($this->Security->doesUserHasCapability('super_admin')) { ?>
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu-super_admin">
-                        <!--
-                        <li>
-                            <a href="<?php //echo $moduleFolder;?>/users"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        -->
+                        
+                        
+                        
                         
                         <li class="active" >
                         <?php /* class=" <?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='index'?'active':'';?>
@@ -52,13 +50,16 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> <?php echo EXAMINERS;?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url($moduleFolder.'/users'); ?>" class="<?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='index'?'active':'';?>" >All <?php echo EXAMINER;?></a>
+                                    <a href="<?php echo base_url($moduleFolder.'/users'); ?>" class="<?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='index'?'active':'';?>" >All Arhatic Yogi <?php echo EXAMINER;?></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url($moduleFolder.'/'.EXAMINER.'/add_edit'); ?>" class="<?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='add_edit'&&$this->session->userdata('action_of')=='super_admin'?'active':'';?>">Add <?php echo EXAMINER; ?></a>
+                                    <a href="<?php echo base_url($moduleFolder.'/'.EXAMINER.'/add_edit'); ?>" class="<?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='add_edit'&&$this->session->userdata('action_of')=='super_admin'?'active':'';?>">Add Arhatic Yogi <?php echo EXAMINER; ?></a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="trainer/arhaticYogi/trainer_dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                     </ul>
                 </div>

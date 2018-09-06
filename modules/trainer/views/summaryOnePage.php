@@ -105,7 +105,7 @@
                       <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
                           <tbody>
                             <tr>
-                              <td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                              <td>Navin</td><td></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
                             </tr>
                           </tbody>
                       </table>
