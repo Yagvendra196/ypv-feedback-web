@@ -41,7 +41,7 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">6</div>
+                        <div class="huge"><?php echo $total_arhatic_yogi; ?></div>
                         <div>Total Arhatic Yogi</div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <i class="fa fa-tasks fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">2</div>
+                        <div class="huge"><?php echo $total_arhatic_yogi_trainer; ?></div>
                         <div>Total Arhatic Yogi Trainer</div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         <i class="fa fa-shopping-cart fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">4</div>
+                        <div class="huge"><?php echo $total_ypv_yogi_trainer; ?></div>
                         <div>Total YPV Yogi Trainer</div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">8</div>
+                        <div class="huge"><?php echo $total_feedback; ?></div>
                         <div>Total Feedback</div>
                     </div>
                 </div>

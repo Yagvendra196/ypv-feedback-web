@@ -116,6 +116,7 @@
     //    https://datatables.net/examples/server_side/post.html
     //    https://datatables.net/manual/server-side  SERVER SIDE SCRIPT VARIARABLE AND USE.
     $(document).ready(function() {
+        // console.log("<?php echo $moduleFolder;?>"+"/users/dataTableData");
        var table =   $('#dataTables-example').DataTable({
                 "responsive": true,
                 "paging":   true,
