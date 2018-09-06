@@ -656,7 +656,7 @@ class ArhaticYogi extends Users {
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
     $this->data['page'] = 'trainerFeedbackSummary';
     $this->data['title'] = $this->title;
-    $this->data['page_title'] = 'Trainer Feedback Report';
+    $this->data['page_title'] = 'YPV Trainer Report';
     $this->load->add_package_path(ADMIN_PATH);
     $this->load->view($this->layout, $this->data);
   }
