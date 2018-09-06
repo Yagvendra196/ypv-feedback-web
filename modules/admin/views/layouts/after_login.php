@@ -37,6 +37,7 @@ $data['ContentUrl']  = $ContentUrl = base_url().'/'.$moduleFolder.'/assets/';
     <!-- Morris Charts CSS -->
     <link href="<?php echo $ContentUrl;?>morrisjs/morris.css" rel="stylesheet">
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,15 +57,9 @@ $data['ContentUrl']  = $ContentUrl = base_url().'/'.$moduleFolder.'/assets/';
     <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/common/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/common/jquery/dist/jquery.validate.min.js"></script>
-    <script src="<?php echo base_url();?>assets/common/custom/js/jquery.custome-methods.js"></script>
+    <script src="<?php echo base_url();?>assets/common/custom/js/jquery.custome-methods.js"></script>   
 
-
-
-
-
-<script src="<?php echo base_url();?>assets/common/jquery-ui/jquery-ui.js"></script>
-
-
+    <script src="<?php echo base_url();?>assets/common/jquery-ui/jquery-ui.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo $ContentUrl;?>/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -89,6 +84,10 @@ $data['ContentUrl']  = $ContentUrl = base_url().'/'.$moduleFolder.'/assets/';
     </div>
     <!-- /#wrapper -->
 <script type="text/javascript">phpData = <?php echo json_encode(array_merge($this->data,$data));?>;</script>
+
+    <script src="<?php echo base_url();?>assets/common/raphael/raphael.min.js"></script>
+    <script src="<?php echo base_url();?>assets/common/morris/morris.min.js"></script>
+    <script src="<?php echo base_url();?>assets/common/morris/morris-data.js"></script>
 </body>
 
 </html>

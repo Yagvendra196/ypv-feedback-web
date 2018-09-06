@@ -6,11 +6,11 @@ class ArhaticYogi extends Users {
 	{ 
 		parent::__construct();   
 		$this->title = $this->data['title'] = $this->config->item('modules_titles')['examiner'];
-		$this->moduleName = $this->data['moduleName'] = $this->config->item('modules')['admin'];
+		$this->moduleName = $this->data['moduleName'] = $this->config->item('modules')['admin']; 
 		$this->moduleFolder = $this->data['moduleFolder'] = $this->config->item('modules_folders')['admin'];	
 		$this->modulePlurals = $this->data['modulePlurals'] = $this->config->item('modules_plurals')['admin'];
 		$this->thisModuleName = $this->data['thisModuleName'] = $this->config->item('modules')['examiner'];	
-	$this->thisModuleFolder = $this->data['thisModuleFolder'] = $this->config->item('modules_folders')['examiner'];	
+	  $this->thisModuleFolder = $this->data['thisModuleFolder'] = $this->config->item('modules_folders')['examiner'];	
 		$this->thisModulePlurals = $this->data['thisModulePlurals'] = $this->config->item('modules_plurals')['examiner'];	
 		$this->studentModuleName = $this->data['studentModuleName'] = $this->config->item('modules')['student'];	
 		$this->studentModuleFolder = $this->data['studentModuleFolder'] = $this->config->item('modules_folders')['student'];	
@@ -646,7 +646,9 @@ class ArhaticYogi extends Users {
     $this->data['title'] = $this->title;
     $this->data['page_title'] = "Dashboard";
     $this->layout = '/layouts/after_login';
-    $this->load->add_package_path(ADMIN_PATH);
+    $this->load->add_package_path(ADMIN_PATH);  
+    //echo $this->layout; die;
+    // echo '<pre>'; print_r($this->data); die;
     $this->load->view($this->layout, $this->data);
   } 
 
