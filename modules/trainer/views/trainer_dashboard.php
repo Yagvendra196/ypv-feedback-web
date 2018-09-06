@@ -169,40 +169,40 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-bell fa-fw"></i> Dashboard Panel
+                 Dashboard Details
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="list-group">
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-comment fa-fw"></i> current month weekly feedback not given
+                        <li>current month weekly feedback not given
                         <span class="pull-right text-muted small"><em>4</em>
-                        </span>
+                        </span></li>
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> current month weekly feedback given 
+                        <li> current month weekly feedback given 
                         <span class="pull-right text-muted small"><em>12</em>
-                        </span>
+                        </span></li>
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-envelope fa-fw"></i> current month monthly feedback given 
+                        <li> current month monthly feedback given 
                         <span class="pull-right text-muted small"><em>27</em>
-                        </span>
+                        </span></li>
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-tasks fa-fw"></i> current month monthly feedback not given 
+                        <li> current month monthly feedback not given 
                         <span class="pull-right text-muted small"><em>43</em>
-                        </span>
+                        </span></li>
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-upload fa-fw"></i> current month monthly YPV Yogi Trainer feedback given
+                        <li> current month monthly YPV Yogi Trainer feedback given
                         <span class="pull-right text-muted small"><em>11</em>
-                        </span>
+                        </span></li>
                     </a>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-bolt fa-fw"></i> current month monthly YPV Yogi Trainer feedback not given
+                        <li> current month monthly YPV Yogi Trainer feedback not given
                         <span class="pull-right text-muted small"><em>13</em>
-                        </span>
+                        </span></li>
                     </a>
                 </div>
                 <!-- /.list-group -->
