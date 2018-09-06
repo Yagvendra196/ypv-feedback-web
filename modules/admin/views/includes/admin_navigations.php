@@ -39,9 +39,11 @@
             <?php if ($this->Security->doesUserHasCapability('super_admin')) { ?>
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu-super_admin">
-                        
-                        
-                        
+                        <!--
+                        <li>
+                            <a href="<?php //echo $moduleFolder;?>/users"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        -->
                         
                         <li class="active" >
                         <?php /* class=" <?php echo $this->router->fetch_class()=='users'&&$this->router->fetch_method()=='index'?'active':'';?>
@@ -57,9 +59,6 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="trainer/arhaticYogi/trainer_dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                     </ul>
                 </div>

@@ -79,43 +79,25 @@
         </tr>
       </thead>
         <tbody>
+        <?php //echo "<pre>";print_r($allUsers); 
+          if(!empty($allUsers)){
+            foreach ($allUsers as $key => $user) { 
+                foreach ($user_give_feedbacks_to as $key => $feedbackGiven) {
+                  if($feedbackGiven->spiritual_buddie_user_id == $user->user_id){
+                    
+                  }
+                }
+
+              ?>
+                <tr>
+                  <td><?php echo $user->first_name." ".$user->last_name; ?></td><td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                </tr>
+          <?php } }?>
         </tbody>
     </table>
     </div>
     <div class="tab-content">
     <div class="tab-pane active" id="menu1">
-      <?php //echo "<pre>";print_r($allUsers); 
-    if(!empty($allUsers)){
-      foreach ($allUsers as $key => $user) { ?>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="heading_<?php echo $key; ?>">
-            <h4 class="panel-title">
-                <div class="pull-left left"><?php echo ucfirst($user->first_name)." ".ucfirst($user->last_name); ?></div>
-                <div class="clearfix"></div>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_<?php echo $key; ?>" id="collapse_<?php echo $key; ?>">
-                <div class="panel-body">
-                  <form class="form-horizontal">
-                    <input type="hidden" id="user_id" value="<?php echo $user->user_id; ?>" />
-                      <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="" />
-                      <input type="hidden" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>" /> 
-                    <div class="dataTable_wrapper">
-                      <table class="table table-striped table-bordered0 table-hover" id="summaryOnePageDataTable">
-                          <tbody>
-                            <tr>
-                              <td>Navin</td><td></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
-                            </tr>
-                          </tbody>
-                      </table>
-                    </div>
-                  </form>
-                </div>
-            </div>
-          </div>
-        </div>
-    <?php } }?>
     </div>
     <div class="tab-pane" id="menu2">
       <?php //echo "<pre>";print_r($allUsers); 

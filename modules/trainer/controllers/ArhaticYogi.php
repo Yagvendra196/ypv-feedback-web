@@ -100,10 +100,15 @@ class ArhaticYogi extends Users {
     }
     $this->data['allUsers'] = $this->Utility->getRowsByField('users',array('uo.owner_user_id'=>$this->session->userdata('user_id')));
 
-
-    $this->db->join('users as u','u.user_id = usb.spiritual_buddie_user_id','left');
-    $this->data['user_recive_feedbacks_from'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');
-
+    $usersIds=array();
+    foreach ($this->data['allUsers'] as $key => $user) {
+      $usersIds[]=$user->user_id;;
+    }
+    //echo "<pre>";print_r($usersIds);die();
+    $this->db->join('users as u','u.user_id = usb.user_id','left');
+    $this->db->where_in('usb.spiritual_buddie_user_id', $usersIds);
+    $this->data['user_give_feedbacks_to'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');
+ //echo "<pre>";print_r($this->data['user_give_feedbacks_to']);die();
     $given_by_year_res  = $this->db->distinct()->select('YEAR(created_at) as year')
                           ->get('user_feedbacks')->result();
     $given_by_year = array();                               
@@ -597,7 +602,7 @@ class ArhaticYogi extends Users {
 
   public function trainer_dashboard()
     {
-      $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+      //$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
     if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
       //redirect(base_url());
