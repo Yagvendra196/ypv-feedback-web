@@ -2,11 +2,11 @@
 <?php if ($this->Security->doesUserHasCapability('examiner')) { ?>
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu-examiner">
-            <!--
+            <?php /*
             <li>
                 <a href="<?php echo $moduleFolder.'/'.STUDENT_FOLDER;?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-            </li>
-            -->
+            </li> */
+             ?>
             
             <li class="active" >
             <?php /*

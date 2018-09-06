@@ -602,7 +602,7 @@ class ArhaticYogi extends Users {
 
   public function trainer_dashboard()
     {
-      //$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
+      $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
     if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
       //redirect(base_url());

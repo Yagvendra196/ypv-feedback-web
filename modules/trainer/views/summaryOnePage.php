@@ -83,15 +83,16 @@
           if(!empty($allUsers)){
             foreach ($allUsers as $key => $user) { 
                 foreach ($user_give_feedbacks_to as $key => $feedbackGiven) {
-                  if($feedbackGiven->spiritual_buddie_user_id == $user->user_id){
-                    
-                  }
+                  if($feedbackGiven->spiritual_buddie_user_id == $user->user_id){ ?>
+                    <tr>
+                      <td><?php echo $user->first_name." ".$user->last_name; ?></td><td><?php echo $feedbackGiven->first_name." ".$feedbackGiven->last_name; ?></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                    </tr>
+
+             <?php     }
                 }
 
               ?>
-                <tr>
-                  <td><?php echo $user->first_name." ".$user->last_name; ?></td><td>Navin</td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
-                </tr>
+                
           <?php } }?>
         </tbody>
     </table>
