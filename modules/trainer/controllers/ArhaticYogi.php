@@ -605,7 +605,7 @@ class ArhaticYogi extends Users {
       $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
     if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
-      //redirect(base_url());
+      redirect(base_url());
 
     $this->data['page'] = 'trainer_dashboard';
     $this->data['title'] = $this->title;
