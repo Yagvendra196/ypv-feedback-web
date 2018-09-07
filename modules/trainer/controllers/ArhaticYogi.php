@@ -106,16 +106,28 @@ class ArhaticYogi extends Users {
         $usersIds[]=$user->user_id;;
       }
     }
-    
-      $this->db->distinct();
-     $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name');
-     $this->db->join('users as u','u.user_id = uf.user_id','left');
-     if(!empty($usersIds)){
+
+    $month='';
+    $year='';
+    if(!empty($_POST['selected_date'])){
+      $month=date("m",strtotime($_POST['selected_date']));
+      $year=date("Y",strtotime($_POST['selected_date']));
+      $this->data['selected_date']=$_POST['selected_date'];
+    }
+
+    $this->db->distinct();
+    $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name,w.week_start_date');
+    $this->db->join('users as u','u.user_id = uf.user_id','left');
+    $this->db->join('weeks as w','w.idWeek = uf.week_id','left');
+    if(!empty($usersIds)){
       $this->db->where_in('uf.spiritual_buddie_user_id', $usersIds);
+    }
+    if(!empty($month) && !empty($year)){
+      $this->db->where(array('month(w.week_start_date)'=>$month,'year(w.week_start_date)'=>$year));
     }
     $this->data['user_give_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
 
-
+//echo $this->db->last_query();die();
 
     //echo "<pre>";print_r($usersIds);die();
    /* $this->db->join('users as u','u.user_id = usb.user_id','left');
@@ -126,10 +138,14 @@ class ArhaticYogi extends Users {
  //echo "<pre>";print_r($this->data['user_give_feedbacks_to']);die();
 
     $this->db->distinct();
-     $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name');
+     $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name,w.week_start_date');
      $this->db->join('users as u','u.user_id = uf.spiritual_buddie_user_id','left');
+     $this->db->join('weeks as w','w.idWeek = uf.week_id','left');
      if(!empty($usersIds)){
       $this->db->where_in('uf.user_id', $usersIds);
+    }
+    if(!empty($month) && !empty($year)){
+      $this->db->where(array('month(w.week_start_date)'=>$month,'year(w.week_start_date)'=>$year));
     }
      $this->db->order_by('uf.created_at','DESC');
         $this->data['user_receive_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
