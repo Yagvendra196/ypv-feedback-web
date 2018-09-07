@@ -426,7 +426,7 @@ class Admin extends User {
                     
                     $apply_extra_roles = array();
                     if ($this->input->post('teacher')) {
-                        $apply_extra_roles[] = '4';
+                        $apply_extra_roles = array('4','5');  // Role 5 for Spritual Trainer
                     }
 
 
