@@ -702,37 +702,37 @@ class ArhaticYogi extends Users {
 
   public function trainerFeedbackSummary(){
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
-    $this->data['page'] = 'trainerFeedbackSummary-old';
-    $this->data['title'] = $this->title;
-    $this->data['page_title'] = 'YPV Trainer Report';
+    
+    $givenYearMonth  = $this->db->distinct()->select('YEAR(created_at) as year,MONTH(created_at) as month ')->get('user_feedbacks')->result_array();
+    $given_by_year = array_column($givenYearMonth, 'year');
+    $given_by_month = array_column($givenYearMonth, 'month');
+    $this->data['given_by_year_start'] = !empty($given_by_year) ? min($given_by_year) : date('Y');
+    $this->data['given_by_year_end'] = $this->data['selected_year'] = !empty($given_by_year) ? max($given_by_year) : date('Y');
+    $this->data['given_by_month'] = $this->data['selected_month'] = !empty($given_by_month) ? (max($given_by_month) - 1) : date('m') - 1;
+    $monthAndYear = '';
+    if(!empty($_POST['month']) && !empty($_POST['year'])){
+      $this->data['selected_year'] = $_POST['year'];
+      $this->data['selected_month'] = $_POST['month'];
+      $monthAndYear .= " AND MONTH(created_at) = ".$_POST['month']." AND YEAR(created_at) = ".$_POST['year']; 
+    }
 
-    /*$this->data['feedbackSummaryData'] = $this->db->query("SELECT u.user_id, u.first_name, u.last_name,
-                                        IF(feedback.spiritual_buddie_user_id IS NOT NULL,1,0) as feedbackGiven)
-                                        FROM user_owners uo
-                                        LEFT JOIN users u On u.user_id = uo.user_id
-                                        LEFT JOIN user_roles ur On ur.user_id = uo.user_id
-                                        LEFT JOIN (
-                                           SELECT spiritual_buddie_user_id FROM user_feedbacks
-                                           WHERE feedback_type = 'for trainers'
-                                           AND MONTH(created_at) = '09'
-                                           AND YEAR(created_at) = '2018'
-                                        ) as feedback ON u.user_id = feedback.spiritual_buddie_user_id
-                                        WHERE ur.role_id = 5"
-    );*/
-    $monthAndYear = !empty($_POST['date']) ? " AND MONTH(created_at) = '09' AND YEAR(created_at) = '2018'" : '';
-
-    $this->db->select("u.user_id, u.first_name, u.last_name, IF(feedback.spiritual_buddie_user_id IS NOT NULL,1,0) as feedbackGiven");
+    $this->db->select("u.user_id, LOWER(CONCAT(u.first_name,' ',u.last_name)) as trainer_name, IF(feedback.spiritual_buddie_user_id IS NOT NULL,1,0) as feedbackGiven");
     $this->db->join('users u','u.user_id = uo.user_id','left');
     $this->db->join('user_roles ur','ur.user_id = uo.user_id','left');
-    $this->db->join("(SELECT spiritual_buddie_user_id FROM user_feedbacks WHERE feedback_type = 'for trainers'".$monthAndYear.") as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
+    $this->db->join("(SELECT distinct spiritual_buddie_user_id FROM user_feedbacks WHERE feedback_type = 'for trainers'".$monthAndYear.") as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
 
-    $this->db->order_by('u.first_name','ASC');
+    $this->db->order_by('trainer_name','ASC');
     $this->data['feedbackSummaryData'] = $this->db->get_where('user_owners uo',array('ur.role_id'=>'5'))->result();
-    /*echo "<pre>";
-    print_r($this->data['feedbackSummaryData']);die;*/
-
-    $this->load->add_package_path(ADMIN_PATH);
-    $this->load->view($this->layout, $this->data);
+    if(!empty($_POST)){
+      $this->load->view('spritual_trainer_listing',$this->data);
+    } else {
+      $this->data['page_title'] = 'YPV Trainer Report';
+      $this->data['title'] = $this->title;
+      $this->data['page'] = 'trainerFeedbackSummary';
+      $this->load->add_package_path(ADMIN_PATH);
+      $this->load->view($this->layout, $this->data);
+    }
+    
   }
 
 
