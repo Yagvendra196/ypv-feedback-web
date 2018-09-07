@@ -3,35 +3,6 @@
         <h1 class="page-header"><?php echo $page_title;?></h1>
     </div>
 </div>
-
-<!-- <div class="row" style="margin-bottom:20px;">
-    <div class="col-lg-12">
-        <div class="col-lg-4 col-sm-4 m-bottom">
-            <button class="form-control btn btn-success box">Total Yogi <br><label class="control-label" for="role_id">20</label></button>
-
-        </div>
-
-        <div class="col-lg-4 col-sm-4 m-bottom">
-            <button class="form-control btn btn-success box">Current Month Weekly<br/> Feedback Given</button>
-        </div>
-        
-        <div class="col-lg-4 col-sm-4 m-bottom">
-            <button class="form-control btn btn-success box">Current Month weekly<br/> Feedback Not Given</button>
-        </div>
-    </div>
-</div>    
-<div class="row ">
-    <div class="col-lg-12">
-        <div class="col-lg-6 col-md-6 col-sm-6 m-bottom">
-            <button class="form-control btn btn-success box">Current Month Monthly<br/> Feedback Given</button>
-        </div>
-        
-        <div class="col-lg-6 col-md-6 col-sm-6 m-bottom">
-            <button class="form-control btn btn-success box">Current Month Monthly<br/> Feedback Not Given</button>
-        </div>
-    </div>
-</div> -->
-
 <div class="row" style="margin-bottom:20px;">    
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
@@ -128,25 +99,6 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart
-                <!-- <div class="pull-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                            Actions
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="#">Action</a>
-                            </li>
-                            <li><a href="#">Another action</a>
-                            </li>
-                            <li><a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">

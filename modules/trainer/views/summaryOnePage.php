@@ -1,3 +1,8 @@
+<?php  
+  function week_number($date) { 
+    return ceil( date( 'j', strtotime( $date ) ) / 7 ); 
+  } 
+?>
 <style type="text/css">
   
 /*.panel-title>a, .panel-title>a:active{
@@ -40,8 +45,9 @@
       <div class="col-sm-4 col-lg-2">
         <input type="checkbox" id="use_date_filter"  name="use_date_filter" value="1" checked="checked" style="display:none;"/>
         <input type="text" class="month-picker form-control" id="selected_date" value=""/>
+        <input type="hidden" name="selected_date" id="selected_date_hidden">
       </div>
-  </div>
+  </div>`
   <div class="col-lg-3 col-sm-3">
       <?php if($all_city) { ?>
         <select class="form-control" name="city">
@@ -52,7 +58,7 @@
         </select>
       <?php } ?>
   </div>
-  <input type="hidden" name="given_by_year_range" id="given_by_year_range" value="<?php $given_by_year_range; ?>">
+  <input type="hidden" name="given_by_year_range" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>">
   <input type="submit" class="btn btn-success" name="search" value="search">
   <br><br><hr>
   <div class="clearfix"></div>
@@ -83,13 +89,22 @@
       </thead>
         <tbody>
         <?php //echo "<pre>";print_r($allUsers); 
-          if(!empty($allUsers)){
+          if(!empty($allUsers)){ 
             foreach ($allUsers as $key => $user) { 
                 if(!empty($user_give_feedbacks_to)){
                 foreach ($user_give_feedbacks_to as $key => $feedbackGiven) {
                   if($feedbackGiven->spiritual_buddie_user_id == $user->user_id){ ?>
                     <tr>
-                      <td><?php echo $user->first_name." ".$user->last_name; ?></td><td><?php echo $feedbackGiven->first_name." ".$feedbackGiven->last_name; ?></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                      <td><?php echo $user->first_name." ".$user->last_name; ?></td>
+                      <td><?php echo $feedbackGiven->first_name." ".$feedbackGiven->last_name; ?></td>
+                      <?php for($i=1;$i<=5;$i++){
+                              if($i == week_number($feedbackGiven->week_start_date)){ ?>
+                                <td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td>
+                      <?php         }else { ?>
+                          <td>-</td>
+                    <?php  }
+                      } ?>
+                     <td>-</td>
                     </tr>
 
              <?php } } } } }?>
@@ -122,7 +137,16 @@
                     foreach ($user_receive_feedbacks_to as $key => $feedbackReceive) {
                       if($feedbackReceive->user_id == $user->user_id){ ?>
                         <tr>
-                          <td><?php echo $user->first_name." ".$user->last_name; ?></td><td><?php echo $feedbackReceive->first_name." ".$feedbackReceive->last_name; ?></td><td>-</td><td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td><td>-</td><td>-</td><td>-</td><td>-</td>
+                            <td><?php echo $user->first_name." ".$user->last_name; ?></td>
+                            <td><?php echo $feedbackReceive->first_name." ".$feedbackReceive->last_name; ?></td>
+                            <?php for($i=1;$i<=5;$i++){
+                                    if($i == week_number($feedbackReceive->week_start_date)){ ?>
+                                      <td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td>
+                            <?php         }else { ?>
+                                <td>-</td>
+                          <?php  }
+                            } ?>
+                           <td>-</td>
                         </tr>
 
                  <?php } } } } }?>
@@ -136,13 +160,21 @@
 </div>
 
 <script type="text/javascript">
+var postDate="<?php if(!empty($selected_date)) echo $selected_date;  ?>";
 var given_by_year_range = $("#given_by_year_range").val();
 var given_by_year_start = given_by_year_range.split(":");
     given_by_year_start = given_by_year_start[0];
-    console.log(given_by_year_start);
-    $("#selected_date").val('Jan '+given_by_year_start);
+    //console.log(given_by_year_start);
+    if(postDate){
+      var newDate=postDate.split(" ");
+      //console.log(newDate);
+      $("#selected_date").val(newDate[1]+' '+newDate[3]);
+    }else{
+      $("#selected_date").val('Jan '+given_by_year_start);
+    }
+    
   $('.month-picker').datepicker({
-        firstDay: 1,
+        firstDay: 2,
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
@@ -188,11 +220,5 @@ var given_by_year_start = given_by_year_range.split(":");
         $('.ui-datepicker-buttonpane.ui-widget-content .ui-datepicker-current').hide();
       });
     }
-     $('.panel-collapse').on('show.bs.collapse', function () {
-    $(this).siblings('.panel-heading').addClass('active');
-  });
-
-  $('.panel-collapse').on('hide.bs.collapse', function () {
-    $(this).siblings('.panel-heading').removeClass('active');
-  });
+    
 </script>

@@ -388,8 +388,8 @@ class Admin extends User {
                     'status' => $this->input->post('status') ? $this->input->post('status') : 1
                 );
 
+
                 $user_profile = array(
-                    'dob' => date('Y-m-d H:i:s', strtotime($this->input->post('dob'))),
                     'married' => $this->input->post('married') ? $this->input->post('married') : 0,
                     'gender' => $this->input->post('gender'),
                     'hobbies' => '',
@@ -405,6 +405,9 @@ class Admin extends User {
                     'batch_year'=> $this->input->post('batchYear'),
                     'is_spritual_trainer'=>$this->input->post('spritual_trainer')
                 );
+                if(!empty($this->input->post('dob'))){
+                    $user_profile['dob']=date('Y-m-d H:i:s', strtotime($this->input->post('dob')));
+                }
                 //echo "<pre>";print_r($user_profile);die;
                 //$this->user_file_upload(); for make thumb
                 if ($this->input->post('examiner_id') > 0) {
@@ -425,6 +428,9 @@ class Admin extends User {
                     }
                     
                     $apply_extra_roles = array();
+                    if(!empty($this->input->post('spritual_trainer'))){
+                        $apply_extra_roles[] = '5';
+                    }
                     if ($this->input->post('teacher')) {
                         $apply_extra_roles[] = '4';
                     }

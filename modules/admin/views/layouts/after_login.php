@@ -85,9 +85,9 @@ $data['ContentUrl']  = $ContentUrl = base_url().'/'.$moduleFolder.'/assets/';
     <!-- /#wrapper -->
 <script type="text/javascript">phpData = <?php echo json_encode(array_merge($this->data,$data));?>;</script>
 
-    <script src="<?php echo base_url();?>assets/common/raphael/raphael.min.js"></script>
+   <!--  <script src="<?php echo base_url();?>assets/common/raphael/raphael.min.js"></script>
     <script src="<?php echo base_url();?>assets/common/morris/morris.min.js"></script>
-    <script src="<?php echo base_url();?>assets/common/morris/morris-data.js"></script>
+    <script src="<?php echo base_url();?>assets/common/morris/morris-data.js"></script> -->
 </body>
 
 </html>
