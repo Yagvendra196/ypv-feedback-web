@@ -40,7 +40,7 @@ class ArhaticYogi extends Users {
     } 
     //*/
     $this->data['page_title'] = 'All '.STUDENT;
-		$this->load->add_package_path(ADMIN_PATH);
+		$this->load->add_package_path(ADMIN_PATH); //echo '<pre>'; print_r($this->data); die;
 		$this->load->view($this->layout, $this->data);
 	}
 	
@@ -155,7 +155,7 @@ class ArhaticYogi extends Users {
     }else{
       $this->data['given_by_year_range'] = '';
     }
-
+    
     $this->data['page'] = 'summaryOnePage';
     $this->data['title'] = $this->title;
     //$this->data['page_title'] = $this->data['row']->first_name;
@@ -639,15 +639,63 @@ class ArhaticYogi extends Users {
     {
       $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 
-    if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
-      redirect(base_url());
+    /*if ( $this->session->userdata('action_of')=='super_admin' || $this->session->userdata('action_of')=='examiner' ) 
+      redirect(base_url());*/
 
     $this->data['page'] = 'trainer_dashboard';
     $this->data['title'] = $this->title;
     $this->data['page_title'] = "Dashboard";
     $this->layout = '/layouts/after_login';
-    $this->load->add_package_path(ADMIN_PATH);  
-    //echo $this->layout; die;
+
+    $this->data['total_arhatic_yogi']         = 0;
+    $this->data['total_arhatic_yogi_trainer'] = 0;
+    $this->data['total_ypv_yogi_trainer']     = 0;
+    $this->data['total_feedback']             = 0;
+
+    $this->load->add_package_path(ADMIN_PATH);
+    $this->data['user_id'] = $user_id = $this->session->userdata('user_id');
+
+    $this->db->select('COUNT(*) AS total_arhatic_yogi');
+    $this->db->join('user_roles as ur', 'ur.user_id = u.user_id ', 'LEFT');
+    $this->db->join('master_roles as mr', 'mr.role_id = ur.role_id', 'LEFT');
+    $this->db->join('user_owners as uo', 'uo.user_id = u.user_id', 'LEFT');
+    $this->db->join('user_profile as up', 'up.user_id = u.user_id', 'LEFT');
+    $total_arhatic_yogi = $this->Utility->getRowByField('users as u', array('ur.role_id' => 3,
+                                                                            'u.user_id !=' => 1,
+                                                                            'uo.owner_user_id' => $user_id
+                                                                          ));
+    // echo $this->db->last_query(); die;
+    $this->db->select('COUNT(*) AS total_arhatic_yogi_trainer');
+    $this->db->join('user_roles as ur', 'ur.user_id = u.user_id', 'LEFT');
+    $this->db->join('master_roles as mr', 'mr.role_id = ur.role_id', 'LEFT');
+    $total_arhatic_yogi_trainer = $this->Utility->getRowByField('users as u', array('ur.role_id' => 4,
+                                                                                    'u.user_id !='  => 1));    
+    // echo $this->db->last_query(); die;
+    $this->db->select('COUNT(*) AS total_ypv_yogi_trainer');
+    $this->db->join('user_owners as uo', 'uo.user_id = up.user_id', 'LEFT');
+    $total_ypv_yogi_trainer = $this->Utility->getRowByField('user_profile as up', array('up.user_id'  => $user_id, 
+                                                                                        'up.is_spritual_trainer' => 1));
+     // echo $this->db->last_query(); die;
+    /*$this->db->select('COUNT(*) AS total_feedback');
+    $total_feedback = $this->Utility->getRowByField('user_owners',array('owner_user_id'  => $user_id, 
+                                                                                    'owners_role_id' => 4));*/
+    
+    if(count($total_arhatic_yogi) > 0) {
+      $this->data['total_arhatic_yogi'] = $total_arhatic_yogi->total_arhatic_yogi;
+    }    
+
+    if(count($total_arhatic_yogi_trainer) > 0) {
+      $this->data['total_arhatic_yogi_trainer'] = $total_arhatic_yogi_trainer->total_arhatic_yogi_trainer;
+    }
+
+    if(count($total_ypv_yogi_trainer) > 0) {
+      $this->data['total_ypv_yogi_trainer'] = $total_ypv_yogi_trainer->total_ypv_yogi_trainer;
+    }
+
+    /*if(count($total_feedback) > 0) {
+      $this->data['total_feedback'] = $total_feedback->total_feedback;
+    }*/
+
     // echo '<pre>'; print_r($this->data); die;
     $this->load->view($this->layout, $this->data);
   } 

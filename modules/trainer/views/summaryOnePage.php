@@ -52,7 +52,7 @@
         </select>
       <?php } ?>
   </div>
-  <input type="hidden" name="given_by_year_range" id="given_by_year_range">
+  <input type="hidden" name="given_by_year_range" id="given_by_year_range" value="<?php $given_by_year_range; ?>">
   <input type="submit" class="btn btn-success" name="search" value="search">
   <br><br><hr>
   <div class="clearfix"></div>
@@ -139,6 +139,7 @@
 var given_by_year_range = $("#given_by_year_range").val();
 var given_by_year_start = given_by_year_range.split(":");
     given_by_year_start = given_by_year_start[0];
+    console.log(given_by_year_start);
     $("#selected_date").val('Jan '+given_by_year_start);
   $('.month-picker').datepicker({
         firstDay: 1,
