@@ -718,9 +718,35 @@ class ArhaticYogi extends Users {
 
   public function trainerFeedbackSummary(){
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
-    $this->data['page'] = 'trainerFeedbackSummary';
+    $this->data['page'] = 'trainerFeedbackSummary-old';
     $this->data['title'] = $this->title;
     $this->data['page_title'] = 'YPV Trainer Report';
+
+    /*$this->data['feedbackSummaryData'] = $this->db->query("SELECT u.user_id, u.first_name, u.last_name,
+                                        IF(feedback.spiritual_buddie_user_id IS NOT NULL,1,0) as feedbackGiven)
+                                        FROM user_owners uo
+                                        LEFT JOIN users u On u.user_id = uo.user_id
+                                        LEFT JOIN user_roles ur On ur.user_id = uo.user_id
+                                        LEFT JOIN (
+                                           SELECT spiritual_buddie_user_id FROM user_feedbacks
+                                           WHERE feedback_type = 'for trainers'
+                                           AND MONTH(created_at) = '09'
+                                           AND YEAR(created_at) = '2018'
+                                        ) as feedback ON u.user_id = feedback.spiritual_buddie_user_id
+                                        WHERE ur.role_id = 5"
+    );*/
+    $monthAndYear = !empty($_POST['date']) ? " AND MONTH(created_at) = '09' AND YEAR(created_at) = '2018'" : '';
+
+    $this->db->select("u.user_id, u.first_name, u.last_name, IF(feedback.spiritual_buddie_user_id IS NOT NULL,1,0) as feedbackGiven");
+    $this->db->join('users u','u.user_id = uo.user_id','left');
+    $this->db->join('user_roles ur','ur.user_id = uo.user_id','left');
+    $this->db->join("(SELECT spiritual_buddie_user_id FROM user_feedbacks WHERE feedback_type = 'for trainers'".$monthAndYear.") as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
+
+    $this->db->order_by('u.first_name','ASC');
+    $this->data['feedbackSummaryData'] = $this->db->get_where('user_owners uo',array('ur.role_id'=>'5'))->result();
+    /*echo "<pre>";
+    print_r($this->data['feedbackSummaryData']);die;*/
+
     $this->load->add_package_path(ADMIN_PATH);
     $this->load->view($this->layout, $this->data);
   }
