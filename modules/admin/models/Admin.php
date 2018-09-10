@@ -431,8 +431,8 @@ class Admin extends User {
                     if(!empty($this->input->post('spritual_trainer'))){
                         $apply_extra_roles[] = '5';
                     }
-                    
-                    if ($this->input->post('teacher')) {
+
+                    if (!empty($this->input->post('teacher'))) {
                         $apply_extra_roles[] = '4';
                     }
 
