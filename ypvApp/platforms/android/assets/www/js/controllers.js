@@ -214,6 +214,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                             if (response.data.response == 'S') {
                                 $scope.flash_failure = '';
                                 window.localStorage.setItem('auth_token', response.data.data.access_token);
+                                window.localStorage.setItem('is_spritual_trainer', response.data.data.is_spritual_trainer);
                                 $state.go('app.dashboard');
                             }
                             if (response.data.response == 'F') {
@@ -319,7 +320,9 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             };*/
         })
 
-        .controller('dashboardCtrl', function ($scope, $ionicPopup, $state) { })
+        .controller('dashboardCtrl', function ($scope, $ionicPopup, $state) {
+            $scope.is_spritual_trainer = window.localStorage.getItem('is_spritual_trainer');
+         })
 
         .controller('menuCtrl', function ($scope, $ionicPopup, $state) { })
 
@@ -794,6 +797,69 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                 }
             }
         })
+
+        /* Trainer Feedback */
+
+        .controller('feedbackTranierCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams, $filter) { 
+
+            $scope.doSubmitTranierForm = function (feedbackTranierForm) {
+                $scope.flash_success = '';
+                $scope.selected_date = $scope.yearStart+'-'+ (parseInt($scope.monthStart)+1) +'-01 00:00:00';
+                $scope.feedbackTranierFormData = {
+                    selected_date: $scope.selected_date,
+                    role_id: $scope.role_id,
+                    device_id: $scope.device_id,
+                    device_type: $scope.device_type,
+                    access_token: window.localStorage.getItem('auth_token')
+                }
+
+                //alert($scope.feedbackTranierFormData.device_id);
+                //alert($scope.feedbackTranierFormData.no_of_nurtuning_in_last_month);
+                $scope.flash_failure = '';
+                $ionicLoading.show({ templateUrl:"templates/loading.html" });
+
+                $http({
+                        method: 'POST',
+                        data: $scope.feedbackTranierFormData,
+                        url: wsBaseUrl + 'userServices/spritual_trainer_feedback_fields',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }).then(function (response) {
+
+
+                        $timeout(function () {
+                            $ionicLoading.hide();
+                            if (response.data.response == 'S') {
+                                $scope.flash_success = "Feedback Successfully Submitted!";
+                                this.feedbackTranierForm.reset();
+                                $timeout(function (){
+                                    $scope.flash_success = "";
+                                },3000);
+                            }
+                            if (response.data.response == 'F') {
+                                if (response.data.errors != '')
+                                {
+                                    var allErrors = '';
+
+                                    for ( key in response.data.errors ) {
+                                        allErrors += response.data.errors[key] + "\n";
+                                    }
+
+                                    $scope.flash_failure = allErrors;
+
+                                } else {
+                                    $scope.flash_failure = response.data.message;
+                                }
+                            }
+                            $state.go('app.feedback-tranier');
+                        }, 1000);
+
+                    });
+            }
+        })
+       
+        /* Trainer Feedback */
 
         .controller('changePwdCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http) {
             

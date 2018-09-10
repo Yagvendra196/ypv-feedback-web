@@ -13,6 +13,10 @@
             <button class="button button-block btn-larg" ui-sref="app.feedback-buddies">
                 <span class="icon-con"><img src="img/icon-feedback.png"/></span>View Feedback
             </button>
+
+            <button ng-if="is_spritual_trainer == 1" class="button button-block btn-larg" ui-sref="app.feedback-tranier">
+                <span class="icon-con"><img src="img/icon-feedback.png"/></span>Trainer Feedback
+            </button>
         </div>
     </ion-content>
 </ion-view>

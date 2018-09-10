@@ -311,10 +311,20 @@ a.btn-rounded img{ width:16px;}
 
 
 /*dashboard starts*/
-.btn-larg {font-size:22px; min-height:138px; margin-top:77px !important; line-height:27px; padding-top:45px;}
-.icon-con { width:87px; height:87px; line-height:115px; top:-43px; margin-left:-43px;}
-.icon-con img { width:52px;}
-.main-con { padding-left:30px; padding-right:30px;}
+.btn-larg {/*font-size:22px; min-height:138px; margin-top:77px !important; line-height:27px; padding-top:45px;*/
+font-size: 20px;
+    min-height: 90px;
+    margin-top: 48px !important;
+    line-height: 9px;
+    padding-top: 7px;
+    
+
+
+}
+.icon-con { width:57px; height:57px; line-height:94px; top:-35px; margin-left:-32px;overflow: hidden;}
+.icon-con img { width:40px;}
+.main-con { padding-left:30px; padding-right:30px; }
+.overflow-scroll .scroll{height:calc(100% - 80px);}
 /*dashboard ends*/
 
 /*feedback weekly starts*/
