@@ -1,0 +1,77 @@
+#AuthType Basic
+#AuthName "Welcome! Beta Version of http://cihmvc.com is password protected. Please put username and password below."
+#AuthUserFile /public_html/.htpasswd
+#Require valid-user
+
+<IfModule mod_rewrite.c>
+Options -MultiViews
+RewriteEngine On
+
+#RewriteCond %{HTTP_HOST} ^192.168.1.101
+#RewriteCond %{HTTP_HOST} ^localhost
+#RewriteCond %{HTTP_HOST} ^dev.galaxyweblinks.com
+#RewriteCond %{HTTP_HOST} ^ypv-feedback.com
+
+
+RewriteBase /ypv-feedback/dev/
+#RewriteBase /ypv-feedback/
+#RewriteBase /
+
+
+
+
+
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
+#Enforce SSL 
+#RewriteCond %{HTTPS} off
+  #RewriteCond %{THE_REQUEST} !\.(png|jpg|gif|jpeg|bmp)
+  #RewriteCond %{REQUEST_URI} !^/images/
+  #RewriteCond %{REQUEST_URI} !^/js/
+  #RewriteCond %{REQUEST_URI} !^/css/
+#RewriteCond %{HTTP_HOST} !^52.71.49.114
+#RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#RewriteCond %{HTTP_HOST} ^cihmvc 
+#RewriteCond %{THE_REQUEST} !undermaintance.php
+#RewriteRule ^.*$ https://%{HTTP_HOST}/undermaintance.php [L]
+
+#RewriteCond %{HTTP_HOST} ^52.71.49.114 
+#RewriteCond %{THE_REQUEST} !undermaintance.php
+#RewriteRule ^.*$ https://%{HTTP_HOST}/undermaintance.php [L]
+
+
+#request to index.php (1)
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteCond %{REQUEST_URI} ^application.*
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+
+
+#allow module assets 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.*)/assets/(.*)$
+RewriteRule ^(.*)$ modules/$1 [L]
+
+
+#request to index.php (2)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php, and everything works as normal.
+    # Submitted by: ElliotHaughin
+
+    ErrorDocument 404 /index.php
+</IfModule>  
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>

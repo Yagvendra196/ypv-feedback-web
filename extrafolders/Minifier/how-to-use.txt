@@ -1,0 +1,5 @@
+ToMinify Without Version maintan
+http://localhost/cihmvc3.1.0/Minifier/minify.php?v=f&p=application/modules/admin/assets/custom/js/morris-data.js
+
+ToMinify with Version maintan
+http://localhost/cihmvc3.1.0/Minifier/minify.php?v=1&p=application/modules/admin/assets/custom/js/morris-data.js
