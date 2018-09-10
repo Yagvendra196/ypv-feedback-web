@@ -731,26 +731,22 @@ class ArhaticYogi extends Users {
   public function trainerFeedbackSummary(){
     $this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
     
-    $givenYearMonth  = $this->db->distinct()->select('YEAR(created_at) as year,MONTH(created_at) as month ')->get('user_feedbacks')->result_array();
+    $givenYearMonth  = $this->db->distinct()->select('YEAR(created_at) as year')->get('user_feedbacks')->result_array();
     $given_by_year = array_column($givenYearMonth, 'year');
-    $given_by_month = array_column($givenYearMonth, 'month');
     $this->data['given_by_year_start'] = !empty($given_by_year) ? min($given_by_year) : date('Y');
-    $this->data['given_by_year_end'] = $this->data['selected_year'] = !empty($given_by_year) ? max($given_by_year) : date('Y');
-    $this->data['given_by_month'] = $this->data['selected_month'] = !empty($given_by_month) ? (max($given_by_month) - 1) : date('m') - 1;
-    $monthAndYear = '';
-    if(!empty($_POST['month']) && !empty($_POST['year'])){
-      $this->data['selected_year'] = $_POST['year'];
-      $this->data['selected_month'] = $_POST['month'];
-      $monthAndYear .= " AND MONTH(created_at) = ".$_POST['month']." AND YEAR(created_at) = ".$_POST['year']; 
-    }
-
-    $this->db->select("u.user_id, LOWER(CONCAT(u.first_name,' ',u.last_name)) as trainer_name, IF(feedback.spiritual_buddie_user_id IS NOT NULL,1,0) as feedbackGiven");
+    $this->data['given_by_year_end'] = !empty($given_by_year) ? max($given_by_year) : date('Y');
+    
+    $this->data['selected_year'] = !empty($_POST['year']) ? $_POST['year'] : date('Y');
+    $order = !empty($_POST['order']) ? $_POST['order'] : 'ASC';
+    
+    $this->db->distinct();
+    $this->db->select("u.user_id, LOWER(CONCAT(u.first_name, ' ', u.last_name)) as trainer_name,feedback.*");
     $this->db->join('users u','u.user_id = uo.user_id','left');
     $this->db->join('user_roles ur','ur.user_id = uo.user_id','left');
-    $this->db->join("(SELECT distinct spiritual_buddie_user_id FROM user_feedbacks WHERE feedback_type = 'for trainers'".$monthAndYear.") as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
-
-    $this->db->order_by('trainer_name','ASC');
+    $this->db->join("(SELECT spiritual_buddie_user_id,group_concat(MONTH(created_at)) feedbackMonth FROM user_feedbacks WHERE feedback_type = 'for trainers' AND YEAR(created_at) = ".$this->data['selected_year']." GROUP BY spiritual_buddie_user_id) as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
+    $this->db->order_by('trainer_name',$order);
     $this->data['feedbackSummaryData'] = $this->db->get_where('user_owners uo',array('ur.role_id'=>'5'))->result();
+
     if(!empty($_POST)){
       $this->load->view('spritual_trainer_listing',$this->data);
     } else {
