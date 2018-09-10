@@ -9,7 +9,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-comments fa-5x"></i>
+                        <i class="fa fa-users fa-4x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge"><?php echo $total_arhatic_yogi; ?></div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo base_url('trainer/arhaticYogi'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -31,7 +31,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
+                        <i class="fa fa-user-md fa-4x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge"><?php echo $total_arhatic_yogi_trainer; ?></div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo base_url('admin/users'); ?>">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -53,7 +53,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
+                        <i class="fa fa-user fa-4x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge"><?php echo $total_ypv_yogi_trainer; ?></div>
@@ -133,7 +133,7 @@
                     </a>
                     <a href="#" class="list-group-item">
                         <li> current month weekly feedback given 
-                        <span class="pull-right text-muted small"><em>12</em>
+                        <span class="pull-right text-muted small"><em><?php echo $current_month_weekly_feedback_given; ?></em>
                         </span></li>
                     </a>
                     <a href="#" class="list-group-item">
