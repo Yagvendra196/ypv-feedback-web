@@ -177,11 +177,17 @@ class Users extends CI_Controller {
 
 		$this->data['page'] = 'admin_user_add_edit';
 		$this->data['title'] = $this->title;
+		$heading='';
+		if(!empty($this->uri->segment('4')) && ($this->uri->segment('4')!='' and $this->uri->segment('4')!='success')){
+			$heading='Edit ';
+		}else{
+			$heading='Add ';
+		}
 
 		if ($this->session->userdata('action_of')=='examiner')
-		$this->data['page_title'] = STUDENT.' add/edit';
+		$this->data['page_title'] = $heading.STUDENT;
 			else
-		$this->data['page_title'] = 'Arhatic Yogi '.EXAMINER.' add/edit';
+		$this->data['page_title'] = $heading.' Arhatic Yogi '.EXAMINER;
 
 		$primary_key = 'user_id';
 		$insert_id = $this->Admin->admin_user_add_edit_post_for_web($primary_key); 

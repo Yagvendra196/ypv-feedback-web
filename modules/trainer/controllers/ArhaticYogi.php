@@ -667,6 +667,8 @@ class ArhaticYogi extends Users {
     $this->data['total_arhatic_yogi_trainer'] = 0;
     $this->data['total_ypv_yogi_trainer']     = 0;
     $this->data['total_feedback']             = 0;
+    $this->data['current_month_weekly_feedback_given'] = 0;
+    
 
     $this->load->add_package_path(ADMIN_PATH);
     $this->data['user_id'] = $user_id = $this->session->userdata('user_id');
@@ -691,7 +693,13 @@ class ArhaticYogi extends Users {
     $this->db->join('user_owners as uo', 'uo.user_id = up.user_id', 'LEFT');
     $total_ypv_yogi_trainer = $this->Utility->getRowByField('user_profile as up', array('up.user_id'  => $user_id, 
                                                                                         'up.is_spritual_trainer' => 1));
-     // echo $this->db->last_query(); die;
+    //echo $this->db->last_query(); die;
+    /*$this->db->select('COUNT(*) AS current_month_weekly_feedback_given');
+    $current_month_weekly_feedback_given = $this->Utility->getRowByField('user_feedbacks', array('feedback_type' => 'Weekly',
+                                                                                    'month(created_at)'  => 'month(curdate())','user_id'=>$user_id));*/
+   $current_month_weekly_feedback_given= $this->db->query('SELECT count(*) as current_month_weekly_feedback_given FROM user_feedbacks WHERE feedback_type="Weekly" AND month(created_at) = month(curdate()) AND user_id='.$user_id.'')->result();
+
+     //echo $this->db->last_query(); die;
     /*$this->db->select('COUNT(*) AS total_feedback');
     $total_feedback = $this->Utility->getRowByField('user_owners',array('owner_user_id'  => $user_id, 
                                                                                     'owners_role_id' => 4));*/
@@ -706,6 +714,10 @@ class ArhaticYogi extends Users {
 
     if(count($total_ypv_yogi_trainer) > 0) {
       $this->data['total_ypv_yogi_trainer'] = $total_ypv_yogi_trainer->total_ypv_yogi_trainer;
+    }
+
+    if(count($current_month_weekly_feedback_given) > 0) {
+      $this->data['current_month_weekly_feedback_given'] = $current_month_weekly_feedback_given[0]->current_month_weekly_feedback_given;
     }
 
     /*if(count($total_feedback) > 0) {
