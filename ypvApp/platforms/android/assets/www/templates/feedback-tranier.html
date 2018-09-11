@@ -1,63 +1,35 @@
-<!-- <ion-view class="" title="Monthly feedback for {{ user_details.first_name}}" ng-controller="feedbackTranierCtrl" ng-init="init()"> -->
-    <ion-view class="" title="Feedback Trainers" ng-controller="feedbackTranierCtrl" ng-init="init()">
+<ion-view class="" title="Feedback Trainers" ng-controller="tranierCtrl" ng-init="init()">
     <ion-content class="has-header has-header-inner1">
-
         <div class="clearfix"></div>
+       <form class="list form1" name="tranierForm" novalidate="" ng-submit="dotranierForm(tranierForm)">
 
-
-        <form class="list form1" name="feedbackTranierForm" novalidate="" ng-submit="doSubmitTranierForm(feedbackTranierForm)">
-
-          <div class="row responsive-sm">
-                       <!--  <div class="col slide-footer" ng-show="choice == 'feedbackWeekly'">
-                            <a href="#/app/myBuddies/mybuddies" ng-click="getPreviousWeek()"><img src="img/arrow-left1.png" class="img-marr"></a>
-                            {{ weekStartDate }} to {{ weekEndDate }}
-                            <a href="#/app/myBuddies/mybuddies" ng-click="getNextWeek()"><img src="img/arrow-right2.png" class="img-marl"></a>
-                        </div> -->
-                        <!-- /{{ yearStart }} -->
-            </div>
-
-
-
-            <input name="role_id" value="" type="hidden" ng-model="feedbackTranierFormData.role_id" />
-            <input name="device_id" value="" type="hidden" ng-model="feedbackTranierFormData.device_id" />
-            <input name="device_type" value="" type="hidden" ng-model="feedbackTranierFormData.device_type" />
-            <input name="access_token" value="" type="hidden" ng-model="feedbackTranierFormData.access_token" />
-            <input type="hidden" name="monthStart" ng-model="feedbackTranierFormData.monthStart" value="{{ monthStart }}"/>
-            <input type="hidden" name="yearStart" ng-model="feedbackTranierFormData.access_token" value="{{ yearStart }}"/>
-
-
-
+            <input name="role_id" value="" type="hidden" ng-model="tranierFormData.role_id" />
+            <input name="device_id" value="" type="hidden" ng-model="tranierFormData.device_id" />
+            <input name="device_type" value="" type="hidden" ng-model="tranierFormData.device_type" />
+            <input name="access_token" value="" type="hidden" ng-model="tranierFormData.access_token" />
             <div class="list">
-                <!-- feedbackMonthlyForm.feedback_field_51.$error.required || feedbackMonthlyFormData.feedback_field_51.$error.minlength || feedbackMonthlyFormData.feedback_field_51.$error.maxlength -->
-
-
                  <div class="row form-stacked-row">
                      <div class="col legend-box">
-                          <!--<span class="legend-box-heading"> FOR TRAINERS  {{ feedback_fields[6].feedback_field_group_label }}  </span>-->
-
                          <div class="row form-stacked-row">
                                <div>
                                     <label  class="item item-input item-stacked-label" >
                                     <span  style="white-space:pre-wrap;">Select a month and year </span></label>
                                     <div class="row responsive-sm">
-                                    <div class="col slide-footer">
-                                        <a href="#" ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
-                                         {{ monthStartinWords }}, {{ yearStart }}
-                                        <a href="#" ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                                        <div class="col slide-footer">
+                                            <a href="#" ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                                             {{ monthStartinWords }}, {{ yearStart }}
+                                            <a href="#" ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                                            <input type="hidden" name="monthStart" ng-model="tranierFormData.monthStart" value="{{ monthStart }}"/>
+                                            <input type="hidden" name="yearStart" ng-model="tranierFormData.yearStart" value="{{ yearStart }}"/>
+                                        </div>
                                     </div>
-                                    </div>
-
                                 </div>
                          </div>
-
-
                          <div class="row form-stacked-row">
                                <div>
                                     <label  class="item item-input item-stacked-label" >
-
-                                    <span class="input-label" style="white-space:pre-wrap;">No. of nurtuning session conducted in last month<!-- {{ feedback_fields[6].feedback_field_label }} -->        </span>
-
-                                 <input type="text" class="" name="no_of_nurtuning_in_last_month" ng-model="feedbackTranierFormData.no_of_nurtuning_in_last_month" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+                                        <span class="input-label" style="white-space:pre-wrap;">No. of nurtuning session conducted in last month</span>
+                                        <input type="text" class="" name="no_of_nurtuning_in_last_month" ng-model="tranierFormData.no_of_nurtuning_in_last_month" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
                                    </label>
                                 </div>
                          </div>
@@ -65,19 +37,17 @@
                          <div class="row form-stacked-row">
                                 <div>
                                     <label  class="item item-input item-stacked-label" >
-                                    <span class="input-label" style="white-space:pre-wrap;" >How many classes conducted in last one month course wise<!-- {{ feedback_fields[7].feedback_field_label }} -->   </span>
-
-                                    <input type="text" class="" name="how_many_classes_conducted_last_month" ng-model="feedbackTranierFormData.how_many_classes_conducted_last_month" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
-
-                                   </label>
+                                        <span class="input-label" style="white-space:pre-wrap;" >How many classes conducted in last one month course wise</span>
+                                        <input type="text" class="" name="how_many_classes_conducted_last_month" ng-model="tranierFormData.how_many_classes_conducted_last_month" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+                                    </label>
                                 </div>
                          </div>
 
                          <div class="row form-stacked-row">
                                <div>
                                     <label  class="item item-input item-stacked-label" >
-                                    <span class="input-label" style="white-space:pre-wrap;" >No. of students generated during last month course wise<!-- {{ feedback_fields[8].feedback_field_label }} --></span>
-                                    <input type="text" class="" name="no_of_student_generated_last_month" ng-model="feedbackTranierFormData.no_of_student_generated_last_month" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+                                    <span class="input-label" style="white-space:pre-wrap;" >No. of students generated during last month course wise</span>
+                                    <input type="text" class="" name="no_of_student_generated_last_month" ng-model="tranierFormData.no_of_student_generated_last_month" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
                                    </label>
                                 </div>
                          </div>
@@ -85,10 +55,17 @@
                          <div class="row form-stacked-row">
                                 <div>
                                     <label  class="item item-input item-stacked-label" >
-                                    <span class="input-label" style="white-space:pre-wrap;" >No. of students motivated for higher courses<!-- {{ feedback_fields[9].feedback_field_label }} --></span>
+                                        <span class="input-label" style="white-space:pre-wrap;" >No. of students motivated for higher courses</span>
+                                        <input type="text" class="" name="no_of_student_motivated_higher_course" ng-model="tranierFormData.no_of_student_motivated_higher_course" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+                                    </label>
+                                </div>
+                         </div>
 
-                                    <input type="text" class="" name="no_of_student_motivated_higher_course" ng-model="feedbackTranierFormData.no_of_student_motivated_higher_course" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
-
+                         <div class="row form-stacked-row">
+                              <div>
+                                    <label  class="item item-input item-stacked-label" >
+                                    <span class="input-label" style="white-space:pre-wrap;" > No. of new students motivated to join morning  webinar during the month</span>
+                                    <input type="text" class="" name="no_of_new_student_motivated_morning_webinar" ng-model="tranierFormData.no_of_new_student_motivated_morning_webinar" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  required>
                                    </label>
                                 </div>
                          </div>
@@ -96,8 +73,8 @@
                          <div class="row form-stacked-row">
                               <div>
                                     <label  class="item item-input item-stacked-label" >
-                                    <span class="input-label" style="white-space:pre-wrap;" > No. of new students motivated to join morning  webinar during the month<!-- {{ feedback_fields[10].feedback_field_label }} --></span>
-                                    <input type="text" class="" name="no_of_new_student_motivated_morning_webinar" ng-model="feedbackTranierFormData.no_of_new_student_motivated_morning_webinar" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  required>
+                                    <span class="input-label" style="white-space:pre-wrap;" >Tithing</span>
+                                    <input type="text" class="" name="tithing" ng-model="tranierFormData.tithing" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  required>
                                    </label>
                                 </div>
                          </div>
@@ -105,17 +82,8 @@
                          <div class="row form-stacked-row">
                               <div>
                                     <label  class="item item-input item-stacked-label" >
-                                    <span class="input-label" style="white-space:pre-wrap;" >Tithing<!-- {{ feedback_fields[10].feedback_field_label }} --></span>
-                                    <input type="text" class="" name="tithing" ng-model="feedbackTranierFormData.tithing" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  required>
-                                   </label>
-                                </div>
-                         </div>
-
-                         <div class="row form-stacked-row">
-                              <div>
-                                    <label  class="item item-input item-stacked-label" >
-                                    <span class="input-label" style="white-space:pre-wrap;" >Service hours<!-- {{ feedback_fields[10].feedback_field_label }} --></span>
-                                    <input type="text" class="" name="service_hours" ng-model="feedbackTranierFormData.service_hours" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  required>
+                                    <span class="input-label" style="white-space:pre-wrap;" >Service hours</span>
+                                    <input type="text" class="" name="service_hours" ng-model="tranierFormData.service_hours" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"  required>
                                    </label>
                                 </div>
                          </div>
@@ -125,27 +93,18 @@
                                <div id="ff_53">
                                     <label class="item item-input item-stacked-label">
                                     <span class="input-label ng-binding" style="white-space:pre-wrap;" aria-label="" id="_label-10">Service details </span>
-                                     <textarea required class="ng-pristine ng-untouched ng-valid" rows="8" cols="10" id="feedback_field_53" name="service_details" ng-model="feedbackTranierFormData.service_details"></textarea>
+                                     <textarea required class="ng-pristine ng-untouched ng-valid" rows="8" cols="10" id="feedback_field_53" name="service_details" ng-model="tranierFormData.service_details"></textarea>
                                    </label>
                                 </div>
                             </div>
                          </div>
-
                     </div>
                   </div>
-
-
 
                 <div class="success-msg">{{ flash_success }}</div>
                 <div class="has-error">{{ flash_failure }} </div>
 
-                <button type="submit" class="button button-stable button-block btn-login" ng-disabled="feedbackTranierForm.$invalid">SAVE</button>
-
-                <!-- <a ui-sref="app.my-buddies">
-                    <button id="toMyBuddies" style="display: none;">toMyBuddies</button>
-                </a> -->
-
-                <!-- <a class="button button-stable  button-block btn-login" onclick="setFeedbackMonthlyValidations(this);">SUBMIT</a> -->
+                <button type="submit" class="button button-stable button-block btn-login" ng-disabled="tranierForm.$invalid">SAVE</button>
             </div>
         </form>
     </ion-content>

@@ -78,17 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         }
     })
 
-    .state('app.feedback-tranier', {
-            url: '/feedbackTranier',
-            cache: false,
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/feedback-tranier.html',
-                    controller: 'feedbackTranierCtrl'
-                }
-            }
-        })
-
     .state('app.add-buddies', {
         url: '/addBuddies',
         cache: false,
@@ -151,6 +140,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
             'menuContent': {
                 templateUrl: 'templates/change-password.html',
                 controller: 'changePwdCtrl'
+            }
+        }
+    })
+
+    .state('app.feedbacktranier', {
+        url: '/tranier',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/feedback-tranier.html',
+                controller: 'tranierCtrl'
             }
         }
     })

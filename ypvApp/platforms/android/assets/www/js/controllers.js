@@ -799,40 +799,39 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
         })
 
         /* Trainer Feedback */
+    
+        .controller('tranierCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http) {
+            
+            $scope.flash_success = '';
+            
+            $scope.tranierFormData = {
+                role_id: $scope.role_id,
+                device_id: $scope.device_id,
+                device_type: $scope.device_type,
+                access_token: window.localStorage.getItem('auth_token'),
+                selected_date:$scope.selected_date
+            }
 
-        .controller('feedbackTranierCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams, $filter) { 
-
-            $scope.doSubmitTranierForm = function (feedbackTranierForm) {
-                $scope.flash_success = '';
-                $scope.selected_date = $scope.yearStart+'-'+ (parseInt($scope.monthStart)+1) +'-01 00:00:00';
-                $scope.feedbackTranierFormData = {
-                    selected_date: $scope.selected_date,
-                    role_id: $scope.role_id,
-                    device_id: $scope.device_id,
-                    device_type: $scope.device_type,
-                    access_token: window.localStorage.getItem('auth_token')
-                }
-
-                //alert($scope.feedbackTranierFormData.device_id);
-                //alert($scope.feedbackTranierFormData.no_of_nurtuning_in_last_month);
+            $scope.dotranierForm = function (tranierForm) {
                 $scope.flash_failure = '';
+                $scope.selected_date = $scope.yearStart+'-'+ (parseInt($scope.monthStart)+1) +'-01 00:00:00';
+                $scope.tranierFormData.selected_date = $scope.selected_date;
+                console.log($scope.tranierFormData);
                 $ionicLoading.show({ templateUrl:"templates/loading.html" });
 
                 $http({
                         method: 'POST',
-                        data: $scope.feedbackTranierFormData,
+                        data: $scope.tranierFormData,
                         url: wsBaseUrl + 'userServices/spritual_trainer_feedback_fields',
                         headers: {
                             'Content-Type': 'application/json',
                         }
                     }).then(function (response) {
-
-
                         $timeout(function () {
                             $ionicLoading.hide();
                             if (response.data.response == 'S') {
                                 $scope.flash_success = "Feedback Successfully Submitted!";
-                                this.feedbackTranierForm.reset();
+                                this.tranierForm.reset();
                                 $timeout(function (){
                                     $scope.flash_success = "";
                                 },3000);
@@ -841,20 +840,17 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                                 if (response.data.errors != '')
                                 {
                                     var allErrors = '';
-
                                     for ( key in response.data.errors ) {
                                         allErrors += response.data.errors[key] + "\n";
                                     }
-
                                     $scope.flash_failure = allErrors;
 
                                 } else {
                                     $scope.flash_failure = response.data.message;
                                 }
                             }
-                            $state.go('app.feedback-tranier');
+                            $state.go('app.feedbacktranier');
                         }, 1000);
-
                     });
             }
         })
