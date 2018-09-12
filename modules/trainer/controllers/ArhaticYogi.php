@@ -749,7 +749,7 @@ class ArhaticYogi extends Users {
     $this->db->select("u.user_id, LOWER(CONCAT(u.first_name, ' ', u.last_name)) as trainer_name,feedback.*");
     $this->db->join('users u','u.user_id = uo.user_id','left');
     $this->db->join('user_roles ur','ur.user_id = uo.user_id','left');
-    $this->db->join("(SELECT spiritual_buddie_user_id,group_concat(MONTH(created_at)) feedbackMonth FROM user_feedbacks WHERE feedback_type = 'for trainers' AND YEAR(created_at) = ".$this->data['selected_year']." GROUP BY spiritual_buddie_user_id) as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
+    $this->db->join("(SELECT spiritual_buddie_user_id,group_concat(DISTINCT MONTH(created_at)) feedbackMonth FROM user_feedbacks WHERE feedback_type = 'for trainers' AND YEAR(created_at) = ".$this->data['selected_year']." GROUP BY spiritual_buddie_user_id) as feedback","u.user_id = feedback.spiritual_buddie_user_id","left");
     $this->db->order_by('trainer_name',$order);
     $this->data['feedbackSummaryData'] = $this->db->get_where('user_owners uo',array('ur.role_id'=>'5'))->result();
 
