@@ -1220,7 +1220,7 @@ class userServices extends REST_Controller
                             'week_id'                  => 0,
                             'feedback_type'            => $feedbackType,
                             'status'                   => "Running",
-                            'created_at'               => date('Y-m-15 H:i:s', strtotime($selected_date) )
+                            'created_at'               => date('Y-m-d H:i:s', strtotime($selected_date) )
                     );
                     $this->db->insert('user_feedbacks', $user_feedbacks_arr);
                     $user_feedback_id = $this->db->insert_id();

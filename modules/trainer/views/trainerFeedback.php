@@ -8,7 +8,7 @@
     }
 </style>
 <div class="panel-body">
-    <h1>Trainer Feedback(s)</h1>
+    <h1>YPV Trainer Feedback(s)</h1>
     <hr/>
     <h4><?php echo $page_title; ?></h4>
     <br/>
@@ -20,9 +20,21 @@
                 <input type="text" class="month-picker form-control" id="selected_date" value=""/>
             </div>
         </div>
-        <input type="hidden" id="given_by_year_range" value="<?php echo $given_by_year_range; ?>" />
-        <input type="hidden" id="given_to_year_range" value="<?php echo $given_to_year_range; ?>" />
-        <input type="hidden" id="given_by_month" value="<?php if(!empty($given_by_month[0]))echo $given_by_month[0]; ?>" />
+        <?php 
+            if(!empty($year) && !empty($month)){
+                $yearValue=$year.':'.($year+1);
+                $monthValue=$month;
+            }else{
+                $yearValue=$given_by_year_range;
+                if(!empty($given_by_month[0])){
+                    $monthValue=$given_by_month[0];
+                }else{
+                    $monthValue='';
+                }
+            }
+         ?>
+        <input type="hidden" id="given_by_year_range" value="<?php echo $yearValue; ?>" />
+        <input type="hidden" id="given_by_month" value="<?php echo $monthValue; ?>" />
         <input type="hidden" id="selected_date_hidden"  name="selected_date"  value="" />
         <input type="hidden" id="user_id"  name="user_id"  value="<?php echo $this->uri->segment('4'); ?>" />
         <input type="hidden" id="idWeek"  name="idWeek"  value="<?php echo $weekInfo->idWeek; ?>" />

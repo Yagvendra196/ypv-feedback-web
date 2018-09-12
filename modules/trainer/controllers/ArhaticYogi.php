@@ -423,6 +423,12 @@ class ArhaticYogi extends Users {
     $this->data['user_id'] = $user_id;
     $this->data['row'] = $this->Utility->getRowByField('users',array('users.user_id'=>$user_id));
 
+
+    if(!empty($this->uri->segment(5)) && !empty($this->uri->segment(6)) && is_numeric($this->uri->segment(5)) && is_numeric($this->uri->segment(6))){
+      $this->data['month'] = $this->uri->segment(5);
+      $this->data['year'] = $this->uri->segment(6);
+    }
+
     $this->db->select("w.idWeek, DATE_FORMAT(w.week_start_date, '%d/%m/%Y') AS week_start_date, DATE_FORMAT(w.week_end_date, '%d/%m/%Y') AS week_end_date");
     $this->db->where('w.week_start_date <=', date('Y-m-d'));
     $this->db->where('w.week_end_date >=', date('Y-m-d'));

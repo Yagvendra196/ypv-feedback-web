@@ -6,6 +6,8 @@ var given_by_year_start = given_by_year_range.split(":");
     given_by_year_start = given_by_year_start[0];
 
 var given_by_month = $("#given_by_month").val();
+/*console.log(given_by_year_start);
+console.log(given_by_month);*/
 var week_id = 0;
 $("#selected_date").val(month[given_by_month-1]+' '+given_by_year_start);
 
@@ -165,7 +167,7 @@ function drawTable(data) {
 function drawRow(rowData) {
     var row = $("<tr />")
     $("#feedbackDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-    row.append($("<td>" + rowData.feedback_field_name + "</td>"));
+    row.append($("<td>" + rowData.feedback_field_label + "</td>"));
     var user_feedback_field_value = rowData.user_feedback_field_value;
     if(!user_feedback_field_value){
         user_feedback_field_value = '-';

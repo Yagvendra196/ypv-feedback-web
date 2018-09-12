@@ -23,7 +23,7 @@
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
                         */ ?>
                         <li><a href="<?php echo base_url($moduleFolder.'/users/changePassword'); ?>"><i class="fa fa-gear fa-fw"></i> Change Password</a></li>
-                        <?php if ($this->Security->doesUserHasCapability('super_admin')) { ?>
+                        <?php if ($this->Security->doesUserHasCapability('super_admin') || $this->Security->doesUserHasCapability('examiner')) { ?>
                             <li><a href="<?php echo base_url($moduleFolder.'/users/changeUserPassword'); ?>"><i class="fa fa-gear fa-fw"></i> Change User Password</a></li>
                         <?php } ?>
                         <li class="divider"></li>

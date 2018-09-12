@@ -90,7 +90,7 @@ class Users extends CI_Controller {
 	}
 
 	public function changeUserPassword(){
-		if(!$this->Security->doesUserHasCapability('super_admin')){
+		if(!$this->Security->doesUserHasCapability('examiner') && !$this->Security->doesUserHasCapability('super_admin')){
 			redirect($this->config->item('modules_folders')['admin'].'/users');
 		}
 		if($_POST){
@@ -110,7 +110,7 @@ class Users extends CI_Controller {
 				redirect($this->config->item('modules_folders')['admin'].'/users/changeUserPassword');
 			}
 		}
-		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1'], 'Redirect' => true]);
+		$this->Security->AllowedRoles('admin', ['UserTypes' => ['1','4'], 'Redirect' => true]);
 		$this->data['page'] = 'admin_change_user_password';
 		$this->data['title'] = $this->title;
 		$this->data['page_title'] = $this->moduleName.' Change User Password';
