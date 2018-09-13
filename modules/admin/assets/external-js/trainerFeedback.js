@@ -6,8 +6,6 @@ var given_by_year_start = given_by_year_range.split(":");
     given_by_year_start = given_by_year_start[0];
 
 var given_by_month = $("#given_by_month").val();
-/*console.log(given_by_year_start);
-console.log(given_by_month);*/
 var week_id = 0;
 $("#selected_date").val(month[given_by_month-1]+' '+given_by_year_start);
 

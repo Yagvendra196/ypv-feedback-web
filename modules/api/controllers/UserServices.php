@@ -620,12 +620,7 @@ class userServices extends REST_Controller
                             '53' => $this->post('feedback_field_53'),
                             '54' => $this->post('feedback_field_54'),
                             '55' => $this->post('feedback_field_55'),
-                            '56' => $this->post('feedback_field_56'),
-                            '57' => $this->post('feedback_field_57'),
-                            '58' => $this->post('feedback_field_58'),
-                            '59' => $this->post('feedback_field_59'),
-                            '60' => $this->post('feedback_field_60'),
-                            '61' => $this->post('feedback_field_61')
+                            '56' => $this->post('feedback_field_56')
                     );
                 
                     $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selected_date) );  //monthly
@@ -1190,14 +1185,14 @@ class userServices extends REST_Controller
                 $info = array();
                 $spiritualBuddieUserID = $userID;
                 $feedback_field_arr = array(
-                            '57' => $this->post('no_of_nurtuning_in_last_month'),
-                            '58' => $this->post('how_many_classes_conducted_last_month'),
-                            '59' => $this->post('no_of_student_generated_last_month'),
-                            '60' => $this->post('no_of_student_motivated_higher_course'),
-                            '61' => $this->post('no_of_new_student_motivated_morning_webinar'),
-                            '62' => $this->post('tithing'),
-                            '63' => $this->post('service_hours'),
-                            '64' => $this->post('service_details')
+                            '57' => $this->post('feedback_field_57'),
+                            '58' => $this->post('feedback_field_58'),
+                            '59' => $this->post('feedback_field_59'),
+                            '60' => $this->post('feedback_field_60'),
+                            '61' => $this->post('feedback_field_61'),
+                            '62' => $this->post('feedback_field_62'),
+                            '63' => $this->post('feedback_field_63'),
+                            '64' => $this->post('feedback_field_64')
                 );
                 $selected_date=$this->post('selected_date');
                 $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selected_date) );
@@ -1263,6 +1258,61 @@ class userServices extends REST_Controller
         $this->response($message, 200); // 200 being the HTTP response code
     }
 
+    function spritual_trainer_view_feedback_fields_post() {
+        if (!empty($this->post())) {
+            $this->Security->avoid_mysql_injection(false);
+            $errormessage = "";
+            if ($this->post('access_token') != '' || (isset($_SERVER['HTTP_ACCESS_TOKEN']) && !empty($_SERVER['HTTP_ACCESS_TOKEN']) )) {
+                $requestFrom = 'Device';
+                $device_id = $this->post('device_id');
+                $device_type = $this->post('device_type');
+                $access_token = $this->post('access_token');
+            } else {
+                $requestFrom = 'Web';
+            }
+
+            if ($requestFrom=='Web') {
+                $userID = $this->session->userdata('user_id');
+            } else {
+                $userID = $this->User->getUserId($access_token);
+            }
+
+            if (isset($userID) && !empty($userID)) {
+                $data = array();
+                $info = array();
+                $spiritualBuddieUserID = $userID;
+
+                $selected_date=$this->post('selected_date');
+                $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selected_date) );
+                $days =  date('t', strtotime($selected_date) );  
+                $selectedEndDate =  date('Y-m-1 H:i:s', strtotime($selectedStartDate)+($days*24*60*60) );
+                $feedbackType=$this->post('feedback_type');
+
+                $this->db->select('ufbf.feedback_field_id,ff.feedback_field_name,ufbf.user_feedback_field_value');
+                $this->db->join('user_feedbacks ufb','ufbf.user_feedback_id=ufb.user_feedback_id','left');
+                $this->db->join('feedback_fields ff','ff.feedback_field_id=ufbf.feedback_field_id','left');
+                $where = array('ufb.user_id'       => $userID, 
+                    'ufb.spiritual_buddie_user_id' => $spiritualBuddieUserID, 
+                    'ufb.feedback_type'            => $feedbackType,
+                    'ufb.created_at >='            => $selectedStartDate,
+                    'ufb.created_at <'             => $selectedEndDate,
+                    'ufb.status'                   => "Running"
+                );
+                $uf = $this->db->get_where('user_feedback_fields ufbf', $where)->result();
+                if (!empty($uf)) {
+                    $user_feedback_data=$uf;
+                    $message = array('response'=>'S','data'=>$user_feedback_data);
+                }else{
+                    $message = array('response'=>'F','message'=>'No record(s) found','errors'=>array());
+                }
+            }else{
+                $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
+            }
+        }else{
+            $message = array('response'=>'F','message'=>'Post values not found','errors'=>array());
+        }
+        $this->response($message, 200);
+    }
 
     function view_feedback_fields_post() {
         if (!empty($this->post())) {
@@ -1372,7 +1422,7 @@ class userServices extends REST_Controller
                 }
 
                 $ufb = $this->db->get_where('user_feedbacks as ufb',$where )->result(); 
-
+                //echo $this->db->last_query();die();
                 if (isset($ufb) && !empty($ufb)) {
                     
                     $this->db->join('user_feedbacks AS ufb', 'ufbf.user_feedback_id = ufb.user_feedback_id', 'left');
