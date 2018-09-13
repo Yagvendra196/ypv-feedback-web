@@ -1422,7 +1422,6 @@ class userServices extends REST_Controller
                 }
 
                 $ufb = $this->db->get_where('user_feedbacks as ufb',$where )->result(); 
-                //echo $this->db->last_query();die();
                 if (isset($ufb) && !empty($ufb)) {
                     
                     $this->db->join('user_feedbacks AS ufb', 'ufbf.user_feedback_id = ufb.user_feedback_id', 'left');
