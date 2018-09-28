@@ -730,7 +730,7 @@ class userServices extends REST_Controller
                                 );
                     }
                 }
-
+                $data['version_name']="1.9";
                 $message = array('response'=>'S','data'=>$data);
             } else {
                 $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
