@@ -16,7 +16,8 @@ define('MYSQL_DATE', "Y-m-d H:i:s");
 
 $config['site_name']                 = 'ypvhealing';
 $config['dev_site_name']             = 'ypv-feedback';
-$config['domain_name']               = $config['site_name'].'.com';		
+$config['domain_name']               = $config['site_name'].'.com';
+$config['version_name']                 = '1.9';		
 if ( stristr($_SERVER['HTTP_HOST'],'.in') ) {
 	$config['domain_name']               = $config['site_name'].'.in';		
 }

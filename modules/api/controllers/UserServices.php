@@ -620,7 +620,12 @@ class userServices extends REST_Controller
                             '53' => $this->post('feedback_field_53'),
                             '54' => $this->post('feedback_field_54'),
                             '55' => $this->post('feedback_field_55'),
-                            '56' => $this->post('feedback_field_56')
+                            '56' => $this->post('feedback_field_56'),
+                            '57' => $this->post('feedback_field_57'),
+                            '58' => $this->post('feedback_field_58'),
+                            '59' => $this->post('feedback_field_59'),
+                            '60' => $this->post('feedback_field_60'),
+                            '61' => $this->post('feedback_field_61')
                     );
                 
                     $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selected_date) );  //monthly
@@ -730,8 +735,7 @@ class userServices extends REST_Controller
                                 );
                     }
                 }
-                $version_name="1.9";
-                $message = array('response'=>'S','data'=>$data,'version_name'=>$version_name);
+                $message = array('response'=>'S','data'=>$data,'version_name'=>$this->config->item('version_name'));
             } else {
                 $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
             } 
@@ -874,7 +878,7 @@ class userServices extends REST_Controller
                 }
             }
 
-            $message = array('response'=>'S','data'=>$data);
+            $message = array('response'=>'S','data'=>$data,'version_name'=>$this->config->item('version_name'));
         } else {
             $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
         } 
@@ -1185,14 +1189,14 @@ class userServices extends REST_Controller
                 $info = array();
                 $spiritualBuddieUserID = $userID;
                 $feedback_field_arr = array(
-                            '57' => $this->post('feedback_field_57'),
-                            '58' => $this->post('feedback_field_58'),
-                            '59' => $this->post('feedback_field_59'),
-                            '60' => $this->post('feedback_field_60'),
-                            '61' => $this->post('feedback_field_61'),
                             '62' => $this->post('feedback_field_62'),
                             '63' => $this->post('feedback_field_63'),
-                            '64' => $this->post('feedback_field_64')
+                            '64' => $this->post('feedback_field_64'),
+                            '65' => $this->post('feedback_field_65'),
+                            '66' => $this->post('feedback_field_66'),
+                            '67' => $this->post('feedback_field_67'),
+                            '68' => $this->post('feedback_field_68'),
+                            '69' => $this->post('feedback_field_69')
                 );
                 $selected_date=$this->post('selected_date');
                 $selectedStartDate =  date('Y-m-1 H:i:s', strtotime($selected_date) );
@@ -1301,7 +1305,7 @@ class userServices extends REST_Controller
                 $uf = $this->db->get_where('user_feedback_fields ufbf', $where)->result();
                 if (!empty($uf)) {
                     $user_feedback_data=$uf;
-                    $message = array('response'=>'S','data'=>$user_feedback_data);
+                    $message = array('response'=>'S','data'=>$user_feedback_data,'version_name'=>$this->config->item('version_name'));
                 }else{
                     $message = array('response'=>'F','message'=>'No record(s) found','errors'=>array());
                 }
