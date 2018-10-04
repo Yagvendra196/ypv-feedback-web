@@ -1307,7 +1307,7 @@ class userServices extends REST_Controller
                     $user_feedback_data=$uf;
                     $message = array('response'=>'S','data'=>$user_feedback_data,'version_name'=>$this->config->item('version_name'));
                 }else{
-                    $message = array('response'=>'F','message'=>'No record(s) found','errors'=>array());
+                    $message = array('response'=>'F','version_name'=>$this->config->item('version_name'),'message'=>'No record(s) found','errors'=>array());
                 }
             }else{
                 $message = array('response'=>'F','message'=>'Please login.','errors'=>array());
