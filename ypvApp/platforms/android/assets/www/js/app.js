@@ -145,12 +145,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     })
 
     .state('app.feedbacktranier', {
-        url: '/tranier',
+        url: '/tranier/:month/:year',
         cache: false,
         views: {
             'menuContent': {
                 templateUrl: 'templates/feedback-tranier.html',
                 controller: 'tranierCtrl'
+            }
+        }
+    })
+
+     .state('app.feedbackTranierMonthly', {
+        url: '/monthly_tranier',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/feedback-tranier-monthly.html',
+                controller: 'feedbackTranierMonthlyCtrl'
             }
         }
     })

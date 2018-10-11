@@ -1,0 +1,41 @@
+<ion-view class="" title="Select Month" ng-controller="feedbackTranierMonthlyCtrl" ng-init="init()">
+    <ion-content class="has-header has-header-inner1">
+        <div class="clearfix"></div>
+       
+       <!-- <form class="list form1" name="" novalidate="" ng-submit="dotranierForm(tranierForm)"> -->
+
+            <input name="role_id" value="" type="hidden" ng-model="tranierFormData.role_id" />
+            <input name="device_id" value="" type="hidden" ng-model="tranierFormData.device_id" />
+            <input name="device_type" value="" type="hidden" ng-model="tranierFormData.device_type" />
+            <input name="access_token" value="" type="hidden" ng-model="tranierFormData.access_token" />
+            <div class="list">
+                 <div class="row form-stacked-row">
+                     <div class="col">
+                         <div class="">
+                               <div>
+                                    <label  class=" item-input item-stacked-label text-center" >
+                                    <span  style="white-space:pre-wrap;">Select a month and year </span></label>
+                                    <div class="row responsive-sm">
+                                        <div class="col slide-footer">
+                                            <a href="#" ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                                             {{ monthStartinWords }}, {{ yearStart }}
+                                            <a href="#" ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                                            <input type="hidden" name="monthStart" ng-model="tranierFormData.monthStart" value="{{ monthStart }}"/>
+                                            <input type="hidden" name="yearStart" ng-model="tranierFormData.yearStart" value="{{ yearStart }}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                         </div>
+                        
+
+                         
+                    </div>
+                  </div>
+
+                
+
+                 <a class="btn-small btn-small-relative"  ng-href="#/app/tranier//{{ weekID }}" href="#/app/tranier/{{ monthStart }}/{{ yearStart }}">Go </a>
+            </div>
+        <!-- </form> -->
+    </ion-content>
+</ion-view>

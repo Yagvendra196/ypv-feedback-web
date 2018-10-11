@@ -2,13 +2,16 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
         .controller('AppCtrl', function ($scope, $timeout, $ionicModal, $ionicLoading, $ionicPopup, $state, $http, $filter) {
 
+
+
+
             // With the new view caching in Ionic, Controllers are only called
             // when they are recreated or on app start, instead of every page change.
             // To listen for when this page is active (for example, to refresh data),
             // listen for the $ionicView.enter event:
             //$scope.$on('$ionicView.enter', function(e) { });
 
-            ionic.Platform.ready(function () {
+            ionic.Platform.ready(function () { 
                 // will execute when device is ready, or immediately if the device is already ready.
             });
 
@@ -23,6 +26,12 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             var currentPlatform = ionic.Platform.platform();
             var currentPlatformVersion = ionic.Platform.version();
 
+
+
+
+
+
+            //$scope.versionName = '1.9';
             $scope.role_id = '3';
             $scope.device_id = 'HT9CTP820988';
             $scope.device_type = currentPlatform;
@@ -338,7 +347,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             });
         })
 
-        .controller('myBuddiesCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $filter,$stateParams) {
+        .controller('myBuddiesCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $filter,$stateParams,$cordovaInAppBrowser) {
 
 
             $scope.removeBuddy = function (buddy) {
@@ -372,8 +381,16 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
                 var url = wsBaseUrl + 'userServices/getMyBuddies';
 
-                $http.post(url, {'access_token': window.localStorage.getItem('auth_token')}).success(function (response)
+                $http.post(url, {'access_token': window.localStorage.getItem('auth_token'),'version_name':$scope.versionName}).success(function (response)
                 {
+                    
+                     apiVersionName = response.version_name;
+                     if(versionName != apiVersionName){
+                        console.log(apiVersionName);
+                        $ionicLoading.show({ templateUrl:"templates/new_version.html" });
+                        return false;
+                    }
+
                     $timeout(function () {
                         $ionicLoading.hide();
                         $scope.myBuddies = response.data;
@@ -391,6 +408,12 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
                 $http.post(url, {'access_token': window.localStorage.getItem('auth_token')}).success(function (response)
                 {
+                     apiVersionName = response.version_name;
+                     if(versionName != apiVersionName){
+                        $ionicLoading.show({ templateUrl:"templates/new_version.html" });
+                        return false;
+                    }
+
                     $timeout(function () {
                         $ionicLoading.hide();
                         $scope.feedbackBuddies = response.data;
@@ -461,8 +484,11 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
         .controller('feedbackWeeklyCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams) {
 
+            
             $scope.init = function () { 
                 $ionicLoading.show({ templateUrl:"templates/loading.html" });
+
+
 
                 var url = wsBaseUrl + 'userServices/feedback_fields';
                 $http.post(url, {'feedback_type': 1, 'access_token': window.localStorage.getItem('auth_token'), 'user_id': $stateParams.id}).success(function (response)
@@ -705,7 +731,6 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                 $ionicLoading.show({ templateUrl:"templates/loading.html" });
 
                 var url = wsBaseUrl + 'userServices/view_feedback_fields';
-
                 $http.post(url, {'feedback_type': 'Monthly', 'access_token': window.localStorage.getItem('auth_token'), 'selected_date': $scope.selected_date, 'spiritual_buddie_user_id': $scope.spiritualBuddieUserID, 'purpose': 'view','use_date_filter':1}).success(function (res)
                 {
                     $timeout(function () {
@@ -755,7 +780,6 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                 if (signupForm.$valid)
                 {
                     $ionicLoading.show({ templateUrl:"templates/loading.html" });
-
                     $http({
                         method: 'POST',
                         data: $scope.signupFormData,
@@ -798,18 +822,39 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             }
         })
 
-        /* Trainer Feedback */
+   
     
-        .controller('tranierCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http) {
+        .controller('tranierCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams) {
+            $scope.init = function () { 
+                /*$ionicLoading.show({ templateUrl:"templates/loading.html" });*/
+                var url = wsBaseUrl + 'userServices/spritual_trainer_view_feedback_fields';
+                $scope.tranierFormData.monthStart = $stateParams.month
+                $scope.tranierFormData.yearStart = $stateParams.year
+                $scope.selected_date = $stateParams.year+'-'+ (parseInt($stateParams.month)+1) +'-01 00:00:00';
+
+                 $http.post(url, {'feedback_type': 'for trainers', 'access_token': window.localStorage.getItem('auth_token'), 'selected_date': $scope.selected_date}).success(function (res) {
+                            
+                             apiVersionName = res.version_name;
+                             if(versionName != apiVersionName){
+                                $ionicLoading.show({ templateUrl:"templates/new_version.html" });
+                                return false;
+                            }
+                            if (res.response == 'S') {
+                                    angular.forEach(res.data, function (value, key) {
+                                        var k = 'feedback_field_'+value.feedback_field_id;
+                                        console.log(k);
+                                        $scope.tranierFormData[k] = value.user_feedback_field_value;
+                                    });
+                            }
+                });    
+            }
             
             $scope.flash_success = '';
-            
             $scope.tranierFormData = {
                 role_id: $scope.role_id,
                 device_id: $scope.device_id,
                 device_type: $scope.device_type,
-                access_token: window.localStorage.getItem('auth_token'),
-                selected_date:$scope.selected_date
+                access_token: window.localStorage.getItem('auth_token')
             }
 
             $scope.dotranierForm = function (tranierForm) {
@@ -849,13 +894,15 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                                     $scope.flash_failure = response.data.message;
                                 }
                             }
-                            $state.go('app.feedbacktranier');
+                            $state.go('app.dashboard');
                         }, 1000);
                     });
             }
         })
+
+        .controller('feedbackTranierMonthlyCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams) { })
        
-        /* Trainer Feedback */
+    
 
         .controller('changePwdCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http) {
             

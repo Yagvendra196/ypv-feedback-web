@@ -188,6 +188,8 @@ a.btn-rounded img{ margin-right:0px;}
 
 .view-content{ max-width:200px;}
 
+img.trainer-icon {width: 29px !important; margin-bottom: 10px !important;}
+
 
 /*Weekly starts*/
 .form1 {  padding: 50px 60px;}
@@ -235,7 +237,7 @@ a.btn-rounded img{ margin-right:0px;}
   .list1 div{ position: relative;}
   
 span.trash{ z-index: 100;   font-size: 16px;    position: absolute;        top: 35px;  right:45px;  color: #707070;  font-size: 20px;}
-.popup-buttons .button{  background: #ddd;min-height: 35px;height: 35px;}
+.popup-buttons .button{  background: #ddd;min-height: 35px;height: 45px;}
 .button.button-positive{ background-color: #f64041;  }
 
  .search_btn{ background:none;    border: medium none;    color: #f74042;    font-size: 30px;}
@@ -322,7 +324,7 @@ font-size: 20px;
 
 }
 .icon-con { width:57px; height:57px; line-height:94px; top:-35px; margin-left:-32px;overflow: hidden;}
-.icon-con img { width:40px;}
+.icon-con img { width:40px; margin-bottom: 10px;}
 .main-con { padding-left:30px; padding-right:30px; }
 .overflow-scroll .scroll{height:calc(100% - 80px);}
 /*dashboard ends*/
