@@ -25,7 +25,7 @@ elseif ($_SERVER['HTTP_HOST'] == 'ypv-feedback.galaxyweblinks.in') {
 elseif ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$__site__host   ='local_host';
 }
-elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60' || $_SERVER['HTTP_HOST'] == '192.168.0.56') {
+elseif ($_SERVER['HTTP_HOST'] == '192.168.0.60' || $_SERVER['HTTP_HOST'] == '192.168.8.68') {
 	$__site__host   ='local_host';
 }
 elseif ($_SERVER['HTTP_HOST'] == '192.168.7.101') {
@@ -136,7 +136,7 @@ elseif ($__site__host=='test_host') { // IT will be used when site will be on in
 	$db['default']['database'] = 'ypv_feedback';
 }
 elseif ($__site__host=='local_host') {  // IT is for localhost	
-	$db['default']['hostname'] = '192.168.0.62';
+	$db['default']['hostname'] = '192.168.8.75';
 	$db['default']['username'] = 'root_gwl5';
 	$db['default']['password'] = '';
 	$db['default']['database'] = 'ypv_feedback';

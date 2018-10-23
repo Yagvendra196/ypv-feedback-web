@@ -44,6 +44,9 @@ class userServices extends REST_Controller
         $this->data['basePathSSL']=$this->config->item('base_url_ssl');
 
         $this->load->model(array( $this->config->item('modules_folders')['admin'].'/Admin','User')); 
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: PUT, GET, POST");
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     }
 
 

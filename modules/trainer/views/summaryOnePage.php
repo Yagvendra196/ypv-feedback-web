@@ -160,6 +160,10 @@
 </div>
 
 <script type="text/javascript">
+var months    = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var now       = new Date();
+var thisMonth = months[now.getMonth()];
+var thisYear= now.getFullYear();
 var postDate="<?php if(!empty($selected_date)) echo $selected_date;  ?>";
 var given_by_year_range = $("#given_by_year_range").val();
 var given_by_year_start = given_by_year_range.split(":");
@@ -170,7 +174,7 @@ var given_by_year_start = given_by_year_range.split(":");
       //console.log(newDate);
       $("#selected_date").val(newDate[1]+' '+newDate[3]);
     }else{
-      $("#selected_date").val('Jan '+given_by_year_start);
+      $("#selected_date").val(thisMonth+' '+thisYear);
     }
     
   $('.month-picker').datepicker({
