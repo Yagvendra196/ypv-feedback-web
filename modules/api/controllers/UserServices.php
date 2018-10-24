@@ -1369,7 +1369,7 @@ class userServices extends REST_Controller
                     //////////////////   
 
                         if ($this->post('purpose') == 'edit') {
-                            $where = array('ufb.feedback_type'=>$feedback_type,'user_id'=>$spiritual_buddie_user_id);
+                            $where = array('ufb.feedback_type'=>$feedback_type,'user_id'=>$spiritual_buddie_user_id,'spiritual_buddie_user_id'=>$userID);
                         } else { //$this->post('purpose') == 'view'
                             
                             $where = array('ufb.feedback_type'=>$feedback_type);                    
@@ -1401,7 +1401,7 @@ class userServices extends REST_Controller
                     //////////////////////////////////
 
                         if ($this->post('purpose') == 'edit') {
-                            $where = array('ufb.feedback_type'=>$feedback_type,'user_id'=>$spiritual_buddie_user_id);
+                            $where = array('ufb.feedback_type'=>$feedback_type,'user_id'=>$spiritual_buddie_user_id,'spiritual_buddie_user_id'=>$userID);
                         } else { //$this->post('purpose') == 'view'
                            
                             $where = array('ufb.feedback_type'=>$feedback_type);
@@ -1511,7 +1511,7 @@ class userServices extends REST_Controller
                 //if ($feedback_type=='Monthly') { //always monthly condition will be posted
 
                     if ($this->post('purpose') == 'edit') {
-                        $where = array('ufb.feedback_type'=>$feedback_type,'user_id'=>$spiritual_buddie_user_id);
+                        $where = array('ufb.feedback_type'=>$feedback_type,'user_id'=>$spiritual_buddie_user_id,'spiritual_buddie_user_id'=>$userID);
                     } else { //$this->post('purpose') == 'view'
                         
                         $where = array('ufb.feedback_type'=>$feedback_type);                    

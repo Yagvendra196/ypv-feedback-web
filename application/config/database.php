@@ -143,7 +143,7 @@ elseif ($__site__host=='local_host') {  // IT is for localhost
 	/*$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
 	$db['default']['password'] = '';
-	$db['default']['database'] = 'ypv_feedback';*/
+	$db['default']['database'] = 'ypv-live-currently';*/
 }
 
 $db['default']['dsn'] = '';
