@@ -359,7 +359,7 @@ function monthPicker(){
 }
 
 jQuery(document).ready(function () {
-
+    var currentDate=$("#selected_date").val();
     given_by = $("#given_by").html();
     given_to = $("#given_to").html();
 
@@ -379,7 +379,7 @@ jQuery(document).ready(function () {
             $(".result-show-message").hide();
         }
         //currentDate = new Date(given_by_year_start);
-        currentDate = new Date();
+        //currentDate = new Date();
         currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1); 
         $("#selected_date").val('Jan '+given_by_year_start);
         $("#selected_date_hidden").val(currentDate);
@@ -405,7 +405,7 @@ jQuery(document).ready(function () {
         $("#given_to").html(given_to);
         /*alert(given_to_year_range);*/
         //currentDate = new Date(given_to_year_start);
-        currentDate = new Date();
+        //currentDate = new Date();
         currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1); 
         $("#selected_date").val('Jan '+given_to_year_start);
         $("#selected_date_hidden").val(currentDate);
