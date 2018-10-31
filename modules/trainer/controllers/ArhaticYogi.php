@@ -98,6 +98,7 @@ class ArhaticYogi extends Users {
       $this->db->where('up.city',$_POST['city']);
       $this->data['cityPost']=$_POST['city'];
     }
+    $this->db->order_by('users.first_name');
     $this->data['allUsers'] = $allUsers = $this->Utility->getRowsByField('users',array('uo.owner_user_id'=>$this->session->userdata('user_id')));
 
     $usersIds=array();
@@ -125,6 +126,7 @@ class ArhaticYogi extends Users {
     if(!empty($month) && !empty($year)){
       $this->db->where(array('month(w.week_start_date)'=>$month,'year(w.week_start_date)'=>$year));
     }
+    $this->db->where('w.week_start_date is NOT NULL', NULL, FALSE);
     $this->data['user_give_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
 
 //echo $this->db->last_query();die();
@@ -147,6 +149,7 @@ class ArhaticYogi extends Users {
     if(!empty($month) && !empty($year)){
       $this->db->where(array('month(w.week_start_date)'=>$month,'year(w.week_start_date)'=>$year));
     }
+    $this->db->where('w.week_start_date is NOT NULL', NULL, FALSE);
      $this->db->order_by('uf.created_at','DESC');
         $this->data['user_receive_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
 

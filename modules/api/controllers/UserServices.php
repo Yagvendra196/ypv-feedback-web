@@ -1303,7 +1303,8 @@ class userServices extends REST_Controller
                     'ufb.feedback_type'            => $feedbackType,
                     'ufb.created_at >='            => $selectedStartDate,
                     'ufb.created_at <'             => $selectedEndDate,
-                    'ufb.status'                   => "Running"
+                    'ufb.status'                   => "Running",
+                    'ff.feedback_id' => 3
                 );
                 $uf = $this->db->get_where('user_feedback_fields ufbf', $where)->result();
                 if (!empty($uf)) {
