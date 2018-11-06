@@ -108,16 +108,21 @@ class ArhaticYogi extends Users {
       }
     }
 
-    $month='';
-    $year='';
+    $month=date('m');
+    $year=date('Y');
     if(!empty($_POST['selected_date'])){
       $month=date("m",strtotime($_POST['selected_date']));
       $year=date("Y",strtotime($_POST['selected_date']));
       $this->data['selected_date']=$_POST['selected_date'];
     }
 
-    $this->db->distinct();
-    $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name,w.week_start_date');
+     if(!empty($usersIds)){
+      $userIDs=implode(',',$usersIds);
+      //echo $userIDs;die();
+    }
+
+    /*$this->db->distinct();
+    $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name,w.week_start_date,WEEK(w.week_start_date,5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY),5)+1 as weekNum, MONTH(w.week_start_date) as Month, YEAR(w.week_start_date) as Year,GROUP_CONCAT(w.week_start_date) as weeks');
     $this->db->join('users as u','u.user_id = uf.user_id','left');
     $this->db->join('weeks as w','w.idWeek = uf.week_id','left');
     if(!empty($usersIds)){
@@ -127,7 +132,42 @@ class ArhaticYogi extends Users {
       $this->db->where(array('month(w.week_start_date)'=>$month,'year(w.week_start_date)'=>$year));
     }
     $this->db->where('w.week_start_date is NOT NULL', NULL, FALSE);
-    $this->data['user_give_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
+    $this->db->group_by('u.first_name, u.last_name');
+    $this->data['user_give_feedbacks_to'] = $user_give_feedbacks_to =  $this->db->get_where('user_feedbacks as uf')->result();*/
+
+  $query="SELECT n.user_id, n.spiritual_buddie_user_id, `u`.`first_name`,`u`.`last_name`,
+SUM(n.week1) w1,SUM(n.week2) w2,SUM(n.week3) w3,SUM(n.week4) w4,SUM(n.week5) w5
+FROM (
+  SELECT `uf`.`user_id`, `uf`.`spiritual_buddie_user_id`,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 1,1,0) week1,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 2,1,0) week2,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 3,1,0) week3,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 4,1,0) week4,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 5,1,0) week5
+  FROM user_feedbacks as uf
+  LEFT JOIN `weeks` as `w` ON `w`.`idWeek` = `uf`.`week_id`
+  WHERE uf.spiritual_buddie_user_id IN (".$userIDs.") AND
+  MONTH(w.week_start_date) = '".$month."' AND YEAR(w.week_start_date) = '".$year."'
+) n
+LEFT JOIN `users` as `u` ON `u`.`user_id` = n.user_id
+GROUP BY n.user_id,n.spiritual_buddie_user_id";
+  $this->data['user_give_feedbacks_to'] = $user_give_feedbacks_to = $this->db->query($query)->result();
+
+
+    // echo $this->db->last_query();die;
+  //echo "<pre>";print_r($user_give_feedbacks_to);die();
+
+    /*$this->db->distinct();
+    $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name,w.week_start_date,w.week_no');
+    $this->db->join('users as u','u.user_id = uf.user_id','left');
+    $this->db->join('weeks as w','w.idWeek = uf.week_id','left');
+    if(!empty($usersIds)){
+      $this->db->where_in('uf.spiritual_buddie_user_id', $usersIds);
+    }
+    $this->db->where('w.week_start_date is NOT NULL', NULL, FALSE);
+    $this->db->group_by('first_name,last_name');
+    $this->data['user_give_feedbacks_to_groupBy'] = $this->db->get_where('user_feedbacks as uf')->result();*/
+
 
 //echo $this->db->last_query();die();
 
@@ -139,7 +179,7 @@ class ArhaticYogi extends Users {
     $this->data['user_give_feedbacks_to'] = $this->Utility->getRowsByField('user_spiritual_buddies as usb');*/
  //echo "<pre>";print_r($this->data['user_give_feedbacks_to']);die();
 
-    $this->db->distinct();
+    /*$this->db->distinct();
      $this->db->select('uf.user_id,uf.spiritual_buddie_user_id, u.first_name, u.last_name,w.week_start_date');
      $this->db->join('users as u','u.user_id = uf.spiritual_buddie_user_id','left');
      $this->db->join('weeks as w','w.idWeek = uf.week_id','left');
@@ -151,7 +191,26 @@ class ArhaticYogi extends Users {
     }
     $this->db->where('w.week_start_date is NOT NULL', NULL, FALSE);
      $this->db->order_by('uf.created_at','DESC');
-        $this->data['user_receive_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();
+        $this->data['user_receive_feedbacks_to'] = $this->db->get_where('user_feedbacks as uf')->result();*/
+
+
+        $query="SELECT n.user_id, n.spiritual_buddie_user_id, `u`.`first_name`,`u`.`last_name`,
+SUM(n.week1) w1,SUM(n.week2) w2,SUM(n.week3) w3,SUM(n.week4) w4,SUM(n.week5) w5
+FROM (
+  SELECT `uf`.`user_id`, `uf`.`spiritual_buddie_user_id`,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 1,1,0) week1,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 2,1,0) week2,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 3,1,0) week3,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 4,1,0) week4,
+  IF(WEEK(w.week_start_date, 5) - WEEK(DATE_SUB(w.week_start_date, INTERVAL DAYOFMONTH(w.week_start_date)-1 DAY), 5) = 5,1,0) week5
+  FROM user_feedbacks as uf
+  LEFT JOIN `weeks` as `w` ON `w`.`idWeek` = `uf`.`week_id`
+  WHERE uf.spiritual_buddie_user_id IN (".$userIDs.") AND
+  MONTH(w.week_start_date) = '".$month."' AND YEAR(w.week_start_date) = '".$year."'
+) n
+LEFT JOIN `users` as `u` ON `u`.`user_id` = n.spiritual_buddie_user_id
+GROUP BY n.user_id,n.spiritual_buddie_user_id";
+  $this->data['user_receive_feedbacks_to'] = $user_receive_feedbacks_to = $this->db->query($query)->result();
 
 
 

@@ -37,8 +37,11 @@
   transform: rotate(180deg);
 } 
 </style>
+
+
+
 <div class="panel-body">
-<form class="form-group" method="post">
+<form class="form-group" method="post" id="filterForm">
   <h1>Feedback Report</h1><hr>
   <div class="form-group">
     <span class="col-sm-2 col-lg-1">Month</span>
@@ -88,8 +91,8 @@
         </tr>
       </thead>
         <tbody>
-        <?php //echo "<pre>";print_r($allUsers); 
-          if(!empty($allUsers)){ 
+        <?php //echo "<pre>";print_r($user_give_feedbacks_to); die();
+          /* if(!empty($allUsers)){ 
             foreach ($allUsers as $key => $user) { 
                 if(!empty($user_give_feedbacks_to)){
                 foreach ($user_give_feedbacks_to as $key => $feedbackGiven) {
@@ -98,7 +101,7 @@
                       <td><?php echo $user->first_name." ".$user->last_name; ?></td>
                       <td><?php echo $feedbackGiven->first_name." ".$feedbackGiven->last_name; ?></td>
                       <?php for($i=1;$i<=5;$i++){
-                              if($i == week_number($feedbackGiven->week_start_date)){ ?>
+                              if($i == $feedbackGiven->weekNum){ ?>
                                 <td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td>
                       <?php         }else { ?>
                           <td>-</td>
@@ -107,7 +110,41 @@
                      <td>-</td>
                     </tr>
 
-             <?php } } } } }?>
+             <?php } } } } } */ ?>
+
+             <?php
+             if(!empty($allUsers)){
+                foreach ($allUsers as $key => $user) {
+                  $userData[$user->user_id] = $user;
+                }
+              } 
+                  if(!empty($allUsers)){
+                      if(!empty($user_give_feedbacks_to)){
+                        foreach ($user_give_feedbacks_to as $key => $feedbackGiven) { 
+                          if(!empty($userData[$feedbackGiven->spiritual_buddie_user_id])){ 
+                              $user = $userData[$feedbackGiven->spiritual_buddie_user_id];
+                            ?>
+                            <tr>
+                            <td><?php echo $user->first_name." ".$user->last_name; ?></td>
+                            <td><?php echo $feedbackGiven->first_name." ".$feedbackGiven->last_name; ?></td>
+                            <?php
+                              for($i=1;$i<=5;$i++){
+                                $temp="w".$i;
+                                if($feedbackGiven->$temp){ ?>
+                                    <td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td>
+                              <?php  } else{ ?>
+                                      <td>-</td>
+                              <?php  }
+                              }
+                            ?>
+                            <td>-</td>
+                            </tr>
+                         <?php }
+                        }
+                      }
+                  }
+             ?>
+
         </tbody>
     </table>
     </div>
@@ -130,26 +167,38 @@
             </tr>
           </thead>
             <tbody>
-            <?php //echo "<pre>";print_r($allUsers); 
-              if(!empty($allUsers)){
-                foreach ($allUsers as $key => $user) { 
-                    if(!empty($user_receive_feedbacks_to)){
-                    foreach ($user_receive_feedbacks_to as $key => $feedbackReceive) {
-                      if($feedbackReceive->user_id == $user->user_id){ ?>
-                        <tr>
+            <?php
+             if(!empty($allUsers)){
+                foreach ($allUsers as $key => $user) {
+                  $userData[$user->user_id] = $user;
+                }
+              } 
+                  if(!empty($allUsers)){
+                      if(!empty($user_receive_feedbacks_to)){
+                        foreach ($user_receive_feedbacks_to as $key => $feedbackReceive) { 
+                          if(!empty($userData[$feedbackReceive->spiritual_buddie_user_id])){ 
+                              $user = $userData[$feedbackReceive->user_id];
+                            ?>
+                            <tr>
                             <td><?php echo $user->first_name." ".$user->last_name; ?></td>
                             <td><?php echo $feedbackReceive->first_name." ".$feedbackReceive->last_name; ?></td>
-                            <?php for($i=1;$i<=5;$i++){
-                                    if($i == week_number($feedbackReceive->week_start_date)){ ?>
-                                      <td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td>
-                            <?php         }else { ?>
-                                <td>-</td>
-                          <?php  }
-                            } ?>
-                           <td>-</td>
-                        </tr>
-
-                 <?php } } } } }?>
+                            <?php
+                              for($i=1;$i<=5;$i++){
+                                $temp="w".$i;
+                                if($feedbackReceive->$temp){ ?>
+                                    <td><a href="trainer/arhaticYogi/feedback/<?php echo $user->user_id; ?>"><i class="fa fa-check"></i></a></td>
+                              <?php  } else{ ?>
+                                      <td>-</td>
+                              <?php  }
+                              }
+                            ?>
+                            <td>-</td>
+                            </tr>
+                         <?php }
+                        }
+                      }
+                  }
+             ?>
             </tbody>
         </table>
     </div>
@@ -160,6 +209,9 @@
 </div>
 
 <script type="text/javascript">
+$(document).ready(function(){
+     //$("#filterForm").submit();
+});
 var months    = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 var now       = new Date();
 var thisMonth = months[now.getMonth()];
@@ -171,10 +223,11 @@ var given_by_year_start = given_by_year_range.split(":");
     //console.log(given_by_year_start);
     if(postDate){
       var newDate=postDate.split(" ");
-      //console.log(newDate);
+      console.log(postDate);
       $("#selected_date").val(newDate[1]+' '+newDate[3]);
     }else{
       $("#selected_date").val(thisMonth+' '+thisYear);
+      $("#selected_date_hidden").val(now);
     }
     
   $('.month-picker').datepicker({
