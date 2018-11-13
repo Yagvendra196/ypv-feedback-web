@@ -1,0 +1,47 @@
+<!--
+  Generated template for the AddBuddyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><small style="font-size: 18px;">Add Buddies</small></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+		<div class="clearfix"></div>
+			<div slimScroll width="auto" height="550px"  size="7px">
+	            <div class="item item-input-inset" >
+	                <form class="search_form" [formGroup]="searchForm">
+	                <label class="item-input-wrapper">
+	                  <input type="text" placeholder="Search" (keyup)="filterBuddy()" formControlName="keywords"> 
+	                </label>
+	                <button (click)="searchBuddy()" class="search_btn"> <i class="icon ion-search"></i></button>
+	                </form>
+	            </div>
+
+	            <div class="list list1" *ngIf="addBuddy != ''" style="padding-top:0px;">
+
+	                <div *ngFor="let buddy of addBuddy" class="item item-thumbnail-left" id="buddy_user_id_{{ buddy.user_id }}"> 
+	                    <img *ngIf="buddy.gender == 'M'" src='assets/imgs/default-male.png'>
+	                    <img *ngIf="buddy.gender == 'F'" src='assets/imgs/default-female.png'>
+	                    <h2><a href="#/app/addBuddy">{{buddy.first_name}} {{buddy.last_name}}</a></h2>
+	                    <p *ngIf="buddy.city != '' && buddy.state != ''"><img src="assets/imgs/map-pin.png" width="10px">{{buddy.city}} {{buddy.state}}</p>
+	                    <a  (click)="addBuddyFunction(buddy.user_id)" class="btn-small">Add </a> 
+	                </div>
+	            </div>
+
+		        <div class="list list1" *ngIf="addBuddy == ''">
+		            <div class="no-box">  <img src='assets/imgs/icon-no-comment.png'><div class="clearfix"> </div>
+		            <h3 class="text-center">No buddy found.</h3>
+		             </div>
+		        </div>
+            </div>
+
+</ion-content>

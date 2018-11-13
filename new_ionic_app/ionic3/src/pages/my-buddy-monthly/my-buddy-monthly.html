@@ -1,0 +1,105 @@
+<!--
+  Generated template for the MyBuddyWeeklyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><small style="font-size: 18px;">Monthly Feedback</small></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="has-header has-header-inner1" >
+	
+		<!-- <form slimScroll width="auto" height="550px"  size="7px" [formGroup]="WeeklyForm" class="list login-form form1" (ngSubmit)="feedbackWeeklySubmitFunction()">  -->
+
+	<!-- </form> -->
+
+	<form slimScroll width="auto" height="550px"  size="7px" class="list form1" [formGroup]="MonthlyForm" (ngSubmit)="feedbackMonthlySubmitFunction()">
+
+		<div class="list">
+               
+		       <div class="row form-stacked-row">
+		           <div class="col legend-box">
+		                 <span class="legend-box-heading"></span>
+
+		             <div class="row form-stacked-row">
+
+		                      <div class="col col-50">
+		                          <div >
+		                                <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;" >  {{feedback_fields_51}}   </span>
+		                        <input [(ngModel)]="feedback_field_id_1" formControlName="feedback_field_51" type="text" class="" name="feedback_field_51"  ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > <span class="percent-symbol">%</span>
+		                              </label>
+		                          </div>
+		                      </div>
+
+		                      <div class="col col-50">
+		                        <div >
+		                           <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;" > {{feedback_fields_52}}  </span>
+		                        <input [(ngModel)]="feedback_field_id_2" type="text" class="" formControlName="feedback_field_52" ng-model="feedbackMonthlyFormData.feedback_field_52" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+		                          </label>
+		                        </div>
+		                           </div>
+		             </div>
+		             <div class="row form-stacked-row">
+		                  <div class="col ">
+		               <div >
+		                    <label  class="item item-input item-stacked-label" >
+		                    <span class="input-label" style="white-space:pre-wrap;" > {{feedback_fields_53}}</span>
+		                     <textarea [(ngModel)]="feedback_field_id_3" class="" rows="8" cols="10" id="feedback_field_53" formControlName="feedback_field_53" ng-model="feedbackMonthlyFormData.feedback_field_53" ></textarea>
+		                   </label>
+		                </div>
+		                  </div>
+		              </div>
+		          </div>
+		        </div>
+
+
+
+
+		       <div class="row form-stacked-row">
+		           <div class="col legend-box">
+		                 <span class="legend-box-heading">   </span>
+
+		             <div class="row form-stacked-row">
+		                   <div >
+		                        <label  class="item item-input item-stacked-label" >
+		                        <span class="input-label" style="white-space:pre-wrap;" > {{feedback_fields_54}} </span>
+		                         <input [(ngModel)]="feedback_field_id_4" type="text" class="" formControlName="feedback_field_54" ng-model="feedbackMonthlyFormData.feedback_field_54" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+
+		                       </label>
+		                    </div>
+		             </div>
+
+		             <div class="row form-stacked-row">
+		                  <div >
+		                        <label  class="item item-input item-stacked-label" >
+		                        <span class="input-label" style="white-space:pre-wrap;" > {{feedback_fields_55}} </span>
+		                          <input [(ngModel)]="feedback_field_id_5" type="text" class="" formControlName="feedback_field_55" ng-model="feedbackMonthlyFormData.feedback_field_55" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+
+		                       </label>
+		                    </div>
+		             </div>
+		          </div>
+		        </div>
+
+	           <div >
+	                <label  class="item item-input item-stacked-label" >
+	                <span class="input-label" style="white-space:pre-wrap;" > {{feedback_fields_56}} </span>
+	                 <textarea [(ngModel)]="feedback_field_id_6" class="" rows="8" cols="10" id="feedback_field_56" formControlName="feedback_field_56" ng-model="feedbackMonthlyFormData.feedback_field_56" ></textarea>
+	               </label>
+	            </div>
+
+
+                <div class="has-error"> </div>
+
+                <button type="submit" class="button button-stable button-block btn-login" ng-disabled="feedbackMonthlyForm.$invalid">SAVE</button>
+
+               
+            </div>
+        </form>
+
+</ion-content>

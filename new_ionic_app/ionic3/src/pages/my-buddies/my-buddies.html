@@ -1,0 +1,105 @@
+<style type="text/css">
+.toolbar-title.toolbar-title-md {
+ 	   font-size: 12px !important;
+}
+.button::after {
+  height: 100px;
+}
+.icon-con {
+  margin-top: 40px;
+      width: 50px;
+    height: 52px;
+}
+.dashboard-text{
+  margin-top: 50px; 
+}
+.radio{
+  float: right;
+}
+.top-bar{
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 5px 1px;
+    /*float: left;*/
+    width: 100%;
+    min-height: 0px;
+    padding: 10px;
+    background: none 0px 0px repeat scroll rgb(246, 64, 65);
+}
+.info-msg{
+  font-size: 13px; 
+}
+</style>
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title><small style="font-size: 18px;">My Buddies</small></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="pagebg-login" >
+
+    <div class="top-bar">
+        <div class="header-bottom">
+        &nbsp;
+        <a (click)="add_buddy()" class="btn-rounded" ui-sref="app.add-buddies"><img src="assets/imgs/icon-plus.png" alt=""/></a>
+        </div>  
+    </div>
+     <div class="clearfix"></div> 
+    <div *ngIf="pageName === 1" class="list list1 info-msg">
+      Select one or more AYs from the list as your buddies to whom you are monitoring.
+    </div>
+     <div *ngIf="pageName === 2" class="list list1 info-msg">
+      Select your buddy who you are monitoring, select weekly/monthly feedback type and click on "GO" button to enter his/her feedback based on your interaction with him/her in person or on call.
+    </div>
+	  <div slimScroll width="auto" height="400px"  size="7px" class="list list1" ng-if="dataArr != ''" >
+
+		    <div *ngFor="let buddy of dataArr" id="">
+		        <a (click)="changeShowStatus(buddy.user_id,checkOpenDiv)" class="item item-thumbnail-left">
+                <img *ngIf="buddy.gender === 'M'" src='assets/imgs/default-male.png'>
+		            <img *ngIf="buddy.gender === 'F'" src='assets/imgs/default-female.png'>
+                <h2>{{buddy.first_name}} {{buddy.last_name}}</h2>
+		            <p ng-if="buddy.city != '' && buddy.state != ''"><img src="assets/imgs/map-pin.png" width="10px">{{buddy.city}} {{buddy.state}}</p>
+             </a>
+            <div class="checkrow" *ngIf="currentPerson == buddy.user_id" >
+                    <ion-list class="radio-con">
+                        <div class="row responsive-sm">
+                            <div class="col col-50">
+                                <span style="font-size: 16px;" (click)="changeShowStatusRadio('feedbackWeekly')">Weekly Feedback</span> <input class="radio" type="radio" name="feedback" (click)="changeShowStatusRadio('feedbackWeekly')">
+                            </div>
+                            <div class="col col-50">
+                               <span style="font-size: 16px;" (click)="changeShowStatusRadio('feedbackMonthly')">Monthly Feedback</span> <input class="radio" type="radio" name="feedback" (click)="changeShowStatusRadio('feedbackMonthly')">
+                            </div>
+                        </div>
+                    </ion-list>
+                    <div class="row responsive-sm">
+                        <div class="col slide-footer" *ngIf="currentPersonForRadio == 'feedbackWeekly'"> 
+                           
+                            <a  (click)="getPreviousWeek()"><img src="assets/imgs/arrow-left1.png" class="img-marr"></a>
+                            {{ weekStartDate }} to {{ weekEndDate }}
+                           
+                            <a  (click)="getNextWeek()"><img src="assets/imgs/arrow-right2.png" class="img-marl"></a>
+                        </div>
+                        <div class="col slide-footer"  *ngIf="currentPersonForRadio == 'feedbackMonthly'"> 
+                           
+                            <a  (click)="getPreviousMonth()"><img src="assets/imgs/arrow-left1.png" class="img-marr"></a>
+                             {{ monthStartinWords }}, {{ yearStart }}
+                           
+                            <a  (click)="getNextMonth()"><img src="assets/imgs/arrow-right2.png" class="img-marl"></a>
+                        </div>
+                    </div>
+                    <div class="row responsive-sm">
+                        <div class="col slide-footer"> 
+                          <a class="btn-small btn-small-relative" (click)="weeklyForm(buddy.user_id)" *ngIf="currentPersonForRadio == 'feedbackWeekly'">Go</a>
+                          <a class="btn-small btn-small-relative" (click)="monthlyForm(buddy.user_id)" *ngIf="currentPersonForRadio == 'feedbackMonthly'">Go</a>
+                        </div>
+                    </div>
+            </div>
+		    </div>
+		</div>
+
+</ion-content>
+
+
+

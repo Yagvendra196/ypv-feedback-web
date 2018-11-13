@@ -1,0 +1,73 @@
+<style type="text/css">
+.toolbar-title.toolbar-title-md {
+     font-size: 12px !important;
+}
+.button::after {
+  height: 100px;
+}
+.icon-con {
+  margin-top: 40px;
+      width: 50px;
+    height: 52px;
+}
+.dashboard-text{
+  margin-top: 50px; 
+}
+.radio{
+  float: right;
+}
+.top-bar{
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 5px 1px;
+    /*float: left;*/
+    width: 100%;
+    min-height: 0px;
+    padding: 10px;
+    background: none 0px 0px repeat scroll rgb(246, 64, 65);
+}
+.info-msg{
+  font-size: 13px;
+}
+</style>
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title><small style="font-size: 18px;">Select Month</small></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="pagebg-login" >
+
+   
+     <div class="clearfix"></div> 
+    
+    <div slimScroll width="auto" height="400px"  size="7px" class="list list1" >
+
+        
+            <div class="checkrow"  >
+                    
+                    <div class="row responsive-sm">
+                        
+                        <div class="col slide-footer"> 
+                           
+                            <a  (click)="getPreviousMonth()"><img src="assets/imgs/arrow-left1.png" class="img-marr"></a>
+                             {{ monthStartinWords }}, {{ yearStart }}
+                           
+                            <a  (click)="getNextMonth()"><img src="assets/imgs/arrow-right2.png" class="img-marl"></a>
+                        </div>
+                    </div>
+                    <div class="row responsive-sm">
+                        <div class="col slide-footer"> 
+                          <a class="btn-small btn-small-relative" (click)="trainerFeedbackForm()">Go</a>
+                        </div>
+                    </div>
+            </div>
+        
+    </div>
+
+</ion-content>
+
+
+

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser'])
+angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']) 
 
         .controller('AppCtrl', function ($scope, $timeout, $ionicModal, $ionicLoading, $ionicPopup, $state, $http, $filter) {
 
