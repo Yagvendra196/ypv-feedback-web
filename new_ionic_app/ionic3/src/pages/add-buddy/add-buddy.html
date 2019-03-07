@@ -16,7 +16,8 @@
 <ion-content padding>
 
 		<div class="clearfix"></div>
-			<div slimScroll width="auto" height="550px"  size="7px">
+			<!-- <div slimScroll width="auto" height="550px"  size="7px"> -->
+				<ion-scroll width="auto" scrollY style="height:600px;width: auto;">
 	            <div class="item item-input-inset" >
 	                <form class="search_form" [formGroup]="searchForm">
 	                <label class="item-input-wrapper">
@@ -42,6 +43,7 @@
 		            <h3 class="text-center">No buddy found.</h3>
 		             </div>
 		        </div>
-            </div>
+            <!-- </div> -->
+            </ion-scroll>
 
 </ion-content>

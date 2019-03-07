@@ -57,10 +57,13 @@ export class MyBuddiesPage {
   pageName:number;
   Buddies_data: string[];
    buddiesArr: string[];
+   version_name: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http, public loadingCtrl: LoadingController, public menu: MenuController,private alertCtrl: AlertController) {
   	
     this.base_url = Constants.wsBaseUrl;
+    this.version_name = Constants.versionName;
+    //console.log(this.version_name);
   	this.monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
   	this.yearStart = (new Date()).getFullYear();
   	this.monthStart = (new Date()).getMonth();
@@ -251,16 +254,31 @@ export class MyBuddiesPage {
         data => {
             let responseData = data["_body"];
             var obj = JSON.parse(responseData);
-            if(obj.response == 'F'){
-            } else {
-              loading.dismiss();
-              this.Buddies_data = obj.data;
-              this.dataArr = this.Buddies_data;
+
+            if(this.version_name == obj.version_name){
+               if(obj.response == 'F'){
+                } else {
+                  loading.dismiss();
+                  this.Buddies_data = obj.data;
+                  this.dataArr = this.Buddies_data;
+                }
+            }else{
+                loading.dismiss();
+                this.showErrorAlert();
+                this.navCtrl.pop();
             }
           }, error => {
             console.log(error);
           }
     );
+  }
+
+   showErrorAlert() {
+    let basicAlert = this.alertCtrl.create({
+      title: 'Notification',
+      subTitle: 'Please update your app version.',
+    });
+    basicAlert.present();
   }
 
 }

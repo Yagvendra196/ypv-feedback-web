@@ -40,5 +40,6 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
+    <engine name="android" spec="~7.1.4" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
 </widget>

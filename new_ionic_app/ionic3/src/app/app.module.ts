@@ -20,6 +20,7 @@ import { ViewFeedbackFormPage } from '../pages/view-feedback-form/view-feedback-
 import { ViewFeedbackFormMonthlyPage } from '../pages/view-feedback-form-monthly/view-feedback-form-monthly';
 import { AddBuddyPage } from '../pages/add-buddy/add-buddy';
 import { LoginPageModule } from '../pages/login/login.module';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LoginPageModule } from '../pages/login/login.module';
     TranierFeedbackPage,
     ViewFeedbackFormPage,
     ViewFeedbackFormMonthlyPage,
-    AddBuddyPage
+    AddBuddyPage,
+    ForgotPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,9 @@ import { LoginPageModule } from '../pages/login/login.module';
     TranierFeedbackPage,
     ViewFeedbackFormPage,
     ViewFeedbackFormMonthlyPage,
-    AddBuddyPage
+    AddBuddyPage,
+    ForgotPasswordPage
+
   ],
   providers: [
     StatusBar,

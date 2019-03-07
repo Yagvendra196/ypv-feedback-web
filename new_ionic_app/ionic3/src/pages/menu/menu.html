@@ -1,3 +1,8 @@
+<style type="text/css">
+  .menu-btn{
+  color: rgb(246, 64, 65);
+}
+</style>
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
@@ -7,11 +12,11 @@
  
   <ion-content>
     <ion-list>
-      <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+      <button class="menu-btn" ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
         <!--   <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon> -->
           {{ p.title }}
         </button>
-        <button ion-item (click)="logout()">
+        <button class="menu-btn" ion-item (click)="logout()">
           Logout
         </button>
     </ion-list>

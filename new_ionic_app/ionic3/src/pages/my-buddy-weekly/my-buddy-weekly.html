@@ -13,8 +13,8 @@
 </ion-header>
 
 <ion-content class="has-header has-header-inner1" >
-	
-		<form slimScroll width="auto" height="550px"  size="7px" [formGroup]="WeeklyForm" class="list login-form form1" (ngSubmit)="feedbackWeeklySubmitFunction()"> 
+	<ion-scroll width="auto" scrollY style="height:600px;width: auto;">
+		<form  [formGroup]="WeeklyForm" class="list login-form form1" (ngSubmit)="feedbackWeeklySubmitFunction()"> 
                 <input name="user_id" value="" type="hidden" />
                 <input name="idWeek" value="" type="hidden" value="{{weekID}}" />
                 <input name="feedback_type" value="" type="hidden" value="Weekly" />
@@ -311,7 +311,8 @@
                 <div class="has-error"> </div>
             </div> 
              
-            <button type="submit" class="button button-stable button-block btn-login">SUBMIT</button>
+            <button [disabled]="!WeeklyForm.valid"  type="submit" class="button button-stable button-block btn-login">SUBMIT</button>
 	</form>
+</ion-scroll>
 
 </ion-content>

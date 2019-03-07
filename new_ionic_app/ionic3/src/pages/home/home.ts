@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { Headers, Http } from '@angular/http';
 import * as Constants from '../../app/constants';
@@ -26,12 +26,14 @@ export class HomePage {
    LoginerrorMsg:string;
    feedbackBuddies_data:string[];
    "lib": ["es2018"]
+  
 
    
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public loadingCtrl: LoadingController,private alertCtrl: AlertController) {
   	this.device_id = Constants.device_id;
 		this.role_id = Constants.role_id;
 		this.base_url = Constants.wsBaseUrl;
+    this.version_name = Constants.versionName;
   }
 
   ionViewDidLoad() {
@@ -90,6 +92,11 @@ viewFeedbackBuddiesList(){
         data => {
             let responseData = data["_body"];
             var obj = JSON.parse(responseData);
+
+              console.log(this.version_name);
+              if(this.version_name == obj.version_name){
+
+
             if(obj.response == 'F'){
               this.LoginerrorMsg = obj.message;
             } else {
@@ -100,6 +107,11 @@ viewFeedbackBuddiesList(){
                 buddiesArr:mapped,
               });
             }
+          }else{
+            loading.dismiss();
+            this.showErrorAlert();
+          }
+
           }, error => {
             console.log(error);
           }
@@ -109,4 +121,13 @@ viewFeedbackBuddiesList(){
   trainerFeedbackForm(){
      this.navCtrl.push(TranierFeedbackSelectDatePage);
   }
+
+     showErrorAlert() {
+    let basicAlert = this.alertCtrl.create({
+      title: 'Notification',
+      subTitle: 'Please update your app version.',
+    });
+    basicAlert.present();
+  }
+
 } 

@@ -39,8 +39,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="pagebg-login" >
-
-	  <div slimScroll width="auto" height="550px"  size="7px" class="list list1" *ngIf="dataArr != ''" >
+  <ion-scroll width="auto" scrollY style="height:600px;width: auto;">
+	  <div class="list list1" *ngIf="dataArr != ''" >
 
 		    <div *ngFor="let buddy of dataArr" id="">
 		        <a (click)="changeShowStatus(buddy.value.user_id,checkOpenDiv)" class="item item-thumbnail-left">
@@ -92,7 +92,7 @@
         </div>
 
 		</div>
-
+</ion-scroll>
 </ion-content> 
 
 

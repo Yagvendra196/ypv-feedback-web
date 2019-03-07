@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']) 
 
-        .controller('AppCtrl', function ($scope, $timeout, $ionicModal, $ionicLoading, $ionicPopup, $state, $http, $filter) {
+        .controller('AppCtrl', function ($scope, $timeout, $ionicModal, $ionicLoading, $ionicPopup, $state, $http, $filter,$cordovaInAppBrowser) {
 
 
 
@@ -83,6 +83,53 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             $scope.init = function () {
                 var year = $filter('date')(new Date(), 'yyyy');
                 var url = wsBaseUrl + 'userServices/getYearWeek';
+
+                d = new Date(year, 0,1)
+
+                var myDays=["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+
+                //alert("First Day is " + myDays[d.getDay()])
+
+                var jan_date_of_current_year = myDays[d.getDay()];
+
+
+                var months    = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                var now       = new Date();
+                var thisMonth = months[now.getMonth()]; 
+
+                var n = now.getDate();
+           
+                //alert(n);
+
+
+                if (thisMonth == 'January') {
+    
+                   if ((jan_date_of_current_year == 'Tue') && (n < 7)) 
+                    {
+                          year = year-1;
+                    }
+
+                    if ((jan_date_of_current_year == 'Wed') && (n < 6)) {
+                         year = year-1;
+                    }
+                    if ((jan_date_of_current_year == 'Thu') && (n < 5)) {
+                         year = year-1;
+                    }
+                    if ((jan_date_of_current_year == 'Fri') && (n < 4)) {
+                         year = year-1;
+                    }
+                    if ((jan_date_of_current_year == 'Sat') && (n < 3)) {
+                         year = year-1;
+                    }
+                    if ((jan_date_of_current_year == 'Sun') && (n < 2)) {
+                         year = year-1;
+                    }
+                            
+                }
+                
+
+                //alert(year);
+
 
                 $http.post(url, {'year': year}).success(function (response)
                 {
@@ -193,7 +240,8 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
             */
         })
 
-        .controller('loginCtrl', function ($rootScope,$scope, $timeout, $ionicLoading, $ionicPopup, $state, $http,$cordovaInAppBrowser) {
+        .controller('loginCtrl', function ($rootScope,$scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $cordovaInAppBrowser) {
+
 
             $scope.flash_failure = '';
 
@@ -224,6 +272,8 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                                 $scope.flash_failure = '';
                                 window.localStorage.setItem('auth_token', response.data.data.access_token);
                                 window.localStorage.setItem('is_spritual_trainer', response.data.data.is_spritual_trainer);
+
+                                window.localStorage.setItem('password', $scope.loginFormData.password);
                                 $state.go('app.dashboard');
                             }
                             if (response.data.response == 'F') {
@@ -351,9 +401,9 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
 
             $scope.removeBuddy = function (buddy) {
-
+                //template: 'Are you sure, You want remove to ' + name + '?'
                  var confirmPopup = $ionicPopup.confirm({ title: 'Remove buddy', 
-                                                          template: 'Are you sure, You want remove to ' + name + '?'
+                                                          template: 'Are you sure , you want to remove?'
                                                         });
                      confirmPopup.then(function(res) {
                        if(res) {
@@ -578,7 +628,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
         .controller('viewFeedbackWeeklyCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams) {
 
-            $scope.dataFound = false;
+            
 
             $scope.feedbackWeeklyFormData = {
                 idWeek: $stateParams.idWeek,
@@ -609,6 +659,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
                         }
                         if (res.response == 'F') {
+                            $scope.dataFound = false;
                             $scope.message = res.message;
                         }
                     }, 500);
@@ -617,6 +668,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
         })
 
         .controller('feedbackMonthlyCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams, $filter) {
+            
 
 
             $scope.selected_date = $stateParams.year+'-'+ (parseInt($stateParams.month)+1) +'-01 00:00:00';
@@ -641,6 +693,8 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                                     angular.forEach(res.data, function (value, key) {
                                         var k = 'feedback_field_'+value.feedback_field_id;
                                         $scope.feedbackMonthlyFormData[k] = value.user_feedback_field_value;
+
+                                         
                                     });
                             }
                         });
@@ -715,7 +769,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
 
         .controller('viewFeedbackMonthlyCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $stateParams, $filter) {
 
-            $scope.dataFound = false;
+            
 
             $scope.selected_date = $stateParams.year+'-'+ (parseInt($stateParams.month)+1) +'-01 00:00:00';
 
@@ -747,6 +801,7 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                             });
                         }
                         if (res.response == 'F') {
+                            $scope.dataFound = false;
                             $scope.message = res.message;
                         }
                     }, 500);
@@ -916,12 +971,22 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                 access_token: window.localStorage.getItem('auth_token')
             }
 
+
             $scope.doChangePwd = function (changePwdForm) {
                 $scope.flash_failure = '';
                 
                 if (changePwdForm.$valid)
                 {
                     $ionicLoading.show({ templateUrl:"templates/loading.html" });
+
+                    var existingPassword = window.localStorage.getItem('password');
+                    var currentPassword = $scope.changePwdFormData.new_password;
+                    
+                    if(existingPassword == currentPassword){
+                        $ionicLoading.hide();
+                        $scope.flash_failure = "Old and New password can't be same";
+                        return false;
+                    }
 
                     $http({
                         method: 'POST',
@@ -934,6 +999,8 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                         $timeout(function () {
                             $ionicLoading.hide();
                             if (response.data.response == 'S') {
+                                window.localStorage.setItem('password','');
+                                 window.localStorage.setItem('password',$scope.changePwdFormData.new_password);
                                 $scope.flash_success = "Password Change Successfully!";
                                 this.changePwdForm.reset();
                                 $timeout(function (){
@@ -962,4 +1029,72 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                     return false;
                 }
             }
+        }) 
+
+        .controller('forgetCtrl', function ($scope, $timeout, $ionicLoading, $ionicPopup, $state, $http, $cordovaInAppBrowser) {
+
+            $scope.flash_success = '';
+            
+            $scope.forgetFormData = {
+                
+            }
+
+           $scope.forget = function (forgetForm) {
+                if (forgetForm.$valid)
+                {
+                    /*console.log('andar hai');
+                    console.log($scope.forgetFormData);*/
+                    $ionicLoading.show({ templateUrl:"templates/loading.html" });
+
+                    var url = wsBaseUrl + 'userServices/forgot_password';
+                    $http({
+                        method: 'POST',
+                        data: $scope.forgetFormData,
+                        url: url,
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }).then(function (response) {
+
+                            //console.log(response);
+
+                        $timeout(function () {
+                            $ionicLoading.hide();
+                            if (response.data.response == 'S') {
+                               /*$scope.flash_success = 'Email Successfully Sent';
+                               console.log($scope.flash_success);*/
+
+                               $scope.flash_success = "Email Sent Successfully!";
+                                this.forgetForm.reset();
+                                $timeout(function (){
+                                    $scope.flash_success = "";
+                                },3000);
+
+                                //$state.go('login');
+                            }
+                            if (response.data.response == 'F') {
+
+                                if (response.data.errors != '')
+                                {
+                                    var allErrors = '';
+
+                                    for ( key in response.data.errors ) {
+                                        allErrors += response.data.errors[key] + "\n";
+                                    }
+
+                                    $scope.flash_failure = allErrors;
+
+                                } else {
+                                    $scope.flash_failure = response.data.message;
+                                }
+
+                                $state.go('login');
+                            }
+                        }, 1000);
+
+                    });
+                } else {
+                    return false;
+                }
+            };
         });

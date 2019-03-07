@@ -13,8 +13,8 @@
 </ion-header>
 
 <ion-content class="has-header has-header-inner1" >
-	
-		<form slimScroll width="auto" height="550px"  size="7px" [formGroup]="TranierForm" class="list login-form form1" (ngSubmit)="TranierFormData()"> 
+	   <ion-scroll width="auto" scrollY style="height:600px;width: auto;">
+		<form  [formGroup]="TranierForm" class="list login-form form1" (ngSubmit)="TranierFormData()"> 
                
 		            <!-- <input name="role_id" value="" type="hidden" ng-model="tranierFormData.role_id" />
             <input name="device_id" value="" type="hidden" ng-model="tranierFormData.device_id" />
@@ -118,8 +118,8 @@
                 <div class="success-msg">{{ flash_success }}</div>
                 <div class="has-error">{{ flash_failure }} </div>
 
-                <button type="submit" class="button button-stable button-block btn-login">SAVE</button>
+                <button [disabled]="!TranierForm.valid" type="submit" class="button button-stable button-block btn-login">SAVE</button>
             </div>
 	</form>
-
+</ion-scroll>
 </ion-content>

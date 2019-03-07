@@ -105,7 +105,7 @@ export class ChangePasswordPage {
    showSuccessAlert() {
     let basicAlert = this.alertCtrl.create({
       title: 'Success',
-      subTitle: 'Buddy Add Successfully.',
+      subTitle: 'Password Change Successfully.',
       buttons: ['OK']
     });
     basicAlert.present();

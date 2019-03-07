@@ -1,3 +1,13 @@
 page-add-buddy {
 
 }
+ion-scroll[scrollX] {
+  white-space: nowrap;
+  .scroll-item {
+    display: inline-block;
+  }
+}
+
+ion-app.md [padding] .scroll-content {
+    padding: 16px 0 !important;
+}

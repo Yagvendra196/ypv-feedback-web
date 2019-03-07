@@ -1,3 +1,13 @@
 page-tranier-feedback {
 
 }
+ion-app.md [padding] .scroll-content {
+    padding: 16px 0 !important;
+}
+
+@media (max-width: 749px){
+	
+.has-header-inner1 {
+    top: 0px !important;
+}
+}

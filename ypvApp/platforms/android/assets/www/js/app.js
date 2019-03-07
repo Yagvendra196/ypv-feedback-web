@@ -187,6 +187,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'logoutCtrl'
     })
 
+
+   /* .state('forgetPwd', {
+        url: '/forgetPwd',
+        templateUrl: 'templates/forget-Pwd.html',
+        cache: false,
+        controller: 'forgetCtrl'
+    })*/
+
+    .state('forgetPwd', {
+        url: '/forgetPwd',
+        cache: false,
+        templateUrl: 'templates/forget-Pwd.html',
+        controller: 'forgetCtrl'
+    })
+
     // if none of the above states are matched, use this as the fallback
     if(window.localStorage.getItem('auth_token'))
     {

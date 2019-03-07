@@ -177,6 +177,7 @@ export class MyBuddyMonthlyPage {
                     if (obj.response == 'S') {
                         loading.dismiss();
                         this.showSuccessAlert();
+                        this.navCtrl.pop();
                          //this.navCtrl.push(HomePage);
                         // THIS API FOR TO MAKE AGAIN MY BUDDIES PAGE SUCCESSFULLY SUBMIT THE FORM //
                         /*let httpBodyGetMyBuddies = "access_token=" + localStorage.getItem('auth_token') + "&version_name=" + localStorage.getItem('version_name');

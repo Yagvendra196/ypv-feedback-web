@@ -33,7 +33,7 @@
              
             <button [disabled]="!LoginForm.valid" type="submit" class="button button-stable button-block btn-login">LOGIN</button>
             
-           <h4 class="text-center form-footer"><a class="link-1 forgotPassword"  target="_blank" href="{{wsBasePath}}users/forgotPassword"  >Forgot password?</a></h4>
+           <h4 class="text-center form-footer"><a class="link-1 forgotPassword" (click)="forgot_passwd()"  >Forgot password?</a></h4>
         </form>
 
 </ion-content>

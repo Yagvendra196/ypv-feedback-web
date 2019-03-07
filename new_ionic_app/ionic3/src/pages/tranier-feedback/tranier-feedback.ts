@@ -5,6 +5,8 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import * as Constants from '../../app/constants';
+import { TranierFeedbackSelectDatePage } from '../../pages/tranier-feedback-select-date/tranier-feedback-select-date';
+import { HomePage } from '../../pages/home/home';
 import {
     FormBuilder,
     FormGroup,
@@ -78,27 +80,34 @@ export class TranierFeedbackPage {
                 data => {
                     let responseData = data["_body"];
                     var objViewFeedback = JSON.parse(responseData);
-                    if (objViewFeedback.response == 'S') {
+                     if (objViewFeedback.version_name == this.version_name) {
+                      if (objViewFeedback.response == 'S') {
 
-                      	const mapped = Object.entries(objViewFeedback.data).map(([sp_id, value]) => ({sp_id, value}));
-                        if(mapped[0]){
-                            this.feedback_field_id_62 = mapped[0].value.user_feedback_field_value
-                        }if(mapped[1]){
-                          this.feedback_field_id_63 = mapped[1].value.user_feedback_field_value;
-                        }if(mapped[2]){
-                          this.feedback_field_id_64 = mapped[2].value.user_feedback_field_value;
-                        }if(mapped[3]){
-                          this.feedback_field_id_65 = mapped[3].value.user_feedback_field_value;
-                        }if(mapped[4]){
-                          this.feedback_field_id_66 = mapped[4].value.user_feedback_field_value;
-                        }if(mapped[5]){
-                          this.feedback_field_id_67 = mapped[5].value.user_feedback_field_value;
-                        }if(mapped[6]){
-                          this.feedback_field_id_68 = mapped[6].value.user_feedback_field_value;
-                        }if(mapped[7]){
-                          this.feedback_field_id_69 = mapped[7].value.user_feedback_field_value;
-                        }
+                        	const mapped = Object.entries(objViewFeedback.data).map(([sp_id, value]) => ({sp_id, value}));
+                          if(mapped[0]){
+                              this.feedback_field_id_62 = mapped[0].value.user_feedback_field_value
+                          }if(mapped[1]){
+                            this.feedback_field_id_63 = mapped[1].value.user_feedback_field_value;
+                          }if(mapped[2]){
+                            this.feedback_field_id_64 = mapped[2].value.user_feedback_field_value;
+                          }if(mapped[3]){
+                            this.feedback_field_id_65 = mapped[3].value.user_feedback_field_value;
+                          }if(mapped[4]){
+                            this.feedback_field_id_66 = mapped[4].value.user_feedback_field_value;
+                          }if(mapped[5]){
+                            this.feedback_field_id_67 = mapped[5].value.user_feedback_field_value;
+                          }if(mapped[6]){
+                            this.feedback_field_id_68 = mapped[6].value.user_feedback_field_value;
+                          }if(mapped[7]){
+                            this.feedback_field_id_69 = mapped[7].value.user_feedback_field_value;
+                          }
+                      }
+                    }else{
+                      //loading.dismiss();
+                      this.showErrorVersionAlert();
+                      this.navCtrl.pop();
                     }
+
                 }, error => {
                     console.log(error);
                 }
@@ -132,6 +141,7 @@ export class TranierFeedbackPage {
                     if (obj.response == 'S') {
                         loading.dismiss();
                         this.showSuccessAlert();
+                        this.navCtrl.pop();
                         
                     }else{
                         this.showErrorAlert();
@@ -156,6 +166,14 @@ export class TranierFeedbackPage {
       title: 'Error',
       subTitle: 'Error in network, Please try again later!.',
       buttons: ['OK']
+    });
+    basicAlert.present();
+  }
+
+  showErrorVersionAlert() {
+    let basicAlert = this.alertCtrl.create({
+      title: 'Notification',
+      subTitle: 'Please update your app version.'
     });
     basicAlert.present();
   }

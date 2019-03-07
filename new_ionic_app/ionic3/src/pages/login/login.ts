@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { ForgotPasswordPage } from '../../pages/forgot-password/forgot-password';
 
 
 @IonicPage()
@@ -44,44 +45,52 @@ export class LoginPage {
     	this.device_type = 'ios';
     }
 
+    //console.log(this.version_name);
 
   }
 
-  ionViewDidLoad(){ }
+  ionViewDidLoad(){ } 
 
 
   loginFunction(){
+    const loading = this.loadingCtrl.create({ 
+          content: 'Please wait...'
+        });
+    loading.present();
+
     let headers = new Headers();
     headers.append("Content-Type","application/x-www-form-urlencoded");
-  	/*let httpBody = "device_id="+this.device_id+"&role_id="+this.role_id+"&device_type="+this.device_type+"& username="+this.LoginForm.value.email+"&password="+this.LoginForm.value.pwd;*/
-    let httpBody = "device_id="+this.device_id+"&role_id="+this.role_id+"&device_type="+this.device_type+"& username=trainer@mailinator.com&password=123456";
+  	let httpBody = "device_id="+this.device_id+"&role_id="+this.role_id+"&device_type="+this.device_type+"& username="+this.LoginForm.value.email+"&password="+this.LoginForm.value.pwd;
+    //let httpBody = "device_id="+this.device_id+"&role_id="+this.role_id+"&device_type="+this.device_type+"& username=trainer@mailinator.com&password=123456";
 
     var url = this.base_url + 'userServices/login';
     this.http.post(url, httpBody,{headers:headers})
     	.subscribe(
     		data => {
       			let responseData = data["_body"];
-    			console.log(responseData);
-				
-				
-				//console.log(myItem);
-      			var obj = JSON.parse(responseData)
+    		  	var obj = JSON.parse(responseData)
       			if(obj.response == 'F'){
+              loading.dismiss();
       				this.LoginerrorMsg = obj.message;
       			} else {
-        		let auth_token = '';
-  					let is_spritual_trainer = '';
-        		localStorage.setItem('auth_token', obj.data.access_token);
-  					localStorage.setItem('is_spritual_trainer', obj.data.is_spritual_trainer);
+            let auth_token = '';
+            let is_spritual_trainer = '';
+            localStorage.setItem('auth_token', obj.data.access_token);
+            localStorage.setItem('is_spritual_trainer', obj.data.is_spritual_trainer);
             localStorage.setItem('version_name',this.version_name);
             localStorage.setItem('device_type',this.device_type);
-            localStorage.setItem('current_pwd','123456');
+            localStorage.setItem('current_pwd',this.LoginForm.value.pwd);
+            loading.dismiss();
             this.navCtrl.setRoot('MenuPage');
 				}
        		}, error => {
        			console.log(error);
       		}
     );
+  }
+
+  forgot_passwd(){
+    this.navCtrl.push(ForgotPasswordPage);
   }    
 
 }

@@ -33,7 +33,7 @@
                       <div class="col col-50">
                           <div id="ff_{{feedback_fields[0].feedback_field_id}}">
                                 <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[0].feedback_field_label }}     </span>
-                        <input type="text" class="" name="feedback_field_51" ng-model="feedbackMonthlyFormData.feedback_field_51" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > <span class="percent-symbol">%</span>
+                        <input type="text" class="" name="feedback_field_51" required ng-model="feedbackMonthlyFormData.feedback_field_51" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > <span class="percent-symbol">%</span>
                               </label>
                           </div>
                       </div>
@@ -41,7 +41,7 @@
                       <div class="col col-50">
                         <div id="ff_{{feedback_fields[1].feedback_field_id}}">
                            <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[1].feedback_field_label }}    </span>
-                        <input type="text" class="" name="feedback_field_52" ng-model="feedbackMonthlyFormData.feedback_field_52" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                        <input type="text" class="" name="feedback_field_52" displayFormat="yyyy/MM/dd" required ng-model="feedbackMonthlyFormData.feedback_field_52" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
                           </label>
                         </div>
                            </div>
@@ -53,7 +53,7 @@
                <div id="ff_{{feedback_fields[2].feedback_field_id}}">
                     <label  class="item item-input item-stacked-label" >
                     <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[2].feedback_field_label }} </span>
-                     <textarea class="" rows="8" cols="10" id="feedback_field_53" name="feedback_field_53" ng-model="feedbackMonthlyFormData.feedback_field_53" ></textarea>
+                     <textarea class="" rows="8" cols="10" id="feedback_field_53" name="feedback_field_53" required ng-model="feedbackMonthlyFormData.feedback_field_53" ></textarea>
                    </label>
                 </div>
                   </div>
@@ -79,7 +79,7 @@
                    <div id="ff_{{feedback_fields[3].feedback_field_id}}">
                         <label  class="item item-input item-stacked-label" >
                         <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[3].feedback_field_label }}      </span>
-                         <input type="text" class="" name="feedback_field_54" ng-model="feedbackMonthlyFormData.feedback_field_54" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                         <input type="text" class="" name="feedback_field_54" required ng-model="feedbackMonthlyFormData.feedback_field_54" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
 
                        </label>
                     </div>
@@ -89,7 +89,7 @@
                   <div id="ff_{{feedback_fields[4].feedback_field_id}}">
                         <label  class="item item-input item-stacked-label" >
                         <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[4].feedback_field_label }}      </span>
-                          <input type="text" class="" name="feedback_field_55" ng-model="feedbackMonthlyFormData.feedback_field_55" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                          <input type="text" class="" name="feedback_field_55" required ng-model="feedbackMonthlyFormData.feedback_field_55" ng-maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
 
                        </label>
                     </div>
@@ -105,7 +105,7 @@
            <div id="ff_{{feedback_fields[5].feedback_field_id}}">
                 <label  class="item item-input item-stacked-label" >
                 <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[5].feedback_field_label }}</span>
-                 <textarea class="" rows="8" cols="10" id="feedback_field_56" name="feedback_field_56" ng-model="feedbackMonthlyFormData.feedback_field_56" ></textarea>
+                 <textarea class="" rows="8" cols="10" id="feedback_field_56" name="feedback_field_56" required ng-model="feedbackMonthlyFormData.feedback_field_56" ></textarea>
                </label>
             </div>
 
