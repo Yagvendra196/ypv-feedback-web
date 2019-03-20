@@ -1,0 +1,61 @@
+<style type="text/css">
+	.toolbar-title.toolbar-title-md {
+ 	   font-size: 12px !important;
+}
+.button::after {
+  height: 100px;
+}
+.icon-con {
+  margin-top: 40px;
+      width: 50px;
+    height: 52px;
+}
+.dashboard-text{
+  margin-top: 50px;
+}
+</style>
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title><small style="font-size: 18px;">Dashboard</small></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="pagebg-login">
+  <div class="main-con">
+     <button class="button button-block btn-larg dashboard-btn" (click)="getBuddiesList(1)" >
+                  <span class="icon-con">
+                    <img src="assets/imgs/icon-buddy.png"/>
+                  </span>
+                  <br><br><br><br><br><br>
+                  <span class="dashboard-text">My Buddies</span>
+     </button>
+     <button class="button button-block btn-larg dashboard-btn" (click)="getBuddiesList(2)">
+                  <span class="icon-con">
+                    <img src="assets/imgs/give-feedback.png"/>
+                  </span>
+                  <br><br><br><br><br><br>
+                  <span class="dashboard-text">Give Feedback</span>
+     </button>
+     <button class="button button-block btn-larg dashboard-btn" (click)="viewFeedbackBuddiesList()">
+                  <span class="icon-con">
+                    <img src="assets/imgs/icon-feedback.png"/>
+                  </span>
+                  <br><br><br><br><br><br>
+                  <span class="dashboard-text">View Feedback</span>
+     </button>
+     <button class="button button-block btn-larg dashboard-btn" *ngIf="is_spritual_trainer" (click)="trainerFeedbackForm()" >
+                  <span class="icon-con">
+                    <img src="assets/imgs/book.png"/>
+                  </span>
+                  <br><br><br><br><br><br>
+                  <span class="dashboard-text">Trainer Feedback</span>
+     </button>
+  </div>
+</ion-content>
+
+
+
