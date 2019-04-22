@@ -9,7 +9,7 @@ import {
     Platform,
     MenuController,
     AlertController
-} from 'ionic-angular';
+} from 'ionic-angular'; 
 import {
     FormBuilder,
     FormGroup,
@@ -88,6 +88,7 @@ export class AddBuddyPage {
                       if(obj.response == 'S'){
                         loading.dismiss();
                         this.showSuccessAlert();
+                        this.getData();
                       }else{
                         this.showErrorAlert();
                       }

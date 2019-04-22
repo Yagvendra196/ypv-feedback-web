@@ -39,7 +39,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="pagebg-login" >
-
+<ion-scroll width="auto" scrollY style="height:600px;width: auto;"> 
     <div class="top-bar">
         <div class="header-bottom">
         &nbsp;
@@ -47,16 +47,15 @@
         </div>  
     </div>
      <div class="clearfix"></div> 
-    <div *ngIf="pageName === 1" class="list list1 info-msg">
+    <div *ngIf="pageName === 1" class="list list1 info-msg"> 
       Select one or more AYs from the list as your buddies to whom you are monitoring.
     </div>
      <div *ngIf="pageName === 2" class="list list1 info-msg">
       Select your buddy who you are monitoring, select weekly/monthly feedback type and click on "GO" button to enter his/her feedback based on your interaction with him/her in person or on call.
     </div>
-    <ion-scroll width="auto" scrollY style="height:600px;width: auto;"> 
+    
 	  <!-- <div slimScroll width="auto" height="400px"  size="7px" class="list list1" ng-if="dataArr != ''" > -->
       <div class="list list1" ng-if="dataArr != ''" >
-
 		    <div *ngFor="let buddy of dataArr" id="">
 		        <a (click)="changeShowStatus(buddy.user_id,checkOpenDiv)" class="item item-thumbnail-left">
                 <img *ngIf="buddy.gender === 'M'" src='assets/imgs/default-male.png'>
@@ -64,6 +63,7 @@
                 <h2>{{buddy.first_name}} {{buddy.last_name}}</h2>
 		            <p ng-if="buddy.city != '' && buddy.state != ''"><img src="assets/imgs/map-pin.png" width="10px">{{buddy.city}} {{buddy.state}}</p>
              </a>
+             <span class="trash" (click)="removeBuddyAlert(buddy.user_id)" ><ion-icon name="trash"></ion-icon></span>
             <div class="checkrow" *ngIf="currentPerson == buddy.user_id" >
                     <ion-list class="radio-con">
                         <div class="row responsive-sm">

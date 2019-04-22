@@ -258,6 +258,7 @@ export class MyBuddiesPage {
             if(this.version_name == obj.version_name){
                if(obj.response == 'F'){
                 } else {
+
                   loading.dismiss();
                   this.Buddies_data = obj.data;
                   this.dataArr = this.Buddies_data;
@@ -279,6 +280,72 @@ export class MyBuddiesPage {
       subTitle: 'Please update your app version.',
     });
     basicAlert.present();
+  }
+
+  removeBuddy(buddyId){ 
+    
+  if(buddyId != '' ){
+        var url = this.base_url + 'userServices/removeBuddy';
+      let headers = new Headers();
+      headers.append("Content-Type","application/x-www-form-urlencoded");
+      let httpBody = "access_token="+localStorage.getItem('auth_token')+"&version_name="+localStorage.getItem('version_name')+"&buddy_user_id="+buddyId;
+      this.http.post(url, httpBody,{headers:headers})
+        .subscribe(
+          data => {
+             let responseData = data["_body"];
+             var obj = JSON.parse(responseData);
+              if(obj.response == 'S'){
+                this.getBuddiesList(this.pageName);  
+              }else{
+                this.presentAlert();
+              }
+              
+            }, error => {
+              console.log(error);
+            }
+      );  
+    }
+    
+  }
+
+  removeBuddyAlert(buddyId) {
+  const confirm = this.alertCtrl.create({
+    title: 'Remove buddy',
+    message: 'Are you sure , you want to remove?',
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          // do nothing, user tapped cancel
+        }
+      },
+      {
+        text: 'Remove',
+        handler: () => {
+          this.removeBuddy(buddyId);
+        }
+      }
+    ]
+  });
+  confirm.present();
+}
+
+   presentAlert() {
+    const confirm = this.alertCtrl.create({
+    title: 'Error',
+    message: 'Something went wrong, Please try again later',
+    buttons: [
+      {
+        text: 'Ok',
+        role: 'cancel',
+        handler: () => {
+          // do nothing, user tapped cancel
+        }
+      }
+    ]
+  });
+  confirm.present();
   }
 
 }
