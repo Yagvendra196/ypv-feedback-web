@@ -3,7 +3,7 @@
         <!-- List start here-->
         <div class="topbar">
             <div class="header-bottom">
-                &nbsp;<a href="#/app/addBuddies" class="btn-rounded" ui-sref="app.add-buddies"><img src="img/icon-plus.png" alt=""/></a> 
+                &nbsp;<a href="#/app/addBuddies" class="btn-rounded" ui-sref="app.add-buddies"><img src="img/icon-plus.png" alt=""/></a>
             </div> 
         </div>
         <div class="clearfix"></div>
@@ -11,8 +11,7 @@
         <div class="list list1 info-msg" ng-if="context == 'givefeedback'">Select your buddy who you are monitoring, select weekly/monthly feedback type and click on "GO" button to enter his/her feedback based on your interaction with him/her in person or on call.</div>
         <div class="list list1" ng-if="myBuddies != ''">
             <div ng-repeat="buddy in myBuddies" id="user{{buddy.user_id}}">
-                 <!-- <a href="#/app/myBuddies/mybuddies" ng-click="showDetails = ! showDetails" class="item item-thumbnail-left"> -->
-                <a  ng-click="showDetails = ! showDetails" class="item item-thumbnail-left">
+                <a href="#/app/myBuddies/mybuddies" ng-click="showDetails = ! showDetails" class="item item-thumbnail-left">
                     <img ng-if="buddy.gender == 'M'" src='img/default-male.png'>
                     <img ng-if="buddy.gender == 'F'" src='img/default-female.png'>
 
@@ -37,18 +36,14 @@
                     </ion-list>
                     <div class="row responsive-sm">
                         <div class="col slide-footer" ng-show="choice == 'feedbackWeekly'"> 
-                            <!-- href="#/app/myBuddies/mybuddies" -->
-                            <a  ng-click="getPreviousWeek()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getPreviousWeek()"><img src="img/arrow-left1.png" class="img-marr"></a>
                             {{ weekStartDate }} to {{ weekEndDate }}
-                            <!-- href="#/app/myBuddies/mybuddies" -->
-                            <a  ng-click="getNextWeek()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getNextWeek()"><img src="img/arrow-right2.png" class="img-marl"></a>
                         </div>
                         <div class="col slide-footer"  ng-show="choice == 'feedbackMonthly'"> 
-                            <!-- href="#/app/myBuddies/mybuddies" -->
-                            <a  ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getPreviousMonth()"><img src="img/arrow-left1.png" class="img-marr"></a>
                              {{ monthStartinWords }}, {{ yearStart }}
-                             <!-- href="#/app/myBuddies/mybuddies" -->
-                            <a  ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
+                            <a href="#/app/myBuddies/mybuddies" ng-click="getNextMonth()"><img src="img/arrow-right2.png" class="img-marl"></a>
                         </div>
                     </div>
                     <div class="row responsive-sm">

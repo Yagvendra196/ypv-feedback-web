@@ -143,28 +143,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
             }
         }
     })
-
-    .state('app.feedbacktranier', {
-        url: '/tranier/:month/:year',
-        cache: false,
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/feedback-tranier.html',
-                controller: 'tranierCtrl'
-            }
-        }
-    })
-
-     .state('app.feedbackTranierMonthly', {
-        url: '/monthly_tranier',
-        cache: false,
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/feedback-tranier-monthly.html',
-                controller: 'feedbackTranierMonthlyCtrl'
-            }
-        }
-    })
     
     .state('login', {
         url: '/login',
@@ -185,21 +163,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         url: '/logout',
         cache: false,
         controller: 'logoutCtrl'
-    })
-
-
-   /* .state('forgetPwd', {
-        url: '/forgetPwd',
-        templateUrl: 'templates/forget-Pwd.html',
-        cache: false,
-        controller: 'forgetCtrl'
-    })*/
-
-    .state('forgetPwd', {
-        url: '/forgetPwd',
-        cache: false,
-        templateUrl: 'templates/forget-Pwd.html',
-        controller: 'forgetCtrl'
     })
 
     // if none of the above states are matched, use this as the fallback
