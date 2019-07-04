@@ -516,28 +516,28 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                             if (response.data.response == 'S') {
 
                                 $scope.flash_failure = response.data.message;
-                                $state.go('app.my-buddies');
-                                /*var alertPopup = $ionicPopup.alert({
-                                    title: '',
+                                //$state.go('app.my-buddies');
+                                var alertPopup = $ionicPopup.alert({
+                                    title: 'Success',
                                     template: response.data.message,
                                     okType: 'button button-stable button-block btn-login'
                                 });
                                 alertPopup.then(function (res) {
                                     $state.go('app.my-buddies');
-                                });*/
+                                });
                             }
                             if (response.data.response == 'F') {
 
                                 $scope.flash_failure = response.data.message;
-                                $state.go('login');
-                                /*var alertPopup = $ionicPopup.alert({
+                                //$state.go('login');
+                                var alertPopup = $ionicPopup.alert({
                                     title: 'Error',
                                     template: response.data.message,
                                     okType: 'button button-stable button-block btn-login'
                                 });
                                 alertPopup.then(function (res) {
                                     $state.go('login');
-                                });*/
+                                });
                             }
                         }, 1000);
                     });
@@ -653,28 +653,28 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                             if (response.data.response == 'S') {
 
                                 $scope.flash_failure = response.data.message;
-                                $state.go('app.my-buddies');
-                                /*var alertPopup = $ionicPopup.alert({
-                                    title: '',
+                                //$state.go('app.my-buddies');
+                                var alertPopup = $ionicPopup.alert({
+                                    title: 'Success',
                                     template: response.data.message,
                                     okType: 'button button-stable button-block btn-login'
                                 });
                                 alertPopup.then(function (res) {
                                     $state.go('app.my-buddies');
-                                });*/
+                                });
                             }
                             if (response.data.response == 'F') {
 
                                 $scope.flash_failure = response.data.message;
-                                $state.go('login');
-                                /*var alertPopup = $ionicPopup.alert({
+                                //$state.go('login');
+                                var alertPopup = $ionicPopup.alert({
                                     title: 'Error',
                                     template: response.data.message,
                                     okType: 'button button-stable button-block btn-login'
                                 });
                                 alertPopup.then(function (res) {
                                     $state.go('login');
-                                });*/
+                                });
                             }
                         }, 1000);
                     });

@@ -16,7 +16,7 @@
           <div id="ff_{{feedback_fields[0].feedback_field_id}}">
                 <!-- feedbackWeeklyForm.feedback_field_1.$error.required ? 'has-error' : '' -->        
            <label  class="item item-input label-marb0" > 
-            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[0].feedback_field_label }}</span>
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[0].feedback_field_label }}<span class="require">*</span> </span>
            </label>
            <span class="item-select select-marb">
                         <select name="feedback_field_1" id="feedback_field_1" required ng-model="feedbackWeeklyFormData.feedback_field_1">
@@ -32,7 +32,7 @@
 
           <div id="ff_{{feedback_fields[1].feedback_field_id}}">
                <label  class="item item-input label-marb0" > 
-                <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[1].feedback_field_label }}</span>
+                <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[1].feedback_field_label }}<span class="require">*</span> </span>
                </label>
                <span class="item-select select-marb">
                     <select name="feedback_field_2" id="feedback_field_2" required ng-model="feedbackWeeklyFormData.feedback_field_2">
@@ -254,7 +254,8 @@
                 <label  class="item item-input item-stacked-label" >
                 <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[17].feedback_field_label }}</span>
                  
-              <input type="text" class="" id="feedback_field_18" name="feedback_field_18"  ng-model="feedbackWeeklyFormData.feedback_field_18" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+              <!-- <input type="text" class="" id="feedback_field_18" name="feedback_field_18"  ng-model="feedbackWeeklyFormData.feedback_field_18" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+              <textarea rows="8" cols="10" class="" id="feedback_field_18" name="feedback_field_18"  ng-model="feedbackWeeklyFormData.feedback_field_18" ng-minlength="1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ></textarea>
 
                </label>
             </div>
@@ -372,7 +373,8 @@
                       <div class="col ">
                           <div id="ff_{{feedback_fields[26].feedback_field_id}}">
                                 <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[26].feedback_field_label }}  </span>
-                                  <input type="text" class="" id="feedback_field_27" name="feedback_field_27"  ng-model="feedbackWeeklyFormData.feedback_field_27" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                                  <!-- <input type="text" class="" id="feedback_field_27" name="feedback_field_27"  ng-model="feedbackWeeklyFormData.feedback_field_27" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+                                  <textarea rows="8" cols="10" class="" id="feedback_field_27" name="feedback_field_27"  ng-model="feedbackWeeklyFormData.feedback_field_27" ng-minlength="1"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ></textarea>
                               </label>
                           </div>
                       </div>
@@ -408,7 +410,8 @@
                 <label  class="item item-input item-stacked-label" >
                 <span class="input-label" style="white-space:pre-wrap;" >{{ feedback_fields[28].feedback_field_label }} </span>
                  
-                <input type="text" class="" id="feedback_field_29" name="feedback_field_29"  ng-model="feedbackWeeklyFormData.feedback_field_29" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                <!-- <input type="text" class="" id="feedback_field_29" name="feedback_field_29"  ng-model="feedbackWeeklyFormData.feedback_field_29" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+                <textarea rows="8" cols="10" class="" id="feedback_field_29" name="feedback_field_29"  ng-model="feedbackWeeklyFormData.feedback_field_29" ng-minlength="1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ></textarea>
 
                </label>
             </div>
@@ -446,7 +449,8 @@
                 <label  class="item item-input item-stacked-label" >
                 <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[31].feedback_field_label }}       </span>
                  
-                <input type="text" class="" id="feedback_field_32" name="feedback_field_32"  ng-model="feedbackWeeklyFormData.feedback_field_32" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                <!-- <input type="text" class="" id="feedback_field_32" name="feedback_field_32"  ng-model="feedbackWeeklyFormData.feedback_field_32" ng-minlength="1" ng-maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+                <textarea rows="8" cols="10"  class="" id="feedback_field_32" name="feedback_field_32"  ng-model="feedbackWeeklyFormData.feedback_field_32" ng-minlength="1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ></textarea>
 
                </label>
             </div>
@@ -492,7 +496,7 @@
             </div>
                 
                   
-
+            <span>fields marked with an asterisk (<span class="require">*</span>) are required</span>
                 <div class="has-error">{{ flash_failure }} </div>
 
                 <button type="submit" class="button button-stable button-block btn-login" ng-disabled="feedbackWeeklyForm.$invalid">SAVE</button>
