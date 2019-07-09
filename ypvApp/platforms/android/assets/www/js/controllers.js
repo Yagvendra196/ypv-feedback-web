@@ -611,7 +611,12 @@ angular.module('starter.controllers', ['ionic','ngCordova.plugins.inAppBrowser']
                             if (res.response == 'S') {
                                     angular.forEach(res.data, function (value, key) {
                                         var k = 'feedback_field_'+value.feedback_field_id;
-                                        $scope.feedbackMonthlyFormData[k] = value.user_feedback_field_value;
+                                        if(value.feedback_field_id =="52" && value.feedback_field_id != ''){
+                                            var d = new Date(value.user_feedback_field_value);
+                                            $scope.feedbackMonthlyFormData[k] = d;
+                                        }else{
+                                            $scope.feedbackMonthlyFormData[k] = value.user_feedback_field_value;
+                                        }
                                     });
                             }
                         });
