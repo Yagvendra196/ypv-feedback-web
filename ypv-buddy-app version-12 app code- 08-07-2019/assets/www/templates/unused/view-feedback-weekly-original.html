@@ -1,0 +1,32 @@
+<ion-view class="" title="Weekly feedback" ng-controller="viewFeedbackWeeklyCtrl" ng-init="init()">
+    <ion-content class="has-header has-header-inner1">
+        
+        <div class="clearfix"></div>
+ 
+        <div class="list list-con1" ng-if="feedback_fields != ''">
+            <form class="list form1"  >
+               <div ng-repeat="ff in feedback_fields">
+                      <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;"><strong>{{ ff.feedback_field_label}}:</strong></span>
+                                        <input type="text" ng-value="{{ ff.user_feedback_field_value }}" >
+                    </label>
+                </div>
+
+
+
+                    <!--
+                    <div ng-repeat="ff in feedback_fields">
+                        <label class="item item-input">
+                            <div class="input-label" ><strong>{{ ff.feedback_field_name}}:</strong></div>
+                            <div class="input-label" >{{ ff.user_feedback_field_value }}</div>
+                        </label>
+                    </div>
+                    -->
+
+            </form>
+        </div>
+
+        <div class="list list1" ng-if="message != ''">
+            <h2>{{ message }} </h2>
+        </div>
+    </ion-content>
+</ion-view>
