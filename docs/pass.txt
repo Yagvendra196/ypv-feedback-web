@@ -1,8 +1,0 @@
-password :- ypv@123 
-aliase :- vikram
-
-
-package name ypv.spirt.buddy
-
-
-aap Name of app should be: “YPV Spiritual Buddy” when it will be uploaded on google play not required  at generate build

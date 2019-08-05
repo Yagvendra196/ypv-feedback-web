@@ -1,7 +1,0 @@
-{
-  "name": "ypvApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic1"
-}
