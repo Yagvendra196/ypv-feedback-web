@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MyApp.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>C08BC8A8063F1D77CB92BC12CCC1732332A3826B</string>
+				<key>dateExpires</key>
+				<string>07/01/22</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>98TCDCHV95.com.ypvsadhna.Spiritual</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>98TCDCHV95</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>Spiritual Buddy.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>3482af21-c056-458c-a22d-78667686edf6</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: *</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>98TCDCHV95</string>
+				<key>name</key>
+				<string>Varun Bihani</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
