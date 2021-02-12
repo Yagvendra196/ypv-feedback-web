@@ -1,0 +1,529 @@
+<ion-view class="" title="Weekly feedback for {{ user_details.first_name }}" ng-controller="feedbackWeeklyCtrl"
+  ng-init="init()">
+  <ion-content class="has-header has-header-inner1">
+
+    <div class="clearfix"></div>
+
+    <form class="list form1" name="feedbackWeeklyForm" novalidate=""
+      ng-submit="validateFeedbackWeekly(feedbackWeeklyForm)">
+      <input name="user_id" value="" type="hidden" ng-model="feedbackWeeklyFormData.user_id" />
+      <input name="idWeek" value="" type="hidden" ng-model="feedbackWeeklyFormData.idWeek" />
+      <input name="feedback_type" value="" type="hidden" ng-model="feedbackWeeklyFormData.feedback_type" />
+      <input name="access_token" value="" type="hidden" ng-model="feedbackWeeklyFormData.access_token" />
+
+      <div class="list">
+
+
+
+        <div id="ff_{{feedback_fields[0].feedback_field_id}}">
+          <!-- feedbackWeeklyForm.feedback_field_1.$error.required ? 'has-error' : '' -->
+          <label class="item item-input label-marb0">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[0].feedback_field_label }}<span
+                class="require">*</span> </span>
+          </label>
+          <span class="item-select select-marb">
+            <select name="feedback_field_1" id="feedback_field_1" required
+              ng-model="feedbackWeeklyFormData.feedback_field_1">
+              <option value="Prep">Preliminary</option>
+              <option value="Level 1,2">Level 1,2</option>
+              <option value="Level 3">Level 3</option>
+              <option value="Level 3.1, 3.2">Level 3.1, 3.2</option>
+            </select>
+          </span>
+        </div>
+
+
+
+        <div id="ff_{{feedback_fields[1].feedback_field_id}}">
+          <label class="item item-input label-marb0">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[1].feedback_field_label }}<span
+                class="require">*</span> </span>
+          </label>
+          <span class="item-select select-marb">
+            <select name="feedback_field_2" id="feedback_field_2" required
+              ng-model="feedbackWeeklyFormData.feedback_field_2">
+              <option value="Loving Kindness & Non-injury">Loving Kindness & Non-injury</option>
+              <option value="Moderation & Non-excessiveness">Moderation & Non-excessiveness</option>
+              <option value="Generosity & Non-Stealing">Generosity & Non-Stealing</option>
+              <option value="Constancy of Aim & effort & Non-Laziness">Constancy of Aim & effort & Non-laziness</option>
+              <option value="Accurate Perception & Correct Expression & Non-lying">Accurate Perception & Correct
+                Expression & Non-lying</option>
+            </select>
+          </span>
+        </div>
+
+
+        <div class="row form-stacked-row">
+          <div class="col legend-box">
+            <span class="legend-box-heading">{{ feedback_fields[2].feedback_field_group_label }}</span>
+            <div class="row form-stacked-row">
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[2].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[2].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_3" name="feedback_field_3"
+                      ng-model="feedbackWeeklyFormData.feedback_field_3" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[3].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[3].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_4" name="feedback_field_4"
+                      ng-model="feedbackWeeklyFormData.feedback_field_4" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[4].feedback_field_id}}">
+          <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;">{{
+              feedback_fields[4].feedback_field_label }}</span>
+            <input type="text" id="feedback_field_5" name="feedback_field_5"
+              ng-model="feedbackWeeklyFormData.feedback_field_5" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[5].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[5].feedback_field_label }}
+            </span>
+            <input type="text" class="" id="feedback_field_6" name="feedback_field_6"
+              ng-model="feedbackWeeklyFormData.feedback_field_6" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false" />
+          </label>
+        </div>
+
+
+        <!--New field addedc[09022021] -->
+        <div id="ff_{{feedback_fields[35].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[35].feedback_field_label }}
+            </span>
+            <input type="text" class="" id="feedback_field_36" name="feedback_field_36"
+              ng-model="feedbackWeeklyFormData.feedback_field_36" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false" />
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[6].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[6].feedback_field_label }}
+            </span>
+            <input type="text" class="" id="feedback_field_7" name="feedback_field_7"
+              ng-model="feedbackWeeklyFormData.feedback_field_7" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false" />
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[7].feedback_field_id}}">
+          <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;">{{
+              feedback_fields[7].feedback_field_label }} </span>
+            <input type="text" class="" id="feedback_field_8" name="feedback_field_8"
+              ng-model="feedbackWeeklyFormData.feedback_field_8" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false" />
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[8].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[8].feedback_field_label }}</span>
+            <input type="text" class="" id="feedback_field_9" name="feedback_field_9"
+              ng-model="feedbackWeeklyFormData.feedback_field_9" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+          </label>
+        </div>
+
+
+
+        <div id="ff_{{feedback_fields[9].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[9].feedback_field_label }}
+            </span>
+            <input type="text" class="" id="feedback_field_10" name="feedback_field_10"
+              ng-model="feedbackWeeklyFormData.feedback_field_10" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+          </label>
+        </div>
+
+
+        <div class="row form-stacked-row">
+          <div class="col legend-box">
+            <span class="legend-box-heading">{{ feedback_fields[10].feedback_field_group_label }}</span>
+            <div class="row form-stacked-row">
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[10].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[10].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_11" name="feedback_field_11"
+                      ng-model="feedbackWeeklyFormData.feedback_field_11" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[11].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[11].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_12" name="feedback_field_12"
+                      ng-model="feedbackWeeklyFormData.feedback_field_12" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-stacked-row">
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[12].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[12].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_13" name="feedback_field_13"
+                      ng-model="feedbackWeeklyFormData.feedback_field_13" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[13].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[13].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_14" name="feedback_field_14"
+                      ng-model="feedbackWeeklyFormData.feedback_field_14" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-stacked-row">
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[14].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[14].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_15" name="feedback_field_15"
+                      ng-model="feedbackWeeklyFormData.feedback_field_15" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+
+              <!-- Remove this field [09022021] -->
+              <!-- <div class="col col-50">
+                <div id="ff_{{feedback_fields[15].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[15].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_16" name="feedback_field_16"  ng-model="feedbackWeeklyFormData.feedback_field_16" ng-minlength="1"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                  </label>
+                </div>
+              </div> -->
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div id="ff_{{feedback_fields[16].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[16].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_17" name="feedback_field_17"
+              ng-model="feedbackWeeklyFormData.feedback_field_17" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+
+
+        <div id="ff_{{feedback_fields[17].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[17].feedback_field_label
+              }}</span>
+
+            <!-- <input type="text" class="" id="feedback_field_18" name="feedback_field_18"  ng-model="feedbackWeeklyFormData.feedback_field_18" ng-minlength="1"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+            <textarea rows="8" cols="10" class="" id="feedback_field_18" name="feedback_field_18"
+              ng-model="feedbackWeeklyFormData.feedback_field_18" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false"></textarea>
+
+          </label>
+        </div>
+
+
+
+        <div id="ff_{{feedback_fields[18].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[18].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_19" name="feedback_field_19"
+              ng-model="feedbackWeeklyFormData.feedback_field_19" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+
+
+        <div id="ff_{{feedback_fields[19].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[19].feedback_field_label
+              }}</span>
+            <input type="text" class="" id="feedback_field_20" name="feedback_field_20"
+              ng-model="feedbackWeeklyFormData.feedback_field_20" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+
+
+        <div id="ff_{{feedback_fields[20].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[20].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_21" name="feedback_field_21"
+              ng-model="feedbackWeeklyFormData.feedback_field_21" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+
+
+        <div id="ff_{{feedback_fields[21].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[21].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_22" name="feedback_field_22"
+              ng-model="feedbackWeeklyFormData.feedback_field_22" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+        <div class="row form-stacked-row">
+          <div class="col legend-box">
+            <span class="legend-box-heading"> {{ feedback_fields[22].feedback_field_group_label }}</span>
+
+            <div class="row form-stacked-row">
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[22].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[22].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_23" name="feedback_field_23"
+                      ng-model="feedbackWeeklyFormData.feedback_field_23" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[23].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[23].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_24" name="feedback_field_24"
+                      ng-model="feedbackWeeklyFormData.feedback_field_24" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row form-stacked-row">
+
+              <div class="col col-50">
+                <div id="ff_{{feedback_fields[24].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[24].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_25" name="feedback_field_25"
+                      ng-model="feedbackWeeklyFormData.feedback_field_25" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+
+              <div class="col col-50">
+                <div id="">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;"> </span>
+
+                  </label>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="row form-stacked-row">
+              <div class="col">
+                <div id="ff_{{feedback_fields[25].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[25].feedback_field_label }}</span>
+                    <input type="text" class="" id="feedback_field_26" name="feedback_field_26"
+                      ng-model="feedbackWeeklyFormData.feedback_field_26" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-stacked-row">
+
+              <div class="col ">
+                <div id="ff_{{feedback_fields[26].feedback_field_id}}">
+                  <label class="item item-input item-stacked-label"> <span class="input-label"
+                      style="white-space:pre-wrap;">{{ feedback_fields[26].feedback_field_label }} </span>
+                    <!-- <input type="text" class="" id="feedback_field_27" name="feedback_field_27"  ng-model="feedbackWeeklyFormData.feedback_field_27" ng-minlength="1"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+                    <textarea rows="8" cols="10" class="" id="feedback_field_27" name="feedback_field_27"
+                      ng-model="feedbackWeeklyFormData.feedback_field_27" ng-minlength="1" autocomplete="off"
+                      autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="ff_{{feedback_fields[27].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[27].feedback_field_label }}
+            </span>
+
+            <input type="text" class="" id="feedback_field_28" name="feedback_field_28"
+              ng-model="feedbackWeeklyFormData.feedback_field_28" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+        <div id="ff_{{feedback_fields[28].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[28].feedback_field_label }}
+            </span>
+
+            <!-- <input type="text" class="" id="feedback_field_29" name="feedback_field_29"  ng-model="feedbackWeeklyFormData.feedback_field_29" ng-minlength="1"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+            <textarea rows="8" cols="10" class="" id="feedback_field_29" name="feedback_field_29"
+              ng-model="feedbackWeeklyFormData.feedback_field_29" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false"></textarea>
+
+          </label>
+        </div>
+
+        <div id="ff_{{feedback_fields[29].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[29].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_30" name="feedback_field_30"
+              ng-model="feedbackWeeklyFormData.feedback_field_30" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[30].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[30].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_31" name="feedback_field_31"
+              ng-model="feedbackWeeklyFormData.feedback_field_31" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[31].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[31].feedback_field_label }}
+            </span>
+
+            <!-- <input type="text" class="" id="feedback_field_32" name="feedback_field_32"  ng-model="feedbackWeeklyFormData.feedback_field_32" ng-minlength="1"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > -->
+            <textarea rows="8" cols="10" class="" id="feedback_field_32" name="feedback_field_32"
+              ng-model="feedbackWeeklyFormData.feedback_field_32" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false"></textarea>
+
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[32].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[32].feedback_field_label
+              }}</span>
+
+            <input type="text" class="" id="feedback_field_33" name="feedback_field_33"
+              ng-model="feedbackWeeklyFormData.feedback_field_33" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+
+        <div id="ff_{{feedback_fields[33].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-line;">{{ feedback_fields[33].feedback_field_label }}
+            </span>
+
+            <input type="text" class="" id="feedback_field_34" name="feedback_field_34"
+              ng-model="feedbackWeeklyFormData.feedback_field_34" ng-minlength="1" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false">
+
+          </label>
+        </div>
+
+        <div id="ff_{{feedback_fields[34].feedback_field_id}}">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label" style="white-space:pre-wrap;">{{ feedback_fields[34].feedback_field_label
+              }}</span>
+
+            <textarea class="" rows="8" cols="10" id="feedback_field_35" name="feedback_field_35"
+              ng-model="feedbackWeeklyFormData.feedback_field_35"></textarea>
+
+          </label>
+        </div>
+
+
+        <span>fields marked with an asterisk (<span class="require">*</span>) are required</span>
+        <!-- <div class="has-error">{{ flash_failure }} </div> -->
+
+        <button type="submit" class="button button-stable button-block btn-login"
+          ng-disabled="feedbackWeeklyForm.$invalid">SAVE</button>
+
+        <!-- <a ui-sref="app.my-buddies">
+                    <button id="toMyBuddies" style="display: none;">toMyBuddies</button>
+                </a> -->
+
+        <!-- <a class="button button-stable  button-block btn-login" onclick="setFeedbackWeeklyValidations(this);">SUBMIT</a> -->
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

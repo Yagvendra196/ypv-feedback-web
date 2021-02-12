@@ -1,0 +1,39 @@
+<ion-view class="pagebg-login" title="Monthly feedback for {{ user_details.first_name}}" ng-controller="feedbackMonthlyCtrl" ng-init="init()">
+    <ion-content class="has-header has-header-inner2">
+        <!-- <div class="topbar">
+            <div class="feedback">
+                <a href="#" ui-sref="app.feedbackWeekly({id:'{{ user_id }}'})" class="active">Weekly</a>  |  <a href="#" ui-sref="app.feedbackMonthly({id:'{{ user_id }}'})">Monthly</a>
+            </div>
+        </div>
+        <div class="clearfix"></div> -->
+
+        <form name="feedbackMonthlyForm" novalidate="" ng-submit="validateFeedbackMonthly(feedbackMonthlyForm)">
+            <div class="list list-con2">
+                <input name="user_id" value="" type="hidden" ng-model="feedbackMonthlyFormData.user_id" />
+                <input name="selected_date" value="" type="hidden" ng-model="feedbackMonthlyFormData.selected_date" />
+                <input name="feedback_type" value="" type="hidden" ng-model="feedbackMonthlyFormData.feedback_type" />
+                <input name="access_token" value="" type="hidden" ng-model="feedbackMonthlyFormData.access_token" />
+
+                <div id="ff_{{feedback_fields[0].feedback_field_id}}">
+                    <label class="item item-input head1">
+                        <div ng-class="loginForm.username.$touched && (feedbackMonthlyForm.feedback_field_16.$error.required || feedbackMonthlyFormData.feedback_field_16.$error.minlength || feedbackMonthlyFormData.feedback_field_16.$error.maxlength) ? 'input-label has-error' : 'input-label'">
+                            <ion-list>{{ feedback_fields[0].feedback_field_name }}</ion-list>
+                        </div>
+
+                        <input type="number" class="input2" name="feedback_field_16" ng-model="feedbackMonthlyFormData.feedback_field_16" ng-minlength="1" ng-maxlength="100" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" > <span class="percent-symbol">%</span>
+                    </label>
+                </div>
+
+                <div class="has-error">{{ flash_failure }} </div>
+
+                <button type="submit" class="button button-stable button-block btn-login" ng-disabled="feedbackMonthlyForm.$invalid">SUBMIT</button>
+
+                <!-- <a ui-sref="app.my-buddies">
+                    <button id="toMyBuddies" style="display: none;">toMyBuddies</button> 
+                </a> -->
+
+                <!-- <a class="button button-stable  button-block btn-login" onclick="setFeedbackMonthlyValidations(this);">SUBMIT</a> -->
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
