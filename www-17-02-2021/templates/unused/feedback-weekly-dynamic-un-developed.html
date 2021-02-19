@@ -1,0 +1,42 @@
+<ion-view class="pagebg-login" title="Weekly feedback for {{ user_details.first_name }}" ng-controller="feedbackWeeklyCtrl" ng-init="init()">
+    <ion-content class="has-header has-header-inner1">
+        <div class="topbar"> <span class="head-left">ACTIVITY</span> 
+            <!-- <div class="feedback">
+                <a href="#" ui-sref="app.feedbackWeekly({id:'{{ user_id }}'})" class="active">Weekly</a>  |  <a href="#" ui-sref="app.feedbackMonthly({id:'{{ user_id }}'})">Monthly</a>
+            </div> --> 
+
+            <span class="head-right">COUNT</span>   
+        </div>
+        <div class="clearfix"></div>
+
+        <form name="feedbackWeeklyForm" novalidate="" ng-submit="validateFeedbackWeekly(feedbackWeeklyForm)">
+            <div class="list list-con1">
+                <input name="user_id" value="" type="hidden" ng-model="feedbackWeeklyFormData.user_id" />
+                <input name="idWeek" value="" type="hidden" ng-model="feedbackWeeklyFormData.idWeek" />
+                <input name="feedback_type" value="" type="hidden" ng-model="feedbackWeeklyFormData.feedback_type" />
+                <input name="access_token" value="" type="hidden" ng-model="feedbackWeeklyFormData.access_token" />
+
+
+                <div ng-repeat="q in feedback_fields">
+                    <div  id="ff_{{q.feedback_field_id}}" >
+                        <label class="item item-input">
+                            <div class="input-label" ng-class="feedbackWeeklyForm.feedback_field_{{$index+1}}.$error.required ? 'has-error' : ''" >{{ q.feedback_field_name }}</div>
+                            <input type="text" class="input1" id="feedback_field_{{$index+1}}" name="feedback_field_{{$index+1}}" ng-model="feedbackWeeklyFormData['feedback_field_{{$index+1}}']"  ng-minlength="1" ng-maxlength="100" required autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" >
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="has-error">{{ flash_failure }} </div>
+
+                <button type="submit" class="button button-stable button-block btn-login" ng-disabled="feedbackWeeklyForm.$invalid">SUBMIT</button>
+
+                <!-- <a ui-sref="app.my-buddies">
+                    <button id="toMyBuddies" style="display: none;">toMyBuddies</button>
+                </a> -->
+
+                <!-- <a class="button button-stable  button-block btn-login" onclick="setFeedbackWeeklyValidations(this);">SUBMIT</a> -->
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
