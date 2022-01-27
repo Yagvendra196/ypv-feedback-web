@@ -1,0 +1,77 @@
+@import "../../../assets/Scss/variables.scss";
+
+.selectWrapper {
+    position: relative;
+    width: 100%;
+
+    select {
+        background: $whiteColor;
+        border: 1px solid $greyDark;
+        font-size: $fontMd;
+        color: $grayColor;
+        -webkit-appearance: none;
+        padding: 0px 25px 4px 16px;
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        align-items: center;
+        height: 48px;
+
+        &:focus {
+            outline: 0;
+        }
+
+        option {
+            color: $blackColor;
+        }
+
+    }
+
+    i {
+        position: absolute;
+        right: 8px;
+        top: 15px;
+        z-index: 0;
+        font-size: 17px;
+        color: $blackColor;
+        pointer-events: none;
+    }
+
+    &.boldSelect {
+        select {
+            background: $whiteColor;
+            box-shadow: $boxShadow;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 33px;
+            color: $blackColor;
+            padding: 0 30px;
+            height: 65px;
+            border: none;
+        }
+
+
+        i {
+            color: $blackColor;
+            right: 30px;
+            top: 28px;
+            font-size: 11px;
+        }
+
+    }
+
+    &.noBorder {
+        select {
+            border: none;
+            padding: 0;
+            padding-right: 30px;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 17px;
+            letter-spacing: -0.02em;
+            color: $grayColor;
+        }
+    }
+
+}

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { INPUTTYPES } from './constant'
-
+import styles from './Input.module.scss'
 /**
  * Render Input
+ * @param {string} variant
  * @param {string} inputClass
  * @param {string} name
  * @param {string} placeholder
@@ -19,6 +19,7 @@ import { INPUTTYPES } from './constant'
  */
 
 const Input = ({
+  variant,
   inputClass,
   name,
   placeholder,
@@ -38,7 +39,7 @@ const Input = ({
         <textarea
           disabled={disabled}
           id={inputId}
-          className={inputClass}
+          className={`${styles[variant]} ${styles.input} ${[inputClass]}`}
           name={name}
           placeholder={placeholder}
         >
@@ -51,7 +52,7 @@ const Input = ({
         <input
           type={type}
           id={inputId}
-          className={inputClass}
+          className={`${styles[variant]} ${styles.input} ${[inputClass]}`}
           name={name}
           placeholder={placeholder}
           onChange={onChange}
@@ -66,8 +67,7 @@ const Input = ({
 }
 
 Input.defaultProps = {
-  inputClass: '',
-  type: INPUTTYPES.TEXT
+  type: Text
 }
 
 Input.propTypes = {

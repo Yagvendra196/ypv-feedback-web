@@ -1,0 +1,105 @@
+
+@import "../../../assets/Scss/breakpoints.scss";
+@import "../../../assets/Scss/variables.scss";
+@mixin textStyling {
+  &.strong4 {
+    font-weight: 400;
+  }
+
+  &.strong5 {
+    font-weight: 500;
+  }
+
+  &.strong6 {
+    font-weight: 600;
+  }
+
+  &.strong7 {
+    font-weight: 700;
+  }
+
+  &.primary {
+    color: $primaryColor;
+  }
+
+
+  &.greyDark {
+    color: $greyDark;
+  }
+
+  &.grey {
+    color: $grey;
+  }
+  &.greyLight {
+    color: $lightgrayColor;
+    ;
+  }
+
+  &.black {
+    color: $blackColor;
+  }
+
+  &.white {
+    color: $whiteColor;
+  }
+
+  &.upperCase {
+    text-transform: uppercase;
+  }
+
+  &.lineThrough {
+    text-decoration: line-through;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+}
+
+.h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.h2 {
+  font-size: 24px;
+  line-height: 30px;
+
+  @include md{
+    font-size: 18px;
+  }
+
+}
+
+.h3 {
+  font-size: 20px;
+  line-height: 22px;  
+}
+
+.h4 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.h5 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.h6 {
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: $blackColor;
+  margin: 0;
+  letter-spacing: -0.05em;
+  -webkit-letter-spacing: 0;
+  @include textStyling;
+}
