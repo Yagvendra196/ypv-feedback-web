@@ -1,0 +1,69 @@
+@import "./variables.scss";
+
+@mixin btn-styling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  border: 0;
+  color: $color_white;
+  font-size: 16px;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+  font-weight: 600;
+  
+  &.block {
+    width: 100%;
+  }
+  i {
+    padding-right: 10px;
+    font-size: 20px;
+  }
+
+  transition-property: background, left;
+  transition-duration: 0.3s;
+
+  &:disabled:hover {
+    cursor: default;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+@mixin btn-primary {
+  background: $button_primary_normal;
+  border: none;
+  
+
+  &:hover {
+    background: alpha(var(--primary-color-rbg-values), 0.75);
+    border: none;
+    cursor: pointer;
+  }
+  &:disabled {
+    background: $button_primary_disabled;
+    // border: 1px solid $button_primary_disabled;
+  }
+}
+
+
+
+@mixin btn-text {
+  background: none;
+  color: $button_primary_normal;
+  min-width: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 600;
+
+  &:hover {
+    color: alpha(var(--primary-color-rbg-values), 0.75);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    color: $button_secondary_color_disabled;
+  }
+}

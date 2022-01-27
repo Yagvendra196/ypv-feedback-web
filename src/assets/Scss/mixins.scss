@@ -1,0 +1,35 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+@mixin textStyling {
+    &.strong {
+        font-weight: 600;
+    }
+  
+    &.primary {
+        color: $primeryColor;
+    }
+  
+    &.secondary {
+        color: $colorWhite;
+    }
+  
+    
+  
+    &.dark {
+        color:$colorBlack;
+    }
+  
+    &.upperCase {
+        text-transform: uppercase;
+    }
+  
+    &.lineThrough {
+        text-decoration: line-through;
+    }
+  
+    &.lightGray {
+        color: $colorGray;
+    }
+  }
+  

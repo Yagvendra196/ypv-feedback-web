@@ -1,11 +1,13 @@
 import React from 'react'
 import './HelloWorld.css'
-import logo from '../../logo.svg'
+
+import {Label} from '../../components/shared';
+import {Button} from '../../components/shared';
 
 const HelloWorld = (props) => {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,7 +20,11 @@ const HelloWorld = (props) => {
         >
           Learn React
         </a>
-      </header>
+        <Heading headingType='h3'>hello</Heading>
+      </header> */}
+       <Label>Hello</Label>
+       <Button className="buttonPrimary">Hello</Button>
+      
     </div>
   );
 }
