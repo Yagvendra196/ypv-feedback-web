@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import rootDataSwitcher from './components/hoc/rootContext/rootDataSwitcher'
 import { routes } from './routes'
+import './App.scss'
 class App extends React.Component {
 
   render() {
