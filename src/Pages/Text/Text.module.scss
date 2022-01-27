@@ -1,0 +1,78 @@
+@import "../../../assets/scss/mixins.scss";
+
+.xsText {
+  font-size: $font-xs;
+  color: $dark-gray;
+  line-height: 18px;
+  @include textStyling;
+}
+
+.smText {
+  font-size: $font-sm;
+  color: $dark-gray;
+  letter-spacing: 1.2px;
+  line-height: 19px;
+  @include textStyling;
+}
+
+.mdText {
+  font-size: $font-md;
+  color: $dark-gray;
+  line-height: 20px;
+  
+  @include textStyling;
+}
+
+.lgText {
+  font-size: $font-lg;
+  color: $dark-gray;
+  line-height: 22px;
+
+  @include textStyling;
+}
+
+.xlgText {
+  font-size: $font-xl;
+  color: $dark-gray;
+  @include textStyling;
+
+}
+
+.lgTextPrimary {
+  font-size: $font-lg;
+  color: $primary_color;
+  line-height: 22px;
+
+  @include textStyling;
+}
+.lgTextLightGrey {
+  font-size: $font-lg;
+  color: $light-gray;
+  line-height: 22px;
+
+  @include textStyling;
+}
+.mdTextLightGrey {
+  font-size: $font-md;
+  color: $light-gray;
+  line-height: 20px;
+
+  @include textStyling;
+}
+.xsTextLightGrey {
+  font-size: $font-xs;
+  color: $light-gray;
+  line-height: 18px;
+
+  @include textStyling;
+}
+.menuHide {
+  display: block;
+  transition: all .2s ease-in-out;
+}
+.ml10{
+  margin-left: 10px;
+}
+.cursor {
+  cursor: pointer;
+}
