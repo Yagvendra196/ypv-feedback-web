@@ -1,7 +1,8 @@
 import React from 'react'
+import StyleGuide from '../StyleGuide/StyleGuide';
 import './HelloWorld.css'
 
-import {Heading,SelectItem,SelectGroup,Input,Button,Label} from '../../components/shared';
+
 const HelloWorld = (props) => {
   return (
     <div className="App">
@@ -20,23 +21,7 @@ const HelloWorld = (props) => {
         </a>
         <Heading headingType='h3'>hello</Heading>
       </header> */}
-       <Label>Hello</Label>
-       <Input
-              type="textarea"
-              placeholder="name"
-           />
-           <Input
-               placeholder="name"
-           />
-        <Button size="md" variant="btnPrimary">
-             Hello
-            </Button>
-            <Heading headingText="Hello Feedback" type="h1"  />
-            <SelectGroup>
-          <SelectItem>-- Select --</SelectItem>
-          <SelectItem>1</SelectItem>
-          <SelectItem>2</SelectItem>
-        </SelectGroup>
+      <StyleGuide />
     </div>
   );
 }

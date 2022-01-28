@@ -4,6 +4,7 @@ import styles from './Button.module.scss'
 
 
 /** Render Button
+ * 
  * @param {string} variant
  * @param {string} btnType
  * @param {string} size
@@ -17,7 +18,7 @@ import styles from './Button.module.scss'
 
 
 const Button = ({
-  Type,
+  type,
   variant,
   size,
   block,
@@ -27,7 +28,7 @@ const Button = ({
 }) => {
   return (
     <button
-      type={Type}
+      type={type}
       className={`${styles.button} ${styles[variant]} ${styles[size]} ${
         block ? styles.block : ''
       }`}

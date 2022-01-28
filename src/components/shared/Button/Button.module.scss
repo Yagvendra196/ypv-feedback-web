@@ -79,6 +79,7 @@
   &.secondaryDisable {
     border: solid 1px transparent;
     background: $disabledColor;
+    color: $disabledText;
     cursor: auto;
     box-shadow: none;
   }

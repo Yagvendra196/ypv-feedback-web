@@ -1,0 +1,19 @@
+.wrapper {
+  padding: 20px;
+  .btnSection {
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    button {
+      margin: 10px;
+    }
+  }
+  .mt20 {
+    margin-top: 20px;
+  }
+  .mb10{
+      margin-bottom: 10px;
+  }
+}
