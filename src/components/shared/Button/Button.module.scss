@@ -1,0 +1,92 @@
+@import "../../../assets/Scss/variables.scss";
+@import "../../../assets/Scss/breakpoints.scss";
+
+
+.button{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  border: 0;
+  color: $whiteColor;
+  font-size: 16px;
+  padding: 20px 32px;
+  box-sizing: border-box;
+  position: relative;
+  font-weight: 600;
+
+  @include md {
+    padding: 14px 32px;
+  }
+
+  
+  &.block {
+    width: 100%;
+  }
+
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+  &.sm {
+    height: 40px;
+    border-radius: 10px;
+    font-size: $fontSm;
+    font-weight: 500;
+
+    @include md {
+      height: 38px;
+      font-size: 14px;
+    }
+  }
+  &.md {
+    height: 48px;
+    border-radius: 10px;
+    font-size: $fontLg;
+    font-weight: 600;
+  }
+  &.lg {
+    height: 65px;
+    border-radius: 15px;
+    font-size: $fontXl;
+    font-weight: 700;
+    padding: 10px 40px;
+
+    @include md {
+      height: 48px;
+      font-size: 14px;
+      padding: 6px 18px;
+    }
+  }
+
+  &.btnPrimary {
+    background: $primaryColor;
+    border: solid 1px transparent;
+  }
+  
+  
+  &.btnSecondary {
+    border: solid 1px $primaryColor;
+    color: $primaryColor;
+    background: transparent;
+
+  }
+  &.secondaryDisable {
+    border: solid 1px transparent;
+    background: $disabledColor;
+    cursor: auto;
+    box-shadow: none;
+  }
+
+  &.btnTertiary {
+    border: solid 1px $lightgrayColor;
+    color: $lightgrayColor;
+    background: transparent;
+  }
+
+} 

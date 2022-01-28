@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './ButtonModule.scss'
+import styles from './Button.module.scss'
 
 
 /** Render Button
@@ -17,7 +17,7 @@ import styles from './ButtonModule.scss'
 
 
 const Button = ({
-  btnType,
+  Type,
   variant,
   size,
   block,
@@ -27,8 +27,8 @@ const Button = ({
 }) => {
   return (
     <button
-      type={btnType}
-      className={`${styles.button} ${styles[variant]}${styles[size]} ${
+      type={Type}
+      className={`${styles.button} ${styles[variant]} ${styles[size]} ${
         block ? styles.block : ''
       }`}
       disabled={disabled}
@@ -50,7 +50,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  variant: "",
+  variant: "btnPrimary",
   size: "md",
   block: false,
   disabled: false,
