@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import rootDataSwitcher from './components/hoc/rootContext/rootDataSwitcher'
-import Text from './Pages/Text/Text'
 import { routes } from './routes'
 import './App.scss'
 class App extends React.Component {
@@ -17,9 +16,22 @@ class App extends React.Component {
     return (
       <div className="App center" data-theme={theme}>
 
-        <Router>
+        <Router basename={'/'}>
           <Switch>
-          <Route exact={true} path="/Text" component={Text} />
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                exact={route.exact}
+                path={route.path}
+                render={props => {
+                  let modifiedProps = {
+                    ...props,
+                    getValue: data
+                  }
+                  return <route.component {...modifiedProps} />
+                }}
+              />
+            ))}
           </Switch>
         </Router>
       </div>
