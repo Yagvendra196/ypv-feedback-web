@@ -2,7 +2,6 @@ import React from 'react'
 import StyleGuide from '../StyleGuide/StyleGuide';
 import './HelloWorld.css'
 
-
 const HelloWorld = (props) => {
   return (
     <div className="App">
@@ -26,4 +25,4 @@ const HelloWorld = (props) => {
   );
 }
 
-export default HelloWorld
+export default HelloWorld;
