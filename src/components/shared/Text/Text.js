@@ -13,7 +13,7 @@ const Text = ({
   children
 }) => {
   return (
-    <p className={`${styles[variant]} ${styles[color]}`}>{children}</p>
+    <span className={`${styles[variant]} ${styles[color]}`}>{children}</span>
    
     
   )

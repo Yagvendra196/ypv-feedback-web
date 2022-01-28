@@ -38,8 +38,8 @@ const HelloWorld = (props) => {
           <SelectItem>2</SelectItem>
         </SelectGroup>
 
-        <Text variant="smText"  color="primaryColor" />
-       <Text variant="mdText" color="SecondaryColor"/>
+        <Text variant="smText"  color="primaryColor" /><br />
+       <Text variant="mdText" color="SecondaryColor"/><br />
        <Text variant="lgText" color="blackColor"/>
     </div>
   );
