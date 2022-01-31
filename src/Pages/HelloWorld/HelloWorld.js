@@ -1,4 +1,5 @@
 import React from 'react'
+import Login from '../Login';
 import StyleGuide from '../StyleGuide/StyleGuide';
 import './HelloWorld.css'
 
@@ -21,6 +22,7 @@ const HelloWorld = (props) => {
         <Heading headingType='h3'>hello</Heading>
       </header> */}
       <StyleGuide />
+      <Login />
     </div>
   );
 }

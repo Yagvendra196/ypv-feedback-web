@@ -15,7 +15,7 @@
   &.primaryBorder {
     border: 1px solid $primaryColor;
     &::placeholder {
-      color: $grayColor;
+      color: $grey;
     }
   }
 
@@ -35,5 +35,5 @@ textarea {
   }
 }
 ::placeholder {
-  color: $grayColor;
+  color: $grey;
 }
