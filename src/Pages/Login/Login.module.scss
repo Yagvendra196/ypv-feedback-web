@@ -1,40 +1,26 @@
-.loginwrapper {
+
+.loginWrapper {
   flex-direction: row;
   align-items: flex-start;
-  padding: 0px;
-  height: 80vh;
-  
+  margin: 70px auto;
+  max-width: 450px;
+  font-family: "Roboto";
+  font-weight: 500;
   justify-content: center;
-.textcenter{
-    text-align: center;
-}
-  .emailwrapper {
-    padding-top: 25px;
-    margin: auto;
-    width: 50%;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
   }
-.Passwordwrapper{
-    padding-top: 20px;
-    margin: auto;
-    width: 50%;
-}
+  .textCenter {
+    text-align: center;
+  }
 
-
-.button{
-    width: 50%;
-    margin: auto;
-    padding-top: 25px;
-    Button{
-        width: 100%;
-        height: 48px;
-    }
-}
-.forgotpass{
-    padding-left: 26%;
-    padding-top: 20px;
-    text-align: left;
-}
+  .forgotPass {
+    margin-bottom: 20px;
+    text-align: right;
+  }
   .mt20 {
-    margin-top: 20px;
+    margin: 20px 0;
   }
 }

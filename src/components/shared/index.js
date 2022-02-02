@@ -5,4 +5,18 @@ import Heading from './Heading';
 import Input from './Input';
 import SelectGroup from './SelectGroup';
 import SelectItem from './SelectItem';
-export {Button,Label,Heading,Input,SelectGroup,SelectItem,Text}
+import ListGroup from './ListGroup';
+import ListItem from './ListItem';
+import Icon from './Icon';
+export {
+  Button,
+  Label,
+  Heading,
+  Input,
+  SelectGroup,
+  SelectItem,
+  Text,
+  ListGroup,
+  ListItem,
+  Icon,
+};
