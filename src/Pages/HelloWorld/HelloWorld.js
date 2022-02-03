@@ -1,8 +1,12 @@
 import React from 'react'
+
 import StyleGuide from '../StyleGuide/StyleGuide';
 import DashBord from '../DashBord/DashBord';
 import './HelloWorld.css';
 import {Text} from '../../components/shared';
+import { Sidenav } from '../../components/shared';
+// import Login from '../Login';
+
 
 const HelloWorld = (props) => {
   return (
@@ -22,6 +26,7 @@ const HelloWorld = (props) => {
         </a>
         <Heading headingType='h3'>hello</Heading>
       </header> */}
+
       <StyleGuide />
       
       <Text variant="smText"  color="primaryColor" /><br />
@@ -29,6 +34,9 @@ const HelloWorld = (props) => {
        <Text variant="lgText" color="blackColor"/>
 
        <DashBord  />
+       <Sidenav/>
+
+
     </div>
   );
 }

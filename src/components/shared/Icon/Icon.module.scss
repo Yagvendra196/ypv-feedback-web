@@ -1,0 +1,30 @@
+@import "../../../assets/Scss/variables.scss";
+.primery{
+    color: $primaryColor;
+}
+.secondary {
+  color: $SecondaryColor;
+}
+.grey {
+  color: $grey;
+}
+.black{
+    color: $blackColor;
+}
+.white{
+    color: $whiteColor;
+}
+.icon_small {
+  font-size: $fontXs;
+}
+
+.icon_medium {
+  font-size: $fontMd;
+}
+
+.icon_large {
+  font-size: $fontLg;
+}
+.icon_mlarge {
+  font-size: $fontXl;
+}

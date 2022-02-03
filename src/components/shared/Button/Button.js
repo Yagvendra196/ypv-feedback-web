@@ -6,7 +6,7 @@ import styles from './Button.module.scss'
 /** Render Button
  * 
  * @param {string} variant
- * @param {string} btnType
+ * @param {string} type
  * @param {string} size
  * @param {bool} block
  * @param {bool} disabled
@@ -43,7 +43,7 @@ const Button = ({
 Button.propTypes = {
   variant: PropTypes.string,
   size: PropTypes.string,
-  btnType: PropTypes.string,
+  type: PropTypes.string,
   block: PropTypes.bool,
   disabled: PropTypes.bool,
   btnHandler: PropTypes.func,

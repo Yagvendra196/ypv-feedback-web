@@ -1,0 +1,26 @@
+
+.loginWrapper {
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 70px auto;
+  max-width: 450px;
+  font-family: "Roboto";
+  font-weight: 500;
+  justify-content: center;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .textCenter {
+    text-align: center;
+  }
+
+  .forgotPass {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  .mt20 {
+    margin: 20px 0;
+  }
+}
