@@ -1,4 +1,4 @@
-import HelloWorld from './Pages/HelloWorld';
+import HelloWorld from './Pages/HelloWorld'
 import Login from './Pages/BeforeLogin/Login';
 import ForgotPassword from './Pages/BeforeLogin/ForgotPassword';
 import StyleGuide from './Pages/StyleGuide/StyleGuide';

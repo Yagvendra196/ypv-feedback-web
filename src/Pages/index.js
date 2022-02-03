@@ -1,4 +1,4 @@
-// import Login from "./Login";
-// import StyleGuide from "./StyleGuide";
+// import { Login, ForgotPassword } from "./BeforeLogin";
 
-// export { Login, StyleGuide };
+
+// export{Login , ForgotPassword}

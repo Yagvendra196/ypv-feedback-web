@@ -7,7 +7,7 @@ const Login = () => {
   
   return (
     <div className={styles.loginWrapper}>
-      <img src={Logo} alt="" />
+      <img src={Logo} alt="logo" />
       <Heading headingText="Spiritual Buddy Login" type="h2" />
       <div className={styles.textCenter}>
         <Text variant="mdText" color="SecondaryColor">
