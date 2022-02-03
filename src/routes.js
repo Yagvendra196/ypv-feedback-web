@@ -1,6 +1,8 @@
 import HelloWorld from './Pages/HelloWorld'
 import Login from './Pages/Login'
 import ForgotPassword from './Pages/ForgotPassword'
+import StyleGuide from './Pages/StyleGuide/StyleGuide';
+
 export const routes = [
   {
     path: "/",
@@ -17,4 +19,14 @@ export const routes = [
     component: ForgotPassword,
     exact: false,
   },
+  {
+    path: "/styleGuide",
+    component: StyleGuide,
+    exact: false,
+  },
+  // {
+  //   path: "/sidenav",
+  //   component: Sidenav,
+  //   exact: false,
+  // },
 ];

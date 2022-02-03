@@ -9,6 +9,8 @@ import {
   Input,
   Button,
   Label,
+  ListGroup,
+  ListItem,
 } from "../../components/shared";
 
 const StyleGuide = () => {
@@ -89,6 +91,12 @@ const StyleGuide = () => {
         </div>
         <div>
           <Label>Hello</Label>
+        </div>
+        <div>
+          <ListGroup>
+            <ListItem>1</ListItem>
+            <ListItem>1</ListItem>
+          </ListGroup>
         </div>
       </div>
     </>

@@ -8,6 +8,7 @@ import SelectItem from './SelectItem';
 import ListGroup from './ListGroup';
 import ListItem from './ListItem';
 import Icon from './Icon';
+import Sidenav from './Sidenav';
 export {
   Button,
   Label,
@@ -19,4 +20,5 @@ export {
   ListGroup,
   ListItem,
   Icon,
+  Sidenav,
 };

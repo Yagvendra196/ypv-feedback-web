@@ -1,6 +1,7 @@
 import React from 'react'
-import Login from '../Login';
-import StyleGuide from '../StyleGuide/StyleGuide';
+import { Sidenav } from '../../components/shared';
+// import Login from '../Login';
+// import StyleGuide from '../StyleGuide/StyleGuide';
 import './HelloWorld.css'
 
 const HelloWorld = (props) => {
@@ -21,8 +22,8 @@ const HelloWorld = (props) => {
         </a>
         <Heading headingType='h3'>hello</Heading>
       </header> */}
-      <StyleGuide />
-      <Login />
+      {/* <StyleGuide /> */}
+     <Sidenav/>
     </div>
   );
 }

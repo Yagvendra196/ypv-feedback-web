@@ -1,0 +1,34 @@
+@import "../../../assets/Scss/variables.scss";
+@import "../../../assets/Scss/breakpoints.scss";
+.navBar {
+  max-width: 250px;
+  font-weight: 700;
+  min-height: 100vh;
+  border-right: 1px solid $disabledText;
+  
+  .line {
+    padding: 0;
+
+    border: 1px solid $disabledText;
+  }
+  .listItem {
+    font-weight: 400;
+    font-style: normal;
+    line-height: 21px;
+    color: $greyDark;
+
+    ul {
+      li {
+
+        i {
+          margin-right: 20px;
+        }
+        margin-bottom: 20px;
+        margin-top: 15px;
+      }
+    }
+  }
+  .p20 {
+    padding: 20px;
+  }
+}
