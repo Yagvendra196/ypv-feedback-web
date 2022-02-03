@@ -1,0 +1,37 @@
+@import "../../assets/Scss/variables.scss";
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    .dashBordBody{
+        flex: 0 0 auto;
+        width: 80%;
+        
+        .cardBody{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }     
+    }
+    .h100{
+        height: 100vh;
+    }
+
+    
+
+    .justifyContentCenter{
+        justify-content: center;
+    }
+    .alignItemsCenter{
+        align-items: center;
+    }
+    .positionRelative{
+        position: relative;
+    }
+}
+.py15{
+    padding: 15px 0;
+}
+.pb50{
+    padding-bottom: 50px;
+}

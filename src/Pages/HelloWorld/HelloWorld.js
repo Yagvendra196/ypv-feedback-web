@@ -1,10 +1,10 @@
 import React from 'react'
 
 import StyleGuide from '../StyleGuide/StyleGuide';
-import DashBord from '../DashBord/DashBord';
+import Layout from '../Layout/Layout';
 import './HelloWorld.css';
 import {Text} from '../../components/shared';
-import { Sidenav } from '../../components/shared';
+
 // import Login from '../Login';
 
 
@@ -33,8 +33,8 @@ const HelloWorld = (props) => {
        <Text variant="mdText" color="SecondaryColor"/><br />
        <Text variant="lgText" color="blackColor"/>
 
-       <DashBord  />
-       <Sidenav/>
+       <Layout  />
+       
 
 
     </div>

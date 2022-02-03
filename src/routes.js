@@ -1,6 +1,7 @@
 import HelloWorld from './Pages/HelloWorld';
 import StyleGuide from './Pages/StyleGuide/StyleGuide';
-import DashBord from './Pages/DashBord/DashBord'
+import Layout from './Pages/Layout/Layout';
+
 import Login from './Pages/BeforeLogin/Login';
 import ForgotPassword from './Pages/BeforeLogin/ForgotPassword';
 
@@ -12,8 +13,8 @@ export const routes = [
   }, 
 
   {
-    path: '/DashBord',
-    component: DashBord,
+    path: '/Layout',
+    component: Layout,
     exact: false
   }, 
   {
@@ -30,12 +31,8 @@ export const routes = [
     path: "/styleGuide",
     component: StyleGuide,
     exact: false,
-  },
-  {
-    path: "/sidenav",
-    component: Sidenav,
-    exact: false,
-  },
+  }
+  
   
 ]
 

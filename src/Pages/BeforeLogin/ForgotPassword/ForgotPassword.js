@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ForgotPass.module.scss";
-import Logo from "../../assets/Images/ypvlogo.png";
-import { Heading, Input, Text, Button } from "../../components/shared";
+import Logo from "../../../assets/Images/ypvlogo.png";
+import { Heading, Input, Text, Button } from "../../../components/shared";
 
 const ForgotPassword = () => {
   return (

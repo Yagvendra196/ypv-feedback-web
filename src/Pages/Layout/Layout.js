@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./DashBord.module.scss";
+import styles from "./Layout.module.scss";
 import { User} from '../../assets/img/ImgImport';
 import { Eye} from '../../assets/img/ImgImport';
 import { Edit} from '../../assets/img/ImgImport';
@@ -8,23 +8,22 @@ import { Frame} from '../../assets/img/ImgImport';
 // import { ArrowLeft} from '../../assets/img/ImgImport';
 import {CardBox} from "../../components/shared";
 import {DashBordHeader } from "../../components/shared";
-
-const DashBord = (pros) => {
+import { Sidenav } from '../../components/shared';
+const Layout = (pros) => {
   return (
     <>
+    
       <div className={`${styles.row}`}>
-        <div className={`${styles.dashBord}`}>
-          <DashBordHeader />
+      <Sidenav/>
+        <div className={`${styles.dashBordBody} ${styles.h100}`}>   
+          
           <div className={`${styles.row} ${styles.justifyContentCenter}`}>
-            <div className={`${styles.colMd}`}>
-              <CardBox heading="My Buddies" IconImage={User} more={Frame}/>
-            </div>
-            <div className={`${styles.colMd}`}>
-              <CardBox heading="Give Feedback" IconImage={Edit} more={Frame} />
-            </div>
-            <div className={`${styles.colMd}`}>
+            <DashBordHeader />
+            <div className={`${styles.cardBody}`}>
+              <CardBox heading="My Buddies" IconImage={User} more={Frame}/>            
+              <CardBox heading="Give Feedback" IconImage={Edit} more={Frame} />            
               <CardBox heading="View Feedback" IconImage={Eye} more={Frame} />
-            </div>
+              </div>
           </div>
         </div>
       </div>
@@ -32,4 +31,4 @@ const DashBord = (pros) => {
   );
 };
 
-export default DashBord;
+export default Layout;
