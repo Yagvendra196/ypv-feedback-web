@@ -1,14 +1,16 @@
 import React from 'react'
-import { Sidenav } from '../../components/shared';
-// import Login from '../Login';
-// import StyleGuide from '../StyleGuide/StyleGuide';
-import './HelloWorld.css'
+import Layout from '../../components/containers/Layout';
+import { Header } from '../../components/shared';
+import './HelloWorld.css';
+
+
+
 
 const HelloWorld = (props) => {
   return (
     <div className="App">
       {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -20,10 +22,15 @@ const HelloWorld = (props) => {
         >
           Learn React
         </a>
-        <Heading headingType='h3'>hello</Heading>
+        
       </header> */}
-      {/* <StyleGuide /> */}
-     <Sidenav/>
+
+    
+      
+    
+       
+
+
     </div>
   );
 }

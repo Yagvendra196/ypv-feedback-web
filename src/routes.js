@@ -1,13 +1,21 @@
-import HelloWorld from './Pages/HelloWorld'
-import Login from './Pages/BeforeLogin/Login';
-import ForgotPassword from './Pages/BeforeLogin/ForgotPassword';
-import StyleGuide from './Pages/StyleGuide/StyleGuide';
+import HelloWorld from "./Pages/HelloWorld";
+import StyleGuide from "./Pages/StyleGuide/StyleGuide";
+import Login from "./Pages/BeforeLogin/Login";
+import ForgotPassword from "./Pages/BeforeLogin/ForgotPassword";
+import Layout from "./components/containers/Layout";
+
 
 export const routes = [
   {
     path: "/",
     component: HelloWorld,
     exact: true,
+  },
+
+  {
+    path: "/layout",
+    component: Layout,
+    exact: false,
   },
   {
     path: "/login",
@@ -24,9 +32,4 @@ export const routes = [
     component: StyleGuide,
     exact: false,
   },
-  // {
-  //   path: "/sidenav",
-  //   component: Sidenav,
-  //   exact: false,
-  // },
 ];
