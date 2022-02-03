@@ -1,7 +1,7 @@
 import React from 'react'
 
 import StyleGuide from '../StyleGuide/StyleGuide';
-import Layout from '../Layout/Layout';
+
 import './HelloWorld.css';
 import {Text} from '../../components/shared';
 
@@ -33,7 +33,7 @@ const HelloWorld = (props) => {
        <Text variant="mdText" color="SecondaryColor"/><br />
        <Text variant="lgText" color="blackColor"/>
 
-       <Layout  />
+      
        
 
 

@@ -1,6 +1,6 @@
 import HelloWorld from './Pages/HelloWorld';
 import StyleGuide from './Pages/StyleGuide/StyleGuide';
-import Layout from './Pages/Layout/Layout';
+import {Layout} from '../../components/Layout';
 
 import Login from './Pages/BeforeLogin/Login';
 import ForgotPassword from './Pages/BeforeLogin/ForgotPassword';
