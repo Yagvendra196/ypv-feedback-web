@@ -1,6 +1,8 @@
 import React from 'react'
 import StyleGuide from '../StyleGuide/StyleGuide';
-import './HelloWorld.css'
+import DashBord from '../DashBord/DashBord';
+import './HelloWorld.css';
+import {Text} from '../../components/shared';
 
 const HelloWorld = (props) => {
   return (
@@ -21,6 +23,12 @@ const HelloWorld = (props) => {
         <Heading headingType='h3'>hello</Heading>
       </header> */}
       <StyleGuide />
+      
+      <Text variant="smText"  color="primaryColor" /><br />
+       <Text variant="mdText" color="SecondaryColor"/><br />
+       <Text variant="lgText" color="blackColor"/>
+
+       <DashBord  />
     </div>
   );
 }
