@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Login.module.scss";
-import Logo from "../../assets/Images/ypvlogo.png";
-import { Heading, Input, Button, Text  } from "../../components/shared";
+import Logo from "../../../assets/Images/ypvlogo.png";
+import { Heading, Input, Button, Text  } from "../../../components/shared";
 
 const Login = () => {
   
