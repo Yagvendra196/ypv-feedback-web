@@ -1,6 +1,5 @@
 import React from 'react'
-import Layout from '../../components/containers/Layout';
-import { Header } from '../../components/shared';
+import { ListView } from '../../components/shared';
 import './HelloWorld.css';
 
 
@@ -25,8 +24,10 @@ const HelloWorld = (props) => {
         
       </header> */}
 
-    
+    <ListView />
       
+        
+     
     
        
 

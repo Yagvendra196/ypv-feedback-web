@@ -1,0 +1,46 @@
+@import "../../../assets/Scss/variables.scss";
+.listWrapper {
+  max-width: 550px;
+  border: 1px solid $disabledText;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  margin: 20px;
+  .userWrepper {
+    margin: 10px;
+    min-height: 45px;
+    max-width: 45px;
+    border-radius: 50%;
+
+    img {
+      min-height: 45px;
+      max-width: 45px;
+    }
+  }
+  .mainWrepper {
+    margin:  auto;
+    padding-right: 250px;
+    
+    .mapWrepper {
+      display: flex;
+      .mapText{
+         margin: 0 8px;
+      }
+      i{
+          font-size: 16px;
+          color: $grey;
+      }
+    }
+  }
+  .removeIcon {
+      margin: auto;
+      
+     i{
+        font-size: 20px; 
+        color: $grey;
+     };
+  }
+  .mt10{
+      margin-top: 10px;
+  }
+}

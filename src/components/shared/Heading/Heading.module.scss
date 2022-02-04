@@ -1,4 +1,3 @@
-
 @import "../../../assets/Scss/breakpoints.scss";
 @import "../../../assets/Scss/variables.scss";
 @mixin textStyling {
@@ -22,17 +21,17 @@
     color: $primaryColor;
   }
 
-
   &.greyDark {
     color: $greyDark;
   }
-
+  &.disabled {
+    color: $disabledText;
+  }
   &.grey {
     color: $grey;
   }
   &.greyLight {
     color: $lightgrayColor;
-    ;
   }
 
   &.black {
@@ -65,15 +64,14 @@
   font-size: 24px;
   line-height: 30px;
 
-  @include md{
+  @include md {
     font-size: 18px;
   }
-
 }
 
 .h3 {
   font-size: 20px;
-  line-height: 22px;  
+  line-height: 22px;
 }
 
 .h4 {

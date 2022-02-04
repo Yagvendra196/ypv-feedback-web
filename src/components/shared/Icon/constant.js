@@ -7,6 +7,9 @@ const ICONTYPES = {
   logout: { iconClass: "icon-logout", iconTitle: "logout" },
   view: { iconClass: "icon-view", iconTitle: "view" },
   dashboard: { iconClass: "icon-dashboard", iconTitle: "dashboard" },
+  trash: { iconClass: "icon-trash-2", iconTitle: "trash" },
+  map: { iconClass: "icon-map-pin-2", iconTitle: "map" },
+  plus: { iconClass: "icon-plus-1-1", iconTitle: "plus" },
 };
 const ICONSIZE = {
   LARGE: "icon_large",

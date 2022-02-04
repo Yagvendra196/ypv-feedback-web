@@ -11,7 +11,7 @@ import ListGroup from './ListGroup';
 import ListItem from './ListItem';
 import Icon from './Icon';
 import SideBar from "./SideBar";
-
+import ListView from './ListView';
 
 export {
   Button,
@@ -27,6 +27,7 @@ export {
   CardBox,
   SideBar,
   Header,
+  ListView,
 };
 
 
