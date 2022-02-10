@@ -1,0 +1,51 @@
+@import '../../../assets/Scss/variables.scss';
+@mixin box {
+  margin: 10px;
+  background: #ffffff;
+  box-shadow: $boxShadow1;
+  border-radius: 8px;
+}
+
+.WeeklyWrapper {
+  margin: 5px;
+  border: 1px solid $disabledText;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 20px 0px;
+  .row {
+    display: flex;
+    flex-flow: wrap;
+    .col3 {
+      flex: 0 0 auto;
+      width: 33.33%;
+      padding: 0 15px;
+      margin-top: 15px;
+
+      Input,
+      textarea {
+        margin-top: 15px;
+        
+      }
+    }
+  }
+
+  .physicalWrapper,
+  .meditationWrapper,
+  .healthWrapper {
+    @include box();
+    margin: 15px;
+    padding: 25px 0px;
+    h3 {
+      padding: 15px;
+    }
+  }
+  .button {
+    Button {
+      margin: auto;
+    }
+  }
+  .mt20{
+      margin-top: 10%;
+      margin-bottom: 20px;
+  }
+}

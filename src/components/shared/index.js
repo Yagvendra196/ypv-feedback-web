@@ -12,6 +12,7 @@ import ListItem from './ListItem';
 import Icon from './Icon';
 import SideBar from "./SideBar";
 import ListView from './ListView';
+import Image from './Image';
 
 export {
   Button,
@@ -28,6 +29,7 @@ export {
   SideBar,
   Header,
   ListView,
+  Image,
 };
 
 

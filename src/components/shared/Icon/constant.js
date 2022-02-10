@@ -10,6 +10,9 @@ const ICONTYPES = {
   trash: { iconClass: "icon-trash-2", iconTitle: "trash" },
   map: { iconClass: "icon-map-pin-2", iconTitle: "map" },
   plus: { iconClass: "icon-plus-1-1", iconTitle: "plus" },
+  search: { iconClass: "icon-search-1", iconTitle: "search" },
+  message: { iconClass: "icon-message-square-1", iconTitle: "message" },
+  close: { iconClass: "icon-close-1", iconTitle: "close" },
 };
 const ICONSIZE = {
   LARGE: "icon_large",

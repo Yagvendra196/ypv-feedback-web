@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Button.module.scss'
+import { Icon } from '..';
 
 
 /** Render Button
@@ -11,6 +12,7 @@ import styles from './Button.module.scss'
  * @param {bool} block
  * @param {bool} disabled
  * @param {func} btnHandler
+ * @param {string} leftIcon
  * @param {any} children
  * @returns node
  */
@@ -24,21 +26,23 @@ const Button = ({
   block,
   disabled,
   btnHandler,
-  children
+  leftIcon,
+  children,
 }) => {
   return (
     <button
       type={type}
       className={`${styles.button} ${styles[variant]} ${styles[size]} ${
-        block ? styles.block : ''
+        block ? styles.block : ""
       }`}
       disabled={disabled}
       onClick={btnHandler}
     >
+      {leftIcon && <Icon type={leftIcon} customClass={styles.leftIcon} />}
       {children}
     </button>
-  )
-}
+  );
+};
 
 Button.propTypes = {
   variant: PropTypes.string,
@@ -47,8 +51,9 @@ Button.propTypes = {
   block: PropTypes.bool,
   disabled: PropTypes.bool,
   btnHandler: PropTypes.func,
-  children: PropTypes.any
-}
+  leftIcon: PropTypes.string,
+  children: PropTypes.any,
+};
 
 Button.defaultProps = {
   variant: "btnPrimary",

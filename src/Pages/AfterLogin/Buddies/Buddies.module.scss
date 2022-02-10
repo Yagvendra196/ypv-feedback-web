@@ -1,0 +1,32 @@
+@import "../../../assets/Scss/variables.scss";
+
+.Wrapper{
+.buddiesWrapper {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  border-bottom: 1px solid $disabledText;
+  .buddiesHeader {
+    display: flex;
+    .textHead {
+      margin: 20px;
+    }
+    .buddiesRight {
+      margin: 10px;
+      position: absolute;
+      right: 30px;
+    }
+  }
+}
+.listWrapper{
+margin: 25px;
+max-width: 550px;
+min-height: 473px;
+
+border: 1px solid #C5C0DB;
+box-sizing: border-box;
+border-radius: 10px;
+}
+}

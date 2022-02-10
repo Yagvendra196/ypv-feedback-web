@@ -1,10 +1,5 @@
-import React from 'react'
-import { ListView } from '../../components/shared';
-import './HelloWorld.css';
-
-
-
-
+import React from "react";
+import "./HelloWorld.css";
 const HelloWorld = (props) => {
   return (
     <div className="App">
@@ -24,16 +19,9 @@ const HelloWorld = (props) => {
         
       </header> */}
 
-    <ListView />
-      
-        
-     
-    
-       
-
-
+      {/* <ListView /> */}
     </div>
   );
-}
+};
 
 export default HelloWorld;

@@ -1,46 +1,42 @@
 @import "../../../assets/Scss/variables.scss";
 .listWrapper {
-  max-width: 550px;
+  max-width: 530px;
   border: 1px solid $disabledText;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
-  margin: 20px;
-  .userWrepper {
-    margin: 10px;
+  margin: 10px;
+  .rightIcon {
+    margin: auto;
+    color: $grey;
+    font-size: $fontXl;
+  }
+  h5{
+    color: $greysColor;
+  }
+  img {
+    margin: 15px;
     min-height: 45px;
     max-width: 45px;
-    border-radius: 50%;
-
-    img {
-      min-height: 45px;
-      max-width: 45px;
-    }
   }
+
   .mainWrepper {
-    margin:  auto;
+    margin: 18px;
     padding-right: 250px;
-    
     .mapWrepper {
       display: flex;
-      .mapText{
-         margin: 0 8px;
+      .mapText {
+        margin: -5px 5px;
       }
-      i{
-          font-size: 16px;
-          color: $grey;
+      i {
+        font-size: 13px;
+        color: $grey;
+        margin: -1px 0px;
       }
     }
   }
-  .removeIcon {
-      margin: auto;
-      
-     i{
-        font-size: 20px; 
-        color: $grey;
-     };
-  }
-  .mt10{
-      margin-top: 10px;
+
+  .mt10 {
+    margin-top: 8px;
   }
 }
