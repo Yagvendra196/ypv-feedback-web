@@ -1,38 +1,44 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {Layout} from '../../components/containers';
+import {Modal, TabBox, ModalBox, DashBord} from '../../components/shared';
+import styles from './HelloWorld.module.scss';
 
-import StyleGuide from '../StyleGuide/StyleGuide';
-
-import './HelloWorld.css';
-import {Text} from '../../components/shared';
-
-// import Login from '../Login';
-
-
-const HelloWorld = (props) => {
+const HelloWorld = (closeBtn,onClose) => {
+  const [show, setShow] = React.useState(false);
+  // if (!show) {
+  //     return null;
+  //   }
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Heading headingType='h3'>hello</Heading>
-      </header> */}
-
-      <StyleGuide />
       
-      <Text variant="smText"  color="primaryColor" /><br />
-       <Text variant="mdText" color="SecondaryColor"/><br />
-       <Text variant="lgText" color="blackColor"/>
 
+      <Layout>
+        {/* <DashBord /> */}
+        {/* <ModalBox /> */}
+            <button className={`${styles.modalBtn}`} onClick={() => setShow(true)}>
+                Modal
+            </button>
+            
+            <Modal show={show} onClose={() => setShow(true)}> 
+            <div className={`${styles.modalInner}`}>
+              <button onClick={() => setShow(!show)} className={`${styles.btnClose}`}>
+                    Close
+                  </button>
+                <p className={`${styles.modalHeading}`}>Are you sure, You want remove to?</p>
+                  <button className={`${styles.modalBtn} ${styles.secondary}`} onClick={() => setShow(!show)}>Cancel</button>
+                  <button className={`${styles.modalBtn} ${styles.primery}`}>Ok</button>
+              </div>
+            </Modal>
+            
+
+        {/* <Modal show={show} onClose={() => setShow(true)}> 
+          <h5 className={`${styles.tabBtn} ${styles.activeTab}`}>Weekly</h5>
+          <h5 className={`${styles.tabBtn}`}>Monthly</h5>
+          <a className={`${styles.selectBtn}`}>Select picker</a> 
+          <button className={`${styles.modalBtn} ${styles.primery} ${styles.marginAuto}`}>Go</button>         
+        </Modal> */}
+      </Layout>
+      
       
        
 

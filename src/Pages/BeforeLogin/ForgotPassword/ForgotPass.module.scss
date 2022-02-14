@@ -1,6 +1,10 @@
 .forgotWrapper{
     max-width: 450px;
     margin: 120px auto;
+     h1{
+    text-align: center;
+    margin-bottom: 20px;
+  }
     .textCenter {
     text-align: center;
   }
@@ -8,6 +12,8 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+      display: block;
+    margin: auto;
   }
   .mt20 {
     margin: 20px 0;

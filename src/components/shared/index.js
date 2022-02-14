@@ -6,12 +6,33 @@ import Heading from './Heading';
 import Input from './Input';
 import SelectGroup from './SelectGroup';
 import SelectItem from './SelectItem';
+import Header from './Header';
 import ListGroup from './ListGroup';
 import ListItem from './ListItem';
 import Icon from './Icon';
-import Layout from './Layout';
+import SideBar from "./SideBar";
+import DashBord from "./DashBord";
+import Modal from "./Modal";
+import ModalBox from "./ModalBox";
 
-
-export {Button,Label,Heading,Input,SelectGroup,SelectItem,Text,ListGroup,ListItem,Icon,CardBox,Layout}
+export {
+  Button,
+  Label,
+  Heading,
+  Input,
+  SelectGroup,
+  SelectItem,
+  Text,
+  ListGroup,
+  ListItem,
+  Icon,
+  CardBox,
+  SideBar,
+  Header,
+  DashBord,
+  Modal,
+  ModalBox,
+  
+};
 
 

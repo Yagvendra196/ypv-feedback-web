@@ -1,8 +1,8 @@
 import React from "react";
 import { ListGroup, ListItem, Text, Icon } from "..";
-import styles from "./sidenav.module.scss";
+import styles from "./SideBar.module.scss";
 
-const Sidenav = () => {
+const SideBar = () => {
   return (
     <div className={styles.navBar}>
       <div className={styles.p20}>
@@ -33,4 +33,4 @@ const Sidenav = () => {
   );
 };
 
-export default Sidenav;
+export default SideBar;

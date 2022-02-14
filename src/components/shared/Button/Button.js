@@ -24,12 +24,13 @@ const Button = ({
   block,
   disabled,
   btnHandler,
+  color,
   children
 }) => {
   return (
     <button
       type={type}
-      className={`${styles.button} ${styles[variant]} ${styles[size]} ${
+      className={`${styles.button} ${styles[variant]} ${styles[size]} ${styles[color]} ${
         block ? styles.block : ''
       }`}
       disabled={disabled}
@@ -51,7 +52,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  variant: "btnPrimary",
+  variant: "",
   size: "md",
   block: false,
   disabled: false,

@@ -1,22 +1,22 @@
-import HelloWorld from './Pages/HelloWorld';
-import StyleGuide from './Pages/StyleGuide/StyleGuide';
-import {Layout} from '../../components/Layout';
+import HelloWorld from "./Pages/HelloWorld";
+import StyleGuide from "./Pages/StyleGuide/StyleGuide";
+import Login from "./Pages/BeforeLogin/Login";
+import ForgotPassword from "./Pages/BeforeLogin/ForgotPassword";
+import Layout from "./components/containers/Layout";
 
-import Login from './Pages/BeforeLogin/Login';
-import ForgotPassword from './Pages/BeforeLogin/ForgotPassword';
 
 export const routes = [
   {
     path: "/",
     component: HelloWorld,
-    exact: true
-  }, 
+    exact: true,
+  },
 
   {
-    path: '/Layout',
+    path: "/layout",
     component: Layout,
-    exact: false
-  }, 
+    exact: false,
+  },
   {
     path: "/login",
     component: Login,
@@ -31,10 +31,5 @@ export const routes = [
     path: "/styleGuide",
     component: StyleGuide,
     exact: false,
-  }
-  
-  
-]
-
- ;
-
+  },
+];
