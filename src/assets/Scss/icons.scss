@@ -26,6 +26,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-search-1:before {
+  content: "\e90b";
+}
+.icon-message-square-1:before {
+  content: "\e90c";
+}
+.icon-close-1:before {
+  content: "\e90d";
+}
+.icon-trash-2:before {
+  content: "\e908";
+}
+.icon-map-pin-2:before {
+  content: "\e909";
+}
+.icon-plus-1-1:before {
+  content: "\e90a";
+}
 .icon-edit-1:before {
   content: "\e900";
 }

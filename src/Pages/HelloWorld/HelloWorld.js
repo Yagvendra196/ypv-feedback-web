@@ -19,7 +19,7 @@ const HelloWorld = (closeBtn,onClose) => {
                 Modal
             </button>
             
-            <Modal show={show} onClose={() => setShow(true)}> 
+            {/* <Modal show={show} onClose={() => setShow(true)}> 
             <div className={`${styles.modalInner}`}>
               <button onClick={() => setShow(!show)} className={`${styles.btnClose}`}>
                     Close
@@ -28,15 +28,15 @@ const HelloWorld = (closeBtn,onClose) => {
                   <button className={`${styles.modalBtn} ${styles.secondary}`} onClick={() => setShow(!show)}>Cancel</button>
                   <button className={`${styles.modalBtn} ${styles.primery}`}>Ok</button>
               </div>
-            </Modal>
+            </Modal> */}
             
 
-        {/* <Modal show={show} onClose={() => setShow(true)}> 
+        <Modal show={show} onClose={() => setShow(true)}> 
           <h5 className={`${styles.tabBtn} ${styles.activeTab}`}>Weekly</h5>
           <h5 className={`${styles.tabBtn}`}>Monthly</h5>
           <a className={`${styles.selectBtn}`}>Select picker</a> 
           <button className={`${styles.modalBtn} ${styles.primery} ${styles.marginAuto}`}>Go</button>         
-        </Modal> */}
+        </Modal>
       </Layout>
       
       
@@ -45,6 +45,6 @@ const HelloWorld = (closeBtn,onClose) => {
 
     </div>
   );
-}
+};
 
 export default HelloWorld;

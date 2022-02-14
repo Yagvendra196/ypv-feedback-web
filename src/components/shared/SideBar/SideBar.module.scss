@@ -6,16 +6,15 @@
   font-weight: 700;
   border-right: 1px solid $disabledText;
   box-sizing: border-box;
-  span{
+  span {
     font-size: 18px;
-    padding:25px 0 25px 30px;
+    padding: 25px 0 25px 30px;
     display: block;
     line-height: 21.09px;
   }
-  
+
   .line {
     padding: 0;
-
     border-bottom: 1px solid $disabledText;
   }
   .listItem {
@@ -35,5 +34,4 @@
       }
     }
   }
-  
 }

@@ -5,8 +5,14 @@
 .secondary {
   color: $SecondaryColor;
 }
+.greysColor{
+  color: $greysColor;
+}
 .grey {
   color: $grey;
+}
+.disabled{
+  color: $disabledText;
 }
 .black{
     color: $blackColor;

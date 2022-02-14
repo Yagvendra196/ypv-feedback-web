@@ -1,0 +1,69 @@
+@import "../../../assets/Scss/variables.scss";
+@mixin box {
+  margin: 10px;
+  background: #ffffff;
+  box-shadow: $boxShadow1;
+  border-radius: 8px;
+}
+
+.monthlyFeedback {
+  margin: 5px;
+  border: 1px solid $disabledText;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  .tithingWrapper {
+    @include box();
+    margin: 10px;
+    padding: 20px 0px;
+    h3 {
+      padding: 15px;
+    }
+    .row {
+      display: flex;
+      flex-flow: wrap;
+      .col6 {
+        flex: 0 0 auto;
+        width: 50%;
+        padding: 0 15px;
+        label {
+          margin-top: 5px 0;
+        }
+      }
+      .col12 {
+        flex: 0 0 auto;
+        width: 100%;
+        padding: 0 15px;
+        label {
+          margin-top: 5px;
+        }
+      }
+      Input,
+      textarea {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .issueWrapper {
+    margin: 20px 15px;
+    label {
+      margin-top: 5px;
+    }
+    textarea {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  
+  
+  .button {
+    Button {
+      margin: auto;
+    }
+  }
+  .mt20 {
+    margin-top: 5%;
+    margin-bottom: 20px;
+  }
+}
