@@ -14,9 +14,9 @@ const Buddies = () => {
             </Text>
           </div>
           <div className={styles.buddiesRight}>
-            <Button size="sm" variant="btnPrimary" leftIcon="dashboard">
-              Add Buddy
-            </Button>
+            <Button size="sm" variant="btnPrimary" leftIcon="plus" children="Add Buddy" />
+            
+        
           </div>
         </div>
       </div>

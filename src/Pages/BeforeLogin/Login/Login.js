@@ -12,15 +12,14 @@ import { useForm } from "react-hook-form";
 // import { ErrorMessage } from "@hookform/error-message";
 
 const Login = () => {
-    const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-    } = useForm();
+     const {
+       register,
+       formState: { errors },
+       handleSubmit,
+     } = useForm();
     
   const onSubmit = (data) => console.log(data);
-   console.log(watch(""));
+   
   return (
     <div className={styles.loginWrapper}>
       <Image src={Logo} alt="logo" />
@@ -37,15 +36,14 @@ const Login = () => {
           name="email"
           reference={register("email", {
             required: true,
-            maxLength: 10,
             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
           })}
         />
         <div className={styles.errorMsg}>
-          {errors?.email?.type === "required" && <p>This field is required</p>}
-          {errors?.email?.type === "maxLength" && (
-            <p>First name cannot exceed 10 characters</p>
+          {errors?.email?.type === "required" && (
+            <p>Please enter email address.</p>
           )}
+
           {errors?.email?.type === "pattern" && (
             <p>Alphabetical characters only</p>
           )}
@@ -60,7 +58,8 @@ const Login = () => {
           })}
         />
         <div className={styles.errorMsg}>
-          {errors.Password?.type === "required" && "Password is required"}
+          {errors.Password?.type === "required" &&
+            " Please enter Password "}
         </div>
       </div>
       <div className={styles.forgotPass}>
