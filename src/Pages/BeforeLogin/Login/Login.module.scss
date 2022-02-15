@@ -1,3 +1,4 @@
+@import "../../../assets/Scss/variables.scss";
 .loginWrapper {
   flex-direction: row;
   align-items: flex-start;
@@ -27,4 +28,9 @@
   .mt20 {
     margin: 20px 0;
   }
+.errorMsg {
+     
+      margin: 5px auto 0px;
+      color: $primaryColor;
+    }
 }
