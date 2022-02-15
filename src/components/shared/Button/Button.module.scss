@@ -92,5 +92,11 @@
     color: $lightgrayColor;
     background: transparent;
   }
+  &.secondary{
+    background-color: $secondary;
+  }
+  &.greyDark{
+    color: $greyDark;
+  }
 
 } 

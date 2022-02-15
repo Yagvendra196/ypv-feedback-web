@@ -1,15 +1,17 @@
 @import "../../../assets/Scss/variables.scss";
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  .dashBordBody {
-    flex: 0 0 auto;
-    width: 80%;
-  }
-  .h100 {
-    height: 100vh;
-  }
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    .dashBordBody{
+        flex: 0 0 auto;
+        width: 80%;
+        
+            
+    }
+    .h100{
+        height: 100vh;
+    }
 
   .justifyContentCenter {
     justify-content: center;

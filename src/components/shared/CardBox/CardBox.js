@@ -8,11 +8,11 @@ import PropTypes from "prop-types";
  
  * @returns node
  */
-const CardBox = ({ heading,IconImage,more,url }) => {
+const CardBox = ({ heading,IconImage,more,url,onClose }) => {
   return <div className={`${styles.CardBox}`}>
     <div className={`${styles.iconImage}`}><img src={IconImage} alt="right" /> </div>    
     <h4 className={`${styles.cardHeadig}`}>{heading}</h4>
-    <Link className={`${styles.moreBtn}`} to='/#'><img src={more} alt="right" /></Link> 
+    <Link onClick={onClose} className={`${styles.moreBtn}`} to='/#'><img src={more} alt="right" /></Link> 
     {/* <div className={``}>
     <Link className={`${styles.moreBtn}`} to='/#'>{more}</Link>  
     </div>    */}

@@ -1,0 +1,109 @@
+@import "../../../assets/Scss/variables.scss";
+
+// body.active-modal {
+//     overflow-y: hidden;
+// }
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.modalContent {
+    // position: absolute;
+    // top: 40%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // line-height: 1.4;
+    // background: #f1f1f1;
+    // padding: 28px;
+    // border-radius: 3px;
+    // max-width: 600px;
+    // min-width: 300px;
+    height: 250px;
+    animation: Modal_fadeInDown__qVJsF 0.8s;
+    z-index: 1;
+    width: 500px;
+    // padding: 68px 98px;
+    box-shadow: 0px 0px 10px 3px rgb(85 85 85 / 10%);
+    box-sizing: border-box;
+    background-color: #fff;    
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // animation: fadeInDown 0.8s;
+}
+
+.closeModal {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    padding: 5px 7px;
+    cursor: pointer;
+}
+  
+//   .modal {
+//     min-width: 500px;
+//     min-height: 250px;
+//     box-shadow: 0px 0px 10px 3px rgb(85 85 85 / 10%);
+//     border-radius: 20px;
+//     padding: 68px 98px;
+//     box-sizing: border-box;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+//     position: relative;
+//     animation: fadeInDown 0.8s;
+//   }
+  .btnClose {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      top: 0%;
+      transform: translateY(-0%);
+    }
+    100% {
+      opacity: 1;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+  }
+  .modalBtn{      
+    width:142px;
+    height:45px;
+    font-size: 14px;
+    line-height: 16.41px;
+    }
+
+    .secondary{
+        background-color: $secondary;
+        color: #504D58;
+        border: unset;
+        cursor: pointer;
+        
+      }
+      .primery{
+        background-color: $primaryColor;
+        color: $whiteColor;
+        border: unset;
+        cursor: pointer;
+      }
+  

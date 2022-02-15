@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import PropTypes from "prop-types";
 import styles from "./Layout.module.scss"
-import { Header, SideBar } from '../../shared';
+import { Header, SideBar,CardBox, Modal, Button} from '../../shared';
 
 /**
  * Name: Text
@@ -11,15 +11,17 @@ import { Header, SideBar } from '../../shared';
 
 
 const Layout = ({children}) => {
+  const [show, setShow] = React.useState(false);
   return (
     <div className={`${styles.row}`}>
-      <SideBar />
-
+      <SideBar />      
       <div className={`${styles.dashBordBody} ${styles.h100}`}>
         <div className={`${styles.row} ${styles.justifyContentCenter}`}>
           <Header />
+          <div>{children} </div>         
+                
         </div>
-        <div>{children}</div>
+        
       </div>
     </div>
   );
