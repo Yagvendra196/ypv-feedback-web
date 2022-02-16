@@ -29,11 +29,12 @@ const Button = ({
   color,
   leftIcon,
   children,
+  btnClass,
 }) => {
   return (
     <button
       type={type}
-      className={`${styles.button} ${styles[variant]} ${styles[size]} ${styles[color]} ${
+      className={`${styles.button} ${styles[variant]} ${[btnClass]} ${styles[size]} ${styles[color]} ${
         block ? styles.block : ''
       }`}
       disabled={disabled}
@@ -54,11 +55,12 @@ Button.propTypes = {
   btnHandler: PropTypes.func,
   leftIcon: PropTypes.string,
   children: PropTypes.any,
+  
 };
 
 Button.defaultProps = {
   variant: "",
-  size: "md",
+  size: "",
   block: false,
   disabled: false,
   children: 'Button Title'
