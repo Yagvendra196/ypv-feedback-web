@@ -15,6 +15,7 @@ import DashBord from "./DashBord";
 import Modal from "./Modal";
 import ModalBox from "./ModalBox";
 import ListView from './ListView';
+import Search from './Search';
 import Image from './Image';
 
 export {
@@ -35,7 +36,8 @@ export {
   Modal,
   ModalBox,
   ListView,
-  Image
+  Image,
+  Search
 };
 
 
