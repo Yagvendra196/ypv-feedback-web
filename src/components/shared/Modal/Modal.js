@@ -4,13 +4,19 @@ import {Button} from '../../shared';
 import styles from './Modal.module.scss';
 
 const Modal = ({ show, onClose, children, closeBtn }) => {
+  const modal = document.getElementById("myModal");
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
     if (!show) {
       return null;
     }
 
   return (
-    <div className={styles.modal}>
-      <div className={styles.overlay}></div>
+    <div itemID="myModal" className={styles.modal}>
+      <div className={styles.overlay} onClick={onClose}></div>
         <div className={styles.modalContent}>
           {/* {closeBtn && (
               <button onClick={onClose} className={`${styles.btnClose}`}>

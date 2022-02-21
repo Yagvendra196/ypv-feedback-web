@@ -1,0 +1,14 @@
+@import "../../../assets/Scss/variables.scss";
+.searchBody{
+    width: 100%;
+} 
+.searchInput{
+    width: 320px;
+    display: inline-flex;
+    border-radius: 5px;
+}
+.searchIcon{
+    color: $primaryColor;
+    font-size: 28px;
+    font-weight: bolder;
+}       

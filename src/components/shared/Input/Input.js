@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './Input.module.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Input.module.scss";
 /**
  * Render Input
  * @param {string} variant
@@ -13,6 +13,7 @@ import styles from './Input.module.scss'
  * @param {isRequired} type
  * @param {string} inputId
  * @param {string} disabled
+ * @param {string} pattern
  * @param {number} inputLength
  * @param {func} onInput
  * @returns node
@@ -31,10 +32,11 @@ const Input = ({
   disabled,
   reference,
   inputMaxLength,
-  onInput
+  pattern,
+  onInput,
 }) => {
   switch (type) {
-    case 'textarea':
+    case "textarea":
       return (
         <textarea
           disabled={disabled}
@@ -45,7 +47,7 @@ const Input = ({
         >
           {value}
         </textarea>
-      )
+      );
 
     default:
       return (
@@ -59,16 +61,19 @@ const Input = ({
           defaultValue={value}
           defaultChecked={defaultChecked}
           ref={reference}
+          {...reference}
+          {...onChange}
+          {...pattern}
           maxLength={inputMaxLength}
           onInput={onInput}
         />
-      )
+      );
   }
-}
+};
 
 Input.defaultProps = {
-  type: Text
-}
+  type: Text,
+};
 
 Input.propTypes = {
   inputClass: PropTypes.string,
@@ -80,9 +85,10 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   inputId: PropTypes.string,
   disabled: PropTypes.string,
+  pattern: PropTypes.string,
   inputMaxLength: PropTypes.number,
-  reference:PropTypes.any,
-  onInput:PropTypes.func
-}
+  reference: PropTypes.any,
+  onInput: PropTypes.func,
+};
 
-export default Input
+export default Input;

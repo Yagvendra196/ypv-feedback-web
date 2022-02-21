@@ -106,7 +106,7 @@
 
     .tabBtn{
       width: 50%;
-      height: 46px;
+      height: fit-content;
       font-weight: 500;
       font-size: 18px;
       line-height: 21px;
@@ -115,6 +115,7 @@
       text-align: center;
       color: $greyDark;
       border-bottom:  1px solid $greyDark;
+      cursor: pointer;
     }
     .activeTab{
       color: $primaryColor;
@@ -131,6 +132,7 @@
     width: 100%;
     height: fit-content;
     cursor: pointer;
+    text-decoration: none;
     }
     .marginAuto{
       margin: 0 auto;

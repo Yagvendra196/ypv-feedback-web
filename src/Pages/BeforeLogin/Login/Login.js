@@ -1,13 +1,28 @@
 import React from "react";
 import styles from "./Login.module.scss";
 import Logo from "../../../assets/Images/ypvlogo.png";
-import { Heading, Input, Button, Text  } from "../../../components/shared";
+import {
+  Heading,
+  Input,
+  Button,
+  Text,
+  Image,
+} from "../../../components/shared";
+import { useForm } from "react-hook-form";
+// import { ErrorMessage } from "@hookform/error-message";
 
 const Login = () => {
-  
+     const {
+       register,
+       formState: { errors },
+       handleSubmit,
+     } = useForm();
+    
+  const onSubmit = (data) => console.log(data);
+   
   return (
     <div className={styles.loginWrapper}>
-      <img src={Logo} alt="logo" />
+      <Image src={Logo} alt="logo" />
       <Heading headingText="Spiritual Buddy Login" type="h2" />
       <div className={styles.textCenter}>
         <Text variant="mdText" color="SecondaryColor">
@@ -15,22 +30,48 @@ const Login = () => {
         </Text>
       </div>
       <div className={styles.mt20}>
-        <Input placeholder="Email" inputId="email" name="email" type="email" />
+        <Input
+          placeholder="Email"
+          type="email"
+          name="email"
+          reference={register("email", {
+            required: true,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+          })}
+        />
+        <div className={styles.errorMsg}>
+          {errors?.email?.type === "required" && (
+            <p>Please enter email address.</p>
+          )}
+
+          {errors?.email?.type === "pattern" && (
+            <p>Alphabetical characters only</p>
+          )}
+        </div>
       </div>
       <div className={styles.mt20}>
         <Input
           placeholder="Password"
-          inputId="Password"
-          name="Password"
           type="Password"
+          reference={register("Password", {
+            required: true,
+          })}
         />
+        <div className={styles.errorMsg}>
+          {errors.Password?.type === "required" &&
+            " Please enter Password "}
+        </div>
       </div>
       <div className={styles.forgotPass}>
         <Text variant="SecondaryColor">Forgot your password?</Text>
-       
       </div>
-      <div className={styles.button}>
-        <Button size="md" variant="btnPrimary" block={true}>
+      <div>
+        <Button
+          size="md"
+          variant="btnPrimary"
+          block={true}
+          btnHandler={handleSubmit(onSubmit)}
+        >
           Login
         </Button>
       </div>

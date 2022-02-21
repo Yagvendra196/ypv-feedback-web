@@ -1,12 +1,18 @@
 import React from "react";
 import styles from "./ForgotPass.module.scss";
 import Logo from "../../../assets/Images/ypvlogo.png";
-import { Heading, Input, Text, Button } from "../../../components/shared";
+import {
+  Heading,
+  Input,
+  Text,
+  Button,
+  Image,
+} from "../../../components/shared";
 
 const ForgotPassword = () => {
   return (
     <div className={styles.forgotWrapper}>
-      <img src={Logo} alt="" />
+      <Image src={Logo} alt="" />
       <Heading headingText="Forgot your password" type="h1" />
       <div className={styles.textCenter}>
         <Text color="SecondaryColor">
