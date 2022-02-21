@@ -9,7 +9,7 @@ import {
   Image,
 } from "../../../components/shared";
 import { useForm } from "react-hook-form";
-// import { ErrorMessage } from "@hookform/error-message";
+import { Link } from "react-router-dom";
 
 const Login = () => {
      const {
@@ -58,12 +58,13 @@ const Login = () => {
           })}
         />
         <div className={styles.errorMsg}>
-          {errors.Password?.type === "required" &&
-            " Please enter Password "}
+          {errors.Password?.type === "required" && " Please enter Password "}
         </div>
       </div>
       <div className={styles.forgotPass}>
-        <Text variant="SecondaryColor">Forgot your password?</Text>
+        <Link to="/forgot-password">
+          <Text variant="SecondaryColor">Forgot your password?</Text>
+        </Link>
       </div>
       <div>
         <Button

@@ -26,7 +26,8 @@ const Buddies = () => {
           topHeading="David Yogi"
           mapIcon="map"
           mapText="Indore, M.P."
-          rightIcon="trash"
+          
+          rightButton="add"
         />
         <ListView
           leftImage={user}

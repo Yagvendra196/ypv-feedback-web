@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {Layout} from '../../components/containers';
-import {Modal, TabBox, ModalBox, DashBord} from '../../components/shared';
+// import {Modal, TabBox, ModalBox, DashBord} from '../../components/shared';
 import styles from './HelloWorld.module.scss';
 
 const HelloWorld = (closeBtn,onClose) => {

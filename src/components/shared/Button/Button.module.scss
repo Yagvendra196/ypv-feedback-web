@@ -10,7 +10,7 @@
   border-radius: 13px;
   border: 0;
   color: $whiteColor;
-  font-size: 16px;
+  font-size: $fontLg;
   padding: 20px 32px;
   box-sizing: border-box;
   position: relative;
@@ -22,8 +22,7 @@
 
   .leftIcon {
     margin-right: 8px;
-     font-size: $fontMd;
-     font-weight: 400;
+     
   }
 
   &.block {
@@ -43,6 +42,10 @@
     border-radius: 10px;
     font-size: $fontSm;
     font-weight: 500;
+    i{
+      font-size:16px;
+     font-weight: 500;
+    }
 
     @include md {
       height: 38px;
