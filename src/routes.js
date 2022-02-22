@@ -7,6 +7,7 @@ import WeeklyFeedback from "./Pages/AfterLogin/WeeklyFeedback";
 import MonthlyFeedback from "./Pages/AfterLogin/Monthlyfeedback";
 import Buddies from './Pages/AfterLogin/Buddies';
 import AddBuddies from './Pages/AfterLogin/Add Buddies';
+import SignUp from "./Pages/BeforeLogin/SignUp";
 export const routes = [
   {
     path: "/",
@@ -22,6 +23,11 @@ export const routes = [
   {
     path: "/login",
     component: Login,
+    exact: false,
+  },
+  {
+    path: "/signUp",
+    component: SignUp,
     exact: false,
   },
   {

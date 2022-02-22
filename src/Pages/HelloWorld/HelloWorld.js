@@ -1,7 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {Layout} from '../../components/containers';
-import {Modal, TabBox, ModalBox, DashBord,Heading, Button, Icon,Search,SliderItem} from '../../components/shared';
+import {
+  Modal,
+  TabBox,
+  ModalBox,
+  DashBord,
+  Heading,
+  Button,
+  Icon,
+  Search,
+  SliderItem,
+  
+} from "../../components/shared";
+import Buddies from "../AfterLogin/Buddies";
 import styles from './HelloWorld.module.scss';
 
 const HelloWorld = (closeBtn,onClose) => {
@@ -24,15 +36,14 @@ const HelloWorld = (closeBtn,onClose) => {
       <Layout>
         {/* <DashBord /> */}
         {/* <ModalBox /> */}
-        
+
         {/* <Button btnClass={`${styles.modalBtn}`}  btnHandler={() => setShow(true)} leftIcon="Close">Modal</Button> */}
 
-        
-            {/* <button onClick={() => setShow(!show)} className={`${styles.btnClose}`}>Close</button> */}
-                  {/* <Button btnClass={`${styles.btnClose}`}  btnHandler={() => setShow(!show)} leftIcon="Close"></Button>*/}
-                  {/* <button className={`${styles.modalBtn} ${styles.secondary}`} onClick={() => setShow(!show)}>Cancel</button> */}
-                  {/* <button className={`${styles.modalBtn} ${styles.primery}`}>Ok</button> */}
-              {/* <Modal show={show} onClose={() => setShow(true)}> 
+        {/* <button onClick={() => setShow(!show)} className={`${styles.btnClose}`}>Close</button> */}
+        {/* <Button btnClass={`${styles.btnClose}`}  btnHandler={() => setShow(!show)} leftIcon="Close"></Button>*/}
+        {/* <button className={`${styles.modalBtn} ${styles.secondary}`} onClick={() => setShow(!show)}>Cancel</button> */}
+        {/* <button className={`${styles.modalBtn} ${styles.primery}`}>Ok</button> */}
+        {/* <Modal show={show} onClose={() => setShow(true)}> 
                 <div className={`${styles.modalInner}`}>                  
                   <Icon type="close"  customClass={`${styles.btnClose}`} click={() => setShow(!show)}></Icon>                  
                   <Heading headingType='h5' headingText="Are you sure, You want remove to?" headingClass={`${styles.modalHeading}`}></Heading>
@@ -40,8 +51,8 @@ const HelloWorld = (closeBtn,onClose) => {
                   <Button btnClass={`${styles.modalBtn} ${styles.primery}`}>Ok</Button>                    
                 </div>
               </Modal> */}
-            
-              {/* <Modal show={show} onClose={() => setShow(false)}>                               
+
+        {/* <Modal show={show} onClose={() => setShow(false)}>                               
                 <Heading headingType='h5' headingText="Weekly" headingClass={`${styles.tabBtn} ${showWeekly ? styles.activeTab : ""}`} onClick={() => WeeklyFeedback()}></Heading>
 
                 <Heading headingType='h5' headingText="Monthly" headingClass={`${styles.tabBtn} ${showMonthly ? styles.activeTab : ""}` } onClick={() => MonthlyFeedback()}></Heading>
@@ -54,7 +65,8 @@ const HelloWorld = (closeBtn,onClose) => {
                 )}
                 <Button btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}>Go</Button>                
               </Modal> */}
-              <Search></Search>
+        <Search></Search>
+        <Buddies />
       </Layout>
     </div>
   );
