@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 import {Layout} from '../../components/containers';
-import {Modal, TabBox, ModalBox, DashBord,Heading, Button, Icon,Search} from '../../components/shared';
+import {Modal, TabBox, ModalBox, DashBord,Heading, Button, Icon,Search,SliderItem} from '../../components/shared';
 import styles from './HelloWorld.module.scss';
 
 const HelloWorld = (closeBtn,onClose) => {
@@ -24,9 +24,8 @@ const HelloWorld = (closeBtn,onClose) => {
       <Layout>
         {/* <DashBord /> */}
         {/* <ModalBox /> */}
-        <button className={`${styles.modalBtn}`} onClick={() => setShow(true)}>
-          Modal
-        </button>
+        
+        {/* <Button btnClass={`${styles.modalBtn}`}  btnHandler={() => setShow(true)} leftIcon="Close">Modal</Button> */}
 
         
             {/* <button onClick={() => setShow(!show)} className={`${styles.btnClose}`}>Close</button> */}
@@ -42,18 +41,19 @@ const HelloWorld = (closeBtn,onClose) => {
                 </div>
               </Modal> */}
             
-              <Modal show={show} onClose={() => setShow(false)}>                               
+              {/* <Modal show={show} onClose={() => setShow(false)}>                               
                 <Heading headingType='h5' headingText="Weekly" headingClass={`${styles.tabBtn} ${showWeekly ? styles.activeTab : ""}`} onClick={() => WeeklyFeedback()}></Heading>
 
                 <Heading headingType='h5' headingText="Monthly" headingClass={`${styles.tabBtn} ${showMonthly ? styles.activeTab : ""}` } onClick={() => MonthlyFeedback()}></Heading>
                 {showWeekly && (
-                      <Link className={`${styles.selectBtn}`}>Weekly</Link>
+                    <SliderItem />
+                      // <Link className={`${styles.selectBtn}`}></Link>
                 )}
                 {showMonthly && (
-                      <Link className={`${styles.selectBtn}`}>Monthly</Link>
+                      <Link className={`${styles.selectBtn}`}>January</Link>
                 )}
                 <Button btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}>Go</Button>                
-              </Modal>
+              </Modal> */}
               <Search></Search>
       </Layout>
     </div>

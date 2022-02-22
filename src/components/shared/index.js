@@ -16,6 +16,7 @@ import Modal from "./Modal";
 import ModalBox from "./ModalBox";
 import ListView from './ListView';
 import Search from './Search';
+import SliderItem from './Slider';
 import Image from './Image';
 
 export {
@@ -37,7 +38,8 @@ export {
   ModalBox,
   ListView,
   Image,
-  Search
+  Search,
+  SliderItem
 };
 
 

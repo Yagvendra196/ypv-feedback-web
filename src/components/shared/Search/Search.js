@@ -8,9 +8,10 @@ const Search=()=>{
     return(
         
             <div className={`${styles.searchBody}`}>
-               <h1>Search components</h1>
-               <Input inputClass={`${styles.searchInput}`} placeholder="Search"></Input>
-               <Icon type="search"  customClass={`${styles.searchIcon}`}></Icon>  
+                <div className={`${styles.searchBox}`}>
+                    <Input inputClass={`${styles.searchInput}`} placeholder="Search"></Input>
+                    <Icon type="search"  customClass={`${styles.searchIcon}`}></Icon>  
+                </div>                 
             </div>
         
     );
