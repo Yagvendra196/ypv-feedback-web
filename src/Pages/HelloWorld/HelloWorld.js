@@ -46,15 +46,16 @@ const HelloWorld = (closeBtn,onClose) => {
 
                 <Heading headingType='h5' headingText="Monthly" headingClass={`${styles.tabBtn} ${showMonthly ? styles.activeTab : ""}` } onClick={() => MonthlyFeedback()}></Heading>
                 {showWeekly && (
-                    <SliderItem />
-                      // <Link className={`${styles.selectBtn}`}></Link>
+                    
+                      <Link className={`${styles.selectBtn}`}></Link>
                 )}
                 {showMonthly && (
                       <Link className={`${styles.selectBtn}`}>January</Link>
                 )}
                 <Button btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}>Go</Button>                
               </Modal> */}
-              <Search></Search>
+              <SliderItem>Slider</SliderItem>
+              {/* <Search></Search> */}
       </Layout>
     </div>
   );
