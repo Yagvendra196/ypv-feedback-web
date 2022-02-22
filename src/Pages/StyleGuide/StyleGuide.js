@@ -11,8 +11,9 @@ import {
   Label,
   ListGroup,
   ListItem,
+  ListView,
 } from "../../components/shared";
-
+import user from "../../assets/Images/user.png";
 const StyleGuide = () => {
   return (
     <>
@@ -97,6 +98,22 @@ const StyleGuide = () => {
             <ListItem>1</ListItem>
             <ListItem>1</ListItem>
           </ListGroup>
+        </div>
+        <div>
+          <ListView
+            leftImage={user}
+            topHeading="Raghu N"
+            mapIcon="map"
+            mapText="NANJANGUD "
+            rightButton="Add"
+          />
+          <ListView
+            leftImage={user}
+            topHeading="David Yogi"
+            mapIcon="map"
+            mapText="Indore, M.P."
+            rightIcon="trash"
+          />
         </div>
       </div>
     </>

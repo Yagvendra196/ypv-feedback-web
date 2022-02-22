@@ -1,0 +1,58 @@
+.WeeklyWrapper {
+  margin: 7px;
+  border: 1px solid #C5C0DB;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  padding: 20px 0px;
+}
+
+.WeeklyWrapper .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.WeeklyWrapper .row .col3 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 33.33%;
+  padding: 0 15px;
+  margin-top: 15px;
+}
+
+.WeeklyWrapper .row .col3 Input,
+.WeeklyWrapper .row .col3 textarea {
+  margin-top: 15px;
+}
+
+.WeeklyWrapper .physicalWrapper,
+.WeeklyWrapper .meditationWrapper,
+.WeeklyWrapper .healthWrapper {
+  margin: 10px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 10px rgba(153, 153, 153, 0.25);
+          box-shadow: 0px 0px 10px rgba(153, 153, 153, 0.25);
+  border-radius: 8px;
+  margin: 15px;
+  padding: 25px 0px;
+}
+
+.WeeklyWrapper .physicalWrapper h3,
+.WeeklyWrapper .meditationWrapper h3,
+.WeeklyWrapper .healthWrapper h3 {
+  padding: 15px;
+}
+
+.WeeklyWrapper .button Button {
+  margin: auto;
+}
+
+.WeeklyWrapper .mt20 {
+  margin-top: 10%;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=Weekly.module.css.map */

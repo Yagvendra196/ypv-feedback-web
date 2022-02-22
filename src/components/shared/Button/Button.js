@@ -63,7 +63,7 @@ Button.defaultProps = {
   size: "",
   block: false,
   disabled: false,
-  children: 'Button Title'
+  children: ''
 }
 
 export default Button;

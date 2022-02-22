@@ -5,7 +5,8 @@ import ForgotPassword from "./Pages/BeforeLogin/ForgotPassword";
 import Layout from "./components/containers/Layout";
 import WeeklyFeedback from "./Pages/AfterLogin/WeeklyFeedback";
 import MonthlyFeedback from "./Pages/AfterLogin/Monthlyfeedback";
-import Buddies from './Pages/AfterLogin/Buddies'
+import Buddies from './Pages/AfterLogin/Buddies';
+import AddBuddies from './Pages/AfterLogin/Add Buddies';
 export const routes = [
   {
     path: "/",
@@ -26,6 +27,11 @@ export const routes = [
   {
     path: "/my-buddies",
     component: Buddies,
+    exact: false,
+  },
+  {
+    path: "/add-buddies",
+    component: AddBuddies,
     exact: false,
   },
   {

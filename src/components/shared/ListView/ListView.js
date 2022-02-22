@@ -8,6 +8,7 @@ import { Button, Heading, Icon, Image, Text } from "..";
  * Desc: Render text
  * @param {any} children,
  * @param {string} rightIcon
+ * @param {string} rightButton
  * @param {string} mapIcon
  * @param {string} topHeading
  * @param {string} mapText
@@ -46,7 +47,13 @@ const ListView = ({
       {children}
       {rightIcon && <Icon type={rightIcon} customClass={styles.rightIcon} />}
       {rightButton && (
-        <Button type={rightButton} customClass={styles.rightButton} />
+        <Button
+          children={rightButton}
+          customClass={styles.rightButton}
+          variant="btnPrimary"
+          size="sm"
+          btnClass={styles.rightButton}
+        />
       )}
     </div>
   );
