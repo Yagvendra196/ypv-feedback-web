@@ -1,0 +1,82 @@
+.monthlyFeedback {
+  margin: 7px;
+  border: 1px solid #C5C0DB;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.monthlyFeedback .tithingWrapper {
+  margin: 10px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 10px rgba(153, 153, 153, 0.25);
+          box-shadow: 0px 0px 10px rgba(153, 153, 153, 0.25);
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px 0px;
+}
+
+.monthlyFeedback .tithingWrapper h3 {
+  padding: 15px;
+}
+
+.monthlyFeedback .tithingWrapper .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.monthlyFeedback .tithingWrapper .row .col6 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 50%;
+  padding: 0 15px;
+}
+
+.monthlyFeedback .tithingWrapper .row .col6 label {
+  margin-top: 5px 0;
+}
+
+.monthlyFeedback .tithingWrapper .row .col12 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.monthlyFeedback .tithingWrapper .row .col12 label {
+  margin-top: 5px;
+}
+
+.monthlyFeedback .tithingWrapper .row Input,
+.monthlyFeedback .tithingWrapper .row textarea {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.monthlyFeedback .issueWrapper {
+  margin: 20px 15px;
+}
+
+.monthlyFeedback .issueWrapper label {
+  margin-top: 5px;
+}
+
+.monthlyFeedback .issueWrapper textarea {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.monthlyFeedback .button Button {
+  margin: auto;
+}
+
+.monthlyFeedback .mt20 {
+  margin-top: 5%;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=Monthly.module.css.map */

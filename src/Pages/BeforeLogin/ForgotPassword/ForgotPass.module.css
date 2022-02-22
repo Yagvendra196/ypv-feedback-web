@@ -1,0 +1,26 @@
+.forgotWrapper {
+  max-width: 450px;
+  margin: 120px auto;
+}
+
+.forgotWrapper h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.forgotWrapper .textCenter {
+  text-align: center;
+}
+
+.forgotWrapper img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+.forgotWrapper .mt20 {
+  margin: 20px 0;
+}
+/*# sourceMappingURL=ForgotPass.module.css.map */

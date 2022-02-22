@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ListView.module.scss";
-import { Heading, Icon, Image, Text } from "..";
-import user from "../../../assets/Images/user.png";
+import { Button, Heading, Icon, Image, Text } from "..";
 
 /**
  * Name: Text
  * Desc: Render text
  * @param {any} children,
  * @param {string} rightIcon
+ * @param {string} rightButton
  * @param {string} mapIcon
  * @param {string} topHeading
  * @param {string} mapText
@@ -17,6 +17,7 @@ import user from "../../../assets/Images/user.png";
 const ListView = ({
   children,
   rightIcon,
+  rightButton,
   leftImage,
   topHeading,
   mapIcon,
@@ -45,6 +46,15 @@ const ListView = ({
       </div>
       {children}
       {rightIcon && <Icon type={rightIcon} customClass={styles.rightIcon} />}
+      {rightButton && (
+        <Button
+          children={rightButton}
+          customClass={styles.rightButton}
+          variant="btnPrimary"
+          size="sm"
+          btnClass={styles.rightButton}
+        />
+      )}
     </div>
   );
 };
@@ -53,6 +63,7 @@ ListView.propTypes = {
   topHeading: PropTypes.string,
   mapText: PropTypes.string,
   rightIcon: PropTypes.string,
+  rightButton: PropTypes.string,
   mapIcon: PropTypes.string,
   leftImage: PropTypes.string,
 };

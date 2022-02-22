@@ -1,0 +1,43 @@
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.row .dashBordBody {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 80%;
+}
+
+.row .h100 {
+  height: 100vh;
+}
+
+.row .justifyContentCenter {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.row .alignItemsCenter {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row .positionRelative {
+  position: relative;
+}
+
+.py15 {
+  padding: 15px 0;
+}
+
+.pb50 {
+  padding-bottom: 50px;
+}
+/*# sourceMappingURL=Layout.module.css.map */
