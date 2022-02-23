@@ -1,19 +1,38 @@
 @import "../../../assets/Scss/variables.scss";
-.dashBordHeaer{
+.dashBordHeader{
     background-color: $primaryColor;
     flex: 0 0 auto;
-    width: 100%;         
-    h3{
+    width: 100%;
+    .burgerMenu{
+        display: none;
+    }         
+    .headerHeaing{
         padding: 24px 0;
         line-height: 23.44px;
         color: $whiteColor;
         font-size: 20px;
         font-weight: 600;
-        .ArrowLeft{
-            position: relative;
-            margin-right: 20px;
-            top: 2px;
-            margin-left: 31px;
+        display: inline-flex;        
         }
-    }
+        .arrowLeft{
+            display: inline-flex;
+            margin: 0 20px 0 31px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bolder;
+        }
+    
 }
+
+@media (max-width: 576px) { 
+    .dashBordHeader{
+    .burgerMenu{
+        display: inline-flex;
+        margin: 0 20px 0 31px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bolder;
+        cursor: pointer;
+        } 
+}
+ }

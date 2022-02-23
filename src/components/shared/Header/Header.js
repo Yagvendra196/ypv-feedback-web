@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Header.module.scss";
+import {Heading, Icon} from '../../shared';
 import { ArrowLeft} from '../../../assets/img/ImgImport';
 
 /**
@@ -8,9 +9,12 @@ import { ArrowLeft} from '../../../assets/img/ImgImport';
  
  * @returns node
  */
-const Header = ({ heading,IconImage,more,url }) => {
-  return  <div className={`${styles.dashBordHeaer}`}>
-          <h3><img className={`${styles.ArrowLeft}`} src={ArrowLeft} alt="right" />Dashbord</h3>
+const Header = ({MenuToggle }) => {
+  return  <div className={`${styles.dashBordHeader}`}>  
+    <Icon type="Menu"  customClass={`${styles.burgerMenu}`} click={MenuToggle}></Icon>
+    <Icon type="leftArrow"  customClass={`${styles.arrowLeft}`}></Icon>
+    <Heading headingType='h2' headingText="DashBoard" headingClass={`${styles.headerHeaing}`} />
+               
           </div>
 };
 

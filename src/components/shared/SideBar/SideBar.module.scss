@@ -1,5 +1,8 @@
 @import "../../../assets/Scss/variables.scss";
 @import "../../../assets/Scss/breakpoints.scss";
+.SideBarOverlay{
+  background-color: unset;
+}
 .navBar {
   flex: 0 0 auto;
   width: 20%;
@@ -39,4 +42,10 @@
       }
     }
   }
+}
+@media (max-width: 576px) { 
+  .activeMenu{
+    .navBar{display: block;}  
+    }
+  
 }
