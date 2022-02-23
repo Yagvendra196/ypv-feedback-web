@@ -5,10 +5,10 @@ import { Layout } from "../../../components/containers";
 const NoBuddy = () => {
   return (
     <Layout>
-    <Search/>
+      <Search />
       <div className={styles.buddyWrapper}>
-        <Icon type="message" />
-        <Text variant="SecondaryColor">No Buddy found</Text>
+        <Icon type="message" color="disabled" />
+        <Text variant="blackColor">No Buddy found</Text>
       </div>
     </Layout>
   );

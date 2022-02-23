@@ -47,7 +47,13 @@ const ListView = ({
         </div>
       </div>
       {children}
-      {rightIcon && <Icon type={rightIcon} customClass={styles.rightIcon} />}
+      {rightIcon && (
+        <Icon
+          type={rightIcon}
+          onClick={clickFun}
+          customClass={styles.rightIcon}
+        />
+      )}
       {rightButton && (
         <Button
           children={rightButton}
