@@ -21,7 +21,7 @@ const SideBar = () => {
             </ListItem>
             <ListItem>
               <Icon type="password" variant="icon_mlarge" />
-              Change Password
+              <Link to="/changepassword">Change Password</Link>
             </ListItem>
             <ListItem>
               <Icon type="logout" variant="icon_mlarge" />
