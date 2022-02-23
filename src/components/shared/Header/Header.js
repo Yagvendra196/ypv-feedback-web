@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import {Heading, Icon} from '../../shared';
-import { ArrowLeft} from '../../../assets/img/ImgImport';
 
 /**
  * Render NotificationList

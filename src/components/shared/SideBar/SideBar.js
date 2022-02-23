@@ -2,7 +2,7 @@ import React from "react";
 import { ListGroup, ListItem, Text, Icon } from "..";
 import styles from "./SideBar.module.scss";
 import { useHistory } from "react-router-dom";
-const SideBar = (onClose) => {
+const SideBar = () => {
    let history = useHistory();
    const goTodashboard = () => {
      history.push("dashboard");
@@ -14,11 +14,11 @@ const SideBar = (onClose) => {
      history.push("/");
    };
   
-  const [show, setShow] = React.useState(false);
+  // const [show, setShow] = React.useState(false);
   
   return (
-    <div className={`${styles.SideBarOverlay}`} onClick={onClose}>
-      <div className={styles.navBar} onClose={() => setShow(true)}>
+    <div className={`${styles.SideBarOverlay}`} >
+      <div className={styles.navBar} >
         <div className={styles.p20}>
           <Text variant="lgText" color="primaryColor">
             YPV Spiritual Buddy

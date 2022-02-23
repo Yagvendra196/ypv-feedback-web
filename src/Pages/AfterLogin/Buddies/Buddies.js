@@ -9,6 +9,7 @@ const Buddies = () => {
   const goTonobuddy = () => {
     history.push("NoBuddy");
   };
+  //  const [show, setShow] = React.useState(false);
   return (
     <Layout>
       <div className={styles.Wrapper}>
@@ -45,6 +46,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
+            
           />
           <ListView
             leftImage={user}
@@ -69,6 +71,27 @@ const Buddies = () => {
           />
         </div>
       </div>
+      {/* <Modal show={show} onClose={() => setShow(true)}>
+        <div className={`${styles.modalInner}`}>
+          <Icon
+            type="close"
+            customClass={`${styles.btnClose}`}
+            click={() => setShow(!show)}
+          ></Icon>
+          <Heading
+            headingType="h5"
+            headingText="Are you sure, You want remove to?"
+            headingClass={`${styles.modalHeading}`}
+          ></Heading>
+          <Button
+            btnClass={`${styles.modalBtn} ${styles.secondary}`}
+            btnHandler={() => setShow(!show)}
+          >
+            Cancel
+          </Button>
+          <Button btnClass={`${styles.modalBtn} ${styles.primery}`}>Ok</Button>
+        </div>
+      </Modal> */}
     </Layout>
   );
 };
