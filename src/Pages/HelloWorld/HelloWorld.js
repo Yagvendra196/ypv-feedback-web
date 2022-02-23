@@ -14,7 +14,7 @@ import {
   
 } from "../../components/shared";
 
-import styles from './HelloWorld.module.scss';
+// import styles from './HelloWorld.module.scss';
 
 const HelloWorld = (closeBtn,onClose) => {
   // const [show, setShow] = React.useState(false);
