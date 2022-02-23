@@ -41,7 +41,7 @@ const renderHeading = ({
       return <h4 onClick={onClick} className={`${styles[variant]} ${[headingClass]} ${fontColor} ${textVariant} ${strikeThrough}`}>{headingText}</h4>
     }
     case 'h5': {
-      return <h5 onClick={onClick}  className={`${styles[variant]} ${[headingClass]} ${fontColor} ${textVariant} ${strikeThrough}`}>{headingText}</h5>
+      return <h5 onClick={onClick}  className={`${styles[variant]} ${[headingClass]} ${fontColor} ${textVariant} ${strikeThrough}`}>{headingText} </h5>
     }
     case 'h6': {
       return <h6 onClick={onClick}  className={`${styles[variant]} ${[headingClass]} ${fontColor} ${textVariant} ${strikeThrough}`}>{headingText}</h6>
