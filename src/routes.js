@@ -8,7 +8,7 @@ import MonthlyFeedback from "./Pages/AfterLogin/Monthlyfeedback";
 import Buddies from './Pages/AfterLogin/Buddies';
 import AddBuddies from './Pages/AfterLogin/Add Buddies';
 import SignUp from "./Pages/BeforeLogin/SignUp";
-import DashBord from "./components/shared/DashBord"
+import DashBaord from "./components/shared/DashBoard"
 export const routes = [
   {
     path: "/",
@@ -42,8 +42,8 @@ export const routes = [
     exact: false,
   },
   {
-    path: "/DashBord",
-    component: DashBord,
+    path: "/dashboard",
+    component: DashBaord,
     exact: false,
   },
   {

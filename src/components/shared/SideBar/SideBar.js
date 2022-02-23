@@ -17,7 +17,7 @@ const SideBar = () => {
           <ListGroup variant="ul">
             <ListItem>
               <Icon type="dashboard" variant="icon_mlarge" />
-              <Link to="/DashBord">Dashboard</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </ListItem>
             <ListItem>
               <Icon type="password" variant="icon_mlarge" />

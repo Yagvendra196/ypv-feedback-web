@@ -11,7 +11,7 @@ import ListGroup from './ListGroup';
 import ListItem from './ListItem';
 import Icon from './Icon';
 import SideBar from "./SideBar";
-import DashBord from "./DashBord";
+import DashBaord from "./DashBoard";
 import Modal from "./Modal";
 import ModalBox from "./ModalBox";
 import ListView from './ListView';
@@ -33,7 +33,7 @@ export {
   CardBox,
   SideBar,
   Header,
-  DashBord,
+  DashBaord,
   Modal,
   ModalBox,
   ListView,
