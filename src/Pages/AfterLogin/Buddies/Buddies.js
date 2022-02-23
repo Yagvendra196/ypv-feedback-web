@@ -1,9 +1,9 @@
-import React,{useState} from "react";
+import React  from "react";
 import styles from "./Buddies.module.scss";
 import { Text, Button, ListView } from "../../../components/shared";
 import user from "../../../assets/Images/user.png";
 const Buddies = () => {
-  const [AddBuddyshow, setAddBuddyShow] = React.useState(false);
+ 
   return (
     <div className={styles.Wrapper}>
       <div className={styles.buddiesWrapper}>

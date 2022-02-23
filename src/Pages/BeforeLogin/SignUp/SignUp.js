@@ -5,7 +5,7 @@ import {
   Heading,
   Input,
   Button,
-  Text,
+ 
   Image,
 } from "../../../components/shared";
 const SignUp = () =>{

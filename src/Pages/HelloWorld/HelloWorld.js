@@ -67,7 +67,7 @@ const HelloWorld = (closeBtn,onClose) => {
               </Modal> */}
 
               <SliderItem>Slider</SliderItem>
-              {/* <Search></Search> */}
+              
 
         <Search></Search>
 
