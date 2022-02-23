@@ -2,13 +2,15 @@
 @import "../../../assets/Scss/breakpoints.scss";
 .SideBarOverlay{
   background-color: unset;
+  width: 20%;
 }
 .navBar {
   flex: 0 0 auto;
-  width: 20%;
+  width: 100%;
   font-weight: 700;
   border-right: 1px solid $disabledText;
   box-sizing: border-box;
+  height: 100vh;
   span {
     font-size: 18px;
     padding: 25px 0 25px 30px;
