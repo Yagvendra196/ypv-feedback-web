@@ -17,6 +17,10 @@ const SideBar = () => {
   // const [show, setShow] = React.useState(false);
   
   return (
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b317c5a1804807ce22cb48c4c7b67dc763065ba0
     <div className={`${styles.SideBarOverlay}`} >
       <div className={styles.navBar} >
         <div className={styles.p20}>

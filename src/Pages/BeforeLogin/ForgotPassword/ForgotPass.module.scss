@@ -1,12 +1,23 @@
+@import "../../../assets/Scss/variables.scss";
+@import "../../../assets/Scss/breakpoints.scss";
 .forgotWrapper{
     max-width: 450px;
     margin: 120px auto;
+     @include xsm{
+    margin: 60px;
+  }
      h1{
     text-align: center;
     margin-bottom: 20px;
+     @include xsm{
+    font-size: $font24;
+  }
   }
     .textCenter {
     text-align: center;
+     @include xsm{
+    font-size: $fontMd;
+  }
   }
   img {
     width: 100px;

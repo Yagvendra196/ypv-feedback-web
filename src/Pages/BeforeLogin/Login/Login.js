@@ -12,21 +12,24 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
-   let history = useHistory();
-   const goToForgotPassword = () => {
-     history.push("forgot-password");
-   };
+  let history = useHistory();
+  const goToForgotPassword = () => {
+    history.push("forgot-password");
+  };
+  const goToSignUp = () => {
+    history.push("signUp");
+  };
   // const goTodashboard = () => {
   //   history.push("dashboard");
   // };
-     const {
-       register,
-       formState: { errors },
-       handleSubmit,
-     } = useForm();
-    
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
   const onSubmit = (data) => console.log(data);
-   
+
   return (
     <div className={styles.loginWrapper}>
       <Image src={Logo} alt="logo" />
@@ -79,10 +82,15 @@ const Login = () => {
           variant="btnPrimary"
           block={true}
           btnHandler={handleSubmit(onSubmit)}
-          
         >
           Log In
         </Button>
+      </div>
+      <div className={styles.note}>
+        <Text color="SecondaryColor">Not a member yet? </Text>
+        <Text variant="primaryColor" textHandler={goToSignUp}>
+          sign up
+        </Text>
       </div>
     </div>
   );
