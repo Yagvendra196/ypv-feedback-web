@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./Search.module.scss"
 import Input from '../Input';
 import Icon from '../Icon';
-import { Frame} from '../../../assets/img/ImgImport';
 
 const Search=()=>{
     return(

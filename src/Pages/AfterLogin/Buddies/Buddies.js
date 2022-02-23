@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import styles from "./Buddies.module.scss";
 import { Text, Button, ListView } from "../../../components/shared";
 import user from "../../../assets/Images/user.png";
 const Buddies = () => {
+  const [AddBuddyshow, setAddBuddyShow] = React.useState(false);
   return (
     <div className={styles.Wrapper}>
       <div className={styles.buddiesWrapper}>
@@ -14,9 +15,13 @@ const Buddies = () => {
             </Text>
           </div>
           <div className={styles.buddiesRight}>
-            <Button size="sm" variant="btnPrimary" leftIcon="plus" children="Add Buddy" />
-            
-        
+            <Button
+              size="sm"
+              variant="btnPrimary"
+              leftIcon="plus"
+              children="Add Buddy"
+              btnHandler={() => setAddBuddyShow(true)}
+            />
           </div>
         </div>
       </div>
