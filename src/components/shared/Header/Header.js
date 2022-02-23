@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import {Heading, Icon} from '../../shared';
+<<<<<<< HEAD
 
+=======
+>>>>>>> a73d2d562aa4ed82b5a27e4bf3cfda86f8b89e4c
 
 /**
  * Render NotificationList
