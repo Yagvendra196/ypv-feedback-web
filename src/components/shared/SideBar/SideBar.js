@@ -17,13 +17,8 @@ const SideBar = () => {
   // const [show, setShow] = React.useState(false);
   
   return (
-<<<<<<< HEAD
-    <div className={`${styles.SideBarOverlay}`}>
-      <div className={styles.navBar}>
-=======
     <div className={`${styles.SideBarOverlay}`} >
       <div className={styles.navBar} >
->>>>>>> a73d2d562aa4ed82b5a27e4bf3cfda86f8b89e4c
         <div className={styles.p20}>
           <Text variant="lgText" color="primaryColor">
             YPV Spiritual Buddy
