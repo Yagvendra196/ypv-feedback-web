@@ -73,7 +73,7 @@ const Login = () => {
           block={true}
           btnHandler={handleSubmit(onSubmit)}
         >
-          Login
+          <Link to="/dashboard">Log In</Link>
         </Button>
       </div>
     </div>

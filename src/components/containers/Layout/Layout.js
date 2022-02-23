@@ -17,7 +17,7 @@ const Layout = ({children}) => {
       <SideBar />
       <div className={`${styles.dashBordBody} ${styles.h100}`}>
         <div className={`${styles.row} ${styles.justifyContentCenter}`}>
-          <Header />
+          <Header  />
         </div>
         {children}
       </div>

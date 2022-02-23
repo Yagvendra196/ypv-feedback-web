@@ -5,7 +5,7 @@ import Logo from "../../../assets/Images/ypvlogo.png";
 import { Input, Button, Heading, Image } from "../../../components/shared";
 const ChangePassword = () => {
   return (
-    <Layout>
+    <Layout >
       <div className={styles.ChangePassWrapper}>
         <Image src={Logo} alt="logo" />
         <Heading headingText="Change Password" type="h2" />

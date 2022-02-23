@@ -15,7 +15,10 @@
   box-sizing: border-box;
   position: relative;
   font-weight: 600;
-
+a{
+  color: $whiteColor;
+  text-decoration: none;
+}
   @include md {
     padding: 14px 32px;
   }

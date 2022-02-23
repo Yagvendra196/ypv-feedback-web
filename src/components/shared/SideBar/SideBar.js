@@ -1,7 +1,7 @@
 import React from "react";
 import { ListGroup, ListItem, Text, Icon } from "..";
 import styles from "./SideBar.module.scss";
-import { Link } from "react-router-dom";
+
 
 const SideBar = () => {
   return (
@@ -17,11 +17,11 @@ const SideBar = () => {
           <ListGroup variant="ul">
             <ListItem>
               <Icon type="dashboard" variant="icon_mlarge" />
-              <Link to="/dashboard">Dashboard</Link>
+              Dashboard
             </ListItem>
             <ListItem>
               <Icon type="password" variant="icon_mlarge" />
-              <Link to="/changepassword">Change Password</Link>
+           Change Password
             </ListItem>
             <ListItem>
               <Icon type="logout" variant="icon_mlarge" />

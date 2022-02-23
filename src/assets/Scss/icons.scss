@@ -25,7 +25,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-Menu:before {
+  content: "\e90e";
+}
 .icon-close-1-1:before {
   content: "\e90a";
 }
