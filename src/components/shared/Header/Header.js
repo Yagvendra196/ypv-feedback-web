@@ -9,9 +9,9 @@ import { ArrowLeft} from '../../../assets/img/ImgImport';
  
  * @returns node
  */
-const Header = ({ heading,IconImage,more,url }) => {
+const Header = ({MenuToggle }) => {
   return  <div className={`${styles.dashBordHeader}`}>  
-    <Icon type="leftArrow"  customClass={`${styles.burgerMenu}`} ></Icon>
+    <Icon type="Menu"  customClass={`${styles.burgerMenu}`} click={MenuToggle}></Icon>
     <Icon type="leftArrow"  customClass={`${styles.arrowLeft}`}></Icon>
     <Heading headingType='h2' headingText="DashBoard" headingClass={`${styles.headerHeaing}`} />
                
