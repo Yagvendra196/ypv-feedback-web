@@ -9,9 +9,16 @@ import {
   Image,
 } from "../../../components/shared";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+   let history = useHistory();
+   const goToForgotPassword = () => {
+     history.push("forgot-password");
+   };
+  // const goTodashboard = () => {
+  //   history.push("dashboard");
+  // };
      const {
        register,
        formState: { errors },
@@ -62,9 +69,9 @@ const Login = () => {
         </div>
       </div>
       <div className={styles.forgotPass}>
-        <Link to="/forgot-password">
-          <Text variant="SecondaryColor">Forgot your password?</Text>
-        </Link>
+        <Text variant="SecondaryColor" textHandler={goToForgotPassword}>
+          Forgot your password?
+        </Text>
       </div>
       <div>
         <Button
@@ -72,8 +79,9 @@ const Login = () => {
           variant="btnPrimary"
           block={true}
           btnHandler={handleSubmit(onSubmit)}
+          
         >
-          <Link to="/dashboard">Log In</Link>
+          Log In
         </Button>
       </div>
     </div>

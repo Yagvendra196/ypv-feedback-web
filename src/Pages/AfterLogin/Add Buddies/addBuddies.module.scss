@@ -1,11 +1,10 @@
-.addWrapper{
- 
- text-align: center;
- margin:20% auto;
- i{
-     font-size: 40px;
- }
-span{
-  display: block;
-}
+
+.listWrapper{
+margin: 25px;
+max-width: 550px;
+min-height: 473px;
+
+border: 1px solid #C5C0DB;
+box-sizing: border-box;
+border-radius: 10px;
 }

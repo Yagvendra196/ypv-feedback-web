@@ -7,9 +7,11 @@ import WeeklyFeedback from "./Pages/AfterLogin/WeeklyFeedback";
 import MonthlyFeedback from "./Pages/AfterLogin/Monthlyfeedback";
 import Buddies from './Pages/AfterLogin/Buddies';
 import AddBuddies from './Pages/AfterLogin/Add Buddies';
+import NoBuddy from "./Pages/AfterLogin/No Buddy";
 import SignUp from "./Pages/BeforeLogin/SignUp";
 import DashBaord from "./components/shared/DashBoard";
 import ChangePassword from "./Pages/AfterLogin/Change Password";
+
 export const routes = [
   {
     path: "/",
@@ -46,6 +48,11 @@ export const routes = [
   {
     path: "/add-buddies",
     component: AddBuddies,
+    exact: false,
+  },
+  {
+    path: "/nobuddy",
+    component: NoBuddy,
     exact: false,
   },
   {

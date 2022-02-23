@@ -7,21 +7,21 @@ import styles from './Text.module.scss'
  
 
 
-const Text = ({ 
-  variant,
-  color,
-  children
-}) => {
+const Text = ({ variant, color, children, textHandler }) => {
   return (
-    <span className={`${styles[variant]} ${styles[color]}`}>{children}</span>
-   
-    
-  )
-}
+    <span
+      className={`${styles[variant]} ${styles[color]}`}
+      onClick={textHandler}
+    >
+      {children}
+    </span>
+  );
+};
 
 
 Text.defaultProps = {
-  children: 'Hello Text'
+  children: 'Hello Text',
+  textHandler: PropTypes.func,
 }
 
 export default Text;

@@ -10,6 +10,7 @@ import { Button, Heading, Icon, Image, Text } from "..";
  * @param {string} rightIcon
  * @param {string} rightButton
  * @param {string} mapIcon
+ *  @param {func} clickFun
  * @param {string} topHeading
  * @param {string} mapText
  */
@@ -22,9 +23,10 @@ const ListView = ({
   topHeading,
   mapIcon,
   mapText,
+  clickFun,
 }) => {
   return (
-    <div className={styles.listWrapper}>
+    <div className={styles.listWrapper} onClick={clickFun}>
       {leftImage && <Image src={leftImage} customClass={styles.leftImage} />}
       <div className={styles.mainWrepper}>
         {topHeading && (
@@ -66,6 +68,7 @@ ListView.propTypes = {
   rightButton: PropTypes.string,
   mapIcon: PropTypes.string,
   leftImage: PropTypes.string,
+  clickFun: PropTypes.func,
 };
 
 export default ListView;

@@ -3,8 +3,12 @@ import styles from "./Buddies.module.scss";
 import { Text, Button, ListView } from "../../../components/shared";
 import user from "../../../assets/Images/user.png";
 import { Layout } from "../../../components/containers";
+import { useHistory } from "react-router-dom";
 const Buddies = () => {
- 
+  let history = useHistory();
+  const goTonobuddy = () => {
+    history.push("NoBuddy");
+  };
   return (
     <Layout>
       <div className={styles.Wrapper}>
@@ -22,7 +26,7 @@ const Buddies = () => {
                 variant="btnPrimary"
                 leftIcon="plus"
                 children="Add Buddy"
-                // btnHandler={() => setAddBuddyShow(true)}
+                btnHandler={goTonobuddy}
               />
             </div>
           </div>
