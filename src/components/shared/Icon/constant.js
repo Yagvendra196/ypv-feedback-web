@@ -13,6 +13,7 @@ const ICONTYPES = {
   search: { iconClass: "icon-search-1", iconTitle: "search" },
   message: { iconClass: "icon-message-square-1", iconTitle: "message" },
   close: { iconClass: "icon-close-1-1", iconTitle: "close" },
+  Menu: { iconClass: "icon-Menu", iconTitle: "Menu" },
 };
 const ICONSIZE = {
   LARGE: "icon_large",

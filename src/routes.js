@@ -13,8 +13,13 @@ import ChangePassword from "./Pages/AfterLogin/Change Password";
 export const routes = [
   {
     path: "/",
-    component: HelloWorld,
+    component: Login,
     exact: true,
+  },
+  {
+    path: "/helloworld",
+    component: HelloWorld,
+    exact: false,
   },
 
   {
@@ -22,11 +27,7 @@ export const routes = [
     component: Layout,
     exact: false,
   },
-  {
-    path: "/login",
-    component: Login,
-    exact: false,
-  },
+
   {
     path: "/signUp",
     component: SignUp,

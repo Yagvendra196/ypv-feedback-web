@@ -1,6 +1,7 @@
 {
   "name": "base-code",
   "version": "0.1.0",
+  "homepage": "/ypv-feedback",
   "private": true,
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
