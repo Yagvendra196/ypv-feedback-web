@@ -1,33 +1,33 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {Layout} from '../../components/containers';
 import {
-  Modal,
-  TabBox,
-  ModalBox,
-  DashBord,
-  Heading,
-  Button,
-  Icon,
+  // Modal,
+  // TabBox,
+  // ModalBox,
+  // DashBord,
+  // Heading,
+  // Button,
+  // Icon,
   Search,
-  SliderItem,
+  // SliderItem,
   
 } from "../../components/shared";
 import Buddies from "../AfterLogin/Buddies";
-import styles from './HelloWorld.module.scss';
+// import styles from './HelloWorld.module.scss';
 
 const HelloWorld = (closeBtn,onClose) => {
-  const [show, setShow] = React.useState(false);
-  const [showWeekly, setWeekly] = React.useState(true);
-  const [showMonthly, setMonthly] = React.useState(false);
-  const WeeklyFeedback = () => {
-    setWeekly(true)
-    setMonthly(false)
-  }
-  const MonthlyFeedback = () => {
-    setWeekly(false)
-    setMonthly(true)
-  }
+  // const [show, setShow] = React.useState(false);
+  // const [showWeekly, setWeekly] = React.useState(true);
+  // const [showMonthly, setMonthly] = React.useState(false);
+  // const WeeklyFeedback = () => {
+  //   setWeekly(true)
+  //   setMonthly(false)
+  // }
+  // const MonthlyFeedback = () => {
+  //   setWeekly(false)
+  //   setMonthly(true)
+  // }
   // if (!show) {
   //     return null;
   //   }
@@ -65,13 +65,8 @@ const HelloWorld = (closeBtn,onClose) => {
                 )}
                 <Button btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}>Go</Button>                
               </Modal> */}
-<<<<<<< HEAD
-              <SliderItem>Slider</SliderItem>
-              {/* <Search></Search> */}
-=======
         <Search></Search>
         <Buddies />
->>>>>>> 2caac92606ed3b3ab3d0642fc3c88d7aef742e27
       </Layout>
     </div>
   );
