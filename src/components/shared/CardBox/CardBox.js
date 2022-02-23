@@ -12,15 +12,13 @@ const CardBox = ({
     IconImage,
     more,
     onClick,
-    onClose
+    onClose,
   }) => {
   return <div className={`${styles.CardBox}`}>
     <div className={`${styles.iconImage}`}><img src={IconImage} alt="right" /> </div>    
     <h4 className={`${styles.cardHeadig}`}>{heading}</h4>
     <div onClick={onClose} className={`${styles.moreBtn}`} onClick={onClick}><img src={more} alt="right" /></div> 
-    {/* <div className={``}>
-    <Link className={`${styles.moreBtn}`} to='/#'>{more}</Link>  
-    </div>    */}
+    
   </div>;
 };
 

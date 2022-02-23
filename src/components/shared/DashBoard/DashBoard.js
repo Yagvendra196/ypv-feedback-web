@@ -13,11 +13,22 @@ const DashBord=()=>{
   const goToMyBuddies = () => {
     history.push('my-buddies')
   }
+ 
     return (
       <Layout>
         <div className={`${styles.cardBody}`}>
-          <CardBox heading="My Buddies" IconImage={User} more={Frame} onClick={goToMyBuddies} />
-          <CardBox heading="Give Feedback" IconImage={Edit} more={Frame} />
+          <CardBox
+            heading="My Buddies"
+            IconImage={User}
+            more={Frame}
+            onClick={goToMyBuddies}
+          />
+          <CardBox
+            heading="Give Feedback"
+            IconImage={Edit}
+            more={Frame}
+            onClick={goToMyBuddies}
+          />
           <CardBox heading="View Feedback" IconImage={Eye} more={Frame} />
         </div>
       </Layout>

@@ -1,7 +1,7 @@
 import React from "react";
 import { ListGroup, ListItem, Text, Icon } from "..";
 import styles from "./SideBar.module.scss";
-
+import { useHistory } from "react-router-dom";
 
 const SideBar = (onClose) => {
   const [show, setShow] = React.useState(false);
