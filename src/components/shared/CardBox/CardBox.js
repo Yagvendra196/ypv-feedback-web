@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import styles from "./CardBox.module.scss";
 import PropTypes from "prop-types";
 /**
@@ -8,11 +7,17 @@ import PropTypes from "prop-types";
  
  * @returns node
  */
-const CardBox = ({ heading,IconImage,more,url,onClose }) => {
+const CardBox = ({
+    heading,
+    IconImage,
+    more,
+    onClick,
+    onClose
+  }) => {
   return <div className={`${styles.CardBox}`}>
     <div className={`${styles.iconImage}`}><img src={IconImage} alt="right" /> </div>    
     <h4 className={`${styles.cardHeadig}`}>{heading}</h4>
-    <Link onClick={onClose} className={`${styles.moreBtn}`} to='/#'><img src={more} alt="right" /></Link> 
+    <div onClick={onClose} className={`${styles.moreBtn}`} onClick={onClick}><img src={more} alt="right" /></div> 
     {/* <div className={``}>
     <Link className={`${styles.moreBtn}`} to='/#'>{more}</Link>  
     </div>    */}
@@ -20,8 +25,8 @@ const CardBox = ({ heading,IconImage,more,url,onClose }) => {
 };
 
 CardBox.propTypes = {
-  
   more: PropTypes.string,
+  onClick: PropTypes.func,
   heading: PropTypes.any
 };
 export default CardBox;
