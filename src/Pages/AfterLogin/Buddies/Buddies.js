@@ -20,7 +20,7 @@ const Buddies = () => {
               variant="btnPrimary"
               leftIcon="plus"
               children="Add Buddy"
-              btnHandler={() => setAddBuddyShow(true)}
+              // btnHandler={() => setAddBuddyShow(true)}
             />
           </div>
         </div>
@@ -61,13 +61,7 @@ const Buddies = () => {
           mapText="Indore, M.P."
           rightIcon="trash"
         />
-        <ListView
-          leftImage={user}
-          topHeading="David Yogi"
-          mapIcon="map"
-          mapText="Indore, M.P."
-          rightIcon="trash"
-        />
+        
       </div>
     </div>
   );
