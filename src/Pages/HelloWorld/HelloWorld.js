@@ -13,7 +13,7 @@ import {
   SliderItem,
   
 } from "../../components/shared";
-import Buddies from "../AfterLogin/Buddies";
+
 import styles from './HelloWorld.module.scss';
 
 const HelloWorld = (closeBtn,onClose) => {
@@ -66,7 +66,7 @@ const HelloWorld = (closeBtn,onClose) => {
                 <Button btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}>Go</Button>                
               </Modal> */}
         <Search></Search>
-        <Buddies />
+     
       </Layout>
     </div>
   );
