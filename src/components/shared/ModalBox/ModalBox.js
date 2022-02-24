@@ -1,6 +1,6 @@
 import React from 'react';
 // import styles from "./DashBord.module.scss"
-import { Modal,Button} from '../../shared';
+import { Modal} from '../../shared';
 import styles from './ModalBox.module.scss';
 
 const ModalBox=(props)=>{

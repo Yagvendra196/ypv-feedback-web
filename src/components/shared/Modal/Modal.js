@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import {Button} from '../../shared';
+// import {Button} from '../../shared';
 import styles from './Modal.module.scss';
 
 const Modal = ({ show, onClose, children, closeBtn }) => {
   const modal = document.getElementById("myModal");
   window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = "none";
     }
   }

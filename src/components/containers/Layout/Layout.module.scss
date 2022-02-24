@@ -4,8 +4,11 @@
     display: flex;
     flex-wrap: wrap;
     .dashBordBody{
-        flex: 0 0 auto;
+        // flex: 0 0 auto;
         width: 80%;
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: column;
         
             
     }
