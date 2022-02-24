@@ -24,11 +24,12 @@ const ListView = ({
   mapIcon,
   mapText,
   clickFun,
+  click,
 }) => {
   return (
-    <div className={styles.listWrapper} onClick={clickFun}>
+    <div className={styles.listWrapper}>
       {leftImage && <Image src={leftImage} customClass={styles.leftImage} />}
-      <div className={styles.mainWrepper}>
+      <div className={styles.mainWrepper} onClick={click}>
         {topHeading && (
           <Heading headingText={topHeading} customClass={styles.topHeading} />
         )}
@@ -47,7 +48,10 @@ const ListView = ({
         </div>
       </div>
       {children}
-      {rightIcon && <Icon type={rightIcon} customClass={styles.rightIcon} />}
+      <div className={styles.rightIcon} onClick={clickFun}>
+        {rightIcon && <Icon type={rightIcon} customClass={styles.rightIcon} />}
+      </div>
+
       {rightButton && (
         <Button
           children={rightButton}
