@@ -16,7 +16,10 @@ const Buddies = () => {
   const goTonobuddy = () => {
     history.push("NoBuddy");
   };
+  
    const [show, setShow] = React.useState(false);
+   
+  
   return (
     <Layout>
       <div className={styles.Wrapper}>
@@ -46,6 +49,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
+            
             clickFun={() => setShow(true)}
           />
           <ListView
@@ -104,6 +108,7 @@ const Buddies = () => {
             </Button>
           </div>
         </Modal>
+       
       </div>
     </Layout>
   );
