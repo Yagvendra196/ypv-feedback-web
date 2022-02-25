@@ -11,8 +11,10 @@
   border-bottom: 1px solid $disabledText;
   .buddiesHeader {
     display: flex;
+    flex-wrap: wrap;
     .textHead {
-      margin: 20px;
+      margin: 20px 0 20px 20px;
+      
     }
     .buddiesRight {
       margin: 10px;
@@ -128,5 +130,23 @@ border-radius: 10px;
     .modalInner{
     padding: 40px 40px;
     }
+    .buddiesWrapper{
+      .buddiesHeader {
+        .textHead {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin: unset;
+          padding: 20px 0 20px 20px;
+        }
+        .buddiesRight {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin: unset;
+          padding: 10px 0 10px 10px;
+          position: unset;
+        }
+      }
+    }
   }
+  
 }
