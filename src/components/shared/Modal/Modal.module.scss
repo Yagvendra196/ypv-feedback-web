@@ -106,4 +106,9 @@
         border: unset;
         cursor: pointer;
       }
-  
+      @media(max-width:576px) {
+        .modalContent{
+            width: 101%;
+            height: unset;
+          }
+    }

@@ -17,34 +17,32 @@ const SideBar = () => {
   // const [show, setShow] = React.useState(false);
   
   return (
-<<<<<<< HEAD
-=======
-    
->>>>>>> b317c5a1804807ce22cb48c4c7b67dc763065ba0
     <div className={`${styles.SideBarOverlay}`} >
-      <div className={styles.navBar} >
-        <div className={styles.p20}>
-          <Text variant="lgText" color="primaryColor">
-            YPV Spiritual Buddy
-          </Text>
-        </div>
-        <div className={styles.line}></div>
-        <div className={styles.p20}>
-          <div className={styles.listItem}>
-            <ListGroup variant="ul">
-              <ListItem handleClick={goTodashboard}>
-                <Icon type="dashboard" variant="icon_mlarge" />
-                Dashboard
-              </ListItem>
-              <ListItem handleClick={goTochangepassword}>
-                <Icon type="password" variant="icon_mlarge" />
-                Change Password
-              </ListItem>
-              <ListItem handleClick={goTologin}>
-                <Icon type="logout" variant="icon_mlarge" />
-                Logout
-              </ListItem>
-            </ListGroup>
+      <div className="row">
+        <div className={styles.navBar} >
+          <div className={styles.p20}>
+            <Text variant="lgText" color="primaryColor">
+              YPV Spiritual Buddy
+            </Text>
+          </div>
+          <div className={styles.line}></div>
+          <div className={styles.p20}>
+            <div className={styles.listItem}>
+              <ListGroup variant="ul">
+                <ListItem handleClick={goTodashboard}>
+                  <Icon type="dashboard" variant="icon_mlarge" />
+                  Dashboard
+                </ListItem>
+                <ListItem handleClick={goTochangepassword}>
+                  <Icon type="password" variant="icon_mlarge" />
+                  Change Password
+                </ListItem>
+                <ListItem handleClick={goTologin}>
+                  <Icon type="logout" variant="icon_mlarge" />
+                  Logout
+                </ListItem>
+              </ListGroup>
+            </div>
           </div>
         </div>
       </div>

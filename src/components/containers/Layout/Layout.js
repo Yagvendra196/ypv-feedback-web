@@ -13,15 +13,17 @@ import { Header, SideBar} from '../../shared';
 const Layout = ({children}) => {
   const [showSideBar, setSideBar] = React.useState(false);
   return (
-    <div className={`${styles.row} ${showSideBar ? styles.activeMenu : ""}`}>
-      <SideBar />
-      <div className={`${styles.dashBordBody} ${styles.h100}`}>
-        <div className={`${styles.row} ${styles.justifyContentCenter}`}>
-          <Header MenuToggle={()=>setSideBar(!showSideBar)}  />
+    
+      <div className={`${styles.row} ${showSideBar ? styles.activeMenu : ""}`}>
+        <SideBar />
+        <div className={`${styles.dashBordBody} ${styles.h100}`}>            
+          <div className={`${styles.row} ${styles.justifyContentCenter}`}>
+            <Header MenuToggle={()=>setSideBar(!showSideBar)}  />
+          </div>            
+          {children}
         </div>
-        {children}
       </div>
-    </div>
+    
   );
 };
 

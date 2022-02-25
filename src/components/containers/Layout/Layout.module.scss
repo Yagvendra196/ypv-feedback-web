@@ -1,13 +1,16 @@
 @import "../../../assets/Scss/variables.scss";
-
+.col12{
+  flex: 0 0 100%;
+    max-width: 100%;
+}
 .row{
     display: flex;
     flex-wrap: wrap;
     .dashBordBody{
-        // flex: 0 0 auto;
-        width: 80%;
+      flex: 0 0 80%;
+      max-width: 80%;
         display: flex;
-        flex-flow: wrap;
+        // flex-flow: wrap;
         flex-direction: column;
         
             
