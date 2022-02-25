@@ -9,12 +9,22 @@ import {Heading, Icon} from '../../shared';
  * @returns node
  */
 const Header = ({MenuToggle }) => {
-  return  <div className={`${styles.dashBordHeader}`}>  
-    <Icon type="Menu"  customClass={`${styles.burgerMenu}`} click={MenuToggle}></Icon>
-    <Icon type="leftArrow"  customClass={`${styles.arrowLeft}`}></Icon>
-    <Heading headingType='h2' headingText="DashBoard" headingClass={`${styles.headerHeaing}`} />
-               
-          </div>
+  return (
+    <div className={`${styles.dashBordHeader}`}>
+      <Icon
+        type="Menu"
+        customClass={`${styles.burgerMenu}`}
+        click={MenuToggle}
+      ></Icon>
+      <Icon type="leftArrow" customClass={`${styles.arrowLeft}`}></Icon>
+      <Heading
+        headingType="h2"
+        headingText="DashBoard"
+        headingClass={`${styles.headerHeaing}`}
+      />
+      
+    </div>
+  );
 };
 
 
