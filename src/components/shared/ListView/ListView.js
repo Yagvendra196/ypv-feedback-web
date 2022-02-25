@@ -29,7 +29,7 @@ const ListView = ({
   return (
     <div className={styles.listWrapper}>
       {leftImage && <Image src={leftImage} customClass={styles.leftImage} />}
-      <div className={styles.mainWrepper} >
+      <div className={styles.mainWrepper} onClick={click}>
         {topHeading && (
           <Heading headingText={topHeading} customClass={styles.topHeading} />
         )}
