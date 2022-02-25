@@ -11,6 +11,7 @@ import NoBuddy from "./Pages/AfterLogin/No Buddy";
 import SignUp from "./Pages/BeforeLogin/SignUp";
 import DashBaord from "./components/shared/DashBoard";
 import ChangePassword from "./Pages/AfterLogin/Change Password";
+import ViewFeedback from "./Pages/AfterLogin/View Feedback";
 
 export const routes = [
   {
@@ -58,6 +59,11 @@ export const routes = [
   {
     path: "/dashboard",
     component: DashBaord,
+    exact: false,
+  },
+  {
+    path: "/view-feedback",
+    component: ViewFeedback,
     exact: false,
   },
   {

@@ -12,7 +12,10 @@ const DashBord=()=>{
   let history = useHistory()
   const goToMyBuddies = () => {
     history.push('my-buddies')
-  }
+  };
+  const goToviewfeedback = () => {
+    history.push("view-feedback");
+  };
  
     return (
       <Layout>
@@ -29,7 +32,12 @@ const DashBord=()=>{
             more={Frame}
             onClick={goToMyBuddies}
           />
-          <CardBox heading="View Feedback" IconImage={Eye} more={Frame} />
+          <CardBox
+            heading="View Feedback"
+            IconImage={Eye}
+            more={Frame}
+            onClick={goToviewfeedback}
+          />
         </div>
       </Layout>
     );

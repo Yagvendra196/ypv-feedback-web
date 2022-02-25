@@ -11,15 +11,26 @@ import {
 import user from "../../../assets/Images/user.png";
 import { Layout } from "../../../components/containers";
 import { useHistory } from "react-router-dom";
+// import { Link } from "react-router-dom";
 const Buddies = () => {
   let history = useHistory();
   const goTonobuddy = () => {
     history.push("NoBuddy");
   };
+
+  const [show, setShow] = React.useState(false);
+  // const [showWeekly, setWeekly] = React.useState(true);
+  // const [showMonthly, setMonthly] = React.useState(false);
+  // const WeeklyFeedback = () => {
+  //   setWeekly(true)
+  //   setMonthly(false)
+  // }
+  // const MonthlyFeedback = () => {
+  //   setWeekly(false)
+  //   setMonthly(true)
+  // }
   
-   const [show, setShow] = React.useState(false);
-   
-  
+
   return (
     <Layout>
       <div className={styles.Wrapper}>
@@ -108,7 +119,34 @@ const Buddies = () => {
             </Button>
           </div>
         </Modal>
-       
+        {/* <Modal show={show} onClose={() => setShow(false)}>
+          <Heading
+            headingType="h5"
+            headingText="Weekly"
+            headingClass={`${styles.tabBtn} ${
+              showWeekly ? styles.activeTab : ""
+            }`}
+            onClick={() => WeeklyFeedback()}
+          ></Heading>
+
+          <Heading
+            headingType="h5"
+            headingText="Monthly"
+            headingClass={`${styles.tabBtn} ${
+              showMonthly ? styles.activeTab : ""
+            }`}
+            onClick={() => MonthlyFeedback()}
+          ></Heading>
+          {showWeekly && <Link className={`${styles.selectBtn}`}></Link>}
+          {showMonthly && (
+            <Link className={`${styles.selectBtn}`}>January</Link>
+          )}
+          <Button
+            btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}
+          >
+            Go
+          </Button>
+        </Modal> */}
       </div>
     </Layout>
   );
