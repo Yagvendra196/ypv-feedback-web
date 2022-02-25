@@ -7,12 +7,12 @@
   display: flex;
   margin: 10px;
   .rightIcon  {
-    margin: auto;
+    margin: auto 8px auto auto;
     color: $grey;
     font-size: $fontXl;
   }
  .rightButton{
-   margin: auto;
+  margin: auto 8px auto auto;
  }
   h5{
     color: $greysColor;
