@@ -15,6 +15,7 @@ const Layout = ({children}) => {
   return (
     
       <div className={`${styles.row} ${showSideBar ? styles.activeMenu : ""}`}>
+        <button className={`${styles.closeBtn}`} onClick={()=>setSideBar(!showSideBar)}>Clik here</button>
         <SideBar />
         <div className={`${styles.dashBordBody} ${styles.h100}`}>            
           <div className={`${styles.row} ${styles.justifyContentCenter}`}>

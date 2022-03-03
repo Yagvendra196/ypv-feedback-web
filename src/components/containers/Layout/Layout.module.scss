@@ -6,6 +6,7 @@
 .row{
     display: flex;
     flex-wrap: wrap;
+    
     .dashBordBody{
       flex: 0 0 80%;
       max-width: 80%;
@@ -29,6 +30,9 @@
     position: relative;
   }
 }
+.closeBtn{
+  display: none;
+}
 .py15 {
   padding: 15px 0;
 }
@@ -44,5 +48,5 @@
    
       .SideBar_navBar__84Q3x{display: block; width: 50%;}  
      
-    
+      
   }

@@ -72,5 +72,19 @@
     .modalContent{
       width: 100%;
     }
+
+    
+      .Layout_activeMenu__xbkfg {
+        .Layout_closeBtn__McTca {
+        display : block;
+            position : absolute;
+            width : 35%;
+            height : 100%;
+            z-index : 3;
+            right : 0;
+            opacity : 0;
+          }
+      }
+   
 }
 
