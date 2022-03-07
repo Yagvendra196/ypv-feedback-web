@@ -48,6 +48,9 @@
   }
 }
 @media (max-width: 576px) { 
+  .navBar{
+    display: none;
+}
   .activeMenu{
     .navBar{display: block;}  
     }

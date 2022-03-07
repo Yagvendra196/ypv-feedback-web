@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import { ListGroup, ListItem, Text, Icon } from "..";
 import styles from "./SideBar.module.scss";
 import { useHistory } from "react-router-dom";
-const SideBar = () => {
+const SideBar = ({customClass,navBarWidth}) => {
    let history = useHistory();
    const goTodashboard = () => {
      history.push("dashboard");
@@ -17,9 +18,9 @@ const SideBar = () => {
   // const [show, setShow] = React.useState(false);
   
   return (
-    <div className={`${styles.SideBarOverlay}`} >
+    <div className={`${styles.SideBarOverlay} ${customClass}`} >
       <div className="row">
-        <div className={styles.navBar} >
+        <div className={`${styles.navBar} ${navBarWidth} ${customClass}`}>
           <div className={styles.p20}>
             <Text variant="lgText" color="primaryColor">
               YPV Spiritual Buddy
@@ -49,5 +50,9 @@ const SideBar = () => {
     </div>
   );
 };
-
+SideBar.propTypes = {
+  customClass: PropTypes.string,
+  navBarWidth: PropTypes.string
+  
+};
 export default SideBar;

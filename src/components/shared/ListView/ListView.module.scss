@@ -43,3 +43,13 @@
     margin-top: 8px;
   }
 }
+
+@media(max-width: 576px) {
+  .listWrapper
+  {
+        .mainWrepper{
+      padding: unset;
+    }
+  }
+  
+}

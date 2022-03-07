@@ -16,7 +16,7 @@ const Layout = ({children}) => {
     
       <div className={`${styles.row} ${showSideBar ? styles.activeMenu : ""}`}>
         <button className={`${styles.closeBtn}`} onClick={()=>setSideBar(!showSideBar)}>Clik here</button>
-        <SideBar />
+        <SideBar customClass={`${styles.demo}`} navBarWidth={`${styles.navBarWidth}`}/>
         <div className={`${styles.dashBordBody} ${styles.h100}`}>            
           <div className={`${styles.row} ${styles.stickyMenu} ${styles.justifyContentCenter}`}>
             <Header MenuToggle={()=>setSideBar(!showSideBar)}  />

@@ -20,77 +20,9 @@
   display: flex;
   flex-wrap: wrap;
 }
-.ListView_listWrapper__T4oh0 .ListView_mainWrepper__kNXOv{
-  padding: unset;
-}
-@media(max-width: 576px) {
-    .SideBar_navBar__84Q3x {
-        display: none;
-    }
-    .Layout_activeMenu__xbkfg {
-        .SideBar_navBar__84Q3x {
-            display: block;
-            flex: 0 0 65%;
-            max-width: 65%;
-            background-color: #fff;
-            height: 100vh;
-        }
-    }
-    .Layout_row__Dg3YO .Layout_dashBordBody__wZwIX {
-      flex: 0 0 100%;
-      max-width: 100%;
-        // position: absolute;
-    }
-    .Layout_activeMenu__xbkfg {
-        .SideBar_SideBarOverlay__rW88u {
-          background-color: #000;
-          z-index: 1;
-          width: 100%;
-          flex: 0 0 100%;
-          max-width: 100%;
-          height: 100vh;
-          opacity: 0.9;
-          position: fixed;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-        }
-    }
 
-    .DashBoard_cardBody__TAgbC {
-      transform: unset;
-      margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-        .CardBox_CardBox__WrtAL{
-          display: block;margin: 10px auto;
-        }
-    }
-    .Buddies_Wrapper__CRrQx{
-      flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .modalContent{
-      width: 100%;
-    }
+@media(max-width: 576px) {  
 
-    
-      .Layout_activeMenu__xbkfg {
-        .Layout_closeBtn__McTca {
-          display: block;
-          position: fixed;
-          width: 35%;
-          height: 100vh;
-          z-index: 3;
-          right: 0;
-          opacity: 0;
-          top: 0;
-          bottom: 0px;
-          }
-      }
    
 }
 
