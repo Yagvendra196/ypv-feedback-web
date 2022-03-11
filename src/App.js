@@ -16,8 +16,8 @@ class App extends React.Component {
     return (
       <div className="App center" data-theme={theme}>
 
-        {/* <Router basename={'/ypv-feedback'}> */}
-        <Router basename={'/'}>
+        <Router basename={'/ypv-feedback'}>
+        {/* <Router basename={'/'}> */}
           <Switch>
             {routes.map((route, index) => (
               <Route

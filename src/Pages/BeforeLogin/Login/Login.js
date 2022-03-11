@@ -81,7 +81,8 @@ const Login = () => {
           size="md"
           variant="btnPrimary"
           block={true}
-          btnHandler={handleSubmit(onSubmit)}
+          // btnHandler={handleSubmit(onSubmit)}
+          btnHandler={()=>history.push("dashboard")}
         >
           Log In
         </Button>
