@@ -2,6 +2,13 @@
     margin: auto;
 }    
 
+@media (max-width: 840px) {
+    .cardBody{
+        display: flex;
+        flex-direction: column;
+      }
+  }
+
 @media (max-width: 576px) {
     .cardBody{
         transform: unset;

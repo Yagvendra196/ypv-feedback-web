@@ -47,7 +47,14 @@
     }
   }
 }
+@media (min-width:577px) and (max-width: 840px) { 
+  .SideBarOverlay{
+    flex: 0 0 33%;
+      max-width: 33%;
+  }
+}
 @media (max-width: 576px) { 
+ 
   .navBar{
     display: none;
 }

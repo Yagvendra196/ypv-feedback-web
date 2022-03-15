@@ -44,6 +44,14 @@
   }
 }
 
+@media (min-width:577px) and (max-width: 840px) {
+  .listWrapper{
+    .mainWrepper{
+      padding: unset;
+    }
+  }
+}
+
 @media(max-width: 576px) {
   .listWrapper
   {

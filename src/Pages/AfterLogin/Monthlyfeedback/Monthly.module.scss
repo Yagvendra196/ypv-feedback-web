@@ -67,3 +67,18 @@
     margin-bottom: 20px;
   }
 }
+@media (min-width:577px) and (max-width: 840px){
+  
+}
+@media (max-width:576px){
+  .monthlyFeedback {  
+    .tithingWrapper {
+      .row {
+        .col6 {
+        flex: 0 0 auto;
+        width: 100%;
+      }
+    }
+  }
+}
+}

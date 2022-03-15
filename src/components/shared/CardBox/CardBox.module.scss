@@ -64,6 +64,13 @@
   // }
   
 }
+
+@media (max-width: 840px) {
+  .CardBox{
+    display: block;margin: 10px auto;
+  }
+
+}
 @media (max-width: 576px) {
         .CardBox{
           display: block;margin: 10px auto;
