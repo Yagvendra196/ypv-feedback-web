@@ -11,7 +11,7 @@ import {
 import user from "../../../assets/Images/user.png";
 import { Layout } from "../../../components/containers";
 import { useHistory } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Buddies = () => {
   let history = useHistory();
   const goTonobuddy = () => {
@@ -19,16 +19,17 @@ const Buddies = () => {
   };
 
   const [show, setShow] = React.useState(false);
-  // const [showWeekly, setWeekly] = React.useState(true);
-  // const [showMonthly, setMonthly] = React.useState(false);
-  // const WeeklyFeedback = () => {
-  //   setWeekly(true)
-  //   setMonthly(false)
-  // }
-  // const MonthlyFeedback = () => {
-  //   setWeekly(false)
-  //   setMonthly(true)
-  // }
+  const [modalshoe, setmodalshow] = React.useState(false);
+  const [showWeekly, setWeekly] = React.useState(true);
+  const [showMonthly, setMonthly] = React.useState(false);
+  const WeeklyFeedback = () => {
+    setWeekly(true)
+    setMonthly(false)
+  }
+  const MonthlyFeedback = () => {
+    setWeekly(false)
+    setMonthly(true)
+  }
   
 
   return (
@@ -60,7 +61,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
-            
+            clickMod={() => setmodalshow(true)}
             clickFun={() => setShow(true)}
           />
           <ListView
@@ -69,6 +70,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
+            clickMod={() => setmodalshow(true)}
             clickFun={() => setShow(true)}
           />
           <ListView
@@ -77,6 +79,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
+            clickMod={() => setmodalshow(true)}
             clickFun={() => setShow(true)}
           />
           <ListView
@@ -85,6 +88,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
+            clickMod={() => setmodalshow(true)}
             clickFun={() => setShow(true)}
           />
           <ListView
@@ -93,6 +97,7 @@ const Buddies = () => {
             mapIcon="map"
             mapText="Indore, M.P."
             rightIcon="trash"
+            clickMod={() => setmodalshow(true)}
             clickFun={() => setShow(true)}
           />
         </div>
@@ -119,7 +124,7 @@ const Buddies = () => {
             </Button>
           </div>
         </Modal>
-        {/* <Modal show={show} onClose={() => setShow(false)}>
+        <Modal show={modalshoe} onClose={() => setmodalshow(false)}>
           <Heading
             headingType="h5"
             headingText="Weekly"
@@ -146,7 +151,7 @@ const Buddies = () => {
           >
             Go
           </Button>
-        </Modal> */}
+        </Modal>
       </div>
     </Layout>
   );

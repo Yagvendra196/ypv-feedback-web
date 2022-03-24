@@ -24,12 +24,12 @@ const ListView = ({
   mapIcon,
   mapText,
   clickFun,
-  click,
+  clickMod,
 }) => {
   return (
     <div className={styles.listWrapper}>
       {leftImage && <Image src={leftImage} customClass={styles.leftImage} />}
-      <div className={styles.mainWrepper} onClick={click}>
+      <div className={styles.mainWrepper} onClick={clickMod}>
         {topHeading && (
           <Heading headingText={topHeading} customClass={styles.topHeading} />
         )}
