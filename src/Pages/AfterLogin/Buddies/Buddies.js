@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useState } from "react";
 import styles from "./Buddies.module.scss";
 import {
   Text,
@@ -11,11 +11,17 @@ import {
 import user from "../../../assets/Images/user.png";
 import { Layout } from "../../../components/containers";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import DatePicker, { DateObject } from "react-multi-date-picker";
 const Buddies = () => {
   let history = useHistory();
   const goTonobuddy = () => {
     history.push("NoBuddy");
+  };
+  const gotoweeklyfeedback = () => {
+    history.push("weekly-feedback");
+  };
+  const gotomonthlyfeedback = () => {
+    history.push("monthly-feedback");
   };
 
   const [show, setShow] = React.useState(false);
@@ -23,14 +29,21 @@ const Buddies = () => {
   const [showWeekly, setWeekly] = React.useState(true);
   const [showMonthly, setMonthly] = React.useState(false);
   const WeeklyFeedback = () => {
-    setWeekly(true)
-    setMonthly(false)
-  }
+    setWeekly(true);
+    setMonthly(false);
+  };
   const MonthlyFeedback = () => {
-    setWeekly(false)
-    setMonthly(true)
-  }
-  
+    setWeekly(false);
+    setMonthly(true);
+  };
+  const [values, setValues] = useState([
+    new DateObject().subtract(7, "days"),
+    new DateObject().add(7, "days"),
+    
+  ]);
+  const [monthValues, setmonthValues] = useState([
+    new DateObject().subtract("date.month.name"),
+  ])
 
   return (
     <Layout>
@@ -142,15 +155,44 @@ const Buddies = () => {
             }`}
             onClick={() => MonthlyFeedback()}
           ></Heading>
-          {showWeekly && <Link className={`${styles.selectBtn}`}></Link>}
-          {showMonthly && (
-            <Link className={`${styles.selectBtn}`}>January</Link>
+          {showWeekly && (
+            <div className={`${styles.weeklyCenter}`}>
+              <Heading
+                headingType="h5"
+                headingText="Weekly Fedback"
+                headingClass={`${styles.modalHeading}`}
+              ></Heading>
+              <DatePicker range value={values} onChange={setValues} />
+              <Button
+                btnClass={`${styles.modalBtn} ${styles.margin20} ${styles.primery}`}
+                btnHandler={gotoweeklyfeedback}
+              >
+                Go
+              </Button>
+            </div>
           )}
-          <Button
-            btnClass={`${styles.modalBtn} ${styles.marginAuto} ${styles.primery}`}
-          >
-            Go
-          </Button>
+          {showMonthly && (
+            <div className={`${styles.weeklyCenter}`}>
+              <Heading
+                headingType="h5"
+                headingText="Monthly Fedback"
+                headingClass={`${styles.modalHeading}`}
+              ></Heading>
+              <DatePicker
+                onlyMonthPicker
+                value={monthValues}
+                onChange={setmonthValues}
+                format="MMMM YYYY"
+                sort
+              />
+              <Button
+                btnClass={`${styles.modalBtn} ${styles.margin20} ${styles.primery}`}
+                btnHandler={gotomonthlyfeedback}
+              >
+                Go
+              </Button>
+            </div>
+          )}
         </Modal>
       </div>
     </Layout>

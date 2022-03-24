@@ -123,6 +123,16 @@ border-radius: 10px;
     .marginAuto{
       margin: 0 auto;
     }
+    .margin20{
+      margin: 20px auto;
+    }
+    .weeklyCenter{
+      flex: 0 0 auto;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    }
 }
 
 @media (min-width:577px) and (max-width: 840px) { 
