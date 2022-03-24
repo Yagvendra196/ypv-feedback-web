@@ -25,7 +25,7 @@ const Buddies = () => {
   };
 
   const [show, setShow] = React.useState(false);
-  const [modalshoe, setmodalshow] = React.useState(false);
+  const [modalshow, setmodalshow] = React.useState(false);
   const [showWeekly, setWeekly] = React.useState(true);
   const [showMonthly, setMonthly] = React.useState(false);
   const WeeklyFeedback = () => {
@@ -137,7 +137,7 @@ const Buddies = () => {
             </Button>
           </div>
         </Modal>
-        <Modal show={modalshoe} onClose={() => setmodalshow(false)}>
+        <Modal show={modalshow} onClose={() => setmodalshow(false)}>
           <Heading
             headingType="h5"
             headingText="Weekly"
