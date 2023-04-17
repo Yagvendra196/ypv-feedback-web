@@ -5,10 +5,15 @@ import {
   Heading,
   Input,
   Button,
- 
+ Text,
   Image,
 } from "../../../components/shared";
+import { useHistory } from "react-router-dom";
 const SignUp = () =>{
+  let history = useHistory();
+  const goToLogin = () => {
+    history.push("/");
+  };
     return (
       <div className={styles.signupWrapper}>
         <Image src={Logo} alt="logo" />
@@ -45,6 +50,12 @@ const SignUp = () =>{
             Sign Up
           </Button>
         </div>
+        <div className={styles.note}>
+        <Text color="SecondaryColor">already have an account ? </Text>
+        <Text variant="primaryColor" textHandler={goToLogin}>
+          Login
+        </Text>
+      </div>
       </div>
     );
 }

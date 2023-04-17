@@ -9,7 +9,7 @@
   font-weight: 500;
   justify-content: center;
    @include xsm{
-    margin: 60px;
+    margin: 30px;
   }
    img {
     width: 100px;
@@ -24,5 +24,10 @@
   }
   .mt20 {
     margin: 20px 0;
+  }
+  .note {
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
   }
 }

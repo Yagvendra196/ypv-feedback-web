@@ -11,6 +11,7 @@ const ChangePassword = () => {
         <Heading headingText="Change Password" type="h2" />
         <div className={styles.mt20}>
           <Input
+            inputClass={styles.mt30}
             inputId="password"
             name="new password"
             type="password"

@@ -21,6 +21,7 @@ const Search=()=>{
             click={goToAddBuddies}
           ></Icon>
         </div>
+      
       </div>
     );
 };

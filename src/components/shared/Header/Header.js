@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import {Heading, Icon} from '../../shared';
-
+import { useHistory } from "react-router-dom";
 /**
  * Render NotificationList
  * @param {node} children
@@ -9,6 +9,8 @@ import {Heading, Icon} from '../../shared';
  * @returns node
  */
 const Header = ({MenuToggle }) => {
+  const history = useHistory();
+  console.log (history);
   return (
     <div className={`${styles.dashBordHeader}`}>
       <Icon
@@ -16,7 +18,7 @@ const Header = ({MenuToggle }) => {
         customClass={`${styles.burgerMenu}`}
         click={MenuToggle}
       ></Icon>
-      <Icon type="leftArrow" customClass={`${styles.arrowLeft}`}></Icon>
+      <Icon type="leftArrow" customClass={`${styles.arrowLeft}`} click={()=> history.goBack()}></Icon>
       <Heading
         headingType="h2"
         headingText="DashBoard"

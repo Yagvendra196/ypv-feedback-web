@@ -3,12 +3,14 @@
 .forgotWrapper{
     max-width: 450px;
     margin: 120px auto;
-     @include xsm{
-    margin: 60px;
-  }
+    cursor: pointer;
+    @include xsm{
+      margin: 30px;
+    }
      h1{
     text-align: center;
     margin-bottom: 20px;
+    cursor: pointer;
      @include xsm{
     font-size: $font24;
   }

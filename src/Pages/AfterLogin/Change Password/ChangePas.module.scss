@@ -1,12 +1,17 @@
-
+@import "../../../assets/Scss/variables.scss";
+@import "../../../assets/Scss/breakpoints.scss";
 .ChangePassWrapper{
      flex-direction: row;
   align-items: flex-start;
   margin: 70px auto;
-  max-width: 450px;
+  width: 450px;
   font-family: "Roboto";
   font-weight: 500;
   justify-content: center;
+  @include xsm{
+    margin: 30px;
+    width: 255px;
+  }
  
    img {
     width: 100px;
@@ -21,5 +26,10 @@
   }
   .mt20 {
     margin: 20px 0;
+  }
+  .mt30{
+    @include xsm{
+      margin-top: 30px;
+    }
   }
 }

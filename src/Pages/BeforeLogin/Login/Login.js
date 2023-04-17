@@ -39,8 +39,9 @@ const Login = () => {
           Welcome. Please log in!
         </Text>
       </div>
-      <div className={styles.mt20}>
+      <div  className={`${styles.mt20}`}>
         <Input
+        inputClass={styles.mt30}
           placeholder="Email"
           type="email"
           name="email"

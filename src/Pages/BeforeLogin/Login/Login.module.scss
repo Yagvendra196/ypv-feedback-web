@@ -9,7 +9,7 @@
   font-weight: 500;
   justify-content: center;
   @include xsm{
-    margin: 60px;
+    margin: 30px;
   }
   h2 {
     text-align: center;
@@ -28,8 +28,14 @@
   .forgotPass {
     margin-bottom: 20px;
     text-align: right;
+    cursor: pointer;
     a {
       text-decoration: none;
+    }
+  }
+  .mt30{
+    @include xsm{
+      margin-top: 30px;
     }
   }
   .mt20 {
@@ -42,5 +48,6 @@
   .note {
     margin-top: 10px;
     text-align: center;
+    cursor: pointer;
   }
 }
